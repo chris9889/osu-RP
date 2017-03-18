@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{07E65AA5-5A23-4089-9024-21046E882BED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>osu.Game.Modes.RP</RootNamespace>
+    <AssemblyName>osu.Game.Modes.RP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\ppy.OpenTK.2.0.50727.1339\lib\net45\OpenTK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Container\ContainerProcessor.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Container\GenerateObject\ContainerGenerator.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Container\Position\ContainerPositionGenerator.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\HitObjectProcessor.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Position\EndPosition\EndPositionGenerator.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Position\PathPosition\RpPathGenerator.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Position\StartPosition\StartPositionGenerator.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Syntax\Beat\CalRpBeat.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RuleTable\RpShapeAppearRuleTable.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Special\RpSpecialGenerator.cs" />
+    <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
+    <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
+    <Compile Include="ModsElement\AutoReplay\RPAutoReplay.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\ApproachCircle\BaseMoveApproachCircle.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\Flow\BaseMoveFlow.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\Flow\ClickMoveFlow.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\Flow\SliderMoveFlow.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\GetMovePiece.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\Click\BaseStillClick.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\GetStillPiece.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\Hold\BaseStillHold.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\Slide\BaseStillSlide.cs" />
+    <Compile Include="Objects\Drawables\Template\HitObject\RpDrawHitObjectTemplate.cs" />
+    <Compile Include="Mods\RpMod.cs" />
+    <Compile Include="Objects\BaseRpObject.cs" />
+    <Compile Include="Objects\Drawables\Calculator\ContainerLayoutHeightCalculator.cs" />
+    <Compile Include="Objects\Drawables\Component\BaseComponent.cs" />
+    <Compile Include="Objects\Drawables\Component\Container\BaseContainerComponent.cs" />
+    <Compile Include="Objects\Drawables\Component\Container\ContainerBackgroundComponent.cs" />
+    <Compile Include="Objects\Drawables\Component\Container\ContainerBeatLineComponent.cs" />
+    <Compile Include="Objects\Drawables\Component\Container\ContainerDecisionLineComponent.cs" />
+    <Compile Include="Objects\Drawables\Component\Container\ContainerLongPressDrawComponent.cs" />
+    <Compile Include="Objects\Drawables\Component\Container\ContainerStartEndComponent.cs" />
+    <Compile Include="Objects\Drawables\Pieces\CircularProgressPiece.cs" />
+    <Compile Include="Objects\Drawables\Pieces\RectanglePiece.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\Common\LoadEffect.cs" />
+    <Compile Include="Objects\Drawables\Component\MultiLine\MultiLine.cs" />
+    <Compile Include="Objects\Drawables\Calculator\ContainerLayoutPositionCounter.cs" />
+    <Compile Include="RpKeyConversionInputManager.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\ConnectionRenderer.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\FollowPoint.cs" />
+    <Compile Include="Objects\Drawables\DrawableBaseRpObject.cs" />
+    <Compile Include="Objects\Drawables\DrawableContainer.cs" />
+    <Compile Include="Objects\Drawables\DrawableMultiBaseHitObject.cs" />
+    <Compile Include="Objects\Drawables\Component\Common\ISliderProgress.cs" />
+    <Compile Include="Objects\Drawables\Calculator\PathPrecentageCounter.cs" />
+    <Compile Include="Objects\Drawables\HitEffectTemplate\BaseHitEffectTemplate.cs" />
+    <Compile Include="Objects\Drawables\HitEffectTemplate\CoolHitEffectTemplate.cs" />
+    <Compile Include="Objects\Drawables\HitEffectTemplate\FineHitEffectTemplate.cs" />
+    <Compile Include="Objects\Drawables\HitEffectTemplate\SadHitEffectTemplate.cs" />
+    <Compile Include="Objects\Drawables\HitEffectTemplate\SafeHitEffectTemplate.cs" />
+    <Compile Include="Objects\Drawables\HitEffectTemplate\SlideHitEffectTemplate.cs" />
+    <Compile Include="Objects\Drawables\Pieces\BarPiece.cs" />
+    <Compile Include="Objects\Drawables\Pieces\ImagePicec.cs" />
+    <Compile Include="Objects\Drawables\Template\HitObject\Click\ClickTemplate.cs" />
+    <Compile Include="Objects\Drawables\Template\Container\ContainerLayoutTemplate.cs" />
+    <Compile Include="Objects\Drawables\Template\Container\ContainerTemplate.cs" />
+    <Compile Include="Objects\Drawables\Template\RpDrawBaseObjectTemplate.cs" />
+    <Compile Include="Objects\Drawables\Template\HitObject\Hold\HoldTemplate.cs" />
+    <Compile Include="Objects\Drawables\Template\HitObject\Slide\SlideTemplate.cs" />
+    <Compile Include="Objects\ObjectContainer.cs" />
+    <Compile Include="Objects\ObjectContainerLayer.cs" />
+    <Compile Include="UI\Config\RpKeyLayoutConfigUi.cs" />
+    <Compile Include="Beatmaps\RPBeatmap\RpBeatmapProcessor.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Convertor.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\GenerateObject\RpObjectGenerator.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Position\ObjectPositionGenerator.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Syntax\SyntaxProcessor.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\ObjectTypeGenerator.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RpShapeGenerator.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\RpBeatmapConvertor.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\OsuToParameter\OsuToParameterConvertor.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\OsuToParameter\Scanner\PrefixScanner.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\ParameterToRP\ParameterToRpConvertor.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Parameter\ConvertParameter.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Parameter\PassParameter.cs" />
+    <Compile Include="Beatmaps\OsuBeatmap\Parameter\ScanParameter.cs" />
+    <Compile Include="RpRuleset.cs" />
+    <Compile Include="KeyManager\RpKeyManager.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\Common\DetectPress.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\BaseMovePicec.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\Common\HitObjectShapePieces.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\BaseStillPiece.cs" />
+    <Compile Include="Objects\Drawables\DrawableHold.cs" />
+    <Compile Include="Objects\Drawables\DrawableRpLongPress.cs" />
+    <Compile Include="Objects\Grid\RpGird.cs" />
+    <Compile Include="Objects\RpHold.cs" />
+    <Compile Include="Objects\MovingPath\BezierApproximator.cs" />
+    <Compile Include="Objects\MovingPath\CircularArcApproximator.cs" />
+    <Compile Include="Objects\Drawables\DrawableBaseHitObject.cs" />
+    <Compile Include="Objects\Drawables\Pieces\Pointer.cs" />
+    <Compile Include="Objects\Drawables\DrawableSliderObject.cs" />
+    <Compile Include="Objects\Drawables\Pieces\ExplodePiece.cs" />
+    <Compile Include="Objects\Drawables\Pieces\FlashPiece.cs" />
+    <Compile Include="Objects\Drawables\Pieces\GlowPiece.cs" />
+    <Compile Include="Objects\Drawables\HitExplosion.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\Common\ComboNumberPiece.cs" />
+    <Compile Include="Objects\Drawables\Pieces\RingPiece.cs" />
+    <Compile Include="Objects\Drawables\Pieces\Triangles.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\Common\SliderBody.cs" />
+    <Compile Include="Objects\type\RpObjectType.cs" />
+    <Compile Include="Parser\RpHitObjectParser.cs" />
+    <Compile Include="Objects\MovingPath\SliderCurve.cs" />
+    <Compile Include="UI\GamePlay\KeyCounter\RpKeyCounterKeyboard.cs" />
+    <Compile Include="UI\GamePlay\KeyCounter\RpKeyCounterCollection.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\Background\BackgroundLayout.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\BaseGamePlayLayout.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\Front\DecisionLine\DecisionLine.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\Front\FrontLayout.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\HitObjectConnector.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObject\HitObjectLayout.cs" />
+    <Compile Include="UI\Result\RpScore.cs" />
+    <Compile Include="ScoreProcessor\RpScoreProcessor.cs" />
+    <Compile Include="Objects\RpHitObject.cs" />
+    <Compile Include="Objects\Drawables\DrawableRpHitObject.cs" />
+    <Compile Include="Objects\BaseHitObject.cs" />
+    <Compile Include="Objects\RpLongTailObject.cs" />
+    <Compile Include="Objects\RpContainerPress.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Saving\RpKeyLayoutConfig.cs" />
+    <Compile Include="SkinManager\RPSkinManager.cs" />
+    <Compile Include="UI\Beatmap\RpHitRenderer.cs" />
+    <Compile Include="UI\GamePlay\Playfield\RpPlayfield.cs" />
+    <Compile Include="UI\GamePlay\ScoreOverlay\RpScoreOverlay.cs" />
+    <Compile Include="UI\Select\BeatmapStatistics.cs" />
+    <Compile Include="UI\Select\SelectMod.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj">
+      <Project>{C76BF5B3-985E-4D39-95FE-97C9C879B83A}</Project>
+      <Name>osu.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\osu.Game.Modes.Osu\osu.Game.Modes.Osu.csproj">
+      <Project>{c92a607b-1fdd-4954-9f92-03ff547d9080}</Project>
+      <Name>osu.Game.Modes.Osu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\osu.Game\osu.Game.csproj">
+      <Project>{0d3fbf8a-7464-4cf7-8c90-3e7886df2d4d}</Project>
+      <Name>osu.Game</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\osu.licenseheader">
+      <Link>osu.licenseheader</Link>
+    </None>
+    <None Include="app.config" />
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RandomShape\" />
+    <Folder Include="Samples\Gameplay\RP\" />
+    <Folder Include="Textures\Play\RP\ComboCounter\" />
+    <Folder Include="Textures\Play\RP\HitObject\Common\" />
+    <Folder Include="Textures\Play\RP\HitObject\Special\Click\End\" />
+    <Folder Include="Textures\Play\RP\HitObject\Special\Click\Start\" />
+    <Folder Include="Textures\Play\RP\HitObject\Special\Hold\End\" />
+    <Folder Include="Textures\Play\RP\HitObject\Special\Hold\Start\" />
+    <Folder Include="Textures\Play\RP\HitObject\Special\Long\End\" />
+    <Folder Include="Textures\Play\RP\HitObject\Special\Long\Start\" />
+    <Folder Include="Textures\Play\RP\HitObject\Special\SliderLong\End\" />
+    <Folder Include="Textures\Play\RP\HitObject\Special\SliderLong\Start\" />
+    <Folder Include="Textures\Play\RP\HitObject\Special\Slider\End\" />
+    <Folder Include="Textures\Play\RP\HitObject\Special\Slider\Start\" />
+    <Folder Include="Textures\Play\RP\Number\Combo\" />
+    <Folder Include="Textures\Play\RP\Score\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitEffect\Cool\RP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitEffect\Cool\Flare.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitEffect\Cool\Loop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitEffect\Fine\Cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitEffect\Fine\RP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitEffect\Fine\Slide_effect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitEffect\Sad\Diffuse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitEffect\Sad\RP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitEffect\Safe\RP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitEffect\Slider\RP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitEffect\Slider\Slide_effect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\LeftSlide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\RightSlide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\LoadEffect\Load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\Playfield\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\Playfield\DecisionLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\background-Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\background-Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\background-Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\background-Up.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\Mask.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\Up.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\background-Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\background-Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\background-Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\background-Up.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\Mask.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\Up.png" />
+    <Content Include="Textures\Play\RP\Playfield\PointerShadow.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

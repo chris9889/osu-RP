@@ -14,10 +14,10 @@ namespace osu.Game.Screens.Play
 {
     public abstract class KeyCounter : Container
     {
-        private Sprite buttonSprite;
-        private Sprite glowSprite;
-        private Container textLayer;
-        private SpriteText countSpriteText;
+        public Sprite buttonSprite;
+        public Sprite glowSprite;
+        public Container textLayer;
+        public SpriteText countSpriteText;
 
         public bool IsCounting { get; set; }
         private int count;
