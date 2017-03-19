@@ -7,7 +7,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
     /// <summary>
     /// 裝判定點用
     /// </summary>
-    class ContainerBeatLineComponent : BaseContainerComponent
+    class ContainerBeatLineComponent : BaseContainerComponent, IChangeableContainerComponent
     {
         /// <summary>
         /// 中間的節拍
@@ -54,6 +54,15 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
                 //加入
                 _containerBeatDecisionLineComponent.Add(line);
             }
+        }
+
+        /// <summary>
+        /// 修改物件高度
+        /// </summary>
+        /// <param name="newHeight"></param>
+        public new void ChangeHeight(float newHeight)
+        {
+            
         }
     }
 }

@@ -17,6 +17,8 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
     /// </summary>
     class ContainerTemplate : RpDrawBaseObjectTemplate
     {
+        private List<IChangeableContainerComponent> IChangeableContainerComponent = new List<IChangeableContainerComponent>();
+
         /// <summary>
         /// 背景
         /// </summary>
@@ -73,9 +75,29 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
             InitialHitObject();
             //把所有物件加入到子物件當中
             InitialChild();
+            //
+            AddAllComponentToIChangeableContainerComponent();
+            //ChangeHeight
+            ChangeContainerHeight(_heightCalculator.GetContainerHeight());
         }
 
-      
+        /// <summary>
+        /// 增加所有物件到 IChangeableContainerComponent 裡
+        /// </summary>
+        void AddAllComponentToIChangeableContainerComponent()
+        {
+            IChangeableContainerComponent.Clear();
+            //背景
+            IChangeableContainerComponent.Add(_containerBackgroundComponent);
+            //節拍點
+            IChangeableContainerComponent.Add(_containerBeatLineComponent);
+            ///開始結束點
+            IChangeableContainerComponent.Add(_containerStartEndComponent);
+            //按壓
+            IChangeableContainerComponent.Add(ContainerLongPressDrawComponent);
+            //指標
+            IChangeableContainerComponent.Add(_containerDecisionLineComponent);
+        }
 
         /// <summary>
         /// 初始化Layout
@@ -134,6 +156,14 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
             this.Rotation = HitObject.Rotation;
         }
 
+        /// <summary>
+        /// 修改物件寬度
+        /// </summary>
+        /// <param name="newHeight"></param>
+        public void ChangeContainerHeight(float newHeight)
+        {
+            IChangeableContainerComponent.ForEach(c => c.ChangeHeight(newHeight));
+        }
 
         /// <summary>
         /// 

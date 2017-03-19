@@ -6,7 +6,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
     /// <summary>
     /// 
     /// </summary>
-    class ContainerDecisionLineComponent : BaseContainerComponent
+    class ContainerDecisionLineComponent : BaseContainerComponent, IChangeableContainerComponent
     {
 
         /// <summary>
@@ -49,6 +49,15 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
         {
             //計算指針位置 
             _containerDecisionLineComponent.Position = CalculatePosition(time-HitObject.StartTime);
+        }
+
+        /// <summary>
+        /// 修改物件高度
+        /// </summary>
+        /// <param name="newHeight"></param>
+        public new void ChangeHeight(float newHeight)
+        {
+
         }
     }
 }

@@ -50,7 +50,7 @@ namespace osu.Game.Modes.RP.Objects
             //Scale = (1.0f - 0.7f * (beatmap.BeatmapInfo.Difficulty.CircleSize - 5) / 5) / 2;
             Scale = (1.0f - 0.7f * (beatmap.BeatmapInfo.Difficulty.CircleSize - 5) / 5) /4*3;
             //Velocity = 100 / beatmap.BeatLengthAt(StartTime) * beatmap.BeatmapInfo.BaseDifficulty.SliderMultiplier;
-            Velocity = 100 / beatmap.SliderVelocityAt(StartTime) * beatmap.BeatmapInfo.Difficulty.SliderMultiplier;
+            Velocity = 100 / beatmap.SliderVelocityAt(StartTime) * beatmap.BeatmapInfo.Difficulty.SliderMultiplier * 1.5;
 
             Scale = 1;
         }

@@ -6,7 +6,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
     /// <summary>
     /// 
     /// </summary>
-    class ContainerStartEndComponent : BaseContainerComponent
+    class ContainerStartEndComponent : BaseContainerComponent, IChangeableContainerComponent
     {
         /// <summary>
         /// 開始點
@@ -53,6 +53,16 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
             listContainer.Add(_containerStartDecisionLineComponent);
             listContainer.Add(_containerEndDecisionLineComponent);
             Children = listContainer;
+        }
+
+        /// <summary>
+        /// 修改物件高度
+        /// </summary>
+        /// <param name="newHeight"></param>
+        public new void ChangeHeight(float newHeight)
+        {
+            _containerStartDecisionLineComponent.Height = newHeight;
+            _containerEndDecisionLineComponent.Height = newHeight;
         }
     }
 }

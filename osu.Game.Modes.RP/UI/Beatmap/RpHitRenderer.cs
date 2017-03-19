@@ -5,6 +5,7 @@ using osu.Game.Beatmaps;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap;
 using osu.Game.Modes.RP.Beatmaps.RPBeatmap;
+using osu.Game.Modes.RP.KeyManager;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.Drawables;
 using osu.Game.Modes.RP.ScoreProcessor;

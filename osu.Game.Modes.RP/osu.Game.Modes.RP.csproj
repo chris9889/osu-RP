@@ -55,6 +55,7 @@
     <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
     <Compile Include="ModsElement\AutoReplay\RPAutoReplay.cs" />
+    <Compile Include="Objects\Drawables\Component\Container\IChangeableContainerComponent.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\ApproachCircle\BaseMoveApproachCircle.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\Flow\BaseMoveFlow.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\Flow\ClickMoveFlow.cs" />
@@ -80,7 +81,7 @@
     <Compile Include="Objects\Drawables\Component\HitObject\Common\LoadEffect.cs" />
     <Compile Include="Objects\Drawables\Component\MultiLine\MultiLine.cs" />
     <Compile Include="Objects\Drawables\Calculator\ContainerLayoutPositionCounter.cs" />
-    <Compile Include="RpKeyConversionInputManager.cs" />
+    <Compile Include="KeyManager\RpKeyConversionInputManager.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\ConnectionRenderer.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\FollowPoint.cs" />
     <Compile Include="Objects\Drawables\DrawableBaseRpObject.cs" />

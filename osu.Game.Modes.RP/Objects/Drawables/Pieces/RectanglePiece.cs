@@ -30,11 +30,39 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
         private Sprite rectangle;
 
         /// <summary>
+        /// 寬度
+        /// </summary>
+        private float _rectangleWidth;
+
+        private float _rectangleHeight;
+
+
+        public new float Width
+        {
+            get { return _rectangleWidth; }
+            set
+            {
+                _rectangleWidth = value;
+                ChangeSize(_rectangleWidth, _rectangleHeight);
+            }
+        }
+
+        public new float Height
+        {
+            get { return _rectangleHeight; }
+            set
+            {
+                _rectangleHeight = value;
+                ChangeSize(_rectangleWidth, _rectangleHeight);
+            }
+        }
+
+        /// <summary>
         /// 會根據初始設定的 width Height 改變物件的scale
         /// </summary>
         /// <param name="width"></param>
         /// <param name="Height"></param>
-        public RectanglePiece(float width,float Height)
+        public RectanglePiece(float width,float height)
         {
             Size = new Vector2(width, Height);
             CornerRadius = DrawSize.X / 2;
@@ -53,7 +81,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
             };
 
             //改變大小
-            ChangeSize(width, Height);
+            ChangeSize(width, height);
         }
 
         /// <summary>
@@ -61,9 +89,11 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
         /// </summary>
         /// <param name="width"></param>
         /// <param name="Height"></param>
-        public void ChangeSize(float width, float Height)
+        public void ChangeSize(float width, float height)
         {
-            rectangle.Scale = new Vector2(width / 100, Height / 100);
+            _rectangleWidth = width;
+            _rectangleHeight = height;
+            rectangle.Scale = new Vector2(_rectangleWidth / 100, _rectangleHeight / 100);
         }
 
         [BackgroundDependencyLoader]

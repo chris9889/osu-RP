@@ -9,7 +9,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
     /// <summary>
     /// Container背景
     /// </summary>
-    class ContainerBackgroundComponent : BaseContainerComponent
+    class ContainerBackgroundComponent : BaseContainerComponent, IChangeableContainerComponent
     {
         /// <summary>
         /// 背景
@@ -64,6 +64,15 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
             //RP FadeIn 動畫特效
             int layerCount = 1;
             _rpRectangleComponent.ScaleTo(new OpenTK.Vector2(1, 0), time, EasingTypes.OutElastic);
+        }
+
+        /// <summary>
+        /// 修改物件高度
+        /// </summary>
+        /// <param name="newHeight"></param>
+        public new void ChangeHeight(float newHeight)
+        {
+            _rpRectangleComponent.Height = newHeight;
         }
     }
 }

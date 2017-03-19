@@ -8,7 +8,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
     /// 時間點後會把物件藏起來
     /// 這個功能會等到 5 月後才會開始實作
     /// </summary>
-    class ContainerLongPressDrawComponent : BaseContainerComponent
+    class ContainerLongPressDrawComponent : BaseContainerComponent, IChangeableContainerComponent
     {
         /// <summary>
         /// 目前現有物件
@@ -52,6 +52,15 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
         public void Add(DrawableRpLongPress drawableHitObject)
         {
             ListPressObject.Add(drawableHitObject);
+        }
+
+        /// <summary>
+        /// 修改物件高度
+        /// </summary>
+        /// <param name="newHeight"></param>
+        public new void ChangeHeight(float newHeight)
+        {
+
         }
     }
 }

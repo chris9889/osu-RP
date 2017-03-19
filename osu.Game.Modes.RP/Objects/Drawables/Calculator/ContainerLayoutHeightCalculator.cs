@@ -12,17 +12,19 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator
     class ContainerLayoutHeightCalculator
     {
 
-        const float LAYOUT_HEIGHT = 35;
+        const float LAYOUT_HEIGHT = 30;
 
         const float LAYOUT_INTERVAL_HEIGHT = 40;
 
-        const float CONTAINER_TO_FIRST_LAYOUT_HEIGHT = 20;
+        const float CONTAINER_TO_FIRST_LAYOUT_HEIGHT = 5;
+
 
         int _layoutCount;
 
-        public void SetLayoutCount(int layoutCount)
+        public int LayoutCount
         {
-            _layoutCount = layoutCount;
+            get { return _layoutCount; }
+            set { _layoutCount = value; }
         }
 
         /// <summary>
@@ -34,7 +36,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator
         }
 
         /// <summary>
-        /// Layout
+        /// Layout應該出現的位置
         /// </summary>
         public float GetLayoutPosition(int layoutIndex)
         {
