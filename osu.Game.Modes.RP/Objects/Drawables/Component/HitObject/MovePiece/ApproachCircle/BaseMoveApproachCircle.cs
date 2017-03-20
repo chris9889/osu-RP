@@ -39,7 +39,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Appr
         {
           
             ApproachHitPicec.Alpha = 0;
-            ApproachHitPicec.Scale = new Vector2(4);
+            ApproachHitPicec.Scale = new Vector2(3);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Appr
             ApproachHitPicec.Delay(BaseHitObject.TIME_PREEMPT / 5 * 4);
             ApproachHitPicec.FadeTo(1, BaseHitObject.TIME_PREEMPT / 5 * 4);
             //ApproachHitPicec.FadeIn(Math.Min(BaseHitObject.TIME_FADEIN * 2, BaseHitObject.TIME_PREEMPT));
-            ApproachHitPicec.ScaleTo(0.8f, BaseHitObject.TIME_PREEMPT / 5 * 1);
+            ApproachHitPicec.ScaleTo(0.5f, BaseHitObject.TIME_PREEMPT / 5 * 1);
         }
 
         /// <summary>

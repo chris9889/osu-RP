@@ -2,6 +2,7 @@
 using osu.Game.Modes.RP.Objects.Drawables.Pieces;
 using osu.Game.Modes.RP.SkinManager;
 using OpenTK;
+using OpenTK.Graphics;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
 {
@@ -43,21 +44,21 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
               {
 
                 //背景，自帶masking
-                //_startBackgroundImagePicec = new ImagePicec(RPSkinManager.GetStartObjectBackgroundByType(HitObject as BaseHitObject))
-                //{
-                //    Colour = new Color4(100,230,17,255),
-                //    Scale = new Vector2(1f),
-                //    CornerRadius = DrawSize.X / 2,
-                //    Masking = true,
-                //},
+                _startBackgroundImagePicec = new ImagePicec("")//(RPSkinManager.GetStartObjectBackgroundByType(HitObject as BaseHitObject))
+                {
+                    Colour = new Color4(100,230,17,255),
+                    Scale = new Vector2(0.5f),
+                    CornerRadius = DrawSize.X / 2,
+                    Masking = true,
+                },
 
                 ////目前這層mask沒有用途
-                // _maskImagePicec = new ImagePicec(RPSkinManager.GetStartObjectMaskByType(HitObject as BaseHitObject))
-                //{
-                //    //Colour = osuObject.Colour,
-                //    Scale=new Vector2(0.8f),
-                //    Masking = true,
-                //},
+                 _maskImagePicec = new ImagePicec("")//RPSkinManager.GetStartObjectMaskByType(HitObject as BaseHitObject))
+                {
+                    //Colour = osuObject.Colour,
+                    Scale=new Vector2(0.5f),
+                    Masking = true,
+                },
 
                 //外框使用
                  _borderImagePicec=new ImagePicec(RPSkinManager.GetStartObjectImageNameByType(HitObject as BaseHitObject))

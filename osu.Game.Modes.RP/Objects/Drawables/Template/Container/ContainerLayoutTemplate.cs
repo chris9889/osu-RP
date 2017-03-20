@@ -16,7 +16,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
     /// <summary>
     /// 
     /// </summary>
-    class ContainerLayoutTemplate : RpDrawBaseObjectTemplate
+    partial class ContainerLayoutTemplate : RpDrawBaseObjectTemplate
     {
         /// <summary>
         /// 所有打擊物件

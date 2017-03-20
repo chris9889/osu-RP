@@ -3,7 +3,7 @@
     /// <summary>
     /// 打擊的模板
     /// </summary>
-    class ClickTemplate : RpDrawHitObjectTemplate
+    partial class ClickTemplate : RpDrawHitObjectTemplate
     {
         
 

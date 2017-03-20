@@ -24,8 +24,8 @@ namespace osu.Game.Modes.RP.Objects
         public int ContainerIndex = 0;
 
 
-        public double EndTime => StartTime;
-        public double Duration => EndTime - StartTime;
+        public override double EndTime => StartTime;
+        public override double Duration => EndTime - StartTime;
 
         /// <summary>
         /// 是在哪一個index上面
@@ -107,6 +107,6 @@ namespace osu.Game.Modes.RP.Objects
         /// <summary>
         /// 用不同落下方式當判定點
         /// </summary>
-        public RpBaseHitObjectType.ApproachType ApproachType= RpBaseHitObjectType.ApproachType.flow;
+        public RpBaseHitObjectType.ApproachType ApproachType= RpBaseHitObjectType.ApproachType.ApproachCircle;
     }
 }

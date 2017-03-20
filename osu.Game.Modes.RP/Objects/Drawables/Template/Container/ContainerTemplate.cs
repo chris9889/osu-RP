@@ -15,7 +15,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
     /// <summary>
     /// 
     /// </summary>
-    class ContainerTemplate : RpDrawBaseObjectTemplate
+    partial class ContainerTemplate : RpDrawBaseObjectTemplate
     {
         private List<IChangeableContainerComponent> IChangeableContainerComponent = new List<IChangeableContainerComponent>();
 

@@ -18,11 +18,11 @@ namespace osu.Game.Modes.RP.SkinManager
     {
         private const string RP_HIT_EFFECT_FOLDER = @"Play/RP/HitEffect/";
         private const string RP_LOAD_EFFECT_FOLDER = @"Play/RP/LoadEffect/";
-        private const string RP_OBJECT_FOLDER = @"Play/RP/HitObject/";
+        private const string RP_OBJECT_FOLDER = @"Play/RP/RPObject/";
         private const string RP_NUMBER_FOLDER = @"Play/RP/Number/";
         private const string RP_SCORE_FOLDER = @"Play/RP/Score/";
         private const string RP_KEYCOUNTER_FOLDER = @"Play/RP/KeyCounter/";
-        private const string RP_PLAYFIELD_FOLDER = @"Play/RP/Playfield/";
+        private const string RP_CONTAINER_FOLDER = RP_OBJECT_FOLDER + @"Common/Normal/Container/";
 
         private const string RP_CONFIG_FOLDER = @"Play/RP/Config/";
 
@@ -92,18 +92,18 @@ namespace osu.Game.Modes.RP.SkinManager
 
         public static string GetDecisionLineTexture()
         {
-            return RP_PLAYFIELD_FOLDER + "DecisionLine";
+            return RP_CONTAINER_FOLDER + "DecisionLine";
         }
 
 
         public static string GetBeatLineTexture()
         {
-            return RP_PLAYFIELD_FOLDER + "DecisionLine";
+            return RP_CONTAINER_FOLDER + "DecisionLine";
         }
 
         public static string GetRectangleTexture()
         {
-            return RP_PLAYFIELD_FOLDER + "Background";
+            return RP_CONTAINER_FOLDER + "Background";
         }
 
         /// <summary>
@@ -209,6 +209,7 @@ namespace osu.Game.Modes.RP.SkinManager
             //根據模式去命名資料夾
             fileName = baseHitObject.ObjectType.ToString() + @"/" + fileName;
 
+
             //如果是黃金模式(家分模式)
             if (baseHitObject.Special == RpBaseHitObjectType.Special.Normal)
             {
@@ -218,7 +219,17 @@ namespace osu.Game.Modes.RP.SkinManager
             {
                 fileName = @"Special/" + fileName;
             }
-            
+
+            //不同落下模式
+            if (baseHitObject.ApproachType == RpBaseHitObjectType.ApproachType.ApproachCircle)
+            {
+                fileName = @"Circle/" + fileName;
+            }
+            else
+            {
+                fileName = @"Square/" + fileName;
+            }
+
             return RP_OBJECT_FOLDER + fileName;
         }
 

@@ -36,7 +36,7 @@ namespace osu.Game.Modes.RP.Objects
 
         public virtual double EndTime => StartTime;
 
-        public double Duration => EndTime - StartTime;
+        public virtual double Duration => EndTime - StartTime;
 
         /// <summary>
         /// 移動速度

@@ -54,7 +54,7 @@ namespace osu.Game.Modes.RP
         /// <summary>
         /// 使用icon
         /// </summary>
-        public override FontAwesome Icon => FontAwesome.fa_android;
+        public override FontAwesome Icon => FontAwesome.fa_align_justify;
 
         /// <summary>
         /// 計算難度

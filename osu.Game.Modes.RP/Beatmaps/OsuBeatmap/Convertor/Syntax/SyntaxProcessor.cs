@@ -62,7 +62,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.Syntax
                 parameter.PassParameter.EndTime = time;
 
                 //先設定隨機
-                float randomValue = (float)random.NextDouble() * 250 + 50;
+                float randomValue = (float)random.NextDouble() * 400 + 40;
 
                 //
                 parameter.OsuHitObject.Position = new OpenTK.Vector2(0, randomValue);

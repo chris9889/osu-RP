@@ -65,6 +65,10 @@
     <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\GetStillPiece.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\Hold\BaseStillHold.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\Slide\BaseStillSlide.cs" />
+    <Compile Include="Objects\Drawables\Template\Container\EditableContainerLayoutTemplate.cs" />
+    <Compile Include="Objects\Drawables\Template\Container\EditableContainerTemplate.cs" />
+    <Compile Include="Objects\Drawables\Template\HitObject\Click\EditableClickTemplate.cs" />
+    <Compile Include="Objects\Drawables\Template\HitObject\Hold\EditableHoldTemplate.cs" />
     <Compile Include="Objects\Drawables\Template\HitObject\RpDrawHitObjectTemplate.cs" />
     <Compile Include="Mods\RpMod.cs" />
     <Compile Include="Objects\BaseRpObject.cs" />
@@ -82,6 +86,7 @@
     <Compile Include="Objects\Drawables\Component\MultiLine\MultiLine.cs" />
     <Compile Include="Objects\Drawables\Calculator\ContainerLayoutPositionCounter.cs" />
     <Compile Include="KeyManager\RpKeyConversionInputManager.cs" />
+    <Compile Include="Objects\Drawables\Template\HitObject\Slide\EditableSlideTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\ConnectionRenderer.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\FollowPoint.cs" />
     <Compile Include="Objects\Drawables\DrawableBaseRpObject.cs" />
@@ -194,21 +199,35 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RandomShape\" />
+    <Folder Include="Beatmaps\OtherBeatmap\" />
     <Folder Include="Samples\Gameplay\RP\" />
-    <Folder Include="Textures\Play\RP\ComboCounter\" />
-    <Folder Include="Textures\Play\RP\HitObject\Common\" />
-    <Folder Include="Textures\Play\RP\HitObject\Special\Click\End\" />
-    <Folder Include="Textures\Play\RP\HitObject\Special\Click\Start\" />
-    <Folder Include="Textures\Play\RP\HitObject\Special\Hold\End\" />
-    <Folder Include="Textures\Play\RP\HitObject\Special\Hold\Start\" />
-    <Folder Include="Textures\Play\RP\HitObject\Special\Long\End\" />
-    <Folder Include="Textures\Play\RP\HitObject\Special\Long\Start\" />
-    <Folder Include="Textures\Play\RP\HitObject\Special\SliderLong\End\" />
-    <Folder Include="Textures\Play\RP\HitObject\Special\SliderLong\Start\" />
-    <Folder Include="Textures\Play\RP\HitObject\Special\Slider\End\" />
-    <Folder Include="Textures\Play\RP\HitObject\Special\Slider\Start\" />
+    <Folder Include="Textures\Play\RP\Number\ComboCounter\" />
     <Folder Include="Textures\Play\RP\Number\Combo\" />
-    <Folder Include="Textures\Play\RP\Score\" />
+    <Folder Include="Textures\Play\RP\Number\Score\" />
+    <Folder Include="Textures\Play\RP\RPObject\Circle\Normal\Hold\End\" />
+    <Folder Include="Textures\Play\RP\RPObject\Circle\Normal\Hold\Start\" />
+    <Folder Include="Textures\Play\RP\RPObject\Circle\Normal\Long\End\" />
+    <Folder Include="Textures\Play\RP\RPObject\Circle\Normal\Long\Start\" />
+    <Folder Include="Textures\Play\RP\RPObject\Circle\Special\Click\End\" />
+    <Folder Include="Textures\Play\RP\RPObject\Circle\Special\Click\Start\" />
+    <Folder Include="Textures\Play\RP\RPObject\Circle\Special\Hold\End\" />
+    <Folder Include="Textures\Play\RP\RPObject\Circle\Special\Hold\Start\" />
+    <Folder Include="Textures\Play\RP\RPObject\Circle\Special\Long\End\" />
+    <Folder Include="Textures\Play\RP\RPObject\Circle\Special\Long\Start\" />
+    <Folder Include="Textures\Play\RP\RPObject\Common\Normal\BackgroundPress\" />
+    <Folder Include="Textures\Play\RP\RPObject\Common\Normal\ContainerLayout\" />
+    <Folder Include="Textures\Play\RP\RPObject\Common\Special\BackgroundPress\" />
+    <Folder Include="Textures\Play\RP\RPObject\Common\Special\ContainerLayout\" />
+    <Folder Include="Textures\Play\RP\RPObject\Square\Normal\Hold\End\" />
+    <Folder Include="Textures\Play\RP\RPObject\Square\Normal\Hold\Start\" />
+    <Folder Include="Textures\Play\RP\RPObject\Square\Normal\Long\End\" />
+    <Folder Include="Textures\Play\RP\RPObject\Square\Normal\Long\Start\" />
+    <Folder Include="Textures\Play\RP\RPObject\Square\Special\Click\End\" />
+    <Folder Include="Textures\Play\RP\RPObject\Square\Special\Click\Start\" />
+    <Folder Include="Textures\Play\RP\RPObject\Square\Special\Hold\End\" />
+    <Folder Include="Textures\Play\RP\RPObject\Square\Special\Hold\Start\" />
+    <Folder Include="Textures\Play\RP\RPObject\Square\Special\Long\End\" />
+    <Folder Include="Textures\Play\RP\RPObject\Square\Special\Long\Start\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Textures\Play\RP\HitEffect\Cool\RP.png" />
@@ -265,31 +284,48 @@
     <EmbeddedResource Include="Textures\Play\RP\LoadEffect\Load.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Textures\Play\RP\Playfield\Background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Textures\Play\RP\Playfield\DecisionLine.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\background-Down.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\background-Left.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\background-Right.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\background-Up.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\Down.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\Left.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\Mask.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\Right.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\End\Up.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\background-Down.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\background-Left.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\background-Right.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\background-Up.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\Down.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\Left.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\Mask.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\Right.png" />
-    <EmbeddedResource Include="Textures\Play\RP\HitObject\Normal\Click\Start\Up.png" />
-    <Content Include="Textures\Play\RP\Playfield\PointerShadow.png" />
+    <Content Include="Textures\Play\RP\RPObject\Common\Normal\Container\PointerShadow.png" />
+    <Content Include="Textures\Play\RP\RPObject\Common\Special\Container\PointerShadow.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Common\Special\Container\DecisionLine.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Common\Special\Container\Background.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Common\Normal\Container\DecisionLine.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Common\Normal\Container\Background.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\Start\Up.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\Start\Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\Start\Mask.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\Start\Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\Start\Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\Start\background-Up.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\Start\background-Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\Start\background-Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\Start\background-Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\End\Up.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\End\Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\End\Mask.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\End\Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\End\Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\End\background-Up.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\End\background-Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\End\background-Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Circle\Normal\Click\End\background-Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\End\background-Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\End\background-Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\End\background-Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\End\background-Up.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\End\Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\End\Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\End\Mask.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\End\Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\End\Up.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\Start\background-Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\Start\background-Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\Start\background-Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\Start\background-Up.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\Start\Down.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\Start\Left.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\Start\Mask.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\Start\Right.png" />
+    <EmbeddedResource Include="Textures\Play\RP\RPObject\Square\Normal\Click\Start\Up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

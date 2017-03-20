@@ -4,7 +4,7 @@
     /// 壓住會轉一圈
     /// 或是累積加分
     /// </summary>
-    class HoldTemplate : RpDrawHitObjectTemplate
+    partial class HoldTemplate : RpDrawHitObjectTemplate
     {
 
 
