@@ -78,7 +78,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
             //
             AddAllComponentToIChangeableContainerComponent();
             //ChangeHeight
-            ChangeContainerHeight(_heightCalculator.GetContainerHeight());
+            UpdateContainerHeight();
         }
 
         /// <summary>
@@ -160,8 +160,10 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
         /// 修改物件寬度
         /// </summary>
         /// <param name="newHeight"></param>
-        public void ChangeContainerHeight(float newHeight)
+        public void UpdateContainerHeight()
         {
+            _heightCalculator.LayoutCount = ListLayoutTemplate.Count;
+            float newHeight = _heightCalculator.GetContainerHeight();
             IChangeableContainerComponent.ForEach(c => c.ChangeHeight(newHeight));
         }
 

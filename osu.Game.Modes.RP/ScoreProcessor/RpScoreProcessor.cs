@@ -63,11 +63,11 @@ namespace osu.Game.Modes.RP.ScoreProcessor
                         maxScore += 300;
                         break;
                     case RPScoreResult.Safe:
-                        score += 50;
+                        score += 100;
                         maxScore += 300;
                         break;
                     case RPScoreResult.Fine:
-                        score += 100;
+                        score += 250;
                         maxScore += 300;
                         break;
                     case RPScoreResult.Cool:
@@ -75,6 +75,8 @@ namespace osu.Game.Modes.RP.ScoreProcessor
                         maxScore += 300;
                         break;
                 }
+                //增加額外分數
+                score += j.additionalPlusScore;
             }
 
             TotalScore.Value = score;

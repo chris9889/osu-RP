@@ -1,15 +1,8 @@
 ﻿using osu.Game.Modes.Objects.Drawables;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using osu.Game.Modes.Objects;
 using osu.Game.Modes.RP.Objects.Drawables.Template;
 using osu.Framework.Graphics;
-using osu.Game.Modes.Osu.Judgements;
 using OpenTK;
-using osu.Game.Modes.Judgements;
+using osu.Game.Modes.RP.ScoreProcessor;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
 {

@@ -1,13 +1,7 @@
 ﻿using osu.Game.Modes.Objects.Drawables;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using osu.Game.Modes.Judgements;
-using osu.Game.Modes.Objects;
-using osu.Game.Modes.RP.Objects.Drawables.Component;
 using osu.Game.Modes.RP.Objects.Drawables.Component.MultiLine;
+using osu.Game.Modes.RP.ScoreProcessor;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
 {

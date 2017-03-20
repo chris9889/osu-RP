@@ -1,17 +1,13 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Game.Modes.Objects.Drawables;
-using osu.Game.Modes.RP.Objects.Drawables.Component;
 using OpenTK;
-using osu.Framework.Input;
 using System;
 using osu.Framework.Graphics.Transforms;
-using osu.Game.Modes.RP.Objects.Drawables.Pieces;
 using osu.Game.Modes.RP.Objects.Drawables.Template.HitObject.Slide;
-using OpenTK.Graphics;
+using osu.Game.Modes.RP.ScoreProcessor;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
 {

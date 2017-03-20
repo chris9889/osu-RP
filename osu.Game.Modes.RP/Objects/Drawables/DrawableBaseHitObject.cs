@@ -3,11 +3,9 @@
 
 using System.ComponentModel;
 using osu.Game.Modes.Objects.Drawables;
-using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Template;
 using osu.Game.Modes.RP.KeyManager;
-using OpenTK;
 using osu.Framework.Allocation;
 using osu.Framework.Audio;
 using osu.Game.Beatmaps.Samples;
@@ -15,8 +13,8 @@ using System;
 using System.Diagnostics;
 using osu.Framework.Audio.Sample;
 using osu.Framework.Input;
-using osu.Game.Modes.Judgements;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
+using osu.Game.Modes.RP.ScoreProcessor;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
 {
@@ -188,13 +186,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
 
-    }
-
-    public class RPJudgementInfo : JudgementInfo
-    {
-        public RPScoreResult Score;
-        public RPComboResult Combo;
-        public List<Vector2> HitExplosionPosition=new List<Vector2>();
     }
 
     /// <summary>

@@ -11,6 +11,7 @@ using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Front;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObject;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectConnector;
 using osu.Game.Modes.Objects.Drawables;
+using osu.Game.Modes.RP.ScoreProcessor;
 using OpenTK;
 using osu.Game.Modes.UI;
 

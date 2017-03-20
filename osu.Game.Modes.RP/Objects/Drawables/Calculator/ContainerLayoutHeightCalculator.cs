@@ -12,9 +12,9 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator
     class ContainerLayoutHeightCalculator
     {
 
-        const float LAYOUT_HEIGHT = 30;
+        const float LAYOUT_HEIGHT = 40;
 
-        const float LAYOUT_INTERVAL_HEIGHT = 40;
+        const float LAYOUT_INTERVAL_HEIGHT = 45;
 
         const float CONTAINER_TO_FIRST_LAYOUT_HEIGHT = 5;
 

@@ -3,7 +3,7 @@ using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
 {
-    class BaseContainerComponent : BaseComponent, IChangeableContainerComponent
+    class BaseContainerComponent : BaseComponent
     {
         /// <summary>
         /// 負責計算物件在時間點該有的位置
@@ -75,13 +75,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
             return (1000 * 60) / HitObject.BPM;
         }
 
-        /// <summary>
-        /// 修改物件高度
-        /// </summary>
-        /// <param name="newHeight"></param>
-        public void ChangeHeight(float newHeight)
-        {
-            throw new System.NotImplementedException();
-        }
+       
     }
 }

@@ -6,16 +6,13 @@ using osu.Game.Modes.UI;
 using osu.Game.Beatmaps;
 using osu.Game.Graphics;
 using osu.Game.Modes.RP.UI.Select;
-using System;
 using osu.Game.Modes.Mods;
 using osu.Game.Modes.RP.DifficultyCalculator;
 using osu.Game.Modes.RP.KeyManager;
-using osu.Game.Modes.RP.Saving;
 using osu.Game.Modes.RP.ScoreProcessor;
 using osu.Game.Modes.RP.UI.Beatmap;
 using osu.Game.Modes.RP.UI.GamePlay.KeyCounter;
 using osu.Game.Screens.Play;
-using OpenTK.Input;
 
 namespace osu.Game.Modes.RP
 {

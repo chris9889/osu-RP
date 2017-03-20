@@ -87,6 +87,7 @@
     <Compile Include="Objects\Drawables\Calculator\ContainerLayoutPositionCounter.cs" />
     <Compile Include="KeyManager\RpKeyConversionInputManager.cs" />
     <Compile Include="Objects\Drawables\Template\HitObject\Slide\EditableSlideTemplate.cs" />
+    <Compile Include="ScoreProcessor\RPJudgementInfo.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\ConnectionRenderer.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\FollowPoint.cs" />
     <Compile Include="Objects\Drawables\DrawableBaseRpObject.cs" />

@@ -43,6 +43,11 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
         /// </summary>
         ContainerLayoutPositionCounter _positionCounter=new ContainerLayoutPositionCounter();
 
+        /// <summary>
+        /// 計算物件的相關高度和Height位置
+        /// </summary>
+        ContainerLayoutHeightCalculator _heightCalculator = new ContainerLayoutHeightCalculator();
+
         public ContainerLayoutTemplate(ObjectContainerLayer hitObject) : base(hitObject)
         {
             HitObject = hitObject;
@@ -61,7 +66,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
         void InitialLinePiece()
         {
             //背景物件
-            _linePiece = new RectanglePiece(2000, 40)
+            _linePiece = new RectanglePiece(2000, _heightCalculator.GetLayoutHeight())
             {
                 Origin = Anchor.CentreRight,
                 Scale = new OpenTK.Vector2(1.0f, 0f),
@@ -75,7 +80,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
         void InitialTemplate()
         {
             //背景物件
-            _rpRectanglePiece = new RectanglePiece(2000, 40)
+            _rpRectanglePiece = new RectanglePiece(2000, _heightCalculator.GetLayoutHeight())
             {
                 Scale = new OpenTK.Vector2(1.0f, 0f),
                 Alpha = 0.5f,

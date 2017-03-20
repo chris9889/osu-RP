@@ -1,15 +1,8 @@
 ﻿using OpenTK;
-using OpenTK.Graphics;
 using osu.Framework.Graphics;
-using osu.Game.Modes.RP.Objects.Drawables.Pieces;
 using osu.Game.Modes.RP.Objects.Drawables.Template.Container;
 using osu.Game.Modes.Objects.Drawables;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using osu.Game.Modes.Judgements;
+using osu.Game.Modes.RP.ScoreProcessor;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
 {
