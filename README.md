@@ -3,6 +3,9 @@ the new gameMode in osu!laser
 .   
 this gameMode is not official project, but maybe can play by adding additional plugin in osu!laser.   
 .   
+https://github.com/andy840119/osu-RP_resource   
+resource of texture and sample is in here   
+.   
 this is the blog of this project's progress.  
 the progress will be report in there if I remember : )   
 https://rp7310.wordpress.com/   
