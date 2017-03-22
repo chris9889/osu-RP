@@ -13,6 +13,7 @@ using System;
 using System.Diagnostics;
 using osu.Framework.Audio.Sample;
 using osu.Framework.Input;
+using osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
 using osu.Game.Modes.RP.ScoreProcessor;
 

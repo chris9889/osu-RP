@@ -56,7 +56,7 @@ namespace osu.Game.Modes.RP.KeyManager
         /// <param name="keyLayout"></param>
         /// <param name="settingIndex"></param>
         /// <returns></returns>
-        public static bool SetKeyConfig(List<Key> listKey, RpKeyLayoutConfig.KeyLayout keyLayout,int settingIndex)
+        public static bool SeveKeyConfig(List<Key> listKey, RpKeyLayoutConfig.KeyLayout keyLayout,int settingIndex)
         {
             return false;
         }

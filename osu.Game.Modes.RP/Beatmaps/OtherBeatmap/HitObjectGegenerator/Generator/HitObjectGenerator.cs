@@ -16,9 +16,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Generator
     /// </summary>
     public class HitObjectGenerator
     {
-        public List<List<BaseHitObject>> GeneratorListHitObject(ComvertParameter single)
+        public List<SingleHitObjectConvertParameter> GeneratorListHitObject(ComvertParameter single)
         {
-            List<List<BaseHitObject>> list =new List<List<BaseHitObject>>();
+
             foreach (SingleHitObjectConvertParameter singleHitObject in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             {
                 List<BaseHitObject> singleHitObjects = new List<BaseHitObject>();
@@ -26,10 +26,10 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Generator
                 {
                     singleHitObjects.Add(GenerateRpHitObject(singleHitObject));
                 }
-                list.Add(singleHitObjects);
+                singleHitObject.ListBaseHitObject=singleHitObjects;
             }
 
-            return list;
+            return single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter;
         }
 
         public RpHitObject GenerateRpHitObject(SingleHitObjectConvertParameter singleHitObject)

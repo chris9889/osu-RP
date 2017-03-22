@@ -4,6 +4,7 @@ using osu.Framework.Graphics.Sprites;
 using static osu.Game.Modes.RP.Saving.RpKeyLayoutConfig;
 using osu.Framework.Graphics.Textures;
 using osu.Framework.Allocation;
+using osu.Framework.Graphics.Containers;
 using OpenTK;
 using osu.Game.Screens.Play;
 
@@ -14,14 +15,36 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
     /// </summary>
     class RpKeyCounterKeyboard : KeyCounterKeyboard
     {
+        private Sprite _buttonSprite;
+        private Sprite _glowSprite;
+
         SingleKeyLayout _layout;
 
-       
+
         //顯示按鈕
         private Sprite _buttonIconSprite;
         //顯示按鍵名稱
         private SpriteText _textSprite;
+        //CounterLayer
+        private Container _textLayer;
+        //SpurteText
+        private SpriteText _countSpriteText;
         SingleKey _singlekey;
+
+        //計算
+        private int count;
+        public new int Count
+        {
+            get { return count; }
+            private set
+            {
+                if (count != value)
+                {
+                    count = value;
+                    _countSpriteText.Text = value.ToString(@"#,0");
+                }
+            }
+        }
 
         /// <summary>
         /// 建構
@@ -37,36 +60,63 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         [BackgroundDependencyLoader]
         private void load(TextureStore textures)
         {
-            textLayer.Children = new Drawable[]
-            {
-                _textSprite = new SpriteText
+            Children = new Drawable[]
+           {
+                _buttonSprite = new Sprite
                 {
-                    Text = Name,
+                    Texture = textures.Get(@"KeyCounter/key-up"),
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
-                    RelativePositionAxes = Axes.Both,
-                    Position = new Vector2(0, -0.25f),
-                    Colour = KeyUpTextColor
                 },
-                countSpriteText = new SpriteText
+                _glowSprite = new Sprite
                 {
-                    Text = Count.ToString(@"#,0"),
+                    Texture = textures.Get(@"KeyCounter/key-glow"),
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
-                    RelativePositionAxes = Axes.Both,
-                    Position = new Vector2(0, 0.25f),
-                    Colour = KeyUpTextColor
+                    Alpha = 0
                 },
-                _buttonIconSprite = new Sprite
+                _textLayer = new Container
                 {
-                    Texture = textures.Get(SkinManager.RPSkinManager.GetKeyLayoutButtonIcon(_singlekey.Type)),
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
-                    Alpha = 1,
-                    Scale=new Vector2(1.0f),
-                    Position=new Vector2(0, -0.25f),
+                    RelativeSizeAxes = Axes.Both,
+                    Children = new Drawable[]
+                    {
+                        _textSprite = new SpriteText
+                        {
+                            Text = Name,
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                            RelativePositionAxes = Axes.Both,
+                            Position = new Vector2(0, -0.25f),
+                            Colour = KeyUpTextColor
+                        },
+                        _countSpriteText = new SpriteText
+                        {
+                            Text = Count.ToString(@"#,0"),
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                            RelativePositionAxes = Axes.Both,
+                            Position = new Vector2(0, 0.25f),
+                            Colour = KeyUpTextColor
+                        },
+                        _buttonIconSprite = new Sprite
+                        {
+                            Texture = textures.Get(SkinManager.RPSkinManager.GetKeyLayoutButtonIcon(_singlekey.Type)),
+                            Anchor = Anchor.Centre,
+                            Origin = Anchor.Centre,
+                            Alpha = 1,
+                            Scale=new Vector2(1.0f),
+                            Position=new Vector2(0, -0.25f),
+                        },
+                    }
                 },
             };
+            //Set this manually because an element with Alpha=0 won't take it size to AutoSizeContainer,
+            //so the size can be changing between buttonSprite and glowSprite.
+            Height = _buttonSprite.DrawHeight;
+            Width = _buttonSprite.DrawWidth;
+
             Vector2 fixPosition = new Vector2(0, -10f);
             Vector2 upperPosition = new Vector2(0, -0.25f);
             Vector2 lowerPosition = new Vector2(0, 0.25f);
@@ -75,16 +125,16 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                 case SingleKeyLayout.KeyIcon_Code:
                     _buttonIconSprite.Position = upperPosition + fixPosition;
                     _textSprite.Position = lowerPosition;
-                    countSpriteText.Alpha = 0;
+                    _countSpriteText.Alpha = 0;
                     break;
                 case SingleKeyLayout.keyCount_Code:
                     _textSprite.Position = upperPosition;
-                    countSpriteText.Position = lowerPosition;
+                    _countSpriteText.Position = lowerPosition;
                     _buttonIconSprite.Alpha = 0;
                     break;
                 case SingleKeyLayout.KeyIcon_Count:
                     _buttonIconSprite.Position = upperPosition + fixPosition;
-                    countSpriteText.Position = lowerPosition;
+                    _countSpriteText.Position = lowerPosition;
                     _textSprite.Alpha = 0;
                     break;
             }
@@ -114,13 +164,27 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
             return base.OnKeyUp(state, args);
         }
 
+        private new void updateGlowSprite(bool show)
+        {
+            if (show)
+            {
+                _glowSprite.FadeIn(FadeTime);
+                _textLayer.FadeColour(KeyDownTextColor, FadeTime);
+            }
+            else
+            {
+                _glowSprite.FadeOut(FadeTime);
+                _textLayer.FadeColour(KeyUpTextColor, FadeTime);
+            }
+        }
+
         public enum SingleKeyLayout
         {
-            KeyIcon=1,
-            keyCode=2,
-            keyCount=4,
-            KeyIcon_Code = KeyIcon| keyCode,
-            keyCount_Code = keyCode| keyCount,
+            KeyIcon = 1,
+            keyCode = 2,
+            keyCount = 4,
+            KeyIcon_Code = KeyIcon | keyCode,
+            keyCount_Code = keyCode | keyCount,
             KeyIcon_Count = KeyIcon | keyCount
         }
 

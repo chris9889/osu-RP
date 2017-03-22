@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using osu.Game.Modes.RP.Objects.Drawables.Calculator;
+using osu.Game.Modes.RP.Objects.Drawables.Calculator.PathPrecentage;
 using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
 

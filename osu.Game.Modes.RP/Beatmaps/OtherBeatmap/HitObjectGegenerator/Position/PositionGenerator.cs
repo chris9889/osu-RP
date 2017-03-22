@@ -2,6 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 using System;
 using System.Collections.Generic;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Modes.RP.Objects;
 
@@ -12,12 +13,12 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Position
         internal void ProcessPosition(ComvertParameter single)
         {
             //同一群組內的物件位置
-            foreach (List<BaseHitObject> singleTupleHitObjects in single.ListBaseHitObject)
+            foreach (SingleHitObjectConvertParameter singleTupleHitObjects in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             {
-                for (int i = 0; i < singleTupleHitObjects.Count; i++)
+                for (int i = 0; i < singleTupleHitObjects.ListBaseHitObject.Count; i++)
                 {
-                    singleTupleHitObjects[i].ContainerIndex = 0;
-                    singleTupleHitObjects[i].LayoutIndex = 0;
+                    singleTupleHitObjects.ListBaseHitObject[i].ContainerIndex = 0;
+                    singleTupleHitObjects.ListBaseHitObject[i].LayoutIndex = 0;
                 }
             }
         }

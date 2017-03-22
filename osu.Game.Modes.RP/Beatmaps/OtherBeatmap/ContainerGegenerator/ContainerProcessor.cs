@@ -25,8 +25,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator
                 single.ContainerConvertParameter = MultiContainerDecidor.GetParameter(single);
 
                 //generator physical object //MultiAlocate
-                single.ListObjectContainer = ContainerGenerator.GetListContainer(single);
-
+                single.ContainerConvertParameter.ListObjectContainer = ContainerGenerator.GetListContainer(single);
                 //position(PositionDecidor)
                 PositionDecidor.AllocatePosition(single);
             }

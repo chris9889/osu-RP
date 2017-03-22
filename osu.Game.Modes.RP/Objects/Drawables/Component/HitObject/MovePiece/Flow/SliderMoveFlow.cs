@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
+using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common.ShapePiece;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
@@ -20,12 +21,12 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         /// <summary>
         /// 開頭和結尾物件
         /// </summary>
-        private EndPieces _endPiecesFirstObject;
+        private HitObjectAnyShapePiece hitObjectAnyShapePieceFirstObjectAny;
 
         /// <summary>
         /// 
         /// </summary>
-        private EndPieces _endPiecesSecondObject;
+        private HitObjectAnyShapePiece hitObjectAnyShapePieceSecondObjectAny;
 
 
         public SliderMoveFlow(BaseHitObject baseHitObject) : base(baseHitObject)
@@ -40,14 +41,14 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
                     PathWidth = (BaseHitObject as BaseHitObject).Scale * 15,
                 },
                 //結尾物件
-                _endPiecesSecondObject = new EndPieces(BaseHitObject as BaseHitObject)//true
+                hitObjectAnyShapePieceSecondObjectAny = new HitObjectAnyShapePiece(BaseHitObject as BaseHitObject)//true
                 {
                     Position = new Vector2(0, 0),
                     //Scale = new Vector2(_hitObject.Scale),
                     IsFirst = false,
                 },
                 //開頭物件
-                _endPiecesFirstObject = new EndPieces(BaseHitObject as BaseHitObject)//false
+                hitObjectAnyShapePieceFirstObjectAny = new HitObjectAnyShapePiece(BaseHitObject as BaseHitObject)//false
                 {
                     Position = new Vector2(0, 0),
                     //Scale = new Vector2(_hitObject.Scale),
@@ -79,8 +80,8 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         public override void FadeOut(double time = 0)
         {
             _rpLongBody.FadeOut();
-            _endPiecesFirstObject.FadeOut();
-            _endPiecesSecondObject.FadeOut();
+            hitObjectAnyShapePieceFirstObjectAny.FadeOut();
+            hitObjectAnyShapePieceSecondObjectAny.FadeOut();
         }
 
         /// <summary>
@@ -91,8 +92,8 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         public void UpdateProgress(double startProgress = 0, double endProgress = 1)
         {
             _rpLongBody.UpdateProgress(startProgress, endProgress);
-            _endPiecesFirstObject.Position = HitObject.Curve.PositionAt(startProgress) - HitObject.Position;
-            _endPiecesSecondObject.Position = HitObject.Curve.PositionAt(endProgress) - HitObject.Position;
+            hitObjectAnyShapePieceFirstObjectAny.Position = HitObject.Curve.PositionAt(startProgress) - HitObject.Position;
+            hitObjectAnyShapePieceSecondObjectAny.Position = HitObject.Curve.PositionAt(endProgress) - HitObject.Position;
         }
     }
 }

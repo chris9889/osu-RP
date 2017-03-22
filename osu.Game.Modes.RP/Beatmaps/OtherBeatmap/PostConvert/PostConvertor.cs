@@ -2,6 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System.Collections.Generic;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Modes.RP.Objects;
 
@@ -21,7 +22,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.PostConvert
             foreach (ComvertParameter single in output)
             {
                 //增加Container
-                foreach (ObjectContainer singleContainer in single.ListObjectContainer)
+                foreach (ObjectContainer singleContainer in single.ContainerConvertParameter.ListObjectContainer)
                 {
                     list.Add(singleContainer);
                 }
@@ -31,9 +32,12 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.PostConvert
             foreach (ComvertParameter single in output)
             {
                 //增加打擊物件
-                foreach (List<BaseHitObject> singleHitObjectList in single.ListBaseHitObject)
+                foreach (SingleHitObjectConvertParameter objectTuple in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
                 {
-                    list.AddRange(singleHitObjectList);
+                    foreach (BaseHitObject hitObject in objectTuple.ListBaseHitObject)
+                    {
+                        list.Add(hitObject);
+                    }
                 }
             }
            

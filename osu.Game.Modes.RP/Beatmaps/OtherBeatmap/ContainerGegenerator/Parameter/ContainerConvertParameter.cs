@@ -1,4 +1,7 @@
-﻿namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Parameter
+﻿using System.Collections.Generic;
+using osu.Game.Modes.RP.Objects;
+
+namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Parameter
 {
 	public class containerConvertParameter
     {
@@ -16,5 +19,10 @@
         /// enable multiObject or not
         /// </summary>
         public bool MultiObjectMode = false;
+
+        /// <summary>
+        /// all of the container class
+        /// </summary>
+        public List<ObjectContainer> ListObjectContainer = new List<ObjectContainer>();
     }
 }

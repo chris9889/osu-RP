@@ -1,4 +1,4 @@
-﻿namespace osu.Game.Modes.RP.Objects.Drawables.Calculator
+﻿namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.PathPrecentage
 {
     /// <summary>
     /// 用來計算目前在曲線裡面的百分比

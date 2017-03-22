@@ -68,6 +68,8 @@
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
     <Compile Include="ModsElement\AutoReplay\RPAutoReplay.cs" />
     <Compile Include="Objects\Drawables\Component\Container\IChangeableContainerComponent.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\Common\ShapePiece\HitObjectRectanglePiece.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\Common\ShapePiece\BaseHitObjectShapePiece.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\ApproachCircle\BaseMoveApproachCircle.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\Flow\BaseMoveFlow.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\Flow\ClickMoveFlow.cs" />
@@ -106,7 +108,7 @@
     <Compile Include="Objects\Drawables\DrawableContainer.cs" />
     <Compile Include="Objects\Drawables\DrawableMultiBaseHitObject.cs" />
     <Compile Include="Objects\Drawables\Component\Common\ISliderProgress.cs" />
-    <Compile Include="Objects\Drawables\Calculator\PathPrecentageCounter.cs" />
+    <Compile Include="Objects\Drawables\Calculator\PathPrecentage\PathPrecentageCounter.cs" />
     <Compile Include="Objects\Drawables\HitEffectTemplate\BaseHitEffectTemplate.cs" />
     <Compile Include="Objects\Drawables\HitEffectTemplate\CoolHitEffectTemplate.cs" />
     <Compile Include="Objects\Drawables\HitEffectTemplate\FineHitEffectTemplate.cs" />
@@ -140,9 +142,9 @@
     <Compile Include="Beatmaps\OsuBeatmap\Parameter\ScanParameter.cs" />
     <Compile Include="RpRuleset.cs" />
     <Compile Include="KeyManager\RpKeyManager.cs" />
-    <Compile Include="Objects\Drawables\Component\HitObject\Common\DetectPress.cs" />
+    <Compile Include="Objects\Drawables\Calculator\DrawableDetectPress\DetectPress.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\BaseMovePicec.cs" />
-    <Compile Include="Objects\Drawables\Component\HitObject\Common\HitObjectShapePieces.cs" />
+    <Compile Include="Objects\Drawables\Component\HitObject\Common\ShapePiece\HitObjectAnyShapePiece.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\BaseStillPiece.cs" />
     <Compile Include="Objects\Drawables\DrawableHold.cs" />
     <Compile Include="Objects\Drawables\DrawableRpLongPress.cs" />
@@ -225,7 +227,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RandomShape\" />
-    <Folder Include="Objects\Drawables\Calculator\PathPrecentage\" />
     <Folder Include="Samples\Gameplay\RP\" />
     <Folder Include="Textures\Play\RP\Number\ComboCounter\" />
     <Folder Include="Textures\Play\RP\Number\Combo\" />
@@ -289,10 +290,10 @@
     <EmbeddedResource Include="Textures\Play\RP\HitEffect\Slider\Slide_effect.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Circle.png" />
+    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Right.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Cross.png" />
+    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Down.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Textures\Play\RP\KeyCounter\LeftSlide.png" />
@@ -301,10 +302,10 @@
     <EmbeddedResource Include="Textures\Play\RP\KeyCounter\RightSlide.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Square.png" />
+    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Left.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Triangle.png" />
+    <EmbeddedResource Include="Textures\Play\RP\KeyCounter\Up.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Textures\Play\RP\LoadEffect\Load.png" />

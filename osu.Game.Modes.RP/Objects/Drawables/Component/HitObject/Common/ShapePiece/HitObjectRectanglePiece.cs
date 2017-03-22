@@ -4,13 +4,13 @@ using osu.Game.Modes.RP.SkinManager;
 using OpenTK;
 using OpenTK.Graphics;
 
-namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
+namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common.ShapePiece
 {
     /// <summary>
     /// 顯示結束物件
     /// 目前包含物體 : 結束的空物件
     /// </summary>
-    class EndPieces : BaseComponent
+    class HitObjectRectanglePiece : BaseHitObjectShapePiece
     {
         public bool IsFirst = true;
 
@@ -33,7 +33,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
         /// <summary>
         /// 建構
         /// </summary>
-        public EndPieces(BaseRpObject h)
+        public HitObjectRectanglePiece(BaseRpObject h)
         {
             HitObject = h;
 

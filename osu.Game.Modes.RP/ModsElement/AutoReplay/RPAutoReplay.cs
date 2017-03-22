@@ -178,7 +178,8 @@ namespace osu.Game.Modes.RP.ModsElement.AutoReplay
                         LegacyReplayFrame lastFrame = Frames[Frames.Count - 1];
 
                         // Wait until Auto could "see and react" to the next note.
-                        double waitTime = h.StartTime - Math.Max(0.0, DrawableOsuHitObject.TIME_PREEMPT - reactionTime);
+                        //double waitTime = h.StartTime - Math.Max(0.0, DrawableRHitObject.TIME_PREEMPT - reactionTime);
+                        double waitTime = h.StartTime - Math.Max(0.0, 0);
                         if (waitTime > lastFrame.Time)
                         {
                             lastFrame = new LegacyReplayFrame(waitTime, lastFrame.MouseX, lastFrame.MouseY, lastFrame.ButtonState);

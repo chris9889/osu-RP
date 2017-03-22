@@ -25,7 +25,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator
                 //preAnaylse
                 single.HitObjectConvertParameter = PreAnalyseHitObject.Analyse(single);
                 //single multi, it will generator real ob object
-                single.ListBaseHitObject = HitObjectGenerator.GeneratorListHitObject(single);
+                single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter = HitObjectGenerator.GeneratorListHitObject(single);
                 //type generator
                 TypeCalculator.ProcessType(single);
                 //position genertator : will decide which container and layout whould allocate

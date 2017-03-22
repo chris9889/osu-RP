@@ -13,10 +13,10 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Container
 
         public void AllocatePosition(ComvertParameter single)
         {
-            LinePositionDefinition.SetContainerNumber(single.ListObjectContainer.Count);
-            for (int i = 0; i < single.ListObjectContainer.Count; i++)
+            LinePositionDefinition.SetContainerNumber(single.ContainerConvertParameter.ListObjectContainer.Count);
+            for (int i = 0; i < single.ContainerConvertParameter.ListObjectContainer.Count; i++)
             {
-                single.ListObjectContainer[i].Position = LinePositionDefinition.GetPosition(i);
+                single.ContainerConvertParameter.ListObjectContainer[i].Position = LinePositionDefinition.GetPosition(i);
             }
         }
     }

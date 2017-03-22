@@ -3,6 +3,7 @@
 
 using osu.Game.Modes.RP.Objects.type;
 using OpenTK;
+using OpenTK.Graphics;
 
 namespace osu.Game.Modes.RP.SkinManager
 {
@@ -15,22 +16,22 @@ namespace osu.Game.Modes.RP.SkinManager
         /// 按鈕顏色
         /// </summary>
         /// <returns></returns>
-        public static Vector4 GetKeyLayoutButtonShage(RpBaseHitObjectType.Shape type)
+        public static Color4 GetKeyLayoutButtonShage(RpBaseHitObjectType.Shape type)
         {
             switch (type)
             {
                 case RpBaseHitObjectType.Shape.Right:
-                    return new Vector4(255, 255, 255, 255);
+                    return new Color4(226, 66, 54, 255);
                 case RpBaseHitObjectType.Shape.Down:
-                    return new Vector4(255, 255, 255, 255);
+                    return new Color4(54, 99, 226, 255);
                 case RpBaseHitObjectType.Shape.Left:
-                    return new Vector4(255, 255, 255, 255);
+                    return new Color4(226, 54, 177,255);
                 case RpBaseHitObjectType.Shape.Up:
-                    return new Vector4(255, 255, 255, 255);
+                    return new Color4(131, 226, 54, 255);
                 case RpBaseHitObjectType.Shape.ContainerPress:
-                    return new Vector4(255, 255, 255, 255);
+                    return new Color4(169, 188, 185, 255);
             }
-            return new Vector4(255, 255, 255, 255);
+            return new Color4(255, 255, 255, 255);
         }
     }
 }

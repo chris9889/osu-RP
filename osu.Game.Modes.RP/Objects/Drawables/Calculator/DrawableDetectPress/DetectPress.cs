@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using osu.Framework.Input;
 using osu.Game.Modes.Judgements;
-using osu.Game.Modes.Objects.Drawables;
 using OpenTK.Input;
 
-namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
+namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress
 {
     /// <summary>
     /// 用來偵測有沒有按下去，還有放開

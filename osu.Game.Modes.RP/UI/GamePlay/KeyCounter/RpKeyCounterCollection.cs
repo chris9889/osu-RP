@@ -1,12 +1,6 @@
-﻿using OpenTK.Input;
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
-using osu.Game.Graphics.UserInterface;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using osu.Game.Screens.Play;
 using static osu.Game.Modes.RP.Saving.RpKeyLayoutConfig;
 using static osu.Game.Modes.RP.UI.GamePlay.KeyCounter.RpKeyCounterKeyboard;

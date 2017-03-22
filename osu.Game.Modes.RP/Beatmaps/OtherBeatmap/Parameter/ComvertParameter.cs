@@ -32,16 +32,6 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter
         /// Container 會用到的臨時參數
         /// </summary>
         public containerConvertParameter ContainerConvertParameter = new containerConvertParameter();
-
-        /// <summary>
-        /// all of the container class
-        /// </summary>
-        public List<ObjectContainer> ListObjectContainer = new List<ObjectContainer>();
-
-        /// <summary>
-        /// all of the the hitObject in this moment
-        /// </summary>
-        public List<List<BaseHitObject>> ListBaseHitObject = new List<List<BaseHitObject>>();
         
     }
 }

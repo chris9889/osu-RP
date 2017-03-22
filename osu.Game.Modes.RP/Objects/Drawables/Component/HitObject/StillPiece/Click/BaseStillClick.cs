@@ -1,5 +1,6 @@
 ﻿using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
+using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common.ShapePiece;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.StillPiece.Click
@@ -9,14 +10,14 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.StillPiece.Cli
         /// <summary>
         /// 開頭和結尾物件
         /// </summary>
-        private EndPieces _endPiecesFirstObject;
+        private HitObjectAnyShapePiece hitObjectAnyShapePieceFirstObjectAny;
 
         public BaseStillClick(BaseHitObject baseHitObject) : base(baseHitObject)
         {
             Children = new Drawable[]
            {
                 //開頭物件
-                _endPiecesFirstObject = new EndPieces(baseHitObject as BaseHitObject)//false
+                hitObjectAnyShapePieceFirstObjectAny = new HitObjectAnyShapePiece(baseHitObject as BaseHitObject)//false
                 {
                     Position = new Vector2(0, 0),
                     //Scale = new Vector2(_hitObject.Scale),
@@ -30,7 +31,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.StillPiece.Cli
         /// </summary>
         public override void Initial()
         {
-            _endPiecesFirstObject.Alpha = 1;
+            hitObjectAnyShapePieceFirstObjectAny.Alpha = 1;
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.StillPiece.Cli
         /// </summary>
         public override void FadeIn(double time = 0)
         {
-            _endPiecesFirstObject.FadeIn(time);
+            hitObjectAnyShapePieceFirstObjectAny.FadeIn(time);
         }
 
         /// <summary>
@@ -46,7 +47,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.StillPiece.Cli
         /// </summary>
         public override void FadeOut(double time = 0)
         {
-            _endPiecesFirstObject.FadeOut(time);
+            hitObjectAnyShapePieceFirstObjectAny.FadeOut(time);
         }
     }
 }

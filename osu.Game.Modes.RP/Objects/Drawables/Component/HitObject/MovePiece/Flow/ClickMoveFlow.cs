@@ -4,6 +4,7 @@
 using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
+using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common.ShapePiece;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
@@ -14,14 +15,14 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         /// <summary>
         /// 開頭和結尾物件
         /// </summary>
-        private EndPieces _endPiecesFirstObject;
+        private HitObjectAnyShapePiece hitObjectAnyShapePieceFirstObjectAny;
 
         public ClickMoveFlow(BaseHitObject baseHitObject) : base(baseHitObject)
         {
             Children = new Drawable[]
            {
                 //開頭物件
-                _endPiecesFirstObject = new EndPieces(BaseHitObject as BaseHitObject)//false
+                hitObjectAnyShapePieceFirstObjectAny = new HitObjectAnyShapePiece(BaseHitObject as BaseHitObject)//false
                 {
                     Position = new Vector2(0, 0),
                     //Scale = new Vector2(_hitObject.Scale),
@@ -36,7 +37,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         /// </summary>
         public override void Initial()
         {
-            _endPiecesFirstObject.Alpha = 1;
+            hitObjectAnyShapePieceFirstObjectAny.Alpha = 1;
         }
 
         /// <summary>
@@ -44,7 +45,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         /// </summary>
         public override void FadeIn(double time = 0)
         {
-            _endPiecesFirstObject.FadeIn(time);
+            hitObjectAnyShapePieceFirstObjectAny.FadeIn(time);
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         /// </summary>
         public override void FadeOut(double time = 0)
         {
-            _endPiecesFirstObject.FadeOut(time);
+            hitObjectAnyShapePieceFirstObjectAny.FadeOut(time);
         }
 
 
@@ -63,7 +64,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         /// <param name="endProgress"></param>
         public new void UpdateProgress(double startProgress = 0, double endProgress = 1)
         {
-            _endPiecesFirstObject.Position = BaseHitObject.Curve.PositionAt(startProgress) - BaseHitObject.Position;
+            hitObjectAnyShapePieceFirstObjectAny.Position = BaseHitObject.Curve.PositionAt(startProgress) - BaseHitObject.Position;
         }
     }
 }

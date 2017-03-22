@@ -11,11 +11,23 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PreAnalys
     /// </summary>
     public class AnaylseCombo
     {
+        private const double DELTA_COMBO_TIME = 150;
+
+        private double _lastHitObjectTime = 0;
 
         public bool IsCombo(ComvertParameter single, int i)
         {
-            return false;
-            throw new NotImplementedException();
+            bool result = false;
+            if (single.ListRefrenceObject[i].StartTime - _lastHitObjectTime < DELTA_COMBO_TIME)
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            _lastHitObjectTime = single.ListRefrenceObject[i].StartTime;
+            return result;
         }
     }
 }
