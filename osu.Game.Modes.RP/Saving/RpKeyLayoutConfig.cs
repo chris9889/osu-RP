@@ -34,6 +34,7 @@ namespace osu.Game.Modes.RP.Saving
             if (ListKayConfig == null)
             {
                 ListKayConfig = new List<SingleRpKeyLayoutConfig>();
+                //ListKayConfig.Add(CreateDefault10K());
                 ListKayConfig.Add(CreateDefault10K());
                 _defauleIndex =0;
             }
@@ -58,7 +59,7 @@ namespace osu.Game.Modes.RP.Saving
                 //如果目前裡面是空的
                 if (ListKayConfig.Count == 0)
                 {
-                    ListKayConfig.Add(CreateDefault10K());
+                    ListKayConfig.Add(CreateDefault6K());//(CreateDefault10K());
                     _defauleIndex = 0;
                 }
                 //索引>陣列
@@ -76,7 +77,8 @@ namespace osu.Game.Modes.RP.Saving
                 //如果目前沒有設定
                 if (ListKayConfig.Count == 0)
                 {
-                    ListKayConfig.Add(CreateDefault10K());
+                    //ListKayConfig.Add(CreateDefault10K());
+                    ListKayConfig.Add(CreateDefault6K());
                     _defauleIndex = 0;
                 }
 

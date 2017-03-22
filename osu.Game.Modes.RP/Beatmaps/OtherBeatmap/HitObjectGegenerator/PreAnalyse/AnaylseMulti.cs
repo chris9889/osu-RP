@@ -10,8 +10,23 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PreAnalys
     {
         public int GetMultiNumber(ComvertParameter single, int i)
         {
+            if (single.ContainerConvertParameter.LayoutNumber > 1)
+            {
+                //return single.ContainerConvertParameter.LayoutNumber;
+                return CalRandomNumber(single, i) % single.ContainerConvertParameter.LayoutNumber;
+            }
             return 1;
-            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 產生亂數
+        /// </summary>
+        /// <param name="single"></param>
+        /// <param name="i"></param>
+        /// <returns></returns>
+        int CalRandomNumber(ComvertParameter single, int i)
+        {
+            return single.ListRefrenceObject.Count + (int)single.ListRefrenceObject[i].StartTime;
         }
     }
 }

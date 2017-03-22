@@ -32,6 +32,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter
         /// Container 會用到的臨時參數
         /// </summary>
         public containerConvertParameter ContainerConvertParameter = new containerConvertParameter();
-        
+
+        public double Difficulty ;
     }
 }

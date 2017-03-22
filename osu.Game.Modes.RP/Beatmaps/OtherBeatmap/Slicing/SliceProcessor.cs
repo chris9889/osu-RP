@@ -9,6 +9,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
 {
     public class SliceProcessor
     {
+        private double _diffStar = 0;
 
         private Beatmap _originalBeatmap;
 
@@ -25,6 +26,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
         {
             List<ComvertParameter> list=new List<ComvertParameter>();
             _originalBeatmap = originalBeatmap;
+            //Get The Diff of beatmap;
+            _diffStar = _originalBeatmap.CalculateStarDifficulty();
+
             _timeSlicingCalculator.SetBeatmap(_originalBeatmap);
 
             int nowSlidingIndex = 0;
@@ -55,6 +59,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
 
             //Get Physical Refrence Object
             single.ListRefrenceObject = _originalBeatmap.HitObjects.GetRange(startIndex, endIndex- startIndex);
+
+            //難度
+            single.Difficulty = _diffStar;
 
             //Generate Parameter
             single.SliceConvertParameter = GetSliceConvertParameterResult(single);

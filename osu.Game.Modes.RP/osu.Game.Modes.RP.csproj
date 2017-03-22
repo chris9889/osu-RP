@@ -61,6 +61,8 @@
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Position\PositionGenerator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\PreAnalyse\AnaylseMulti.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\PreAnalyse\PreAnalyseHitObject.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Type\ProcessComboObject.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Type\ProcessObjectTypeRandom.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Type\TypeCalculator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\PostConvert\PostConvertor.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\Slicing\TimeSliceCalculator\TimeSlicingCalculator.cs" />

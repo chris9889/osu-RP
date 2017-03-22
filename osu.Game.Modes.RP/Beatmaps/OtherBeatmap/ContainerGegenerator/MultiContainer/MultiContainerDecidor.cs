@@ -8,11 +8,38 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.MultiCont
 {
     public class MultiContainerDecidor
     {
+
+
         public containerConvertParameter GetParameter(ComvertParameter parameter)
         {
             containerConvertParameter output=new containerConvertParameter();
-
+            output.ContainerNumber = ContainerNumber(parameter);
+            output.LayoutNumber = LayoutNumber(output,parameter);
             return output;
+        }
+
+        int ContainerNumber(ComvertParameter parameter)
+        {
+            int refHitObjectNum = parameter.ListRefrenceObject.Count;
+            int reruenContainerNumber = 1;
+            //如果裡面物件越少，Container越多
+            if (refHitObjectNum / 2  < parameter.Difficulty )
+            {
+                reruenContainerNumber = 2;
+            }
+            else if (refHitObjectNum  < parameter.Difficulty)
+            {
+                reruenContainerNumber = 3;
+            }
+
+            return reruenContainerNumber;
+        }
+
+        int LayoutNumber(containerConvertParameter output,ComvertParameter parameter)
+        {
+            int containerNumber = output.ContainerNumber;
+
+            return containerNumber;
         }
     }
 }

@@ -19,6 +19,5 @@
         /// BPM
         /// </summary>
         internal double BPM=180;
-
     }
 }
