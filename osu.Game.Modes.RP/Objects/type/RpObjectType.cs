@@ -91,11 +91,11 @@ namespace osu.Game.Modes.RP.Objects.type
         [Flags]
         public enum Shape
         {
-            Triangle = 1, //三角(對應上下左右的定義)
-            Cross = 2, //叉叉
-            Square = 4, //方
-            Circle = 8, //圈圈
-            Special = 16, // Triangle| Cross| Square| Circle, //特殊，隨便按一個鍵都OK
+            Up = 1, //三角(對應上下左右的定義)
+            Down = 2, //叉叉
+            Left = 4, //方
+            Right = 8, //圈圈
+            Special = 16, // Up| Down| Left| Right, //特殊，隨便按一個鍵都OK
             ContainerPress=32,
         }
 

@@ -44,14 +44,14 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
         /// </summary>
         void InitialBeat()
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 6; i++)
             {
                 //物件
                 Pieces.ImagePicec line = new Pieces.ImagePicec(SkinManager.RPSkinManager.GetBeatLineTexture());
                 //
                 line.Scale = new Vector2(0.6f);
                 //設定位置
-                line.Position = CalculatePosition(HitObject.StartTime + i * GetDeltaBeatTime());
+                line.Position = CalculatePosition(i * GetDeltaBeatTime());
                 //加入
                 _containerBeatDecisionLineComponent.Add(line);
             }

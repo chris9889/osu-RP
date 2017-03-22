@@ -79,6 +79,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
             double lastHitObjectDuration = 0;
             SliceConvertParameter.EndTime = result.ListRefrenceObject[endIndex].StartTime + lastHitObjectDuration;
 
+            //BPM
+            SliceConvertParameter.BPM = _originalBeatmap.TimingInfo.BPMAt(SliceConvertParameter.StartTime);
+
             return  SliceConvertParameter;
         }
 

@@ -18,7 +18,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
             {
                 for (int i = 0; i < singleTuple.Count; i++)
                 {
-                    singleTuple[i].Shape= RpBaseHitObjectType.Shape.Circle;
+                    singleTuple[i].Shape= RpBaseHitObjectType.Shape.Right;
                 }
             }
         }

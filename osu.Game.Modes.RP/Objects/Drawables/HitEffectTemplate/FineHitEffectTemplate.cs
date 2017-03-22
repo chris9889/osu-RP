@@ -35,7 +35,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
         {
             Children = new Drawable[]
             {
-                _crossPicec = new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult,"Cross"))
+                _crossPicec = new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult,"Down"))
                 {
                     //Colour = osuObject.Colour,
                     Position=new Vector2(0,0),

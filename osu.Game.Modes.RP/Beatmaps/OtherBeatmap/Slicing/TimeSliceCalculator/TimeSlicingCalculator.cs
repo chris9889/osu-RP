@@ -12,7 +12,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.TimeSliceCalculator
 
         private double minSliceTime = 1000;
 
-        public double maxSliceTime = 2000;
+        private double maxSliceTime = 2000;
 
         public void SetBeatmap(Beatmap beatmap)
         {

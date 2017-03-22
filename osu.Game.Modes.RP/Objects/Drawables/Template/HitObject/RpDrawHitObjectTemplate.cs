@@ -17,7 +17,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.HitObject
     /// <summary>
     /// 所以打擊物件
     /// 這邊會共同繼承 : 
-    /// Approach Circle
+    /// Approach Right
     /// DrawLine (定點和飄移物件)
     /// </summary>
     class RpDrawHitObjectTemplate : RpDrawBaseObjectTemplate

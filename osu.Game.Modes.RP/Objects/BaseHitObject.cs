@@ -82,7 +82,7 @@ namespace osu.Game.Modes.RP.Objects
         /// <summary>
         /// 設定類型
         /// </summary>
-        public RpBaseHitObjectType.Shape Shape = RpBaseHitObjectType.Shape.Circle;
+        public RpBaseHitObjectType.Shape Shape = RpBaseHitObjectType.Shape.Right;
 
         /// <summary>
         /// 設定類型

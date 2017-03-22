@@ -42,6 +42,6 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter
         /// all of the the hitObject in this moment
         /// </summary>
         public List<List<BaseHitObject>> ListBaseHitObject = new List<List<BaseHitObject>>();
-
+        
     }
 }

@@ -138,14 +138,14 @@ namespace osu.Game.Modes.RP.Saving
             RpBaseHitObjectType.LeftRight left = RpBaseHitObjectType.LeftRight.LeftOnly;
             RpBaseHitObjectType.LeftRight right = RpBaseHitObjectType.LeftRight.RightOnly;
             config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, left, Key.Unknown ,KeyName10K.LeftSlide));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Triangle, left, Key.Unknown, KeyName10K.LeftTriangle));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Cross, left, Key.Unknown, KeyName10K.LeftCross));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Square, left, Key.Unknown, KeyName10K.LeftRectangle));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Circle, left, Key.Unknown, KeyName10K.LeftCircle));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Triangle, right, Key.Unknown, KeyName10K.RightTriangle));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Cross, right, Key.Unknown, KeyName10K.RightCross));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Square, right, Key.Unknown, KeyName10K.RightRectangle));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Circle, right, Key.Unknown, KeyName10K.RightCircle));
+            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Up, left, Key.Unknown, KeyName10K.LeftTriangle));
+            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Down, left, Key.Unknown, KeyName10K.LeftCross));
+            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Left, left, Key.Unknown, KeyName10K.LeftRectangle));
+            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Right, left, Key.Unknown, KeyName10K.LeftCircle));
+            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Up, right, Key.Unknown, KeyName10K.RightTriangle));
+            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Down, right, Key.Unknown, KeyName10K.RightCross));
+            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Left, right, Key.Unknown, KeyName10K.RightRectangle));
+            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Right, right, Key.Unknown, KeyName10K.RightCircle));
             config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, right, Key.Unknown, KeyName10K.RightSlide));
             return config10K;
         }
@@ -158,10 +158,10 @@ namespace osu.Game.Modes.RP.Saving
             SingleRpKeyLayoutConfig6K config6K = new SingleRpKeyLayoutConfig6K();
             RpBaseHitObjectType.LeftRight both = RpBaseHitObjectType.LeftRight.Both;
             config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, both, Key.Unknown, KeyName6K.LeftSlide));
-            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Triangle, both, Key.Unknown, KeyName6K.Triangle));
-            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Square, both, Key.Unknown, KeyName6K.Square));
-            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Cross, both, Key.Unknown, KeyName6K.Cross));
-            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Circle, both, Key.Unknown, KeyName6K.Circle));
+            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Up, both, Key.Unknown, KeyName6K.Triangle));
+            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Left, both, Key.Unknown, KeyName6K.Square));
+            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Down, both, Key.Unknown, KeyName6K.Cross));
+            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Right, both, Key.Unknown, KeyName6K.Circle));
             config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, both, Key.Unknown, KeyName6K.RightSlide));
             return config6K;
         }

@@ -16,11 +16,9 @@
         public double EndTime;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.Parameter.SliceConvertParameter"/> class.
+        /// BPM
         /// </summary>
-		public SliceConvertParameter()
-        {
-            
-        }
+        internal double BPM=180;
+
     }
 }

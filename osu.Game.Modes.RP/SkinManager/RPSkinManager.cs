@@ -54,28 +54,6 @@ namespace osu.Game.Modes.RP.SkinManager
         }
 
         /// <summary>
-        /// 按鈕顏色
-        /// </summary>
-        /// <returns></returns>
-        public static Vector4 GetKeyLayoutButtonShage(RpBaseHitObjectType.Shape Type)
-        {
-            switch (Type)
-            {
-                case RpBaseHitObjectType.Shape.Circle:
-                    return new Vector4(255, 255, 255, 255);
-                case RpBaseHitObjectType.Shape.Cross:
-                    return new Vector4(255, 255, 255, 255);
-                case RpBaseHitObjectType.Shape.Square:
-                    return new Vector4(255, 255, 255, 255);
-                case RpBaseHitObjectType.Shape.Triangle:
-                    return new Vector4(255, 255, 255, 255);
-                case RpBaseHitObjectType.Shape.ContainerPress:
-                    return new Vector4(255, 255, 255, 255);
-            }
-            return new Vector4(255, 255, 255, 255);
-        }
-
-        /// <summary>
         /// RP物件聲音
         /// </summary>
         /// <param name="baseHitObject"></param>
@@ -244,16 +222,16 @@ namespace osu.Game.Modes.RP.SkinManager
             string fileName = null;
             switch (baseHitObject.Shape)
             {
-                case RpBaseHitObjectType.Shape.Triangle:
+                case RpBaseHitObjectType.Shape.Up:
                     fileName = @"Up";
                     break;
-                case RpBaseHitObjectType.Shape.Cross:
+                case RpBaseHitObjectType.Shape.Down:
                     fileName = @"Down";
                     break;
-                case RpBaseHitObjectType.Shape.Square:
+                case RpBaseHitObjectType.Shape.Left:
                     fileName = @"Left";
                     break;
-                case RpBaseHitObjectType.Shape.Circle:
+                case RpBaseHitObjectType.Shape.Right:
                     fileName = @"Right";
                     break;
                 case RpBaseHitObjectType.Shape.Special:

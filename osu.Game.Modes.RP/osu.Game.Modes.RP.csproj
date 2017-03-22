@@ -54,6 +54,10 @@
     <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Special\RpSpecialGenerator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\MultiContainer\MultiContainerDecidor.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Generator\HitObjectGenerator.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\ObjectMovingPath\EndPosition\EndPositionGenerator.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\ObjectMovingPath\ObjectMovingPathGenerator.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\ObjectMovingPath\PathPosition\RpPathGenerator.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\ObjectMovingPath\StartPosition\StartPositionGenerator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Position\PositionGenerator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\PreAnalyse\AnaylseMulti.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\PreAnalyse\PreAnalyseHitObject.cs" />
@@ -95,6 +99,7 @@
     <Compile Include="KeyManager\RpKeyConversionInputManager.cs" />
     <Compile Include="Objects\Drawables\Template\HitObject\Slide\EditableSlideTemplate.cs" />
     <Compile Include="ScoreProcessor\RPJudgementInfo.cs" />
+    <Compile Include="SkinManager\SkinColorManager.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\ConnectionRenderer.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\FollowPoint.cs" />
     <Compile Include="Objects\Drawables\DrawableBaseRpObject.cs" />

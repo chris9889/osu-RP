@@ -60,11 +60,6 @@ namespace osu.Game.Modes.RP.Objects
         public bool UpdateBPMByBeatmapTime = true;
 
         /// <summary>
-        /// 譜，用來取得目前BPM
-        /// </summary>
-        protected Beatmap _beatmap;
-
-        /// <summary>
         /// 建立預設的Container
         /// </summary>
         /// <param name="startTime"></param>

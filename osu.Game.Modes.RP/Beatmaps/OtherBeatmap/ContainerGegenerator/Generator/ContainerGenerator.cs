@@ -44,6 +44,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Generator
             ObjectContainer objectContainer = new ObjectContainer(single.SliceConvertParameter.StartTime);
             objectContainer.StartTime = single.SliceConvertParameter.StartTime;
             objectContainer.ContainerEndTime = single.SliceConvertParameter.EndTime;
+            objectContainer.BPM = single.SliceConvertParameter.BPM;
             return objectContainer;
         }
 
