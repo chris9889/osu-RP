@@ -15,9 +15,12 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
         //上一組形狀
         private List<RpBaseHitObjectType.Shape> listLastAssignShageShapes = new List<RpBaseHitObjectType.Shape>();
 
+        //單一一段的物件
+        private ComvertParameter _singleSlideParameter;
 
         public void ProcessType(ComvertParameter single)
         {
+            _singleSlideParameter = single;
             int tupleCount = single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter.Count;
             for (int i = 0; i < tupleCount; i++)
             {
@@ -62,9 +65,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
                 case 0:
                     return RpBaseHitObjectType.Shape.Up;
                 case 1:
-                    return RpBaseHitObjectType.Shape.Down;
-                case 2:
                     return RpBaseHitObjectType.Shape.Left;
+                case 2:
+                    return RpBaseHitObjectType.Shape.Down;
                 case 3:
                     return RpBaseHitObjectType.Shape.Right;
             }
@@ -77,7 +80,25 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
         /// <returns></returns>
         int CalRandNumber(SingleHitObjectConvertParameter singleTuple)
         {
-            return singleTuple.MultiNumber+(int)singleTuple.StartTime+singleTuple.ListBaseHitObject.Count;
+            return singleTuple.MultiNumber + (int)singleTuple.StartTime + singleTuple.ListBaseHitObject.Count;
+
+            //BPM，為了避免BPM 200 的譜特別簡單
+            int periodTime = (int)((double)60/ (double)(int)_singleSlideParameter.SliceConvertParameter.BPM)*1000;
+            //
+            return singleTuple.MultiNumber+((int)singleTuple.StartTime % periodTime) + singleTuple.ListBaseHitObject.Count;
         }
+
+        /// <summary>
+        /// 產生隨機參數
+        /// 目前先保存下來
+        /// </summary>
+        /// <returns></returns>
+        int OLD_CalRandNumber(SingleHitObjectConvertParameter singleTuple)
+        {
+            return singleTuple.MultiNumber + (int)singleTuple.StartTime + singleTuple.ListBaseHitObject.Count;
+        }
+
+
+        
     }
 }
