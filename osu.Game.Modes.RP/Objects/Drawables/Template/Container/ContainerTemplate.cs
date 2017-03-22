@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using OpenTK;
 using osu.Game.Modes.RP.Objects.Drawables.Calculator;
 using osu.Framework.Graphics.Transforms;
+using osu.Game.Modes.RP.Objects.Drawables.Calculator.Height;
+using osu.Game.Modes.RP.Objects.Drawables.Calculator.Position;
 using osu.Game.Modes.RP.Objects.Drawables.Component.Container;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
@@ -206,7 +208,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
         /// <returns></returns>
         public Vector2 CalculatePosition(double time)
         {
-            return new Vector2((float)_positionCounter.GetPointerPosition(time), 0);
+            return new Vector2((float)_positionCounter.GetPosition(time), 0);
         }
 
         /// <summary>

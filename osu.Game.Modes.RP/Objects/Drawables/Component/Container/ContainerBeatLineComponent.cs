@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using osu.Game.Modes.RP.Objects.Drawables.Calculator;
+using osu.Game.Modes.RP.Objects.Drawables.Calculator.Height;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container

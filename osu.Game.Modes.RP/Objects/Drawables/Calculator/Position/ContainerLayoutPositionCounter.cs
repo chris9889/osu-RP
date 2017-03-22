@@ -1,4 +1,6 @@
-﻿namespace osu.Game.Modes.RP.Objects.Drawables.Calculator
+﻿using OpenTK;
+
+namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.Position
 {
     /// <summary>
     /// 用來計算物件位置(時間點)
@@ -25,13 +27,22 @@
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
-        public float GetPointerPosition(double time)
+        public float GetPosition(double time)
         {
             float positionX = ((float)time / 1000) * Speed * MULTIPLE;
             positionX = positionX % Width;
             //inverse
             //position_x = -position_x + screenWidth + 10;
             return positionX;
+        }
+
+        /// <summary>
+        /// 根據縮放比例和傾斜角度修改位置
+        /// </summary>
+        /// <returns></returns>
+        public Vector2 GetfixedPosition(double time,float rotation,float scale)
+        {
+            return new Vector2();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Front
         /// </summary>
         protected override void Update()
         {
-            //_decisionLine.Position = PositionManager.GetPointerPosition(Time.Current)-new OpenTK.Vector2(400,300);
+            //_decisionLine.Position = PositionManager.GetPosition(Time.Current)-new OpenTK.Vector2(400,300);
         }
     }
 }

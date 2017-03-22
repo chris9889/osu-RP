@@ -52,6 +52,14 @@
     <Compile Include="Beatmaps\OsuBeatmap\Convertor\Syntax\Beat\CalRpBeat.cs" />
     <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RuleTable\RpShapeAppearRuleTable.cs" />
     <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Special\RpSpecialGenerator.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\MultiContainer\MultiContainerDecidor.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Generator\HitObjectGenerator.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Position\PositionGenerator.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\PreAnalyse\AnaylseMulti.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\PreAnalyse\PreAnalyseHitObject.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Type\TypeCalculator.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\PostConvert\PostConvertor.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\Slicing\TimeSliceCalculator\TimeSlicingCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
     <Compile Include="ModsElement\AutoReplay\RPAutoReplay.cs" />
@@ -72,7 +80,7 @@
     <Compile Include="Objects\Drawables\Template\HitObject\RpDrawHitObjectTemplate.cs" />
     <Compile Include="Mods\RpMod.cs" />
     <Compile Include="Objects\BaseRpObject.cs" />
-    <Compile Include="Objects\Drawables\Calculator\ContainerLayoutHeightCalculator.cs" />
+    <Compile Include="Objects\Drawables\Calculator\Height\ContainerLayoutHeightCalculator.cs" />
     <Compile Include="Objects\Drawables\Component\BaseComponent.cs" />
     <Compile Include="Objects\Drawables\Component\Container\BaseContainerComponent.cs" />
     <Compile Include="Objects\Drawables\Component\Container\ContainerBackgroundComponent.cs" />
@@ -80,11 +88,10 @@
     <Compile Include="Objects\Drawables\Component\Container\ContainerDecisionLineComponent.cs" />
     <Compile Include="Objects\Drawables\Component\Container\ContainerLongPressDrawComponent.cs" />
     <Compile Include="Objects\Drawables\Component\Container\ContainerStartEndComponent.cs" />
-    <Compile Include="Objects\Drawables\Pieces\CircularProgressPiece.cs" />
     <Compile Include="Objects\Drawables\Pieces\RectanglePiece.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\Common\LoadEffect.cs" />
     <Compile Include="Objects\Drawables\Component\MultiLine\MultiLine.cs" />
-    <Compile Include="Objects\Drawables\Calculator\ContainerLayoutPositionCounter.cs" />
+    <Compile Include="Objects\Drawables\Calculator\Position\ContainerLayoutPositionCounter.cs" />
     <Compile Include="KeyManager\RpKeyConversionInputManager.cs" />
     <Compile Include="Objects\Drawables\Template\HitObject\Slide\EditableSlideTemplate.cs" />
     <Compile Include="ScoreProcessor\RPJudgementInfo.cs" />
@@ -134,7 +141,6 @@
     <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\BaseStillPiece.cs" />
     <Compile Include="Objects\Drawables\DrawableHold.cs" />
     <Compile Include="Objects\Drawables\DrawableRpLongPress.cs" />
-    <Compile Include="Objects\Grid\RpGird.cs" />
     <Compile Include="Objects\RpHold.cs" />
     <Compile Include="Objects\MovingPath\BezierApproximator.cs" />
     <Compile Include="Objects\MovingPath\CircularArcApproximator.cs" />
@@ -175,6 +181,20 @@
     <Compile Include="UI\GamePlay\ScoreOverlay\RpScoreOverlay.cs" />
     <Compile Include="UI\Select\BeatmapStatistics.cs" />
     <Compile Include="UI\Select\SelectMod.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\Parameter\ComvertParameter.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\Slicing\Parameter\SliceConvertParameter.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Parameter\HitObjectConvertParameter.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\Parameter\ContainerConvertParameter.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\ContainerProcessor.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\HitObjectProcessor.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\Slicing\SliceProcessor.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\BeatmapConvertor.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Parameter\SingleHitObjectConvertParameter.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\ContainerPosition\PositionDecidor.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\ContainerPosition\DodgeSameLine.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\ContainerPosition\LinePositionDefinition.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\PreAnalyse\AnaylseCombo.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\Generator\ContainerGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj">
@@ -200,7 +220,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RandomShape\" />
-    <Folder Include="Beatmaps\OtherBeatmap\" />
+    <Folder Include="Objects\Drawables\Calculator\PathPrecentage\" />
     <Folder Include="Samples\Gameplay\RP\" />
     <Folder Include="Textures\Play\RP\Number\ComboCounter\" />
     <Folder Include="Textures\Play\RP\Number\Combo\" />

@@ -7,7 +7,7 @@
     {
         BaseRpObject _baseHitObject;
 
-        public double SpeedMultiple = 2.7;
+        public double SpeedMultiple = 1.5f;
 
         public PathPrecentageCounter(BaseRpObject baseHitObject)
         {

@@ -4,6 +4,7 @@
 using osu.Game.Beatmaps;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap;
 using osu.Game.Modes.RP.Beatmaps.RPBeatmap;
 using osu.Game.Modes.RP.KeyManager;
 using osu.Game.Modes.RP.Objects;
@@ -24,11 +25,13 @@ namespace osu.Game.Modes.RP.UI.Beatmap
 
         public override Modes.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor(this);
 
+
         /// <summary>
         /// 從其他譜面轉過來
         /// </summary>
         /// <returns></returns>
-        protected override IBeatmapConverter<BaseRpObject> CreateBeatmapConverter() => new RpBeatmapConvertor();
+        protected override IBeatmapConverter<BaseRpObject> CreateBeatmapConverter() => new BeatmapConvertor();
+        //protected override IBeatmapConverter<BaseRpObject> CreateBeatmapConverter() => new RpBeatmapConvertor();
 
         /// <summary>
         /// RP 專用譜面

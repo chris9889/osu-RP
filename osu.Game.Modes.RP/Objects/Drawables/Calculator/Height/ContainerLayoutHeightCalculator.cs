@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace osu.Game.Modes.RP.Objects.Drawables.Calculator
+﻿namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.Height
 {
     /// <summary>
     /// 用來計算物件寬度，還有相對應該出現的位置等等

@@ -1,4 +1,5 @@
 ﻿using osu.Game.Modes.RP.Objects.Drawables.Calculator;
+using osu.Game.Modes.RP.Objects.Drawables.Calculator.Position;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
@@ -46,7 +47,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
         /// <returns></returns>
         protected Vector2 CalculatePosition(double time)
         {
-            return new Vector2((float)_positionCounter.GetPointerPosition(time), 0);
+            return new Vector2((float)_positionCounter.GetPosition(time), 0);
         }
 
         /// <summary>
