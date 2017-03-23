@@ -8,28 +8,29 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Container
     /// </summary>
     public class LinePositionDefinition
     {
-        DodgeSameLine DodgeSameLine = new DodgeSameLine();
-
-        private int _containerNumber;
-
-        public void SetContainerNumber(int number)
-        {
-            _containerNumber = number;
-        }
+        //目前總共有幾幾行
+        public int MaxContainerNumber;
 
         public LinePositionDefinition()
         {
-
+            ReCalMaxContainerNumber();
         }
 
-        //先用隨機代替
-        Random random = new Random();
-
-        internal Vector2 GetPosition(int index)
+        /// <summary>
+        /// 重新計算最大可以容納幾行
+        /// 
+        /// </summary>
+        public void ReCalMaxContainerNumber()
         {
+            MaxContainerNumber = 7;
+        }
+      
+        //先用隨機代替
             
-            float randomValue = (float)random.NextDouble() * 400 + 40;
-            return new Vector2(0, randomValue);
+
+        internal Vector2 GetPosition(int nowLineIndex)
+        {
+            return new Vector2(0, nowLineIndex * 400 / MaxContainerNumber +50);
         }
     }
 }

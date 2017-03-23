@@ -54,8 +54,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables
 
             //初始化
             InitialDetectPressEvent();
-            //預先取得那些按鍵按了會有作用
-            _rpDetectPress.SetListKey(RpKeyManager.GetListKey(HitObject));
             
 
             Children = new Drawable[]
@@ -73,7 +71,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables
                 Hit = () =>
                 {
                     //if (Judgement.Result.HasValue) return false;
-                    
                     OnKeyPressDown();
                     return true;
                 },
@@ -88,13 +85,13 @@ namespace osu.Game.Modes.RP.Objects.Drawables
 
         protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
         {
-            Debug.Print("Down");
+            Debug.Print("Down : "+ _rpDetectPress.PressDownDelayTime);
             return false;
         }
 
         protected override bool OnKeyUp(InputState state, KeyUpEventArgs args)
         {
-            Debug.Print("Up");
+            Debug.Print("Up : "+_rpDetectPress.PressUpDelayTime);
             return false;
         }
 

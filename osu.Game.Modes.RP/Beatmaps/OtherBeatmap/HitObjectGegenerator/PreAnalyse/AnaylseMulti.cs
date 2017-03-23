@@ -13,7 +13,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PreAnalys
             if (single.ContainerConvertParameter.LayoutNumber > 1)
             {
                 //return single.ContainerConvertParameter.LayoutNumber;
-                return CalRandomNumber(single, i) % single.ContainerConvertParameter.LayoutNumber;
+                return CalRandomNumber(single, i) % single.ContainerConvertParameter.LayoutNumber + 1;
             }
             return 1;
         }
