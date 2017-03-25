@@ -3,14 +3,16 @@
 
 using osu.Game.Beatmaps;
 using osu.Game.Modes.Objects.Drawables;
+using osu.Game.Modes.Scoring;
 using osu.Game.Modes.Taiko.Beatmaps;
 using osu.Game.Modes.Taiko.Judgements;
 using osu.Game.Modes.Taiko.Objects;
+using osu.Game.Modes.Taiko.Scoring;
 using osu.Game.Modes.UI;
 
 namespace osu.Game.Modes.Taiko.UI
 {
-    public class TaikoHitRenderer : HitRenderer<TaikoBaseHit, TaikoJudgementInfo>
+    public class TaikoHitRenderer : HitRenderer<TaikoHitObject, TaikoJudgement>
     {
         public TaikoHitRenderer(WorkingBeatmap beatmap)
             : base(beatmap)
@@ -19,12 +21,12 @@ namespace osu.Game.Modes.Taiko.UI
 
         public override ScoreProcessor CreateScoreProcessor() => new TaikoScoreProcessor(this);
 
-        protected override IBeatmapConverter<TaikoBaseHit> CreateBeatmapConverter() => new TaikoBeatmapConverter();
+        protected override IBeatmapConverter<TaikoHitObject> CreateBeatmapConverter() => new TaikoBeatmapConverter();
 
-        protected override IBeatmapProcessor<TaikoBaseHit> CreateBeatmapProcessor() => new TaikoBeatmapProcessor();
+        protected override IBeatmapProcessor<TaikoHitObject> CreateBeatmapProcessor() => new TaikoBeatmapProcessor();
 
-        protected override Playfield<TaikoBaseHit, TaikoJudgementInfo> CreatePlayfield() => new TaikoPlayfield();
+        protected override Playfield<TaikoHitObject, TaikoJudgement> CreatePlayfield() => new TaikoPlayfield();
 
-        protected override DrawableHitObject<TaikoBaseHit, TaikoJudgementInfo> GetVisualRepresentation(TaikoBaseHit h) => null;
+        protected override DrawableHitObject<TaikoHitObject, TaikoJudgement> GetVisualRepresentation(TaikoHitObject h) => null;
     }
 }

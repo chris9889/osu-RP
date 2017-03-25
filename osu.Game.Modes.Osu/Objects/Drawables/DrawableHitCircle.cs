@@ -13,34 +13,30 @@ namespace osu.Game.Modes.Osu.Objects.Drawables
 {
     public class DrawableHitCircle : DrawableOsuHitObject, IDrawableHitObjectWithProxiedApproach
     {
-        private OsuHitObject osuObject;
-
         public ApproachCircle ApproachCircle;
-        private CirclePiece circle;
-        private RingPiece ring;
-        private FlashPiece flash;
-        private ExplodePiece explode;
-        private NumberPiece number;
-        private GlowPiece glow;
+        private readonly CirclePiece circle;
+        private readonly RingPiece ring;
+        private readonly FlashPiece flash;
+        private readonly ExplodePiece explode;
+        private readonly NumberPiece number;
+        private readonly GlowPiece glow;
 
         public DrawableHitCircle(OsuHitObject h) : base(h)
         {
             Origin = Anchor.Centre;
 
-            osuObject = h;
-
-            Position = osuObject.StackedPosition;
-            Scale = new Vector2(osuObject.Scale);
+            Position = HitObject.StackedPosition;
+            Scale = new Vector2(HitObject.Scale);
 
             Children = new Drawable[]
             {
                 glow = new GlowPiece
                 {
-                    Colour = osuObject.ComboColour
+                    Colour = AccentColour
                 },
                 circle = new CirclePiece
                 {
-                    Colour = osuObject.ComboColour,
+                    Colour = AccentColour,
                     Hit = () =>
                     {
                         if (Judgement.Result.HasValue) return false;
@@ -58,11 +54,11 @@ namespace osu.Game.Modes.Osu.Objects.Drawables
                 flash = new FlashPiece(),
                 explode = new ExplodePiece
                 {
-                    Colour = osuObject.ComboColour,
+                    Colour = AccentColour,
                 },
                 ApproachCircle = new ApproachCircle
                 {
-                    Colour = osuObject.ComboColour,
+                    Colour = AccentColour,
                 }
             };
 
@@ -111,14 +107,12 @@ namespace osu.Game.Modes.Osu.Objects.Drawables
 
         protected override void UpdateState(ArmedState state)
         {
-            if (!IsLoaded) return;
-
             base.UpdateState(state);
 
             ApproachCircle.FadeOut();
 
-            double endTime = (osuObject as IHasEndTime)?.EndTime ?? osuObject.StartTime;
-            double duration = endTime - osuObject.StartTime;
+            double endTime = (HitObject as IHasEndTime)?.EndTime ?? HitObject.StartTime;
+            double duration = endTime - HitObject.StartTime;
 
             glow.Delay(duration);
             glow.FadeOut(400);
@@ -128,9 +122,11 @@ namespace osu.Game.Modes.Osu.Objects.Drawables
                 case ArmedState.Idle:
                     Delay(duration + TIME_PREEMPT);
                     FadeOut(TIME_FADEOUT);
+                    Expire(true);
                     break;
                 case ArmedState.Miss:
                     FadeOut(TIME_FADEOUT / 5);
+                    Expire();
                     break;
                 case ArmedState.Hit:
                     const double flash_in = 40;
@@ -150,6 +146,7 @@ namespace osu.Game.Modes.Osu.Objects.Drawables
 
                     FadeOut(800);
                     ScaleTo(Scale * 1.5f, 400, EasingTypes.OutQuad);
+                    Expire();
                     break;
             }
         }

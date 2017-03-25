@@ -35,7 +35,7 @@ namespace osu.Game.Overlays
         private SpriteText title, artist;
 
         private List<BeatmapSetInfo> playList;
-        private List<BeatmapInfo> playHistory = new List<BeatmapInfo>();
+        private readonly List<BeatmapInfo> playHistory = new List<BeatmapInfo>();
         private int playListIndex;
         private int playHistoryIndex = -1;
 
@@ -65,7 +65,7 @@ namespace osu.Game.Overlays
             Vector2 change = state.Mouse.Position - state.Mouse.PositionMouseDown.Value;
 
             // Diminish the drag distance as we go further to simulate "rubber band" feeling.
-            change *= (float)Math.Pow(change.Length, 0.7f) / change.Length;
+            change *= change.Length <= 0 ? 0 : (float)Math.Pow(change.Length, 0.7f) / change.Length;
 
             dragContainer.MoveTo(change);
             return base.OnDrag(state);
@@ -415,8 +415,8 @@ namespace osu.Game.Overlays
 
         private class MusicControllerBackground : BufferedContainer
         {
-            private Sprite sprite;
-            private WorkingBeatmap beatmap;
+            private readonly Sprite sprite;
+            private readonly WorkingBeatmap beatmap;
 
             public MusicControllerBackground(WorkingBeatmap beatmap = null)
             {
