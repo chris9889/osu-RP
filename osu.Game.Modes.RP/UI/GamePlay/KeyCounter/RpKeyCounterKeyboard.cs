@@ -15,8 +15,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
     /// </summary>
     class RpKeyCounterKeyboard : KeyCounterKeyboard
     {
-        private Sprite _buttonSprite;
-        private Sprite _glowSprite;
+        
 
         SingleKeyLayout _layout;
 
@@ -25,26 +24,8 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         private Sprite _buttonIconSprite;
         //顯示按鍵名稱
         private SpriteText _textSprite;
-        //CounterLayer
-        private Container _textLayer;
-        //SpurteText
-        private SpriteText _countSpriteText;
+        //
         SingleKey _singlekey;
-
-        //計算
-        private int count;
-        public new int Count
-        {
-            get { return count; }
-            private set
-            {
-                if (count != value)
-                {
-                    count = value;
-                    _countSpriteText.Text = value.ToString(@"#,0");
-                }
-            }
-        }
 
         /// <summary>
         /// 建構
@@ -62,20 +43,20 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         {
             Children = new Drawable[]
            {
-                _buttonSprite = new Sprite
+                buttonSprite = new Sprite
                 {
                     Texture = textures.Get(@"KeyCounter/key-up"),
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
                 },
-                _glowSprite = new Sprite
+                glowSprite = new Sprite
                 {
                     Texture = textures.Get(@"KeyCounter/key-glow"),
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
                     Alpha = 0
                 },
-                _textLayer = new Container
+                textLayer = new Container
                 {
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
@@ -91,7 +72,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                             Position = new Vector2(0, -0.25f),
                             Colour = KeyUpTextColor
                         },
-                        _countSpriteText = new SpriteText
+                        countSpriteText = new SpriteText
                         {
                             Text = Count.ToString(@"#,0"),
                             Anchor = Anchor.Centre,
@@ -114,8 +95,8 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
             };
             //Set this manually because an element with Alpha=0 won't take it size to AutoSizeContainer,
             //so the size can be changing between buttonSprite and glowSprite.
-            Height = _buttonSprite.DrawHeight;
-            Width = _buttonSprite.DrawWidth;
+            Height = buttonSprite.DrawHeight;
+            Width = buttonSprite.DrawWidth;
 
             Vector2 fixPosition = new Vector2(0, -10f);
             Vector2 upperPosition = new Vector2(0, -0.25f);
@@ -125,16 +106,16 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                 case SingleKeyLayout.KeyIcon_Code:
                     _buttonIconSprite.Position = upperPosition + fixPosition;
                     _textSprite.Position = lowerPosition;
-                    _countSpriteText.Alpha = 0;
+                    countSpriteText.Alpha = 0;
                     break;
                 case SingleKeyLayout.keyCount_Code:
                     _textSprite.Position = upperPosition;
-                    _countSpriteText.Position = lowerPosition;
+                    countSpriteText.Position = lowerPosition;
                     _buttonIconSprite.Alpha = 0;
                     break;
                 case SingleKeyLayout.KeyIcon_Count:
                     _buttonIconSprite.Position = upperPosition + fixPosition;
-                    _countSpriteText.Position = lowerPosition;
+                    countSpriteText.Position = lowerPosition;
                     _textSprite.Alpha = 0;
                     break;
             }
@@ -162,20 +143,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         protected override bool OnKeyUp(InputState state, KeyUpEventArgs args)
         {
             return base.OnKeyUp(state, args);
-        }
-
-        private new void updateGlowSprite(bool show)
-        {
-            if (show)
-            {
-                _glowSprite.FadeIn(FadeTime);
-                _textLayer.FadeColour(KeyDownTextColor, FadeTime);
-            }
-            else
-            {
-                _glowSprite.FadeOut(FadeTime);
-                _textLayer.FadeColour(KeyUpTextColor, FadeTime);
-            }
         }
 
         public enum SingleKeyLayout

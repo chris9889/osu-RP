@@ -3,6 +3,13 @@ the new gameMode in osu!laser
 .   
 this gameMode is not official project, but maybe can play by adding additional plugin in osu!laser.   
 .   
+[HowToPlay]   
+1.Clone this project.   
+2.Open in VisualStudio or Mono.   
+3.Add "Resources.AddStore(new DllResourceStore("osu.Game.Modes.RP.dll"));" into osu.Framework/Game.cs after line:109    
+if you not add it ,there are no texture while playing RP GameMode.   
+4.Compile it and enjoy it : )   
+.   
 https://github.com/andy840119/osu-RP_resource   
 resource of texture and sample is in here   
 .   
