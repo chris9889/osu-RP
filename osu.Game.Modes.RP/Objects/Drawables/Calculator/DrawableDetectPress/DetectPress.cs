@@ -42,11 +42,11 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress
             get { return (_nowPressMatchKey != Key.Unknown); }
         }
 
-        public DetectPress(BaseHitObject baseRPObject, JudgementInfo judgement)
+        public DetectPress(BaseHitObject baseRpObject, Judgement judgement)
         {
-            _baseRPObject = baseRPObject;
+            _baseRPObject = baseRpObject;
             //預先取得那些按鍵按了會有作用
-            _compareKey= RpKeyManager.GetListKey(baseRPObject);
+            _compareKey= RpKeyManager.GetListKey(baseRpObject);
         }
        
         /// <summary>

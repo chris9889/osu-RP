@@ -17,14 +17,14 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         /// <summary>
         /// 打擊判定
         /// </summary>
-        private readonly RPJudgementInfo judgement;
+        private readonly RpJudgement judgement;
 
         /// <summary>
         /// 顯示特效
         /// </summary>
         BaseHitEffectTemplate _hitEffect;
 
-        public HitExplosion(RPJudgementInfo judgement, BaseRpObject h = null)
+        public HitExplosion(RpJudgement judgement, BaseRpObject h = null)
         {
 
             if (h is BaseHitObject)

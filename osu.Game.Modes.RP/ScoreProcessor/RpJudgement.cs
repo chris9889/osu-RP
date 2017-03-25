@@ -8,11 +8,12 @@ using OpenTK;
 
 namespace osu.Game.Modes.RP.ScoreProcessor
 {
-    public class RPJudgementInfo :  JudgementInfo
+    public class RpJudgement :  Judgement
     {
         public RPScoreResult Score;
         public List<Vector2> HitExplosionPosition = new List<Vector2>();
-        public int additionalPlusScore = 0;
-
+        public int AdditionalPlusScore = 0;
+        public override string ResultString { get; }
+        public override string MaxResultString { get; }
     }
 }

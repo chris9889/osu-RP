@@ -20,7 +20,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
     /// <summary>
     /// 遊戲物件顯示
     /// </summary>
-    public class RpPlayfield : Playfield<BaseRpObject, RPJudgementInfo>
+    public class RpPlayfield : Playfield<BaseRpObject, RpJudgement>
     {
         /// <summary>
         /// 顯示背景
@@ -109,7 +109,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         /// 會把要顯示的物件逐一加進來
         /// </summary>
         /// <param name="h"></param>
-        public override void Add(DrawableHitObject<BaseRpObject, RPJudgementInfo> hitObject)
+        public override void Add(DrawableHitObject<BaseRpObject, RpJudgement> hitObject)
         {
             
             hitObject.Depth = (float)hitObject.HitObject.StartTime;
@@ -143,7 +143,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         /// </summary>
         /// <param name="h"></param>
         /// <param name="j"></param>
-        public override void OnJudgement(DrawableHitObject<BaseRpObject, RPJudgementInfo> drawableHitObject)
+        public override void OnJudgement(DrawableHitObject<BaseRpObject, RpJudgement> drawableHitObject)
         {
             HitExplosion explosion = new HitExplosion(drawableHitObject.Judgement, drawableHitObject.HitObject);
 

@@ -5,7 +5,6 @@ using System.ComponentModel;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Template;
-using osu.Game.Modes.RP.KeyManager;
 using osu.Framework.Allocation;
 using osu.Framework.Audio;
 using osu.Game.Beatmaps.Samples;
@@ -14,7 +13,6 @@ using System.Diagnostics;
 using osu.Framework.Audio.Sample;
 using osu.Framework.Input;
 using osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress;
-using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
 using osu.Game.Modes.RP.ScoreProcessor;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
@@ -44,7 +42,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             HitObject = hitObject;
             //載入判斷點
             if (Judgement == null)
-                Judgement = CreateJudgementInfo();
+                Judgement = CreateJudgement();
 
             Template = new RpDrawBaseObjectTemplate(HitObject)
             {
@@ -132,7 +130,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         /// RP判斷
         /// </summary>
         /// <returns></returns>
-        protected override RPJudgementInfo CreateJudgementInfo() => new RPJudgementInfo();
+        protected override RpJudgement CreateJudgement() => new RpJudgement();
        
 
         /// <summary>
@@ -155,7 +153,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             double hitOffset = Math.Abs(Judgement.TimeOffset);
 
 
-            RPJudgementInfo rpInfo = Judgement as RPJudgementInfo;
+            RpJudgement rpInfo = Judgement as RpJudgement;
             rpInfo.HitExplosionPosition.Add(Position);
 
             if (hitOffset < HitObject.hit50)

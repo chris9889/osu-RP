@@ -92,7 +92,7 @@ namespace osu.Game.Modes.RP
         /// </summary>
         protected override PlayMode PlayMode => PlayMode.RP;
 
-        public override Modes.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor();
+        public override Scoring.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor();
 
 
         public override string Description => "osu!RP";

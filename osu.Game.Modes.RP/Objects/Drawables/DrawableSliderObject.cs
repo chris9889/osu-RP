@@ -58,7 +58,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
 
             double hitOffset = Math.Abs(Judgement.TimeOffset);
 
-            RPJudgementInfo divaInfo = Judgement as RPJudgementInfo;
+            RpJudgement divaInfo = Judgement as RpJudgement;
             divaInfo.HitExplosionPosition.Add(Position);
 
             if (hitOffset < HitObject.hit50)

@@ -112,7 +112,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
                     //ring.FadeOut();
                     //_detectPress.FadeOut();
                     //number.FadeOut();
-
+                    FadeOut(TIME_FADEOUT);
                     //FadeOut(200);
                     //ScaleTo(Scale * 1.5f, 400, EasingTypes.OutQuad);
                     //播放打擊的聲音

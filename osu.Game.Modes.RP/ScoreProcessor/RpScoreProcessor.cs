@@ -7,20 +7,21 @@ using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects;
 using System;
 using osu.Game.Modes.UI;
+using osu.Game.Modes.Scoring;
 
 namespace osu.Game.Modes.RP.ScoreProcessor
 {
     /// <summary>
     /// 簡單來說用來計算成績
     /// </summary>
-    class RpScoreProcessor : Modes.ScoreProcessor<BaseRpObject, RPJudgementInfo>
+    class RpScoreProcessor : ScoreProcessor<BaseRpObject, RpJudgement>
     {
         public RpScoreProcessor()
         {
 
         }
 
-        public RpScoreProcessor(HitRenderer<BaseRpObject, RPJudgementInfo> hitRenderer): base(hitRenderer)
+        public RpScoreProcessor(HitRenderer<BaseRpObject, RpJudgement> hitRenderer): base(hitRenderer)
         {
 
         }
@@ -33,7 +34,7 @@ namespace osu.Game.Modes.RP.ScoreProcessor
             Accuracy.Value = 1;
         }
 
-        protected override void UpdateCalculations(RPJudgementInfo judgement)
+        protected override void OnNewJugement(RpJudgement judgement)
         {
             if (judgement != null)
             {
@@ -55,7 +56,7 @@ namespace osu.Game.Modes.RP.ScoreProcessor
             //最大成績
             int maxScore = 0;
 
-            foreach (RPJudgementInfo j in Judgements)
+            foreach (RpJudgement j in Judgements)
             {
                 switch (j.Score)
                 {
@@ -76,7 +77,7 @@ namespace osu.Game.Modes.RP.ScoreProcessor
                         break;
                 }
                 //增加額外分數
-                score += j.additionalPlusScore;
+                score += j.AdditionalPlusScore;
             }
 
             TotalScore.Value = score;

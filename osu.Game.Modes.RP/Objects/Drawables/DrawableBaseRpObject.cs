@@ -6,7 +6,7 @@ using osu.Game.Modes.RP.ScoreProcessor;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
 {
-    class DrawableBaseRpObject : DrawableHitObject<BaseRpObject, RPJudgementInfo>
+    class DrawableBaseRpObject : DrawableHitObject<BaseRpObject, RpJudgement>
     {
         /// <summary>
         /// 打擊物件，DrawableHitCircle 會根據打擊物件把 物件繪製出來
@@ -92,6 +92,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             Template.UpdateTemplate(Time.Current);
         }
 
-        protected override RPJudgementInfo CreateJudgementInfo() => new RPJudgementInfo { Score = RPScoreResult.Cool };
+        protected override RpJudgement CreateJudgement() => new RpJudgement { Score = RPScoreResult.Cool };
     }
 }

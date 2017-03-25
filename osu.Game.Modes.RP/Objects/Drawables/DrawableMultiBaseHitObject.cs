@@ -58,7 +58,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         /// RP判斷
         /// </summary>
         /// <returns></returns>
-        protected override RPJudgementInfo CreateJudgementInfo() => new RPJudgementInfo();
+        protected override RpJudgement CreateJudgement() => new RpJudgement();
 
         /// <summary>
         /// 

@@ -101,9 +101,9 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         /// 
         /// </summary>
         /// <returns></returns>
-        protected override RPJudgementInfo CreateJudgementInfo()
+        protected override RpJudgement CreateJudgement()
         {
-            return new RPJudgementInfo();
+            return new RpJudgement();
         }
 
         /// <summary>

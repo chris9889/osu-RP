@@ -16,14 +16,14 @@ using osu.Game.Screens.Play;
 
 namespace osu.Game.Modes.RP.UI.Beatmap
 {
-    public class RpHitRenderer : HitRenderer<BaseRpObject, RPJudgementInfo>
+    public class RpHitRenderer : HitRenderer<BaseRpObject, RpJudgement>
     {
         public RpHitRenderer(WorkingBeatmap beatmap) : base(beatmap)
         {
 
         }
 
-        public override Modes.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor(this);
+        public override Scoring.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor(this);
 
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace osu.Game.Modes.RP.UI.Beatmap
         /// 建立遊玩區域
         /// </summary>
         /// <returns></returns>
-        protected override Playfield<BaseRpObject, RPJudgementInfo> CreatePlayfield() => new RpPlayfield();
+        protected override Playfield<BaseRpObject, RpJudgement> CreatePlayfield() => new RpPlayfield();
 
         /// <summary>
         /// 目前不知道用途
@@ -57,7 +57,7 @@ namespace osu.Game.Modes.RP.UI.Beatmap
         /// </summary>
         /// <param name="h"></param>
         /// <returns></returns>
-        protected override DrawableHitObject<BaseRpObject, RPJudgementInfo> GetVisualRepresentation(BaseRpObject h)
+        protected override DrawableHitObject<BaseRpObject, RpJudgement> GetVisualRepresentation(BaseRpObject h)
         {
             if (h is RpHitObject)
                 return new DrawableRpHitObject((RpHitObject)h);
