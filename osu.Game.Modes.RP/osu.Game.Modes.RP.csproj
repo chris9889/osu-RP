@@ -64,10 +64,11 @@
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Type\ProcessObjectTypeRandom.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Type\TypeCalculator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\PostConvert\PostConvertor.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\Slicing\DiffStarCalculator\OriginalBeatmapDifficultyCalculator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\Slicing\TimeSliceCalculator\TimeSlicingCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
-    <Compile Include="ModsElement\AutoReplay\RPAutoReplay.cs" />
+    <Compile Include="Mods\ModsElement\AutoReplay\RPAutoReplay.cs" />
     <Compile Include="Objects\Drawables\Component\Container\IChangeableContainerComponent.cs" />
     <Compile Include="Objects\Drawables\Pieces\ConnectionLine.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\Common\ShapePiece\HitObjectRectanglePiece.cs" />
@@ -177,7 +178,7 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\Front\FrontLayout.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\HitObjectConnector.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObject\HitObjectLayout.cs" />
-    <Compile Include="UI\Result\RpScore.cs" />
+    <Compile Include="ScoreProcessor\Result\RpScore.cs" />
     <Compile Include="ScoreProcessor\RpScoreProcessor.cs" />
     <Compile Include="Objects\RpHitObject.cs" />
     <Compile Include="Objects\Drawables\DrawableRpHitObject.cs" />
@@ -230,6 +231,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RandomShape\" />
+    <Folder Include="Beatmaps\OtherBeatmap\Slicing\VolocityCalculator\" />
     <Folder Include="Samples\Gameplay\RP\" />
     <Folder Include="Textures\Play\RP\Number\ComboCounter\" />
     <Folder Include="Textures\Play\RP\Number\Combo\" />

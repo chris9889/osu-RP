@@ -3,10 +3,10 @@
 
 using osu.Game.Modes.Scoring;
 
-namespace osu.Game.Modes.RP.UI.Result
+namespace osu.Game.Modes.RP.ScoreProcessor.Result
 {
     /// <summary>
-    /// 顯示分數
+    /// Store all the score
     /// </summary>
     class RpScore : Score
     {

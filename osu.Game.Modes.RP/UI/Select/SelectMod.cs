@@ -53,7 +53,7 @@ namespace osu.Game.Modes.RP.UI.Select
                     yield return new RpModFlashlight();
                     break;
                 case ModType.Special:
-                    yield return new RpModRelax();
+                    //yield return new RpModRelax();
                     yield return new RpModContainerHitObjectPressOut();
                     yield return new RpModShapeHitObjectCoco();
                     yield return new RpModContainerHitObjectCoco();
@@ -61,8 +61,8 @@ namespace osu.Game.Modes.RP.UI.Select
                     {
                         Mods = new Mod[]
                             {
-                                new ModAutoplay(),
-                                new ModCinema(),
+                                new RpModAutoplay(),
+                                new RpModRelax(),
                             },
                     };
                     break;

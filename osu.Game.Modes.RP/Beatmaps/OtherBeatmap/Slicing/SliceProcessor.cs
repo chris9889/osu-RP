@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using osu.Game.Beatmaps;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.DiffStarCalculator;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.TimeSliceCalculator;
 
@@ -12,6 +13,11 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
         private double _diffStar = 0;
 
         private Beatmap _originalBeatmap;
+
+        /// <summary>
+        /// Difficulty Calculator
+        /// </summary>
+        private OriginalBeatmapDifficultyCalculator _originalBeatmapDifficultyCalculator = new OriginalBeatmapDifficultyCalculator();
 
         /// <summary>
         /// 回傳時間範圍內的index
@@ -27,7 +33,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
             List<ComvertParameter> list=new List<ComvertParameter>();
             _originalBeatmap = originalBeatmap;
             //Get The Diff of beatmap;
-            _diffStar = _originalBeatmap.CalculateStarDifficulty();
+            _diffStar = _originalBeatmapDifficultyCalculator.CalculateBeatmapDifficulty(_originalBeatmap);
 
             _timeSlicingCalculator.SetBeatmap(_originalBeatmap);
 
@@ -76,20 +82,20 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
         public SliceConvertParameter GetSliceConvertParameterResult(ComvertParameter result)
         {
             //decide the number of container and layout
-            SliceConvertParameter SliceConvertParameter=new SliceConvertParameter();
+            SliceConvertParameter sliceConvertParameter=new SliceConvertParameter();
             
             //startTime
-            SliceConvertParameter.StartTime = result.ListRefrenceObject[0].StartTime;
+            sliceConvertParameter.StartTime = result.ListRefrenceObject[0].StartTime;
 
             //EndTime
             int endIndex = result.ListRefrenceObject.Count - 1;
             double lastHitObjectDuration = 0;
-            SliceConvertParameter.EndTime = result.ListRefrenceObject[endIndex].StartTime + lastHitObjectDuration;
+            sliceConvertParameter.EndTime = result.ListRefrenceObject[endIndex].StartTime + lastHitObjectDuration;
 
             //BPM
-            SliceConvertParameter.BPM = _originalBeatmap.TimingInfo.BPMAt(SliceConvertParameter.StartTime);
+            sliceConvertParameter.BPM = _originalBeatmap.TimingInfo.BPMAt(sliceConvertParameter.StartTime);
 
-            return  SliceConvertParameter;
+            return  sliceConvertParameter;
         }
 
     }

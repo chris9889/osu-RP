@@ -2,8 +2,14 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
+using System.Linq;
+using osu.Game.Beatmaps;
 using osu.Game.Graphics;
 using osu.Game.Modes.Mods;
+using osu.Game.Modes.RP.Mods.ModsElement.AutoReplay;
+using osu.Game.Modes.RP.Objects;
+using osu.Game.Modes.RP.ScoreProcessor.Result;
+using osu.Game.Modes.Scoring;
 
 namespace osu.Game.Modes.RP.Mods
 {
@@ -12,7 +18,8 @@ namespace osu.Game.Modes.RP.Mods
     /// </summary>
     public class RpModNoFail : ModNoFail
     {
-        
+        public override double ScoreMultiplier => 0.5;
+        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(RpModAutoplay) }).ToArray();
     }
 
     /// <summary>
@@ -20,6 +27,7 @@ namespace osu.Game.Modes.RP.Mods
     /// </summary>
     public class RpModEasy : ModEasy
     {
+        public override double ScoreMultiplier => 0.5;
         public override string Description => @"Reduces overall difficulty - larger RP HitObject, more forgiving HP drain, less accuracy required.";
     }
 
@@ -47,7 +55,8 @@ namespace osu.Game.Modes.RP.Mods
     /// </summary>
     public class RpModSuddenDeath : ModSuddenDeath
     {
-        
+        public override double ScoreMultiplier => 1.06;
+        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(RpModAutoplay), typeof(RpModNoFail)}).ToArray();
     }
 
     /// <summary>
@@ -57,6 +66,9 @@ namespace osu.Game.Modes.RP.Mods
     /// </summary>
     public class RpModPerfect : ModPerfect
     {
+        public override double ScoreMultiplier => 1.20;
+
+        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(RpModAutoplay), typeof(RpModNoFail) }).ToArray();
         public override string Description => @"Perfect Hit or quit.";
     }
 
@@ -66,8 +78,8 @@ namespace osu.Game.Modes.RP.Mods
     public class RpModDoubleTime : ModDoubleTime
     {
         public override string Description => @"Speed Up";
-
         public override double ScoreMultiplier => 1.12;
+        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(RpModHalfTime) }).ToArray();
     }
 
     /// <summary>
@@ -76,6 +88,8 @@ namespace osu.Game.Modes.RP.Mods
     public class RpModRelax : ModRelax
     {
         public override string Description => "You don't need to click.\nJust prepaer popcorn and see osu! play the game.";
+        public override bool Ranked => false;
+        public override double ScoreMultiplier => 0;
     }
 
     /// <summary>
@@ -83,9 +97,12 @@ namespace osu.Game.Modes.RP.Mods
     /// </summary>
     public class RpModHalfTime : ModHalfTime
     {
+
         public override string Description => @"Slow Down the Speed";
 
         public override double ScoreMultiplier => 0.5;
+
+        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(RpModDoubleTime) }).ToArray();
     }
 
     /// <summary>
@@ -107,6 +124,17 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
+    /// Auto play the RP Mode
+    /// </summary>
+    public class RpModAutoplay : ModAutoplay<BaseRpObject>
+    {
+        protected override Score CreateReplayScore(Beatmap<BaseRpObject> beatmap) => new RpScore
+        {
+            Replay = new RpAutoReplay(beatmap)
+        };
+    }
+
+    /// <summary>
     ///RP : 背景按壓的物件會自動完成
     /// </summary>
     public class RpModContainerHitObjectPressOut : Mod
@@ -117,7 +145,7 @@ namespace osu.Game.Modes.RP.Mods
         public override double ScoreMultiplier => 0.9;
         public override bool Ranked => true;
 
-        public override Type[] IncompatibleMods => new Type[] { typeof(ModAutoplay), typeof(ModCinema), typeof(ModAutoplay), };
+        public override Type[] IncompatibleMods => new Type[] { typeof(ModAutoplay), typeof(RpModRelax), };
     }
 
     /// <summary>

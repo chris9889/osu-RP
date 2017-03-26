@@ -5,7 +5,10 @@ using osu.Game.Beatmaps;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.TimeSliceCalculator
 {
-
+    /// <summary>
+    /// will decide the speed and BPM and other to slide to a better time 
+    /// will decide : deltaTime
+    /// </summary>
     public class TimeSlicingCalculator
     {
         private Beatmap _beatmap;

@@ -1,19 +1,17 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using System.Collections.Generic;
-using osu.Game.Beatmaps;
-using osu.Game.Modes.Osu.Objects;
-using OpenTK;
 using System;
-using osu.Framework.Graphics.Transforms;
-using osu.Game.Modes.Osu.Objects.Drawables;
-using osu.Framework.MathUtils;
+using System.Collections.Generic;
 using System.Diagnostics;
+using osu.Framework.Graphics.Transforms;
+using osu.Framework.MathUtils;
+using osu.Game.Beatmaps;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.Drawables;
+using OpenTK;
 
-namespace osu.Game.Modes.RP.ModsElement.AutoReplay
+namespace osu.Game.Modes.RP.Mods.ModsElement.AutoReplay
 {
     public class RpAutoReplay : LegacyReplay
     {
@@ -21,9 +19,9 @@ namespace osu.Game.Modes.RP.ModsElement.AutoReplay
 
         const float spin_radius = 50;
 
-        private Beatmap beatmap;
+        private readonly Beatmap<BaseRpObject> beatmap;
 
-        public RpAutoReplay(Beatmap beatmap)
+        public RpAutoReplay(Beatmap<BaseRpObject> beatmap)
         {
             this.beatmap = beatmap;
 
