@@ -35,7 +35,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         /// <summary>
         /// 連接多個物件用來畫線的
         /// </summary>
-        private ConnectionRenderer<BaseHitObject> _hitObjectConnector;
+        private ConnectionRenderer<DrawableBaseHitObject> _hitObjectConnector;
 
         /// <summary>
         /// 用來判斷打擊的 Layout
@@ -138,7 +138,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         public override void PostProcess()
         {
             //order by time
-            _hitObjectConnector.HitObjects = HitObjects.Children.Select(d => (BaseHitObject)d.HitObject).OrderBy(h => h.StartTime);
+            _hitObjectConnector.HitObjects = HitObjects.Children.Select(d => (DrawableBaseHitObject)d).OrderBy(h => h.HitObject.StartTime);
             _hitObjectConnector.ScanSameTuple();
         }
 

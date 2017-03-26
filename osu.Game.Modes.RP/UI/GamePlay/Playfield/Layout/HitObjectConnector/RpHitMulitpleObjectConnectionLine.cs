@@ -1,7 +1,9 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using OpenTK;
 using OpenTK.Graphics;
 using osu.Framework.Extensions.Color4Extensions;
@@ -26,10 +28,17 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectConnector
 
         private List<Vector2> _listVertex=new List<Vector2>();
 
-        private Slider slider = new Slider();
+        private Slider slider;
 
         public RpHitMulitpleObjectConnectionLine()
         {
+            slider = new Slider()
+            {
+                Colour = new Color4(10,10,10,255),
+                PathWidth = 4f,
+                Scale = new Vector2(0.5f),
+            };
+
             this.Children = new Drawable[]
             {
                 slider,
@@ -38,9 +47,15 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectConnector
 
         public void SetListLine(List<Vector2> listVertex)
         {
-            _listVertex = listVertex;
+            _listVertex.Clear();
+            for (int i = 0; i < listVertex.Count; i++)
+            {
+                _listVertex.Add(listVertex[i]*2);
+            }
             slider.SetRange(_listVertex);
-            slider.PathWidth = 3;
+            _listVertex.Sort((x, y) => x.X.CompareTo(y.X));
+            _listVertex.Sort((x, y) => x.Y.CompareTo(y.Y));
+            slider.Position = _listVertex[0]/2;
         }
 
 

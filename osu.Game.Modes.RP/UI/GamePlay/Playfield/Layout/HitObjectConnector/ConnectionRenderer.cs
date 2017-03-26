@@ -5,13 +5,14 @@ using osu.Framework.Graphics.Containers;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.Objects;
 using System.Collections.Generic;
+using osu.Game.Modes.RP.Objects.Drawables;
 
 namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectConnector
 {
     /// <summary>
     /// Connects hit objects visually, for example with follow points.
     /// </summary>
-    abstract class ConnectionRenderer<T> : Container where T : BaseHitObject
+    abstract class ConnectionRenderer<T> : Container where T : DrawableBaseHitObject
     {
         /// <summary>
         /// Hit objects to create connections for

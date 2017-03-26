@@ -78,7 +78,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Container
                     priority--;
                 }
             }
-            return -1;
+            return 0;
         }
 
         int GetRandNumber(ComvertParameter single,int index)

@@ -26,7 +26,23 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
 
         private BufferedContainer container;
 
-        public Color4 Colour = new Color4();
+        private Color4 _colour;
+        /// <summary>
+        /// Used to colour the path.
+        /// </summary>
+        public Color4 Colour
+        {
+            get { return _colour; }
+            set
+            {
+                if (_colour == value)
+                    return;
+                _colour = value;
+
+                if (LoadState == LoadState.Loaded)
+                    Schedule(reloadTexture);
+            }
+        }
 
         public float PathWidth
         {
@@ -70,6 +86,8 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
                 //修正顯示座標
                 //container.Position = -path.PositionInBoundingBox(slider.Curve.PositionAt(0) - currentCurve[0]);
 
+                container.Position=-new Vector2(PathWidth, PathWidth);
+
                 container.ForceRedraw();
             }
         }
@@ -83,14 +101,59 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
             snakingIn = config.GetBindable<bool>(OsuConfig.SnakingInSliders);
             snakingOut = config.GetBindable<bool>(OsuConfig.SnakingOutSliders);
 
-            int textureWidth = (int)PathWidth * 2;
+            //int textureWidth = (int)PathWidth * 2;
+
+            ////initialise background
+            //var upload = new TextureUpload(textureWidth * 4);
+            //var bytes = upload.Data;
+
+            //const float aa_portion = 0.02f;
+            //const float border_portion = 0.18f;
+            //const float gradient_portion = 1 - border_portion;
+
+            //const float opacity_at_centre = 0.3f;
+            //const float opacity_at_edge = 0.8f;
+
+            //for (int i = 0; i < textureWidth; i++)
+            //{
+            //    float progress = (float)i / (textureWidth - 1);
+
+            //    if (progress <= border_portion)
+            //    {
+            //        bytes[i * 4] = 255;
+            //        bytes[i * 4 + 1] = 255;
+            //        bytes[i * 4 + 2] = 255;
+            //        bytes[i * 4 + 3] = (byte)(Math.Min(progress / aa_portion, 1) * 255);
+            //    }
+            //    else
+            //    {
+            //        progress -= border_portion;
+
+            //        bytes[i * 4] = (byte)(Colour.R * 255);
+            //        bytes[i * 4 + 1] = (byte)(Colour.G * 255);
+            //        bytes[i * 4 + 2] = (byte)(Colour.B * 255);
+            //        bytes[i * 4 + 3] = (byte)((opacity_at_edge - (opacity_at_edge - opacity_at_centre) * progress / gradient_portion) * (Colour.A * 255));
+            //    }
+            //}
+
+            //var texture = new Texture(textureWidth, 1);
+            //texture.SetData(upload);
+            //path.Texture = texture;
+            reloadTexture();
+        }
+
+        private int textureWidth => (int)PathWidth * 2;
+
+        private void reloadTexture()
+        {
+            var texture = new Texture(textureWidth, 1);
 
             //initialise background
             var upload = new TextureUpload(textureWidth * 4);
             var bytes = upload.Data;
 
             const float aa_portion = 0.02f;
-            const float border_portion = 0.18f;
+            const float border_portion = 0.128f;
             const float gradient_portion = 1 - border_portion;
 
             const float opacity_at_centre = 0.3f;
@@ -118,7 +181,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
                 }
             }
 
-            var texture = new Texture(textureWidth, 1);
             texture.SetData(upload);
             path.Texture = texture;
         }
