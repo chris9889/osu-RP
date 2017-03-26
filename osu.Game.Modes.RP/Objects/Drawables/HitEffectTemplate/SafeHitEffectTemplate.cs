@@ -25,7 +25,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
         {
             Children = new Drawable[]
             {
-                 _noonpuPicec = new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult,"RP"))
+                 _noonpuPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"RP"))
                 {
                     //Colour = osuObject.Colour,
                     Scale=new Vector2(1,1),

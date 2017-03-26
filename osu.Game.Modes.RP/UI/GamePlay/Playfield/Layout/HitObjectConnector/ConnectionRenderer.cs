@@ -17,5 +17,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectConnector
         /// Hit objects to create connections for
         /// </summary>
         public abstract IEnumerable<T> HitObjects { get; set; }
+
+        public abstract void ScanSameTuple();
     }
 }

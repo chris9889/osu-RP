@@ -83,7 +83,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                         },
                         _buttonIconSprite = new Sprite
                         {
-                            Texture = textures.Get(SkinManager.RPSkinManager.GetKeyLayoutButtonIcon(_singlekey.Type)),
+                            Texture = textures.Get(SkinManager.RpTexturePathManager.GetKeyLayoutButtonIcon(_singlekey.Type)),
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,
                             Alpha = 1,

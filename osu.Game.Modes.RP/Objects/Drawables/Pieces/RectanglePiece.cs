@@ -22,7 +22,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
         /// <summary>
         /// 設定物件texture
         /// </summary>
-        public String Resource= SkinManager.RPSkinManager.GetRectangleTexture();
+        public String Resource= SkinManager.RpTexturePathManager.GetRectangleTexture();
 
         /// <summary>
         /// 物件的大小剛好是100*100

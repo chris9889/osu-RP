@@ -34,11 +34,11 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
 
             Children = new Drawable[]
             {
-                _diffusePicec = new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult, "Diffuse"))
+                _diffusePicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Diffuse"))
                 {
                     Position=new Vector2(0,0),
                 },
-                _noonpuPicec = new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult, "RP"))
+                _noonpuPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
                 {
                     Position=new Vector2(0,0),
                 },

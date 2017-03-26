@@ -84,7 +84,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Container
         int GetRandNumber(ComvertParameter single,int index)
         {
             //確保
-            return single.ContainerConvertParameter.LayoutNumber + (int)single.SliceConvertParameter.StartTime + index * (_listLineRemainCount.Count - 2);//確保每次物件會間隔兩個位置
+            return single.ContainerConvertParameter.LayoutNumber + (int)single.SliceConvertParameter.StartTime + index * (_listLineRemainCount.Count - 2) - ScanAvailableList();//確保每次物件會間隔兩個位置
         }
     }
 }

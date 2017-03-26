@@ -31,11 +31,11 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
 
             Children = new Drawable[]
             {
-                _effectPicec= new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult, "Slide_effect"))
+                _effectPicec= new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Slide_effect"))
                 {
                     Position=new Vector2(0,0),
                 },
-                _onpuPicec = new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult, "RP"))
+                _onpuPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
                 {
                     Position=new Vector2(0,0),
                 },

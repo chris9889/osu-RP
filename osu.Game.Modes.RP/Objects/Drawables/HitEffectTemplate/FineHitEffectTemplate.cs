@@ -35,19 +35,19 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
         {
             Children = new Drawable[]
             {
-                _crossPicec = new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult,"Down"))
+                _crossPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"Down"))
                 {
                     //Colour = osuObject.Colour,
                     Position=new Vector2(0,0),
                     Scale=new Vector2(1,1),
                 },
-                _effectPicec = new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult,"Slide_effect"))
+                _effectPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"Slide_effect"))
                 {
                     //Colour = osuObject.Colour,
                     Position=new Vector2(0,0),
                     Scale=new Vector2(1,1),
                 },
-                _onpuPicec = new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult,"RP"))
+                _onpuPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"RP"))
                 {
                     //Colour = osuObject.Colour,
                     Position=new Vector2(0,0),

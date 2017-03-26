@@ -61,7 +61,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common.ShapePi
                 },
 
                 //外框使用
-                 _borderImagePicec=new ImagePicec(RPSkinManager.GetStartObjectImageNameByType(HitObject as BaseHitObject))
+                 _borderImagePicec=new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(HitObject as BaseHitObject))
                 {
                     //Colour = new Color4(170, 58, 58,255),
                     Scale=new Vector2(0.5f),

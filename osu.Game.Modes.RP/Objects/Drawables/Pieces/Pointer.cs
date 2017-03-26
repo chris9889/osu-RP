@@ -53,7 +53,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
         [BackgroundDependencyLoader]
         private void load(TextureStore textures)
         {
-            string textureName = RPSkinManager.RPPointer;
+            string textureName = RpTexturePathManager.RPPointer;
             approachCircle.Texture = textures.Get(textureName);
         }
 

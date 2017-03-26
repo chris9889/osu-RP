@@ -69,6 +69,7 @@
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
     <Compile Include="ModsElement\AutoReplay\RPAutoReplay.cs" />
     <Compile Include="Objects\Drawables\Component\Container\IChangeableContainerComponent.cs" />
+    <Compile Include="Objects\Drawables\Pieces\ConnectionLine.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\Common\ShapePiece\HitObjectRectanglePiece.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\Common\ShapePiece\BaseHitObjectShapePiece.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\MovePiece\ApproachCircle\BaseMoveApproachCircle.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\GetStillPiece.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\Hold\BaseStillHold.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\Slide\BaseStillSlide.cs" />
+    <Compile Include="Objects\Drawables\Pieces\Slider.cs" />
     <Compile Include="Objects\Drawables\Template\Container\EditableContainerLayoutTemplate.cs" />
     <Compile Include="Objects\Drawables\Template\Container\EditableContainerTemplate.cs" />
     <Compile Include="Objects\Drawables\Template\HitObject\Click\EditableClickTemplate.cs" />
@@ -102,9 +104,10 @@
     <Compile Include="KeyManager\RpKeyConversionInputManager.cs" />
     <Compile Include="Objects\Drawables\Template\HitObject\Slide\EditableSlideTemplate.cs" />
     <Compile Include="ScoreProcessor\RpJudgement.cs" />
-    <Compile Include="SkinManager\SkinColorManager.cs" />
+    <Compile Include="SkinManager\RpObjectValueManager.cs" />
+    <Compile Include="SkinManager\RpTextureColorManager.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\ConnectionRenderer.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\FollowPoint.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\RpHitMulitpleObjectConnectionLine.cs" />
     <Compile Include="Objects\Drawables\DrawableBaseRpObject.cs" />
     <Compile Include="Objects\Drawables\DrawableContainer.cs" />
     <Compile Include="Objects\Drawables\DrawableMultiBaseHitObject.cs" />
@@ -183,10 +186,9 @@
     <Compile Include="Objects\RpContainerPress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Saving\RpKeyLayoutConfig.cs" />
-    <Compile Include="SkinManager\RPSkinManager.cs" />
+    <Compile Include="SkinManager\RpTexturePathManager.cs" />
     <Compile Include="UI\Beatmap\RpHitRenderer.cs" />
     <Compile Include="UI\GamePlay\Playfield\RpPlayfield.cs" />
-    <Compile Include="UI\GamePlay\ScoreOverlay\RpScoreOverlay.cs" />
     <Compile Include="UI\Select\BeatmapStatistics.cs" />
     <Compile Include="UI\Select\SelectMod.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\Parameter\ComvertParameter.cs" />

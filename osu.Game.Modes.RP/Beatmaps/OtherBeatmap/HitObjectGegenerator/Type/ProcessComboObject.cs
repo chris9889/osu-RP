@@ -17,17 +17,29 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
 
         private bool convert = false;
 
+        public bool FisrtConbo = false;
+
+        //上一個群組的物件
+        private SingleHitObjectConvertParameter _lastHitObjectTuple;
+
         internal void Process(SingleHitObjectConvertParameter singleTuple,int nowIndex)
         {
             //上一個群組的物件
-            SingleHitObjectConvertParameter lastHitObjectTuple= _singleSlideParameter.HitObjectConvertParameter.ListSingleHitObjectConvertParameter[nowIndex - 1];
+            _lastHitObjectTuple = _singleSlideParameter.HitObjectConvertParameter.ListSingleHitObjectConvertParameter[nowIndex - 1];
+
+            if (FisrtConbo)
+            {
+                OptimizeBetterHitExperiance();
+                FisrtConbo = false;
+            }
+
             if (convert)
             {
                 for (int i = 0; i < singleTuple.ListBaseHitObject.Count; i++)
                 {
-                    if (lastHitObjectTuple.ListBaseHitObject.Count > i)
+                    if (_lastHitObjectTuple.ListBaseHitObject.Count > i)
                     {
-                        singleTuple.ListBaseHitObject[i].Shape = FindNext(lastHitObjectTuple.ListBaseHitObject[i].Shape);
+                        singleTuple.ListBaseHitObject[i].Shape = FindNext(_lastHitObjectTuple.ListBaseHitObject[i].Shape);
                     }
                 }
                 convert = false;
@@ -36,19 +48,41 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
             {
                 for (int i = 0; i < singleTuple.ListBaseHitObject.Count; i++)
                 {
-                    if (lastHitObjectTuple.ListBaseHitObject.Count > i)
+                    if (_lastHitObjectTuple.ListBaseHitObject.Count > i)
                     {
-                        singleTuple.ListBaseHitObject[i].Shape = FindNext(lastHitObjectTuple.ListBaseHitObject[i].Shape);
+                        singleTuple.ListBaseHitObject[i].Shape = FindPrevious(_lastHitObjectTuple.ListBaseHitObject[i].Shape);
                     }
                 }
                 convert = true;
             }
-            
         }
 
         internal void SetComvertParameter(ComvertParameter singleSlideParameter)
         {
             _singleSlideParameter = singleSlideParameter;
+        }
+
+        /// <summary>
+        /// if first combo Object comes to up down left right
+        /// it will assign the priority that is better to hit
+        /// </summary>
+        void OptimizeBetterHitExperiance()
+        {
+            switch (_lastHitObjectTuple.ListBaseHitObject[0].Shape)
+            {
+                case RpBaseHitObjectType.Shape.Up:
+                    convert = false;
+                    break;
+                case RpBaseHitObjectType.Shape.Down:
+                    convert = true;
+                    break;
+                case RpBaseHitObjectType.Shape.Left:
+                    convert = false;
+                    break;
+                case RpBaseHitObjectType.Shape.Right:
+                    convert = true;
+                    break;
+            }
         }
 
         /// <summary>

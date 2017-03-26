@@ -8,9 +8,9 @@ using OpenTK.Graphics;
 namespace osu.Game.Modes.RP.SkinManager
 {
     /// <summary>
-    /// ManageAll the Color in the 
+    /// Manage all the Color in the skin that can be adjust in the skin config.
     /// </summary>
-    public static class SkinColorManager
+    public static class RpTextureColorManager
     {
         /// <summary>
         /// 按鈕顏色

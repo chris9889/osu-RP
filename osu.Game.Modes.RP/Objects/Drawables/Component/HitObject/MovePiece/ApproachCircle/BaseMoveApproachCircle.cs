@@ -25,7 +25,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Appr
         {
             Children = new Drawable[]
             {
-                ApproachHitPicec = new ImagePicec(RPSkinManager.GetStartObjectImageNameByType(BaseHitObject as BaseHitObject))
+                ApproachHitPicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(BaseHitObject as BaseHitObject))
                 {
 
                 },

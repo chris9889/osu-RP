@@ -33,7 +33,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         private HitObjectLayout _rpObjectLayout;
 
         /// <summary>
-        /// 
+        /// 連接多個物件用來畫線的
         /// </summary>
         private ConnectionRenderer<BaseHitObject> _hitObjectConnector;
 
@@ -90,12 +90,12 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                     Depth = 1,
                     //HitObjectLayout=_rpObjectLayout,
                 },
-                    _frontLayout = new FrontLayout //顯示判定點
+                 _frontLayout = new FrontLayout //顯示判定點，background.proxy();
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = -1,
                 },
-                    _judgementLayer = new Container //打擊特效
+                _judgementLayer = new Container //打擊特效
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = -2,
@@ -119,7 +119,10 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
 
             if (hitObject is DrawableContainer)
             {
+                //增加背景物件
                 _backgroundLayout.AddContainer(hitObject as DrawableContainer);
+                //
+                //_frontLayout.Add(_backgroundLayout.CreateProxy());
             }
             else
             {
@@ -134,19 +137,19 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
 
         public override void PostProcess()
         {
-            _hitObjectConnector.HitObjects = HitObjects.Children.Select(d => (BaseHitObject)d.HitObject)
-                .OrderBy(h => h.StartTime);
+            //order by time
+            _hitObjectConnector.HitObjects = HitObjects.Children.Select(d => (BaseHitObject)d.HitObject).OrderBy(h => h.StartTime);
+            _hitObjectConnector.ScanSameTuple();
         }
 
         /// <summary>
-        /// 增加打擊時的特效
+        /// Create hit explosion effect;
         /// </summary>
         /// <param name="h"></param>
         /// <param name="j"></param>
         public override void OnJudgement(DrawableHitObject<BaseRpObject, RpJudgement> drawableHitObject)
         {
             HitExplosion explosion = new HitExplosion(drawableHitObject.Judgement, drawableHitObject.HitObject);
-
             _judgementLayer.Add(explosion);
         }
     }

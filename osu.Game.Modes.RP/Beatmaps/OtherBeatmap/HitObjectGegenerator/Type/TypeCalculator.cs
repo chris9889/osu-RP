@@ -34,6 +34,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
                 }
                 else
                 {
+
                     AssignNormalTupleShapes(single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter[i]);//Normal
                 }
             }
@@ -43,6 +44,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
         public void AssignNormalTupleShapes(SingleHitObjectConvertParameter singleTuple)
         {
             ProcessObjectTypeRandom.Process(singleTuple);
+            ProcessComboObject.FisrtConbo = true;
         }
 
         //指定Combo

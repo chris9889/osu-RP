@@ -77,7 +77,7 @@ namespace osu.Game.Modes.RP.Objects
         /// <summary>
         /// 畫線的順序
         /// </summary>
-        public List<BaseHitObject> _drawLinePriority;
+        public int _drawLinePriority;
 
         /// <summary>
         /// 設定類型

@@ -29,7 +29,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
 
             Children = new Drawable[]
             {
-                _effectPicec=new ImagePicec(RPSkinManager.GetRPLoadEffect())
+                _effectPicec=new ImagePicec(RpTexturePathManager.GetRPLoadEffect())
                 {
                     Scale=new Vector2(1,1),
                     Alpha=0,

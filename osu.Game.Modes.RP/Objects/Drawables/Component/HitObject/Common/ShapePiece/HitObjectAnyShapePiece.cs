@@ -61,9 +61,9 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common.ShapePi
                 },
 
                 //ŠOžyŽg—p
-                 _borderImagePicec=new ImagePicec(RPSkinManager.GetStartObjectImageNameByType(HitObject as BaseHitObject))
+                 _borderImagePicec=new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(HitObject as BaseHitObject))
                 {
-                    Colour = SkinColorManager.GetKeyLayoutButtonShage(((BaseHitObject)HitObject).Shape),
+                    Colour = RpTextureColorManager.GetKeyLayoutButtonShage(((BaseHitObject)HitObject).Shape),
                     Scale=new Vector2(0.5f),
                 },
               };

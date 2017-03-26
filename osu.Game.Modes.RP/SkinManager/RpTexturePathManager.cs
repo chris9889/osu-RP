@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using osu.Game.Modes.RP.Objects.type;
+﻿using osu.Game.Modes.RP.Objects.type;
 using osu.Game.Modes.RP.Objects;
 using OpenTK.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables;
-using OpenTK;
 
 namespace osu.Game.Modes.RP.SkinManager
 {
     /// <summary>
-    /// 負責管理RP 模式底下 Skin相關路徑位置
+    /// manage all the texture path.
     /// </summary>
-    public static class RPSkinManager
+    public static class RpTexturePathManager
     {
         private const string RP_HIT_EFFECT_FOLDER = @"Play/RP/HitEffect/";
         private const string RP_LOAD_EFFECT_FOLDER = @"Play/RP/LoadEffect/";

@@ -38,16 +38,16 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
         {
             Children = new Drawable[]
            {
-                _flarePicec=new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult,"Flare"))
+                _flarePicec=new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"Flare"))
                 {
                    Position=new Vector2(0,0),
                 },
-                  _loopPicec = new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult,"Loop"))
+                  _loopPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"Loop"))
                 {
                     //Colour = osuObject.Colour,
                     Position=new Vector2(0,0),
                 },
-                 _onpuPicec = new ImagePicec(SkinManager.RPSkinManager.GetRPHitEffect(RPScoreResult,"RP"))
+                 _onpuPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"RP"))
                 {
                     //Colour = osuObject.Colour,
                     Position=new Vector2(0,0),

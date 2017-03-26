@@ -26,7 +26,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
         protected override void InitialObject(int layerCount=1)
         {
             //指標
-            _containerDecisionLineComponent = new Pieces.ImagePicec(SkinManager.RPSkinManager.GetDecisionLineTexture())
+            _containerDecisionLineComponent = new Pieces.ImagePicec(SkinManager.RpTexturePathManager.GetDecisionLineTexture())
             {
                 Position = new OpenTK.Vector2(0, 0),
                 Scale = new Vector2(1f, 1f * layerCount),

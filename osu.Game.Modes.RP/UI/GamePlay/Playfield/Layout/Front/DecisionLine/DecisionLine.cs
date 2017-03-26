@@ -36,7 +36,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Front.DecisionLine
         [BackgroundDependencyLoader]
         private void load(TextureStore textures)
         {
-            string name = RPSkinManager.GetDecisionLineTexture();
+            string name = RpTexturePathManager.GetDecisionLineTexture();
             disc.Texture = textures.Get(name);
         }
     }
