@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
+using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.type;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
@@ -76,7 +77,8 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
                 case RpBaseHitObjectType.Shape.Down:
                     convert = true;
                     break;
-                case RpBaseHitObjectType.Shape.Left:
+                case RpBaseHitObjectType.Shape.Left://因為左邊真的有夠難打，乾脆不要讓它出現好了
+                    _lastHitObjectTuple.ListBaseHitObject[0].Shape= RpBaseHitObjectType.Shape.Right;
                     convert = false;
                     break;
                 case RpBaseHitObjectType.Shape.Right:
