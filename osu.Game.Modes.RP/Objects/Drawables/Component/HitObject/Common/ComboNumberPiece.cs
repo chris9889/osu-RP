@@ -9,11 +9,11 @@ using osu.Framework.Graphics.Textures;
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
 {
     /// <summary>
-    /// 顯示Combo數字
+    ///     顯示Combo數字
     /// </summary>
-    class ComboNumberPiece : BaseComponent
+    internal class ComboNumberPiece : BaseComponent
     {
-        private Sprite number;
+        private readonly Sprite number;
 
         public ComboNumberPiece()
         {
@@ -31,15 +31,14 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
             };
         }
 
+        public void SetNumber()
+        {
+        }
+
         [BackgroundDependencyLoader]
         private void load(TextureStore textures)
         {
             number.Texture = textures.Get(@"Play/osu/number@2x");
-        }
-
-        public void SetNumber()
-        {
-
         }
     }
 }

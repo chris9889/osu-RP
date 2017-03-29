@@ -10,40 +10,35 @@ using OpenTK;
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.ApproachCircle
 {
     /// <summary>
-    /// 
     /// </summary>
-    class BaseMoveApproachCircle : BaseMovePicec, ISliderProgress
+    internal class BaseMoveApproachCircle : BaseMovePicec, ISliderProgress
     {
-
         /// <summary>
-        /// 像osu! approach circle 那樣 
+        ///     像osu! approach circle 那樣
         /// </summary>
         public ImagePicec ApproachHitPicec;
 
 
-        public BaseMoveApproachCircle(BaseHitObject baseHitObject):base(baseHitObject)
+        public BaseMoveApproachCircle(BaseHitObject baseHitObject)
+            : base(baseHitObject)
         {
             Children = new Drawable[]
             {
-                ApproachHitPicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(BaseHitObject as BaseHitObject))
-                {
-
-                },
+                ApproachHitPicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(BaseHitObject))
             };
         }
 
         /// <summary>
-        /// 初始化顯示
+        ///     初始化顯示
         /// </summary>
         public override void Initial()
         {
-          
             ApproachHitPicec.Alpha = 0;
             ApproachHitPicec.Scale = new Vector2(3);
         }
 
         /// <summary>
-        /// 開始特效
+        ///     開始特效
         /// </summary>
         public override void FadeIn(double time = 0)
         {
@@ -54,7 +49,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Appr
         }
 
         /// <summary>
-        /// 結束
+        ///     結束
         /// </summary>
         public override void FadeOut(double time = 0)
         {

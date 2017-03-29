@@ -6,10 +6,9 @@ using osu.Game.Modes.Scoring;
 namespace osu.Game.Modes.RP.ScoreProcessor.Result
 {
     /// <summary>
-    /// Store all the score
+    ///     Store all the score
     /// </summary>
-    class RpScore : Score
+    internal class RpScore : Score
     {
-
     }
 }

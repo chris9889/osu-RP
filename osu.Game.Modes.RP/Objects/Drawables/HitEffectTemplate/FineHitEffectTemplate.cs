@@ -1,58 +1,54 @@
-﻿using OpenTK;
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Pieces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using osu.Game.Modes.RP.SkinManager;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
 {
-    class FineHitEffectTemplate :BaseHitEffectTemplate
+    internal class FineHitEffectTemplate : BaseHitEffectTemplate
     {
         /// <summary>
-        /// 目前結果
+        ///     目前結果
         /// </summary>
         protected new RPScoreResult RPScoreResult = RPScoreResult.Fine;
 
         /// <summary>
-        /// 白色十字
+        ///     白色十字
         /// </summary>
-        ImagePicec _crossPicec;
+        private readonly ImagePicec _crossPicec;
 
         /// <summary>
-        /// 白色十字
+        ///     白色十字
         /// </summary>
-        ImagePicec _effectPicec;
+        private readonly ImagePicec _effectPicec;
 
         /// <summary>
-        /// 有音樂形狀那個icon
+        ///     有音樂形狀那個icon
         /// </summary>
-        ImagePicec _onpuPicec;
+        private readonly ImagePicec _onpuPicec;
 
         public FineHitEffectTemplate()
         {
             Children = new Drawable[]
             {
-                _crossPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"Down"))
+                _crossPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Down"))
                 {
                     //Colour = osuObject.Colour,
-                    Position=new Vector2(0,0),
-                    Scale=new Vector2(1,1),
+                    Position = new Vector2(0, 0),
+                    Scale = new Vector2(1, 1)
                 },
-                _effectPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"Slide_effect"))
+                _effectPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Slide_effect"))
                 {
                     //Colour = osuObject.Colour,
-                    Position=new Vector2(0,0),
-                    Scale=new Vector2(1,1),
+                    Position = new Vector2(0, 0),
+                    Scale = new Vector2(1, 1)
                 },
-                _onpuPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"RP"))
+                _onpuPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
                 {
                     //Colour = osuObject.Colour,
-                    Position=new Vector2(0,0),
-                    Scale=new Vector2(1,1),
-                },
+                    Position = new Vector2(0, 0),
+                    Scale = new Vector2(1, 1)
+                }
             };
         }
 

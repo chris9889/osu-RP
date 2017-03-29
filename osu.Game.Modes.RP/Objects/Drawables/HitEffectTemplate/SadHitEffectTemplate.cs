@@ -1,31 +1,27 @@
-﻿using OpenTK;
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Pieces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using osu.Game.Modes.RP.SkinManager;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
 {
-    class SadHitEffectTemplate :BaseHitEffectTemplate
+    internal class SadHitEffectTemplate : BaseHitEffectTemplate
     {
         /// <summary>
-        /// 目前結果
+        ///     目前結果
         /// </summary>
         protected new RPScoreResult RPScoreResult = RPScoreResult.Sad;
 
 
         /// <summary>
-        /// 特效
+        ///     特效
         /// </summary>
-        ImagePicec _diffusePicec;
+        private readonly ImagePicec _diffusePicec;
 
         /// <summary>
-        /// 有音樂形狀那個icon
+        ///     有音樂形狀那個icon
         /// </summary>
-        ImagePicec _noonpuPicec;
+        private readonly ImagePicec _noonpuPicec;
 
         public SadHitEffectTemplate()
         {
@@ -34,20 +30,19 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
 
             Children = new Drawable[]
             {
-                _diffusePicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Diffuse"))
+                _diffusePicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Diffuse"))
                 {
-                    Position=new Vector2(0,0),
+                    Position = new Vector2(0, 0)
                 },
-                _noonpuPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
+                _noonpuPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
                 {
-                    Position=new Vector2(0,0),
-                },
+                    Position = new Vector2(0, 0)
+                }
             };
         }
 
         public override void StartEffect()
         {
-
             //透明度
             _diffusePicec.FadeTo(0.7f, 0);
             _diffusePicec.FadeTo(0.7f, 250);
@@ -65,7 +60,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
             _noonpuPicec.Scale = new Vector2(1f);
             _noonpuPicec.ScaleTo(1.8f, 200);
             _noonpuPicec.ScaleTo(1.8f, 220);
-
         }
     }
 }

@@ -1,10 +1,9 @@
-﻿using System;
-using OpenTK;
+﻿using OpenTK;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.ContainerPosition
 {
     /// <summary>
-    /// it can define the proper position for comvertor
+    ///     it can define the proper position for comvertor
     /// </summary>
     public class LinePositionDefinition
     {
@@ -17,20 +16,19 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Container
         }
 
         /// <summary>
-        /// 重新計算最大可以容納幾行
-        /// 
+        ///     重新計算最大可以容納幾行
         /// </summary>
         public void ReCalMaxContainerNumber()
         {
             MaxContainerNumber = 7;
         }
-      
+
         //先用隨機代替
-            
+
 
         internal Vector2 GetPosition(int nowLineIndex)
         {
-            return new Vector2(0, nowLineIndex * 400 / MaxContainerNumber +50);
+            return new Vector2(0, nowLineIndex * 400 / MaxContainerNumber + 50);
         }
     }
 }

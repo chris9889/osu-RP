@@ -10,17 +10,15 @@ namespace osu.Game.Modes.RP.KeyManager
 {
     public class RpKeyConversionInputManager : KeyConversionInputManager
     {
+        protected override void TransformState(InputState state)
+        {
+            base.TransformState(state);
+        }
 
 
         [BackgroundDependencyLoader]
         private void load(OsuConfigManager config)
         {
-           
-        }
-
-        protected override void TransformState(InputState state)
-        {
-            base.TransformState(state);
         }
     }
 }

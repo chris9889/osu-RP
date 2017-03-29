@@ -1,15 +1,20 @@
-﻿using osu.Game.Modes.RP.Objects.type;
-using osu.Game.Modes.RP.Objects;
-using OpenTK.Graphics;
+﻿using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.Drawables;
+using osu.Game.Modes.RP.Objects.type;
+using OpenTK.Graphics;
 
 namespace osu.Game.Modes.RP.SkinManager
 {
     /// <summary>
-    /// manage all the texture path.
+    ///     manage all the texture path.
     /// </summary>
     public static class RpTexturePathManager
     {
+        /// <summary>
+        ///     RP指標
+        /// </summary>
+        public static string RPPointer = RP_OBJECT_FOLDER + @"Common/" + @"RP-Pointer@2x_remove";
+
         private const string RP_HIT_EFFECT_FOLDER = @"Play/RP/HitEffect/";
         private const string RP_LOAD_EFFECT_FOLDER = @"Play/RP/LoadEffect/";
         private const string RP_OBJECT_FOLDER = @"Play/RP/RPObject/";
@@ -24,12 +29,7 @@ namespace osu.Game.Modes.RP.SkinManager
         private const string PNG_FORMAT = @".png";
 
         /// <summary>
-        /// RP指標
-        /// </summary>
-        public static string RPPointer = RP_OBJECT_FOLDER + @"Common/" + @"RP-Pointer@2x_remove";
-
-        /// <summary>
-        /// 取得數字
+        ///     取得數字
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
@@ -39,16 +39,16 @@ namespace osu.Game.Modes.RP.SkinManager
         }
 
         /// <summary>
-        /// 按鈕要用的icon
+        ///     按鈕要用的icon
         /// </summary>
         /// <returns></returns>
         public static string GetKeyLayoutButtonIcon(RpBaseHitObjectType.Shape Type)
         {
-            return RP_KEYCOUNTER_FOLDER + Type.ToString();
+            return RP_KEYCOUNTER_FOLDER + Type;
         }
 
         /// <summary>
-        /// RP物件聲音
+        ///     RP物件聲音
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
@@ -57,9 +57,9 @@ namespace osu.Game.Modes.RP.SkinManager
             return "";
         }
 
-        public static string GetRPHitEffect(RPScoreResult result,string resource)
+        public static string GetRPHitEffect(RPScoreResult result, string resource)
         {
-            return RP_HIT_EFFECT_FOLDER + result.ToString() + @"/" + resource;
+            return RP_HIT_EFFECT_FOLDER + result + @"/" + resource;
         }
 
         public static string GetDecisionLineTexture()
@@ -79,7 +79,7 @@ namespace osu.Game.Modes.RP.SkinManager
         }
 
         /// <summary>
-        /// 打擊特效
+        ///     打擊特效
         /// </summary>
         /// <returns></returns>
         public static string GetRPLoadEffect()
@@ -88,7 +88,7 @@ namespace osu.Game.Modes.RP.SkinManager
         }
 
         /// <summary>
-        /// 取得一個Note的開頭物件
+        ///     取得一個Note的開頭物件
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
@@ -98,7 +98,7 @@ namespace osu.Game.Modes.RP.SkinManager
         }
 
         /// <summary>
-        /// 取得一個Note的結尾物件
+        ///     取得一個Note的結尾物件
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
@@ -108,7 +108,7 @@ namespace osu.Game.Modes.RP.SkinManager
         }
 
         /// <summary>
-        /// 取得 開始物件的遮罩
+        ///     取得 開始物件的遮罩
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
@@ -118,7 +118,7 @@ namespace osu.Game.Modes.RP.SkinManager
         }
 
         /// <summary>
-        /// 取得 結束物件的遮罩
+        ///     取得 結束物件的遮罩
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
@@ -128,18 +128,18 @@ namespace osu.Game.Modes.RP.SkinManager
         }
 
         /// <summary>
-        /// 取得 開始物件的遮罩
+        ///     取得 開始物件的遮罩
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
         public static string GetStartObjectBackgroundByType(BaseHitObject baseHitObject)
         {
-            string str= GetObjectImagePathByType(baseHitObject, false) + "background-" + GetImageNameByType(baseHitObject);
+            var str = GetObjectImagePathByType(baseHitObject, false) + "background-" + GetImageNameByType(baseHitObject);
             return str;
         }
 
         /// <summary>
-        /// 取得 結束物件的遮罩
+        ///     取得 結束物件的遮罩
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
@@ -149,64 +149,52 @@ namespace osu.Game.Modes.RP.SkinManager
         }
 
         /// <summary>
-        /// 根據物件取得對應的顏色
-        /// 會在之後實作
+        ///     根據物件取得對應的顏色
+        ///     會在之後實作
         /// </summary>
         /// <returns></returns>
         public static Color4 GetColor(BaseHitObject baseHitObject)
         {
-            Color4 colour = new Color4(255, 255, 255, 255);
+            var colour = new Color4(255, 255, 255, 255);
             return colour;
         }
 
         /// <summary>
-        /// 根據型態取得物件圖片路徑
+        ///     根據型態取得物件圖片路徑
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
         private static string GetObjectImagePathByType(BaseHitObject baseHitObject, bool end = false)
         {
-            string fileName = "";
+            var fileName = "";
 
             //物件是開頭還是尾巴
             if (end)
-            {
                 fileName = @"End/" + fileName;
-            }
             else
-            {
                 fileName = @"Start/" + fileName;
-            }
 
             //根據模式去命名資料夾
-            fileName = baseHitObject.ObjectType.ToString() + @"/" + fileName;
+            fileName = baseHitObject.ObjectType + @"/" + fileName;
 
 
             //如果是黃金模式(家分模式)
-            if (baseHitObject.Special == RpBaseHitObjectType.Special.Normal)
-            {
+            if (baseHitObject.Special == RpBaseObjectType.Special.Normal)
                 fileName = @"Normal/" + fileName;
-            }
             else
-            {
                 fileName = @"Special/" + fileName;
-            }
 
             //不同落下模式
             if (baseHitObject.ApproachType == RpBaseHitObjectType.ApproachType.ApproachCircle)
-            {
                 fileName = @"Circle/" + fileName;
-            }
             else
-            {
                 fileName = @"Square/" + fileName;
-            }
 
             return RP_OBJECT_FOLDER + fileName;
         }
 
         /// <summary>
-        /// 圖片名稱
+        ///     圖片名稱
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <param name="border"></param>
@@ -239,6 +227,5 @@ namespace osu.Game.Modes.RP.SkinManager
             }
             return fileName;
         }
-
     }
 }

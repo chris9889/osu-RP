@@ -2,11 +2,10 @@
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMovingPath.StartPosition
 {
-    class StartPositionGenerator
+    internal class StartPositionGenerator
     {
         public void Process(HitObjectConvertParameter input)
         {
-            
         }
     }
 }

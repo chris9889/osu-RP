@@ -1,29 +1,26 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
-using System;
-using System.Collections.Generic;
+
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
-using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.type;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
 {
     /// <summary>
-    /// 處理combo時的狀態
+    ///     處理combo時的狀態
     /// </summary>
     public class ProcessComboObject
     {
+        public bool FisrtConbo;
         private ComvertParameter _singleSlideParameter;
 
-        private bool convert = false;
-
-        public bool FisrtConbo = false;
+        private bool convert;
 
         //上一個群組的物件
         private SingleHitObjectConvertParameter _lastHitObjectTuple;
 
-        internal void Process(SingleHitObjectConvertParameter singleTuple,int nowIndex)
+        internal void Process(SingleHitObjectConvertParameter singleTuple, int nowIndex)
         {
             //上一個群組的物件
             _lastHitObjectTuple = _singleSlideParameter.HitObjectConvertParameter.ListSingleHitObjectConvertParameter[nowIndex - 1];
@@ -36,24 +33,16 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
 
             if (convert)
             {
-                for (int i = 0; i < singleTuple.ListBaseHitObject.Count; i++)
-                {
+                for (var i = 0; i < singleTuple.ListBaseHitObject.Count; i++)
                     if (_lastHitObjectTuple.ListBaseHitObject.Count > i)
-                    {
                         singleTuple.ListBaseHitObject[i].Shape = FindNext(_lastHitObjectTuple.ListBaseHitObject[i].Shape);
-                    }
-                }
                 convert = false;
             }
             else
             {
-                for (int i = 0; i < singleTuple.ListBaseHitObject.Count; i++)
-                {
+                for (var i = 0; i < singleTuple.ListBaseHitObject.Count; i++)
                     if (_lastHitObjectTuple.ListBaseHitObject.Count > i)
-                    {
                         singleTuple.ListBaseHitObject[i].Shape = FindPrevious(_lastHitObjectTuple.ListBaseHitObject[i].Shape);
-                    }
-                }
                 convert = true;
             }
         }
@@ -64,10 +53,10 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
         }
 
         /// <summary>
-        /// if first combo Object comes to up down left right
-        /// it will assign the priority that is better to hit
+        ///     if first combo Object comes to up down left right
+        ///     it will assign the priority that is better to hit
         /// </summary>
-        void OptimizeBetterHitExperiance()
+        private void OptimizeBetterHitExperiance()
         {
             switch (_lastHitObjectTuple.ListBaseHitObject[0].Shape)
             {
@@ -77,8 +66,8 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
                 case RpBaseHitObjectType.Shape.Down:
                     convert = true;
                     break;
-                case RpBaseHitObjectType.Shape.Left://因為左邊真的有夠難打，乾脆不要讓它出現好了
-                    _lastHitObjectTuple.ListBaseHitObject[0].Shape= RpBaseHitObjectType.Shape.Right;
+                case RpBaseHitObjectType.Shape.Left: //因為左邊真的有夠難打，乾脆不要讓它出現好了
+                    _lastHitObjectTuple.ListBaseHitObject[0].Shape = RpBaseHitObjectType.Shape.Right;
                     convert = false;
                     break;
                 case RpBaseHitObjectType.Shape.Right:
@@ -88,11 +77,11 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
         }
 
         /// <summary>
-        /// Up>>Left>>Down>>Right
+        ///     Up>>Left>>Down>>Right
         /// </summary>
         /// <param name="nowShape"></param>
         /// <returns></returns>
-        RpBaseHitObjectType.Shape FindNext(RpBaseHitObjectType.Shape nowShape)
+        private RpBaseHitObjectType.Shape FindNext(RpBaseHitObjectType.Shape nowShape)
         {
             switch (nowShape)
             {
@@ -108,7 +97,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
             return RpBaseHitObjectType.Shape.Down;
         }
 
-        RpBaseHitObjectType.Shape FindPrevious(RpBaseHitObjectType.Shape nowShape)
+        private RpBaseHitObjectType.Shape FindPrevious(RpBaseHitObjectType.Shape nowShape)
         {
             switch (nowShape)
             {

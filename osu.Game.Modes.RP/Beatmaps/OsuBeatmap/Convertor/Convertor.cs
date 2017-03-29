@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
+using System.Collections.Generic;
 using osu.Game.Beatmaps;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.Container;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.HitObject;
@@ -8,32 +11,31 @@ using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Parameter;
 namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor
 {
     /// <summary>
-    /// 轉換器，參數做轉換，從osu排版變成RP的
+    ///     轉換器，參數做轉換，從osu排版變成RP的
     /// </summary>
-    class Convertor
+    internal class Convertor
     {
         /// <summary>
-        /// 
         /// </summary>
         public Beatmap SongBeatmap;
 
         /// <summary>
-        /// 語意轉換，會處理好基本物件型態後讓後面去做處理
+        ///     語意轉換，會處理好基本物件型態後讓後面去做處理
         /// </summary>
-        SyntaxProcessor _syntaxProcessor;//= new SyntaxProcessor(SongBeatmap);
+        private SyntaxProcessor _syntaxProcessor; //= new SyntaxProcessor(SongBeatmap);
 
         /// <summary>
-        /// 生產container
+        ///     生產container
         /// </summary>
-        ContainerProcessor _ContainerProcessor = new ContainerProcessor();
+        private readonly ContainerProcessor _ContainerProcessor = new ContainerProcessor();
 
         /// <summary>
-        /// 生產打擊物件
+        ///     生產打擊物件
         /// </summary>
-        HitObjectProcessor _hitObjectProcessor = new HitObjectProcessor();
+        private readonly HitObjectProcessor _hitObjectProcessor = new HitObjectProcessor();
 
         /// <summary>
-        /// 主要轉換
+        ///     主要轉換
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
@@ -41,26 +43,22 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor
         {
             _syntaxProcessor = new SyntaxProcessor(SongBeatmap, input);
 
-            List<ConvertParameter> output = new List<ConvertParameter>();
+            var output = new List<ConvertParameter>();
 
             //container
-            List<ContainerConvertParameter> listContainer = _syntaxProcessor.GetListContainer();
+            var listContainer = _syntaxProcessor.GetListContainer();
             //產生出實體物件
             _ContainerProcessor.Convert(listContainer);
-            foreach (ContainerConvertParameter single in listContainer)
-            {
+            foreach (var single in listContainer)
                 output.Add(single);
-            }
 
             //hitObject
-            List < HitObjectConvertParameter > listHitObject = _syntaxProcessor.GetListHitObject();
+            var listHitObject = _syntaxProcessor.GetListHitObject();
             //產生出實體物件
             _hitObjectProcessor.Convert(listHitObject);
 
-            foreach (HitObjectConvertParameter single in listHitObject)
-            {
+            foreach (var single in listHitObject)
                 output.Add(single);
-            }
 
 
             //回傳

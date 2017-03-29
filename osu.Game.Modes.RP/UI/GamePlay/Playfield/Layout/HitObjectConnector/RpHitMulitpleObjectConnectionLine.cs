@@ -2,54 +2,51 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System.Collections.Generic;
-using OpenTK;
-using OpenTK.Graphics;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Game.Modes.RP.Objects.Drawables.Pieces;
+using OpenTK;
+using OpenTK.Graphics;
 
 namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectConnector
 {
     /// <summary>
-    /// DrawConnectionLine
+    ///     DrawConnectionLine
     /// </summary>
     public class RpHitMulitpleObjectConnectionLine : Container
     {
-        private float TIME_FADEIN = 200;
-
         public double StartTime;
         public double EndTime;
+        private readonly float TIME_FADEIN = 200;
 
-        private List<Vector2> _listVertex=new List<Vector2>();
+        private readonly List<Vector2> _listVertex = new List<Vector2>();
 
-        private Slider slider;
+        private readonly Slider slider;
 
         public RpHitMulitpleObjectConnectionLine()
         {
-            slider = new Slider()
+            slider = new Slider
             {
-                Colour = new Color4(10,10,10,255),
+                Colour = new Color4(10, 10, 10, 255),
                 PathWidth = 4f,
-                Scale = new Vector2(0.5f),
+                Scale = new Vector2(0.5f)
             };
 
-            this.Children = new Drawable[]
+            Children = new Drawable[]
             {
-                slider,
+                slider
             };
         }
 
         public void SetListLine(List<Vector2> listVertex)
         {
             _listVertex.Clear();
-            for (int i = 0; i < listVertex.Count; i++)
-            {
-                _listVertex.Add(listVertex[i]*2);
-            }
+            for (var i = 0; i < listVertex.Count; i++)
+                _listVertex.Add(listVertex[i] * 2);
             slider.SetRange(_listVertex);
             _listVertex.Sort((x, y) => x.X.CompareTo(y.X));
             _listVertex.Sort((x, y) => x.Y.CompareTo(y.Y));
-            slider.Position = _listVertex[0]/2;
+            slider.Position = _listVertex[0] / 2;
         }
 
 

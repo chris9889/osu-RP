@@ -6,19 +6,18 @@ using OpenTK;
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
 {
     /// <summary>
-    /// 載入效果
+    ///     載入效果
     /// </summary>
-    class LoadEffect : BaseComponent
+    internal class LoadEffect : BaseComponent
     {
-        
         /// <summary>
-        /// 外框
+        ///     外框
         /// </summary>
-        private ImagePicec _effectPicec;
+        private readonly ImagePicec _effectPicec;
 
 
         /// <summary>
-        /// 建構
+        ///     建構
         /// </summary>
         public LoadEffect(BaseRpObject h)
         {
@@ -29,24 +28,23 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
 
             Children = new Drawable[]
             {
-                _effectPicec=new ImagePicec(RpTexturePathManager.GetRPLoadEffect())
+                _effectPicec = new ImagePicec(RpTexturePathManager.GetRPLoadEffect())
                 {
-                    Scale=new Vector2(1,1),
-                    Alpha=0,
-                },
+                    Scale = new Vector2(1, 1),
+                    Alpha = 0
+                }
             };
         }
 
         /// <summary>
-        /// 初始化顯示
+        ///     初始化顯示
         /// </summary>
         public override void Initial()
         {
-
         }
 
         /// <summary>
-        /// 開始特效
+        ///     開始特效
         /// </summary>
         public override void FadeIn(double time = 0)
         {
@@ -57,11 +55,10 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
         }
 
         /// <summary>
-        /// 結束
+        ///     結束
         /// </summary>
         public override void FadeOut(double time = 0)
         {
-
         }
     }
 }

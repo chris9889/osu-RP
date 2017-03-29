@@ -7,14 +7,12 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
-using osu.Framework.Input;
-using OpenTK;
 using osu.Game.Modes.RP.SkinManager;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
 {
     /// <summary>
-    /// RP指針
+    ///     RP指針
     /// </summary>
     public class Pointer : Container
     {
@@ -22,10 +20,10 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
         public readonly float TIME_PREEMPT = 2000;
         public readonly float TIME_FADEOUT = 100;
 
-        BaseRpObject _baseRPObject;
+        private readonly BaseRpObject _baseRPObject;
 
 
-        private Sprite approachCircle;
+        private readonly Sprite approachCircle;
 
         public Pointer(BaseRpObject baseRPObject)
         {
@@ -47,41 +45,41 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
         }
 
         /// <summary>
-        /// 載入物件
+        ///     初始化顯示
+        /// </summary>
+        public void Initial()
+        {
+            Alpha = 1;
+            //this.Scale = new Vector2(1);
+        }
+
+        /// <summary>
+        ///     開始特效
+        /// </summary>
+        public void StartEffect()
+        {
+            FadeIn(Math.Min(TIME_FADEIN * 2, TIME_PREEMPT));
+            //轉一圈
+            RotateTo(360.0f, TIME_PREEMPT);
+        }
+
+        /// <summary>
+        ///     結束
+        /// </summary>
+        public void FadeOut()
+        {
+            base.FadeOut();
+        }
+
+        /// <summary>
+        ///     載入物件
         /// </summary>
         /// <param name="textures"></param>
         [BackgroundDependencyLoader]
         private void load(TextureStore textures)
         {
-            string textureName = RpTexturePathManager.RPPointer;
+            var textureName = RpTexturePathManager.RPPointer;
             approachCircle.Texture = textures.Get(textureName);
-        }
-
-        /// <summary>
-        /// 初始化顯示
-        /// </summary>
-        public void Initial()
-        {
-            this.Alpha = 1;
-            //this.Scale = new Vector2(1);
-        }
-
-        /// <summary>
-        /// 開始特效
-        /// </summary>
-        public void StartEffect()
-        {
-            this.FadeIn(Math.Min(TIME_FADEIN * 2, TIME_PREEMPT));
-            //轉一圈
-            this.RotateTo(360.0f, TIME_PREEMPT);
-        }
-
-        /// <summary>
-        /// 結束
-        /// </summary>
-        public void FadeOut()
-        {
-            base.FadeOut();
         }
     }
 }

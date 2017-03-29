@@ -14,7 +14,7 @@ using osu.Game.Modes.Scoring;
 namespace osu.Game.Modes.RP.Mods
 {
     /// <summary>
-    /// 不會死掉
+    ///     不會死掉
     /// </summary>
     public class RpModNoFail : ModNoFail
     {
@@ -23,7 +23,7 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    /// 更簡單
+    ///     更簡單
     /// </summary>
     public class RpModEasy : ModEasy
     {
@@ -32,17 +32,17 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    /// 會把物件藏起來
+    ///     會把物件藏起來
     /// </summary>
     public class RpModHidden : ModHidden
     {
         public override string Description => @"Play with no approach RP HitObject and fading notes for a slight score advantage.";
         public override double ScoreMultiplier => 1.06;
-        public override Type[] IncompatibleMods  => new Type[] { };
+        public override Type[] IncompatibleMods => new Type[] { };
     }
 
     /// <summary>
-    /// 物件會更小
+    ///     物件會更小
     /// </summary>
     public class RpModHardRock : ModHardRock
     {
@@ -51,18 +51,18 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    /// 一個 miss 馬上死翹翹
+    ///     一個 miss 馬上死翹翹
     /// </summary>
     public class RpModSuddenDeath : ModSuddenDeath
     {
         public override double ScoreMultiplier => 1.06;
-        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(RpModAutoplay), typeof(RpModNoFail)}).ToArray();
+        public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(RpModAutoplay), typeof(RpModNoFail) }).ToArray();
     }
 
     /// <summary>
-    /// 完美模式
-    /// 只要一個不是perfect 就會死亡
-    /// 比 ModSuddenDeath 還嚴格
+    ///     完美模式
+    ///     只要一個不是perfect 就會死亡
+    ///     比 ModSuddenDeath 還嚴格
     /// </summary>
     public class RpModPerfect : ModPerfect
     {
@@ -73,7 +73,7 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    /// 兩倍速度
+    ///     兩倍速度
     /// </summary>
     public class RpModDoubleTime : ModDoubleTime
     {
@@ -83,7 +83,7 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    /// 休閒模式，用看的就好了
+    ///     休閒模式，用看的就好了
     /// </summary>
     public class RpModRelax : ModRelax
     {
@@ -93,11 +93,10 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    /// 半速
+    ///     半速
     /// </summary>
     public class RpModHalfTime : ModHalfTime
     {
-
         public override string Description => @"Slow Down the Speed";
 
         public override double ScoreMultiplier => 0.5;
@@ -106,7 +105,7 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    /// 提高音調 + 加速
+    ///     提高音調 + 加速
     /// </summary>
     public class RpModNightcore : ModNightcore
     {
@@ -115,7 +114,7 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    /// 只有判定線附近會發亮
+    ///     只有判定線附近會發亮
     /// </summary>
     public class RpModFlashlight : ModFlashlight
     {
@@ -124,7 +123,7 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    /// Auto play the RP Mode
+    ///     Auto play the RP Mode
     /// </summary>
     public class RpModAutoplay : ModAutoplay<BaseRpObject>
     {
@@ -135,7 +134,7 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    ///RP : 背景按壓的物件會自動完成
+    ///     RP : 背景按壓的物件會自動完成
     /// </summary>
     public class RpModContainerHitObjectPressOut : Mod
     {
@@ -145,12 +144,12 @@ namespace osu.Game.Modes.RP.Mods
         public override double ScoreMultiplier => 0.9;
         public override bool Ranked => true;
 
-        public override Type[] IncompatibleMods => new Type[] { typeof(ModAutoplay), typeof(RpModRelax), };
+        public override Type[] IncompatibleMods => new[] { typeof(ModAutoplay), typeof(RpModRelax) };
     }
 
     /// <summary>
-    /// Shape Coco，會把單手的 Mode 變成雙手的
-    /// 會參考預設譜面設定做調整
+    ///     Shape Coco，會把單手的 Mode 變成雙手的
+    ///     會參考預設譜面設定做調整
     /// </summary>
     public class RpModShapeHitObjectCoco : Mod
     {
@@ -163,8 +162,8 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    /// Container Press Coco，會把單手的 Mode 變成雙手的
-    /// 會參考譜面設定做調整
+    ///     Container Press Coco，會把單手的 Mode 變成雙手的
+    ///     會參考譜面設定做調整
     /// </summary>
     public class RpModContainerHitObjectCoco : Mod
     {
@@ -175,6 +174,4 @@ namespace osu.Game.Modes.RP.Mods
         public override bool Ranked => true;
         public override Type[] IncompatibleMods => new Type[] { };
     }
-
-    
 }

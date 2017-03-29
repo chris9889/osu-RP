@@ -1,67 +1,58 @@
-﻿using OpenTK;
-using osu.Framework.Graphics;
-using osu.Game.Modes.RP.Objects.Drawables.Template.Container;
+﻿using osu.Framework.Graphics;
 using osu.Game.Modes.Objects.Drawables;
+using osu.Game.Modes.RP.Objects.Drawables.Template.Container;
 using osu.Game.Modes.RP.ScoreProcessor;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
 {
     /// <summary>
-    /// 包住RP物件
+    ///     包住RP物件
     /// </summary>
-    class DrawableContainer : DrawableBaseRpObject
+    internal class DrawableContainer : DrawableBaseRpObject
     {
-        
-
         /// <summary>
-        /// 樣板，把物件綁上去就對了
-        /// </summary>
-        public new ContainerTemplate ContainerTemplate
-        {
-            get
-            {
-                return (ContainerTemplate)Template;
-            }
-            set
-            {
-                Template = value;
-            }
-        }
-
-        /// <summary>
-        /// 
         /// </summary>
         public new ObjectContainer HitObject;
 
+
         /// <summary>
-        /// 
+        ///     樣板，把物件綁上去就對了
+        /// </summary>
+        public ContainerTemplate ContainerTemplate
+        {
+            get { return (ContainerTemplate)Template; }
+            set { Template = value; }
+        }
+
+        /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
-        public DrawableContainer(BaseRpObject hitObject) : base(hitObject)
+        public DrawableContainer(BaseRpObject hitObject)
+            : base(hitObject)
         {
             HitObject = (ObjectContainer)hitObject;
 
-            
 
             Template = new ContainerTemplate(HitObject)
             {
                 Position = new Vector2(0, 0),
-                Alpha = 1,
+                Alpha = 1
             };
 
             Children = new Drawable[]
             {
-                Template,
+                Template
             };
 
             //may not be so correct
             //Size = _rpDetectPress.DrawSize;
             Scale = new Vector2(HitObject.Scale);
         }
-        
+
 
         /// <summary>
-        /// 更新初始狀態
+        ///     更新初始狀態
         /// </summary>
         protected override void UpdateInitialState()
         {
@@ -75,7 +66,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 這裡估計會一直更新
+        ///     這裡估計會一直更新
         /// </summary>
         protected override void UpdatePreemptState()
         {
@@ -83,7 +74,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 持續一直更新物件
+        ///     持續一直更新物件
         /// </summary>
         protected override void Update()
         {
@@ -98,7 +89,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <returns></returns>
         protected override RpJudgement CreateJudgement()
@@ -107,18 +97,15 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 從這邊去更新狀態
+        ///     從這邊去更新狀態
         /// </summary>
         /// <param name="userTriggered"></param>
         protected override void CheckJudgement(bool userTriggered)
         {
-
-            
-                
         }
 
         /// <summary>
-        /// 更新
+        ///     更新
         /// </summary>
         /// <param name="state"></param>
         protected override void UpdateState(ArmedState state)
@@ -128,14 +115,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
 
             if (state == ArmedState.Hit)
             {
-               
             }
-            else
-            {
-                
-            }
-
-            
         }
     }
 }

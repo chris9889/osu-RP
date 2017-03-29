@@ -3,37 +3,35 @@
 
 using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
-using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common.ShapePiece;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
 {
-    class ClickMoveFlow : BaseMoveFlow ,ISliderProgress
+    internal class ClickMoveFlow : BaseMoveFlow, ISliderProgress
     {
-
         /// <summary>
-        /// 開頭和結尾物件
+        ///     開頭和結尾物件
         /// </summary>
-        private HitObjectAnyShapePiece hitObjectAnyShapePieceFirstObjectAny;
+        private readonly HitObjectAnyShapePiece hitObjectAnyShapePieceFirstObjectAny;
 
-        public ClickMoveFlow(BaseHitObject baseHitObject) : base(baseHitObject)
+        public ClickMoveFlow(BaseHitObject baseHitObject)
+            : base(baseHitObject)
         {
             Children = new Drawable[]
-           {
+            {
                 //開頭物件
-                hitObjectAnyShapePieceFirstObjectAny = new HitObjectAnyShapePiece(BaseHitObject as BaseHitObject)//false
+                hitObjectAnyShapePieceFirstObjectAny = new HitObjectAnyShapePiece(BaseHitObject) //false
                 {
                     Position = new Vector2(0, 0),
                     //Scale = new Vector2(_hitObject.Scale),
-                    IsFirst = true,
-                },
-           };
-
+                    IsFirst = true
+                }
+            };
         }
 
         /// <summary>
-        /// 初始化顯示
+        ///     初始化顯示
         /// </summary>
         public override void Initial()
         {
@@ -41,7 +39,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         }
 
         /// <summary>
-        /// 開始特效
+        ///     開始特效
         /// </summary>
         public override void FadeIn(double time = 0)
         {
@@ -49,7 +47,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         }
 
         /// <summary>
-        /// 結束
+        ///     結束
         /// </summary>
         public override void FadeOut(double time = 0)
         {
@@ -58,7 +56,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
 
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="startProgress"></param>
         /// <param name="endProgress"></param>

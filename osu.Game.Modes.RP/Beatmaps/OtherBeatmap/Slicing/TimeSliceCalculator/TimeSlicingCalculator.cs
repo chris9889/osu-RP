@@ -6,8 +6,8 @@ using osu.Game.Beatmaps;
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.TimeSliceCalculator
 {
     /// <summary>
-    /// will decide the speed and BPM and other to slide to a better time 
-    /// will decide : deltaTime
+    ///     will decide the speed and BPM and other to slide to a better time
+    ///     will decide : deltaTime
     /// </summary>
     public class TimeSlicingCalculator
     {
@@ -26,30 +26,26 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.TimeSliceCalculator
         }
 
         /// <summary>
-        /// slicing from A to B
+        ///     slicing from A to B
         /// </summary>
         /// <param name="startIndex"></param>
         /// <returns></returns>
         public int SlicingFrom(int startIndex)
         {
-            int nowIndex = startIndex;
+            var nowIndex = startIndex;
             double totalTime = 0;
 
             //先算出至少要多少
-            while (totalTime< maxSliceTime && nowIndex< _beatmap.HitObjects.Count)
+            while (totalTime < maxSliceTime && nowIndex < _beatmap.HitObjects.Count)
             {
                 totalTime = _beatmap.HitObjects[nowIndex].StartTime - _beatmap.HitObjects[startIndex].StartTime;
                 nowIndex++;
             }
 
             if (totalTime > maxSliceTime)
-            {
                 nowIndex--;
-            }
 
             return nowIndex;
         }
-
-        
     }
 }

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using osu.Game.Beatmaps;
-using osu.Game.Modes.Osu.Objects;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator;
-using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.PostConvert;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing;
 using osu.Game.Modes.RP.Objects;
@@ -12,24 +9,24 @@ using osu.Game.Modes.RP.Objects;
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap
 {
     /// <summary>
-    /// can convert any beatmap from any other beatmap
+    ///     can convert any beatmap from any other beatmap
     /// </summary>
     public class BeatmapConvertor : IBeatmapConverter<BaseRpObject>
     {
         //切片
-        SliceProcessor SliceProcessor = new SliceProcessor();
+        private readonly SliceProcessor SliceProcessor = new SliceProcessor();
 
         //建構Container
-        ContainerProcessor ContainerProcessor = new ContainerProcessor();
+        private readonly ContainerProcessor ContainerProcessor = new ContainerProcessor();
 
         //建構打擊物件
-        HitObjectProcessor HitObjectProcessor = new HitObjectProcessor();
+        private readonly HitObjectProcessor HitObjectProcessor = new HitObjectProcessor();
 
         //把參數轉回RP物件
-        PostConvertor PostConvertor=new PostConvertor();
+        private readonly PostConvertor PostConvertor = new PostConvertor();
 
         /// <summary>
-        /// 轉換Beatmap
+        ///     轉換Beatmap
         /// </summary>
         /// <param name="original"></param>
         /// <returns></returns>
@@ -41,23 +38,24 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap
             };
         }
 
-        
+
         /// <summary>
-        /// 裡面丟入的都是OsuHitObject
-        /// 要轉換成 RPHitObject
+        ///     裡面丟入的都是OsuHitObject
+        ///     要轉換成 RPHitObject
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
         private List<BaseRpObject> convertHitObjects(Beatmap originalBeatmap, float stackLeniency)
         {
             //先把listObject切出來
-            List<ComvertParameter> listComvertParameter = SliceProcessor.GetListComvertParameter(originalBeatmap);
+            var listComvertParameter = SliceProcessor.GetListComvertParameter(originalBeatmap);
             //整理出Container
             listComvertParameter = ContainerProcessor.Convert(listComvertParameter);
             //整理出HitObjects
             listComvertParameter = HitObjectProcessor.Convert(listComvertParameter);
             //轉回原本的物件
-            return PostConvertor.Convert(listComvertParameter); ;
+            return PostConvertor.Convert(listComvertParameter);
+            ;
         }
     }
 }

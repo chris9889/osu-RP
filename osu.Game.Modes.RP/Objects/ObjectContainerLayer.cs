@@ -1,29 +1,24 @@
 ﻿using OpenTK.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace osu.Game.Modes.RP.Objects
 {
     /// <summary>
-    /// 裡面會儲存所有該在上面的物件
+    ///     裡面會儲存所有該在上面的物件
     /// </summary>
     public class ObjectContainerLayer : BaseRpObject
     {
         /// <summary>
-        /// 用來從原本的Container裡面取得一些資訊
+        ///     用來從原本的Container裡面取得一些資訊
         /// </summary>
         public ObjectContainer ObjectContainer;
 
         /// <summary>
-        /// 結束時間，可以任意設定
+        ///     結束時間，可以任意設定
         /// </summary>
         public new double EndTime;
 
         /// <summary>
-        /// 物件長度
+        ///     物件長度
         /// </summary>
         public float Lenght = 512;
 
@@ -35,7 +30,7 @@ namespace osu.Game.Modes.RP.Objects
         }
 
         /// <summary>
-        /// 初始化物件參數
+        ///     初始化物件參數
         /// </summary>
         public override void InitialDefaultValue()
         {
@@ -50,7 +45,7 @@ namespace osu.Game.Modes.RP.Objects
         }
 
         /// <summary>
-        /// 更新裡面的資訊
+        ///     更新裡面的資訊
         /// </summary>
         /// <param name="objectContainer"></param>
         public void UpdateContainerLayout(ObjectContainer objectContainer)

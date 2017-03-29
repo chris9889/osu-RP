@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
+using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.HitObject.GenerateObject;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.HitObject.Position;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.HitObject.Type;
@@ -6,23 +9,25 @@ using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Parameter;
 
 namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.HitObject
 {
-    class HitObjectProcessor
+    internal class HitObjectProcessor
     {
         /// <summary>
-        /// 產生出實體物件
+        ///     產生出實體物件
         /// </summary>
-        RpObjectGenerator _rpObjectGenerator = new RpObjectGenerator();
-        /// <summary>
-        /// 類型生產器
-        /// </summary>
-        ObjectTypeGenerator _typeGenerator = new ObjectTypeGenerator();
-        /// <summary>
-        /// 位置生產器
-        /// </summary>
-        ObjectPositionGenerator _positionGenerator = new ObjectPositionGenerator();
+        private readonly RpObjectGenerator _rpObjectGenerator = new RpObjectGenerator();
 
         /// <summary>
-        /// 主要轉換
+        ///     類型生產器
+        /// </summary>
+        private readonly ObjectTypeGenerator _typeGenerator = new ObjectTypeGenerator();
+
+        /// <summary>
+        ///     位置生產器
+        /// </summary>
+        private readonly ObjectPositionGenerator _positionGenerator = new ObjectPositionGenerator();
+
+        /// <summary>
+        ///     主要轉換
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>

@@ -8,7 +8,7 @@ using OpenTK;
 namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
 {
     /// <summary>
-    /// 爆炸
+    ///     爆炸
     /// </summary>
     public class ExplodePiece : Container
     {

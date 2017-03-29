@@ -1,42 +1,37 @@
-﻿using OpenTK;
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Pieces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using osu.Game.Modes.RP.SkinManager;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
 {
-    class SafeHitEffectTemplate : BaseHitEffectTemplate
+    internal class SafeHitEffectTemplate : BaseHitEffectTemplate
     {
         /// <summary>
-        /// 目前結果
+        ///     目前結果
         /// </summary>
         protected new RPScoreResult RPScoreResult = RPScoreResult.Safe;
 
         /// <summary>
-        /// 有音樂形狀那個icon
+        ///     有音樂形狀那個icon
         /// </summary>
-        ImagePicec _noonpuPicec;
+        private readonly ImagePicec _noonpuPicec;
 
         public SafeHitEffectTemplate()
         {
             Children = new Drawable[]
             {
-                 _noonpuPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"RP"))
+                _noonpuPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
                 {
                     //Colour = osuObject.Colour,
-                    Scale=new Vector2(1,1),
-                    Position=new Vector2(0,0),
-                },
+                    Scale = new Vector2(1, 1),
+                    Position = new Vector2(0, 0)
+                }
             };
         }
 
         public override void StartEffect()
         {
-
             //透明度
             _noonpuPicec.FadeTo(0.8f, 0);
             _noonpuPicec.FadeTo(0.8f, 350);

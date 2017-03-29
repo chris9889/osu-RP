@@ -1,24 +1,25 @@
-﻿using System.Collections.Generic;
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
+using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.HitObject.Type.Shape;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Parameter;
 
 namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.HitObject.Type
 {
     /// <summary>
-    /// 建構 RPObjectType
+    ///     建構 RPObjectType
     /// </summary>
-    class ObjectTypeGenerator
+    internal class ObjectTypeGenerator
     {
-
-        //丟進來的參數
-        List<HitObjectConvertParameter> _scannParameter = new List<HitObjectConvertParameter>();
-
         //生產器
         protected RpShapeGenerator _shapeGenerator; //形狀
+        //丟進來的參數
+        private List<HitObjectConvertParameter> _scannParameter = new List<HitObjectConvertParameter>();
 
 
         /// <summary>
-        /// 回傳完成生產的物件
+        ///     回傳完成生產的物件
         /// </summary>
         /// <returns></returns>
         public List<HitObjectConvertParameter> Convert(List<HitObjectConvertParameter> scannerResult)

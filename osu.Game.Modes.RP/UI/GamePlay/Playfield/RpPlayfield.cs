@@ -4,51 +4,26 @@
 using System.Linq;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
+using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.Drawables;
+using osu.Game.Modes.RP.ScoreProcessor;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Background;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Front;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObject;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectConnector;
-using osu.Game.Modes.Objects.Drawables;
-using osu.Game.Modes.RP.ScoreProcessor;
-using OpenTK;
 using osu.Game.Modes.UI;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
 {
     /// <summary>
-    /// 遊戲物件顯示
+    ///     遊戲物件顯示
     /// </summary>
     public class RpPlayfield : Playfield<BaseRpObject, RpJudgement>
     {
         /// <summary>
-        /// 顯示背景
-        /// </summary>
-        private BackgroundLayout _backgroundLayout;
-
-        /// <summary>
-        /// 用來顯示打擊物件的 Layout
-        /// </summary>
-        private HitObjectLayout _rpObjectLayout;
-
-        /// <summary>
-        /// 連接多個物件用來畫線的
-        /// </summary>
-        private ConnectionRenderer<DrawableBaseHitObject> _hitObjectConnector;
-
-        /// <summary>
-        /// 用來判斷打擊的 Layout
-        /// </summary>
-        private Container _judgementLayer;
-
-        /// <summary>
-        /// 顯示前方指針，和一些特殊物件
-        /// </summary>
-        private FrontLayout _frontLayout;
-
-        /// <summary>
-        /// 顯示大小，估計會根據視窗大小調整
+        ///     顯示大小，估計會根據視窗大小調整
         /// </summary>
         public override Vector2 Size
         {
@@ -62,9 +37,35 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         }
 
         /// <summary>
-        /// 遊玩區域
+        ///     顯示背景
         /// </summary>
-        public RpPlayfield() : base(512)
+        private readonly BackgroundLayout _backgroundLayout;
+
+        /// <summary>
+        ///     用來顯示打擊物件的 Layout
+        /// </summary>
+        private readonly HitObjectLayout _rpObjectLayout;
+
+        /// <summary>
+        ///     連接多個物件用來畫線的
+        /// </summary>
+        private readonly ConnectionRenderer<DrawableBaseHitObject> _hitObjectConnector;
+
+        /// <summary>
+        ///     用來判斷打擊的 Layout
+        /// </summary>
+        private readonly Container _judgementLayer;
+
+        /// <summary>
+        ///     顯示前方指針，和一些特殊物件
+        /// </summary>
+        private FrontLayout _frontLayout;
+
+        /// <summary>
+        ///     遊玩區域
+        /// </summary>
+        public RpPlayfield()
+            : base(512)
         {
             Anchor = Anchor.Centre;
             Origin = Anchor.Centre;
@@ -73,45 +74,43 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
 
             Add(new Drawable[]
             {
-               _backgroundLayout=new BackgroundLayout //背景
+                _backgroundLayout = new BackgroundLayout //背景
                 {
                     RelativeSizeAxes = Axes.Both,
-                    Depth = 2,
+                    Depth = 2
                 },
                 _rpObjectLayout = new HitObjectLayout //物件放置，用來做取得用
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = 1,
-                    _backgroundLayout=this._backgroundLayout
+                    _backgroundLayout = _backgroundLayout
                 },
                 _hitObjectConnector = new HitObjectConnector //物件連線
                 {
                     RelativeSizeAxes = Axes.Both,
-                    Depth = 1,
+                    Depth = 1
                     //HitObjectLayout=_rpObjectLayout,
                 },
-                 _frontLayout = new FrontLayout //顯示判定點，background.proxy();
+                _frontLayout = new FrontLayout //顯示判定點，background.proxy();
                 {
                     RelativeSizeAxes = Axes.Both,
-                    Depth = -1,
+                    Depth = -1
                 },
                 _judgementLayer = new Container //打擊特效
                 {
                     RelativeSizeAxes = Axes.Both,
-                    Depth = -2,
-                },
-
+                    Depth = -2
+                }
             });
         }
 
 
         /// <summary>
-        /// 會把要顯示的物件逐一加進來
+        ///     會把要顯示的物件逐一加進來
         /// </summary>
         /// <param name="h"></param>
         public override void Add(DrawableHitObject<BaseRpObject, RpJudgement> hitObject)
         {
-            
             hitObject.Depth = (float)hitObject.HitObject.StartTime;
 
             //IDrawableHitObjectWithProxiedApproach c = hitObject as IDrawableHitObjectWithProxiedApproach;
@@ -130,8 +129,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                 //增加物件
                 _rpObjectLayout.AddDrawObject(hitObject as DrawableBaseHitObject);
             }
-
-            
         }
 
 
@@ -143,13 +140,13 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         }
 
         /// <summary>
-        /// Create hit explosion effect;
+        ///     Create hit explosion effect;
         /// </summary>
         /// <param name="h"></param>
         /// <param name="j"></param>
         public override void OnJudgement(DrawableHitObject<BaseRpObject, RpJudgement> drawableHitObject)
         {
-            HitExplosion explosion = new HitExplosion(drawableHitObject.Judgement, drawableHitObject.HitObject);
+            var explosion = new HitExplosion(drawableHitObject.Judgement, drawableHitObject.HitObject);
             _judgementLayer.Add(explosion);
         }
     }

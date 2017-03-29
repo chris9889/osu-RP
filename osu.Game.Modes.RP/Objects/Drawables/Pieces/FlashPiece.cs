@@ -9,7 +9,7 @@ using OpenTK;
 namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
 {
     /// <summary>
-    /// 閃光
+    ///     閃光
     /// </summary>
     public class FlashPiece : Container
     {

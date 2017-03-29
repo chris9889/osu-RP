@@ -1,25 +1,28 @@
-﻿using System.Collections.Generic;
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
+using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.Container.GenerateObject;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.Container.Position;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Parameter;
 
 namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.Container
 {
-    class ContainerProcessor
+    internal class ContainerProcessor
     {
         /// <summary>
-        /// 產生出實體物件
+        ///     產生出實體物件
         /// </summary>
-        ContainerGenerator _rpObjectGenerator = new ContainerGenerator();
+        private readonly ContainerGenerator _rpObjectGenerator = new ContainerGenerator();
 
 
         /// <summary>
-        /// 位置生產器
+        ///     位置生產器
         /// </summary>
-        ContainerPositionGenerator _positionGenerator = new ContainerPositionGenerator();
+        private readonly ContainerPositionGenerator _positionGenerator = new ContainerPositionGenerator();
 
         /// <summary>
-        /// 主要轉換
+        ///     主要轉換
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>

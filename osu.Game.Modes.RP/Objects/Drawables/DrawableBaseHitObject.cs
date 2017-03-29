@@ -1,43 +1,45 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
+using System;
 using System.ComponentModel;
-using osu.Game.Modes.Objects.Drawables;
-using osu.Framework.Graphics;
-using osu.Game.Modes.RP.Objects.Drawables.Template;
+using System.Diagnostics;
 using osu.Framework.Allocation;
 using osu.Framework.Audio;
-using osu.Game.Beatmaps.Samples;
-using System;
-using System.Diagnostics;
 using osu.Framework.Audio.Sample;
+using osu.Framework.Graphics;
 using osu.Framework.Input;
+using osu.Game.Beatmaps.Samples;
+using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress;
+using osu.Game.Modes.RP.Objects.Drawables.Template;
 using osu.Game.Modes.RP.ScoreProcessor;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
 {
     /// <summary>
-    /// 繪製可以打擊的物件
+    ///     繪製可以打擊的物件
     /// </summary>
-    class DrawableBaseHitObject : DrawableBaseRpObject
+    internal class DrawableBaseHitObject : DrawableBaseRpObject
     {
-
         /// <summary>
-        /// 目前是當作RP物件的結尾
-        /// </summary>
-        protected DetectPress _rpDetectPress;
-
-        /// <summary>
-        /// 打擊物件，DrawableHitCircle 會根據打擊物件把 物件繪製出來
+        ///     打擊物件，DrawableHitCircle 會根據打擊物件把 物件繪製出來
         /// </summary>
         public new BaseHitObject HitObject;
 
         /// <summary>
-        /// 建構，所有的RP物件一定要建構到這邊
+        ///     目前是當作RP物件的結尾
+        /// </summary>
+        protected DetectPress _rpDetectPress;
+
+        private SampleChannel seeya;
+
+        /// <summary>
+        ///     建構，所有的RP物件一定要建構到這邊
         /// </summary>
         /// <param name="hitObject"></param>
-        public DrawableBaseHitObject(BaseHitObject hitObject) : base(hitObject)
+        public DrawableBaseHitObject(BaseHitObject hitObject)
+            : base(hitObject)
         {
             HitObject = hitObject;
             //載入判斷點
@@ -47,18 +49,113 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             Template = new RpDrawBaseObjectTemplate(HitObject)
             {
                 //Position = this.Position,
-                Alpha = 1,
+                Alpha = 1
             };
 
             //初始化
             InitialDetectPressEvent();
-            
+
 
             Children = new Drawable[]
             {
                 Template,
-                _rpDetectPress,
+                _rpDetectPress
             };
+        }
+
+        protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
+        {
+            Debug.Print("Down : " + _rpDetectPress.PressDownDelayTime);
+            return false;
+        }
+
+        protected override bool OnKeyUp(InputState state, KeyUpEventArgs args)
+        {
+            Debug.Print("Up : " + _rpDetectPress.PressUpDelayTime);
+            return false;
+        }
+
+        /// <summary>
+        ///     按下去
+        ///     UpdateJudgement 用途 : 給出一個判定，目前是miss還是hit
+        /// </summary>
+        protected virtual void OnKeyPressDown()
+        {
+            //((PositionalJudgementInfo)Judgement).PositionOffset = Vector2.Zero; //todo: set to correct value
+            UpdateJudgement(true);
+            Debug.Print(Judgement.Result + " " + HitObject.StartTime + " " + Position.X + "," + Position.Y);
+        }
+
+        /// <summary>
+        /// </summary>
+        protected virtual void OnKeyPressUp()
+        {
+            //((PositionalJudgementInfo)Judgement).PositionOffset = Vector2.Zero; //todo: set to correct value
+            //UpdateJudgement(true);
+            Debug.Print(Judgement.Result.ToString());
+        }
+
+        /// <summary>
+        ///     持續一直更新物件
+        /// </summary>
+        protected override void Update()
+        {
+            base.Update();
+
+            //更新物件位置
+            Template.UpdateTemplate(Time.Current);
+        }
+
+        /// <summary>
+        ///     RP判斷
+        /// </summary>
+        /// <returns></returns>
+        protected override RpJudgement CreateJudgement() => new RpJudgement();
+
+
+        /// <summary>
+        ///     檢查判定點
+        /// </summary>
+        /// <param name="userTriggered"></param>
+        protected override void CheckJudgement(bool userTriggered)
+        {
+            if (!userTriggered)
+            {
+                if (Judgement.TimeOffset > HitObject.hit50)
+                    Judgement.Result = HitResult.Miss;
+
+                return;
+            }
+
+            var hitOffset = Math.Abs(Judgement.TimeOffset);
+
+
+            var rpInfo = Judgement;
+            rpInfo.HitExplosionPosition.Add(Position);
+
+            if (hitOffset < HitObject.hit50)
+            {
+                Judgement.Result = HitResult.Hit;
+                rpInfo.Score = HitObject.ScoreResultForOffset(hitOffset);
+            }
+            else
+            {
+                Judgement.Result = HitResult.Miss;
+            }
+        }
+
+        /// <summary>
+        ///     聲音
+        /// </summary>
+        /// <param name="audio"></param>
+        [BackgroundDependencyLoader]
+        protected void load(AudioManager audio)
+        {
+            var hitType = (HitObject.Sample.Type == SampleType.None ? SampleType.Normal : HitObject.Sample.Type).ToString().ToLower();
+            var sampleSet = HitObject.Sample.Set.ToString().ToLower();
+
+            //sample = audio.Sample.Get($@"Gameplay/diva/{sampleSet}-hit{hitType}");
+            seeya = audio.Sample.Get($@"Gameplay/diva/sound");
         }
 
         private void InitialDetectPressEvent()
@@ -77,144 +174,31 @@ namespace osu.Game.Modes.RP.Objects.Drawables
                     //if (Judgement.Result.HasValue) return false;
                     OnKeyPressUp();
                     return true;
-                },
+                }
             };
         }
-
-        protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
-        {
-            Debug.Print("Down : "+ _rpDetectPress.PressDownDelayTime);
-            return false;
-        }
-
-        protected override bool OnKeyUp(InputState state, KeyUpEventArgs args)
-        {
-            Debug.Print("Up : "+_rpDetectPress.PressUpDelayTime);
-            return false;
-        }
-
-        /// <summary>
-        /// 按下去
-        /// UpdateJudgement 用途 : 給出一個判定，目前是miss還是hit
-        /// </summary>
-        protected virtual void OnKeyPressDown()
-        {
-            
-            //((PositionalJudgementInfo)Judgement).PositionOffset = Vector2.Zero; //todo: set to correct value
-            UpdateJudgement(true);
-            Debug.Print(Judgement.Result.ToString() + " "+HitObject.StartTime.ToString() +" "+ Position.X + "," + Position.Y);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        protected virtual void OnKeyPressUp()
-        {
-            //((PositionalJudgementInfo)Judgement).PositionOffset = Vector2.Zero; //todo: set to correct value
-            //UpdateJudgement(true);
-            Debug.Print(Judgement.Result.ToString());
-        }
-
-        /// <summary>
-        /// 持續一直更新物件
-        /// </summary>
-        protected override void Update()
-        {
-            base.Update();
-
-            //更新物件位置
-            Template.UpdateTemplate(Time.Current);
-        }
-
-        /// <summary>
-        /// RP判斷
-        /// </summary>
-        /// <returns></returns>
-        protected override RpJudgement CreateJudgement() => new RpJudgement();
-       
-
-        /// <summary>
-        /// 檢查判定點
-        /// </summary>
-        /// <param name="userTriggered"></param>
-        protected override void CheckJudgement(bool userTriggered)
-        {
-            if (!userTriggered)
-            {
-                if (Judgement.TimeOffset > HitObject.hit50)
-                {
-                    Judgement.Result = HitResult.Miss;
-                    //Debug.Print("Miss");
-                }
-                    
-                return;
-            }
-
-            double hitOffset = Math.Abs(Judgement.TimeOffset);
-
-
-            RpJudgement rpInfo = Judgement as RpJudgement;
-            rpInfo.HitExplosionPosition.Add(Position);
-
-            if (hitOffset < HitObject.hit50)
-            {
-                Judgement.Result = HitResult.Hit;
-                rpInfo.Score = HitObject.ScoreResultForOffset(hitOffset);
-            }
-            else
-                Judgement.Result = HitResult.Miss;
-        }
-
-        SampleChannel seeya;
-
-        /// <summary>
-        /// 聲音
-        /// </summary>
-        /// <param name="audio"></param>
-        [BackgroundDependencyLoader]
-        protected void load(AudioManager audio)
-        {
-            string hitType = (HitObject.Sample.Type == SampleType.None ? SampleType.Normal : HitObject.Sample.Type).ToString().ToLower();
-            string sampleSet = HitObject.Sample.Set.ToString().ToLower();
-
-            //sample = audio.Sample.Get($@"Gameplay/diva/{sampleSet}-hit{hitType}");
-            seeya = audio.Sample.Get($@"Gameplay/diva/sound");
-        }
-
-
     }
 
     /// <summary>
-    /// 如果遇到combo的情況
-    /// 用不到，但目前先不要移除
+    ///     如果遇到combo的情況
+    ///     用不到，但目前先不要移除
     /// </summary>
     public enum RPComboResult
     {
-        [Description(@"")]
-        None,
-        [Description(@"Good")]
-        Good,
-        [Description(@"Amazing")]
-        Perfect
+        [Description(@"")] None,
+        [Description(@"Good")] Good,
+        [Description(@"Amazing")] Perfect
     }
 
     /// <summary>
-    /// 一般打擊
+    ///     一般打擊
     /// </summary>
     public enum RPScoreResult
     {
-        [Description(@"Sad")]
-        Sad,
-        [Description(@"Safe")]
-        Safe,
-        [Description(@"Fine")]
-        Fine,
-        [Description(@"Cool")]
-        Cool,
-        [Description(@"Slider")]
-        Slider,
+        [Description(@"Sad")] Sad,
+        [Description(@"Safe")] Safe,
+        [Description(@"Fine")] Fine,
+        [Description(@"Cool")] Cool,
+        [Description(@"Slider")] Slider
     }
-
-
-   
 }

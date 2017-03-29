@@ -1,23 +1,25 @@
-﻿using System;
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
+using System;
 using System.Collections.Generic;
 using osu.Game.Beatmaps;
 using osu.Game.Modes.Osu.Objects;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Parameter;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.Syntax
 {
     /// <summary>
-    /// 語法轉換器
+    ///     語法轉換器
     /// </summary>
-    class SyntaxProcessor
+    internal class SyntaxProcessor
     {
-        
-        List<HitObjectConvertParameter> _listConvertParameter;
+        private readonly List<HitObjectConvertParameter> _listConvertParameter;
 
-        Beatmap _songBeatmap;
+        private Beatmap _songBeatmap;
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="beatmap"></param>
         /// <param name="input"></param>
@@ -28,33 +30,30 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.Syntax
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <returns></returns>
         public List<HitObjectConvertParameter> GetListHitObject()
         {
-            List<HitObjectConvertParameter> output = new List<HitObjectConvertParameter>();
-            foreach (HitObjectConvertParameter single in _listConvertParameter)
-            {
+            var output = new List<HitObjectConvertParameter>();
+            foreach (var single in _listConvertParameter)
                 output.Add(single);
-            }
             return output;
         }
 
         /// <summary>
-        /// 增加一定數量的Ciontainer 進來
+        ///     增加一定數量的Ciontainer 進來
         /// </summary>
         public List<ContainerConvertParameter> GetListContainer()
         {
-            List<ContainerConvertParameter> listContainer = new List<ContainerConvertParameter>();
+            var listContainer = new List<ContainerConvertParameter>();
 
-            Random random = new Random();
+            var random = new Random();
 
             double time = 0;
             //目前就先暫時做到300秒的
-            for (int i = 0; i < 100; i++)
+            for (var i = 0; i < 100; i++)
             {
-                ContainerConvertParameter parameter = new ContainerConvertParameter();
+                var parameter = new ContainerConvertParameter();
                 parameter.OsuHitObject = new Slider();
 
                 parameter.OsuHitObject.StartTime = time;
@@ -62,10 +61,10 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.Syntax
                 parameter.PassParameter.EndTime = time;
 
                 //先設定隨機
-                float randomValue = (float)random.NextDouble() * 400 + 40;
+                var randomValue = (float)random.NextDouble() * 400 + 40;
 
                 //
-                parameter.OsuHitObject.Position = new OpenTK.Vector2(0, randomValue);
+                parameter.OsuHitObject.Position = new Vector2(0, randomValue);
 
                 listContainer.Add(parameter);
             }
@@ -73,13 +72,10 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Convertor.Syntax
         }
 
         /// <summary>
-        /// 分析物件要不要Multi
+        ///     分析物件要不要Multi
         /// </summary>
-        void AnaylseMulti()
+        private void AnaylseMulti()
         {
-
         }
-
-        
     }
 }

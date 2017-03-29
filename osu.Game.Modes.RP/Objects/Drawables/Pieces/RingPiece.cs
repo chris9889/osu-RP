@@ -10,16 +10,15 @@ using osu.Framework.Graphics.Textures;
 namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
 {
     /// <summary>
-    /// 中間那個環
+    ///     中間那個環
     /// </summary>
     public class RingPiece : Container
     {
         private RpHitObject _rpObject;
-        private Sprite ring;
+        private readonly Sprite ring;
 
         public RingPiece(RpHitObject rpObject)
         {
-
             _rpObject = rpObject;
 
             Anchor = Anchor.Centre;

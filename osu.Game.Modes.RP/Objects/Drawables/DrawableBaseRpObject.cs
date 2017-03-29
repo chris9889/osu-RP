@@ -1,26 +1,13 @@
-﻿using osu.Game.Modes.Objects.Drawables;
+﻿using osu.Framework.Graphics;
+using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.Drawables.Template;
-using osu.Framework.Graphics;
-using OpenTK;
 using osu.Game.Modes.RP.ScoreProcessor;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
 {
-    class DrawableBaseRpObject : DrawableHitObject<BaseRpObject, RpJudgement>
+    internal class DrawableBaseRpObject : DrawableHitObject<BaseRpObject, RpJudgement>
     {
-        /// <summary>
-        /// 打擊物件，DrawableHitCircle 會根據打擊物件把 物件繪製出來
-        /// </summary>
-        public new BaseRpObject HitObject;
-
-
-        /// <summary>
-        /// 樣板，把物件綁上去就對了
-        /// </summary>
-        public RpDrawBaseObjectTemplate Template;
-
-        //物件出現需要花的時間
-        public static float TIME_FADEIN_Connector = 100;
         //物件出現需要花的時間
         public readonly float TIME_FADEIN = 100;
         //物件在打擊多久前提早出現
@@ -28,7 +15,22 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         //打擊過後多久會消失
         public readonly float TIME_FADEOUT = 100;
 
-        public DrawableBaseRpObject(BaseRpObject hitObject) : base(hitObject)
+        //物件出現需要花的時間
+        public static float TIME_FADEIN_Connector = 100;
+
+        /// <summary>
+        ///     打擊物件，DrawableHitCircle 會根據打擊物件把 物件繪製出來
+        /// </summary>
+        public new BaseRpObject HitObject;
+
+
+        /// <summary>
+        ///     樣板，把物件綁上去就對了
+        /// </summary>
+        public RpDrawBaseObjectTemplate Template;
+
+        public DrawableBaseRpObject(BaseRpObject hitObject)
+            : base(hitObject)
         {
             TIME_FADEIN = hitObject.TIME_FADEIN;
             TIME_PREEMPT = hitObject.TIME_PREEMPT;
@@ -42,7 +44,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 更新狀態
+        ///     更新狀態
         /// </summary>
         /// <param name="state"></param>
         protected override void UpdateState(ArmedState state)
@@ -63,7 +65,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 
         /// </summary>
         protected virtual void UpdateInitialState()
         {
@@ -72,7 +73,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 
         /// </summary>
         protected virtual void UpdatePreemptState()
         {
@@ -82,7 +82,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 持續一直更新物件
+        ///     持續一直更新物件
         /// </summary>
         protected override void Update()
         {

@@ -3,7 +3,6 @@
 
 using osu.Game.Beatmaps;
 using osu.Game.Modes.Objects.Drawables;
-using osu.Game.Modes.RP.Beatmaps.OsuBeatmap;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap;
 using osu.Game.Modes.RP.Beatmaps.RPBeatmap;
 using osu.Game.Modes.RP.KeyManager;
@@ -18,42 +17,43 @@ namespace osu.Game.Modes.RP.UI.Beatmap
 {
     public class RpHitRenderer : HitRenderer<BaseRpObject, RpJudgement>
     {
-        public RpHitRenderer(WorkingBeatmap beatmap) : base(beatmap)
+        public RpHitRenderer(WorkingBeatmap beatmap)
+            : base(beatmap)
         {
-
         }
 
         public override Scoring.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor(this);
 
 
         /// <summary>
-        /// 從其他譜面轉過來
+        ///     從其他譜面轉過來
         /// </summary>
         /// <returns></returns>
         protected override IBeatmapConverter<BaseRpObject> CreateBeatmapConverter() => new BeatmapConvertor();
+
         //protected override IBeatmapConverter<BaseRpObject> CreateBeatmapConverter() => new RpBeatmapConvertor();
 
         /// <summary>
-        /// RP 專用譜面
+        ///     RP 專用譜面
         /// </summary>
         /// <returns></returns>
         protected override IBeatmapProcessor<BaseRpObject> CreateBeatmapProcessor() => new RpBeatmapProcessor();
-       
+
 
         /// <summary>
-        /// 建立遊玩區域
+        ///     建立遊玩區域
         /// </summary>
         /// <returns></returns>
         protected override Playfield<BaseRpObject, RpJudgement> CreatePlayfield() => new RpPlayfield();
 
         /// <summary>
-        /// 目前不知道用途
+        ///     目前不知道用途
         /// </summary>
         /// <returns></returns>
         protected override KeyConversionInputManager CreateKeyConversionInputManager() => new RpKeyConversionInputManager();
 
         /// <summary>
-        /// 把RP物件轉換成可以繪製的物件
+        ///     把RP物件轉換成可以繪製的物件
         /// </summary>
         /// <param name="h"></param>
         /// <returns></returns>

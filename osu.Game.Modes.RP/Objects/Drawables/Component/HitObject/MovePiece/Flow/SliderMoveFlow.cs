@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common.ShapePiece;
@@ -11,55 +6,53 @@ using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
 {
-    class SliderMoveFlow : BaseMoveFlow, ISliderProgress
+    internal class SliderMoveFlow : BaseMoveFlow, ISliderProgress
     {
         /// <summary>
-        /// 物件身體部分
+        ///     物件身體部分
         /// </summary>
-        private SliderBody _rpLongBody;
+        private readonly SliderBody _rpLongBody;
 
         /// <summary>
-        /// 開頭和結尾物件
+        ///     開頭和結尾物件
         /// </summary>
-        private HitObjectAnyShapePiece hitObjectAnyShapePieceFirstObjectAny;
+        private readonly HitObjectAnyShapePiece hitObjectAnyShapePieceFirstObjectAny;
 
         /// <summary>
-        /// 
         /// </summary>
-        private HitObjectAnyShapePiece hitObjectAnyShapePieceSecondObjectAny;
+        private readonly HitObjectAnyShapePiece hitObjectAnyShapePieceSecondObjectAny;
 
 
-        public SliderMoveFlow(BaseHitObject baseHitObject) : base(baseHitObject)
+        public SliderMoveFlow(BaseHitObject baseHitObject)
+            : base(baseHitObject)
         {
             Children = new Drawable[]
-           {
-                
+            {
                 //Slider身體
-                _rpLongBody = new SliderBody(BaseHitObject as BaseHitObject)
+                _rpLongBody = new SliderBody(BaseHitObject)
                 {
                     Position = new Vector2(0, 0),
-                    PathWidth = (BaseHitObject as BaseHitObject).Scale * 15,
+                    PathWidth = BaseHitObject.Scale * 15
                 },
                 //結尾物件
-                hitObjectAnyShapePieceSecondObjectAny = new HitObjectAnyShapePiece(BaseHitObject as BaseHitObject)//true
+                hitObjectAnyShapePieceSecondObjectAny = new HitObjectAnyShapePiece(BaseHitObject) //true
                 {
                     Position = new Vector2(0, 0),
                     //Scale = new Vector2(_hitObject.Scale),
-                    IsFirst = false,
+                    IsFirst = false
                 },
                 //開頭物件
-                hitObjectAnyShapePieceFirstObjectAny = new HitObjectAnyShapePiece(BaseHitObject as BaseHitObject)//false
+                hitObjectAnyShapePieceFirstObjectAny = new HitObjectAnyShapePiece(BaseHitObject) //false
                 {
                     Position = new Vector2(0, 0),
                     //Scale = new Vector2(_hitObject.Scale),
-                    IsFirst = true,
-                },
-           };
-
+                    IsFirst = true
+                }
+            };
         }
 
         /// <summary>
-        /// 初始化顯示
+        ///     初始化顯示
         /// </summary>
         public override void Initial()
         {
@@ -67,15 +60,14 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         }
 
         /// <summary>
-        /// 開始特效
+        ///     開始特效
         /// </summary>
         public override void FadeIn(double time = 0)
         {
-
         }
 
         /// <summary>
-        /// 結束
+        ///     結束
         /// </summary>
         public override void FadeOut(double time = 0)
         {
@@ -85,7 +77,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="startProgress"></param>
         /// <param name="endProgress"></param>

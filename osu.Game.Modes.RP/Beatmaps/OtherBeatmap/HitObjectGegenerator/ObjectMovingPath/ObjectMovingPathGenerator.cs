@@ -1,56 +1,49 @@
 ﻿using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Parameter;
-using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMovingPath.PathPosition;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMovingPath.EndPosition;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMovingPath.PathPosition;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMovingPath.StartPosition;
+using osu.Game.Modes.RP.Objects.type;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMovingPath
 {
-    class ObjectPositionGenerator
+    internal class ObjectPositionGenerator
     {
-        StartPositionGenerator _startPositionGenerator=new StartPositionGenerator();
+        private readonly StartPositionGenerator _startPositionGenerator = new StartPositionGenerator();
 
-        EndPositionGenerator _endPositionGenerator=new EndPositionGenerator();
+        private readonly EndPositionGenerator _endPositionGenerator = new EndPositionGenerator();
 
-        RpPathGenerator _rpPathGenerator=new RpPathGenerator();
+        private readonly RpPathGenerator _rpPathGenerator = new RpPathGenerator();
 
         /// <summary>
-        /// 轉換座標
+        ///     轉換座標
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
         internal List<HitObjectConvertParameter> Convert(List<HitObjectConvertParameter> input)
         {
-            foreach (HitObjectConvertParameter single in input)
-            {
+            foreach (var single in input)
                 ProcessSingleItem(single);
-            }
             return input;
         }
 
         /// <summary>
-        /// 轉換單一物件
+        ///     轉換單一物件
         /// </summary>
         /// <param name="input"></param>
-        void ProcessSingleItem(HitObjectConvertParameter input)
+        private void ProcessSingleItem(HitObjectConvertParameter input)
         {
             //all auto
-            if (input.ListConvertedParameter[0].CurveGenerate == Objects.type.RpBaseHitObjectType.CurveGenerate.Auto)
-            {
+            if (input.ListConvertedParameter[0].CurveGenerate == RpBaseObjectType.CurveGenerate.Auto)
                 _startPositionGenerator.Process(input);
-            }
 
             //auto create stop position
-            if (input.ListConvertedParameter[0].CurveGenerate >= Objects.type.RpBaseHitObjectType.CurveGenerate.Manual_Start_End_Position)
-            {
+            if (input.ListConvertedParameter[0].CurveGenerate >= RpBaseObjectType.CurveGenerate.Manual_Start_End_Position)
                 _endPositionGenerator.Process(input);
-            }
 
             //create path
-            if (input.ListConvertedParameter[0].CurveGenerate >= Objects.type.RpBaseHitObjectType.CurveGenerate.Manual_StartPosition)
-            {
+            if (input.ListConvertedParameter[0].CurveGenerate >= RpBaseObjectType.CurveGenerate.Manual_StartPosition)
                 _rpPathGenerator.Process(input);
-            }
         }
     }
 }

@@ -7,19 +7,13 @@ namespace osu.Game.Modes.RP.Objects
 {
     public class RpHitObject : BaseHitObject
     {
-
-        public RpHitObject() : base()
-        {
-
-        }
-
         /// <summary>
-        /// 初始化預設物件
+        ///     初始化預設物件
         /// </summary>
         public override void InitialDefaultValue()
         {
             base.InitialDefaultValue();
-            ObjectType = RpBaseHitObjectType.ObjectType.Click;
+            ObjectType = RpBaseObjectType.ObjectType.Click;
         }
     }
 }

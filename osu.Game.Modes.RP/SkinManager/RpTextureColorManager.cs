@@ -2,18 +2,17 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Game.Modes.RP.Objects.type;
-using OpenTK;
 using OpenTK.Graphics;
 
 namespace osu.Game.Modes.RP.SkinManager
 {
     /// <summary>
-    /// Manage all the Color in the skin that can be adjust in the skin config.
+    ///     Manage all the Color in the skin that can be adjust in the skin config.
     /// </summary>
     public static class RpTextureColorManager
     {
         /// <summary>
-        /// 按鈕顏色
+        ///     按鈕顏色
         /// </summary>
         /// <returns></returns>
         public static Color4 GetKeyLayoutButtonShage(RpBaseHitObjectType.Shape type)
@@ -25,7 +24,7 @@ namespace osu.Game.Modes.RP.SkinManager
                 case RpBaseHitObjectType.Shape.Down:
                     return new Color4(54, 99, 226, 255);
                 case RpBaseHitObjectType.Shape.Left:
-                    return new Color4(226, 54, 177,255);
+                    return new Color4(226, 54, 177, 255);
                 case RpBaseHitObjectType.Shape.Up:
                     return new Color4(131, 226, 54, 255);
                 case RpBaseHitObjectType.Shape.ContainerPress:

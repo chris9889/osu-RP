@@ -20,15 +20,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
     public class Slider : Container
     {
         /// <summary>
-        /// 一段繪製路徑
-        /// </summary>
-        private Path path;
-
-        private BufferedContainer container;
-
-        private Color4 _colour;
-        /// <summary>
-        /// Used to colour the path.
+        ///     Used to colour the path.
         /// </summary>
         public Color4 Colour
         {
@@ -50,6 +42,20 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
             set { path.PathWidth = value; }
         }
 
+        private int textureWidth => (int)PathWidth * 2;
+
+        /// <summary>
+        ///     一段繪製路徑
+        /// </summary>
+        private readonly Path path;
+
+        private readonly BufferedContainer container;
+
+        private Color4 _colour;
+
+        private Bindable<bool> snakingIn;
+        private Bindable<bool> snakingOut;
+
         public Slider()
         {
             Children = new Drawable[]
@@ -61,16 +67,16 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
                     {
                         path = new Path
                         {
-                            BlendingMode = BlendingMode.None,
-                        },
+                            BlendingMode = BlendingMode.None
+                        }
                     }
-                },
+                }
             };
             container.Attach(RenderbufferInternalFormat.DepthComponent16);
         }
 
         /// <summary>
-        /// 設定Slider顯示範圍
+        ///     設定Slider顯示範圍
         /// </summary>
         /// <param name="p0"></param>
         /// <param name="p1"></param>
@@ -86,14 +92,11 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
                 //修正顯示座標
                 //container.Position = -path.PositionInBoundingBox(slider.Curve.PositionAt(0) - currentCurve[0]);
 
-                container.Position=-new Vector2(PathWidth, PathWidth);
+                container.Position = -new Vector2(PathWidth, PathWidth);
 
                 container.ForceRedraw();
             }
         }
-
-        private Bindable<bool> snakingIn;
-        private Bindable<bool> snakingOut;
 
         [BackgroundDependencyLoader]
         private void load(OsuConfigManager config)
@@ -142,8 +145,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
             reloadTexture();
         }
 
-        private int textureWidth => (int)PathWidth * 2;
-
         private void reloadTexture()
         {
             var texture = new Texture(textureWidth, 1);
@@ -159,9 +160,9 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
             const float opacity_at_centre = 0.3f;
             const float opacity_at_edge = 0.8f;
 
-            for (int i = 0; i < textureWidth; i++)
+            for (var i = 0; i < textureWidth; i++)
             {
-                float progress = (float)i / (textureWidth - 1);
+                var progress = (float)i / (textureWidth - 1);
 
                 if (progress <= border_portion)
                 {
@@ -186,16 +187,15 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
         }
 
         /// <summary>
-        /// 更新繪製區域
+        ///     更新繪製區域
         /// </summary>
         /// <param name="p0"></param>
         /// <param name="p1"></param>
         /// <returns></returns>
         private bool updateSnaking(List<Vector2> currentCurve)
         {
-
             path.ClearVertices();
-            foreach (Vector2 p in currentCurve)
+            foreach (var p in currentCurve)
                 path.AddVertex(p - currentCurve[0]);
 
             return true;

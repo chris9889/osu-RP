@@ -4,53 +4,47 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using osu.Game.Beatmaps.Samples;
 using osu.Game.Modes.Objects;
-using OpenTK;
 using osu.Game.Modes.RP.Objects;
-using osu.Game.Modes.RP.Objects.MovingPath;
-using static osu.Game.Modes.RP.Objects.BaseHitObject;
-using osu.Game.Modes.RP.Objects.type;
-using static osu.Game.Modes.RP.Objects.type.RpBaseHitObjectType;
+using OpenTK;
 using static osu.Game.Modes.RP.Objects.type.RpBaseObjectType;
+using SliderCurve = osu.Game.Modes.RP.Objects.MovingPath.SliderCurve;
 
 namespace osu.Game.Modes.RP.Parser
 {
     public class RpHitObjectParser : HitObjectParser
     {
         /// <summary>
-        /// 如果是RP專用譜面，就會用者這個轉換器
+        ///     如果是RP專用譜面，就會用者這個轉換器
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
         public override HitObject Parse(string text)
         {
-            string[] split = text.Split(',');
-            var type = (RpBaseHitObjectType.ObjectType)int.Parse(split[3]);
-            bool combo = type.HasFlag(RpBaseHitObjectType.ObjectType.NewCombo);
-            type &= (RpBaseHitObjectType.ObjectType)0xF;
-            type &= ~RpBaseHitObjectType.ObjectType.NewCombo;
+            var split = text.Split(',');
+            var type = (ObjectType)int.Parse(split[3]);
+            var combo = type.HasFlag(ObjectType.NewCombo);
+            type &= (ObjectType)0xF;
+            type &= ~ObjectType.NewCombo;
             BaseHitObject result;
             switch (type)
             {
-                case RpBaseHitObjectType.ObjectType.Click:
+                case ObjectType.Click:
                     result = new RpHitObject();
                     break;
-                case RpBaseHitObjectType.ObjectType.LongTail:
-                    RpLongTailObject s = new RpLongTailObject();
+                case ObjectType.LongTail:
+                    var s = new RpLongTailObject();
 
-                    CurveTypes curveType = CurveTypes.Catmull;
-                    int repeatCount = 0;
+                    var curveType = CurveTypes.Catmull;
+                    var repeatCount = 0;
                     double length = 0;
-                    List<Vector2> points = new List<Vector2>();
+                    var points = new List<Vector2>();
 
                     points.Add(new Vector2(int.Parse(split[0]), int.Parse(split[1])));
 
-                    string[] pointsplit = split[5].Split('|');
-                    for (int i = 0; i < pointsplit.Length; i++)
+                    var pointsplit = split[5].Split('|');
+                    for (var i = 0; i < pointsplit.Length; i++)
                     {
                         if (pointsplit[i].Length == 1)
                         {
@@ -72,28 +66,26 @@ namespace osu.Game.Modes.RP.Parser
                             continue;
                         }
 
-                        string[] temp = pointsplit[i].Split(':');
-                        Vector2 v = new Vector2(
-                            (int)System.Convert.ToDouble(temp[0], CultureInfo.InvariantCulture),
-                            (int)System.Convert.ToDouble(temp[1], CultureInfo.InvariantCulture)
+                        var temp = pointsplit[i].Split(':');
+                        var v = new Vector2(
+                            (int)Convert.ToDouble(temp[0], CultureInfo.InvariantCulture),
+                            (int)Convert.ToDouble(temp[1], CultureInfo.InvariantCulture)
                         );
                         points.Add(v);
                     }
 
-                    repeatCount = System.Convert.ToInt32(split[6], CultureInfo.InvariantCulture);
+                    repeatCount = Convert.ToInt32(split[6], CultureInfo.InvariantCulture);
 
                     if (repeatCount > 9000)
-                    {
                         throw new ArgumentOutOfRangeException("wacky man");
-                    }
 
                     if (split.Length > 7)
-                        length = System.Convert.ToDouble(split[7], CultureInfo.InvariantCulture);
+                        length = Convert.ToDouble(split[7], CultureInfo.InvariantCulture);
 
                     //s.RepeatCount = repeatCount;
 
                     //建立裡面的所有座標
-                    s.Curve = new Objects.MovingPath.SliderCurve
+                    s.Curve = new SliderCurve
                     {
                         ControlPoints = points,
                         Length = length,
@@ -104,7 +96,7 @@ namespace osu.Game.Modes.RP.Parser
 
                     result = s;
                     break;
-                case RpBaseHitObjectType.ObjectType.ContainerPress:
+                case ObjectType.ContainerPress:
                     result = new RpContainerPress();
                     break;
                 default:
@@ -113,9 +105,10 @@ namespace osu.Game.Modes.RP.Parser
             }
             result.Position = new Vector2(int.Parse(split[0]), int.Parse(split[1]));
             result.StartTime = double.Parse(split[2]);
-            result.Sample = new HitSampleInfo {
+            result.Sample = new HitSampleInfo
+            {
                 Type = (SampleType)int.Parse(split[4]),
-                Set = SampleSet.Soft,
+                Set = SampleSet.Soft
             };
             //result.NewCombo = combo;
             // TODO: "addition" field

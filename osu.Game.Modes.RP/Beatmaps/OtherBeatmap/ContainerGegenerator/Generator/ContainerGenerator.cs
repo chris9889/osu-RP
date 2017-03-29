@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Modes.RP.Objects;
 
@@ -9,21 +8,16 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Generator
     {
         //parameter
 
-        public ContainerGenerator()
-        {
-            
-        }
-
         /// <summary>
-        /// Generators the object by parameter.
+        ///     Generators the object by parameter.
         /// </summary>
         internal List<ObjectContainer> GetListContainer(ComvertParameter single)
         {
-            List < ObjectContainer > returnContainer=new List<ObjectContainer>();
-            List<ObjectContainerLayer> listLayout = new List<ObjectContainerLayer>();
+            var returnContainer = new List<ObjectContainer>();
+            var listLayout = new List<ObjectContainerLayer>();
 
             //container number
-            for (int i = 0; i < single.ContainerConvertParameter.ContainerNumber; i++)
+            for (var i = 0; i < single.ContainerConvertParameter.ContainerNumber; i++)
             {
                 returnContainer.Add(GenerateSingleContainer(single));
 
@@ -32,16 +26,16 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Generator
 
                 //    container layout number;
                 //TODO : adjust it later
-                returnContainer[i].ContainerLayerList[0]=(listLayout[i]);
+                returnContainer[i].ContainerLayerList[0] = listLayout[i];
             }
 
             return returnContainer;
         }
 
 
-        ObjectContainer GenerateSingleContainer(ComvertParameter single)
+        private ObjectContainer GenerateSingleContainer(ComvertParameter single)
         {
-            ObjectContainer objectContainer = new ObjectContainer(single.SliceConvertParameter.StartTime);
+            var objectContainer = new ObjectContainer(single.SliceConvertParameter.StartTime);
             objectContainer.StartTime = single.SliceConvertParameter.StartTime;
             objectContainer.ContainerEndTime = single.SliceConvertParameter.EndTime;
             objectContainer.BPM = single.SliceConvertParameter.BPM;
@@ -49,15 +43,12 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Generator
             return objectContainer;
         }
 
-        ObjectContainerLayer GenerateSingleLayout(ComvertParameter single, ObjectContainer container)
+        private ObjectContainerLayer GenerateSingleLayout(ComvertParameter single, ObjectContainer container)
         {
-            ObjectContainerLayer objectContainerLayer = new ObjectContainerLayer(container);
+            var objectContainerLayer = new ObjectContainerLayer(container);
             objectContainerLayer.StartTime = single.SliceConvertParameter.StartTime;
             objectContainerLayer.EndTime = single.SliceConvertParameter.EndTime;
             return objectContainerLayer;
-
         }
-
-       
     }
 }

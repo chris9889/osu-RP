@@ -1,20 +1,18 @@
-﻿using osu.Game.Modes.RP.Objects.Drawables.Calculator;
-using osu.Game.Modes.RP.Objects.Drawables.Calculator.Position;
+﻿using osu.Game.Modes.RP.Objects.Drawables.Calculator.Position;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
 {
-    class BaseContainerComponent : BaseComponent
+    internal class BaseContainerComponent : BaseComponent
     {
         /// <summary>
-        /// 負責計算物件在時間點該有的位置
-        /// </summary>
-        ContainerLayoutPositionCounter _positionCounter = new ContainerLayoutPositionCounter();
-
-        /// <summary>
-        /// 
         /// </summary>
         public new ObjectContainer HitObject;
+
+        /// <summary>
+        ///     負責計算物件在時間點該有的位置
+        /// </summary>
+        private readonly ContainerLayoutPositionCounter _positionCounter = new ContainerLayoutPositionCounter();
 
         public BaseContainerComponent(ObjectContainer hitObject)
         {
@@ -23,35 +21,8 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
             InitialChild();
         }
 
-
         /// <summary>
-        /// 初始化所有顯示物件
-        /// </summary>
-        protected virtual void InitialObject(int layerCount = 1)
-        {
-           
-        }
-
-        /// <summary>
-        /// 初始化所有顯示物件
-        /// </summary>
-        protected virtual void InitialChild()
-        {
-            
-        }
-
-        /// <summary>
-        /// 根據時間點計算物件位置
-        /// </summary>
-        /// <param name="time"></param>
-        /// <returns></returns>
-        protected Vector2 CalculatePosition(double time)
-        {
-            return new Vector2((float)_positionCounter.GetPosition(time, HitObject.Velocity), 0);
-        }
-
-        /// <summary>
-        /// 更新新的 Layout數量
+        ///     更新新的 Layout數量
         /// </summary>
         /// <param name="newLayerNumber"></param>
         public virtual void UpdateLayerNumber()
@@ -60,22 +31,44 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
         }
 
         /// <summary>
-        /// 如果更新了開始或是結束的時間
+        ///     如果更新了開始或是結束的時間
         /// </summary>
         public virtual void UpdateTime()
         {
+        }
 
+
+        /// <summary>
+        ///     初始化所有顯示物件
+        /// </summary>
+        protected virtual void InitialObject(int layerCount = 1)
+        {
         }
 
         /// <summary>
-        /// 取得間隔時間
+        ///     初始化所有顯示物件
+        /// </summary>
+        protected virtual void InitialChild()
+        {
+        }
+
+        /// <summary>
+        ///     根據時間點計算物件位置
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        protected Vector2 CalculatePosition(double time)
+        {
+            return new Vector2(_positionCounter.GetPosition(time, HitObject.Velocity), 0);
+        }
+
+        /// <summary>
+        ///     取得間隔時間
         /// </summary>
         /// <returns></returns>
         protected double GetDeltaBeatTime()
         {
-            return (1000 * 60) / HitObject.BPM;
+            return 1000 * 60 / HitObject.BPM;
         }
-
-       
     }
 }

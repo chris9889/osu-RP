@@ -2,7 +2,6 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System.Collections.Generic;
-using osu.Framework.Audio.Sample;
 using osu.Game.Beatmaps.Samples;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
@@ -12,21 +11,17 @@ using OpenTK;
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Generator
 {
     /// <summary>
-    /// 
     /// </summary>
     public class HitObjectGenerator
     {
         public List<SingleHitObjectConvertParameter> GeneratorListHitObject(ComvertParameter single)
         {
-
-            foreach (SingleHitObjectConvertParameter singleHitObject in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
+            foreach (var singleHitObject in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             {
-                List<BaseHitObject> singleHitObjects = new List<BaseHitObject>();
-                for (int i = 0; i < singleHitObject.MultiNumber; i++)
-                {
+                var singleHitObjects = new List<BaseHitObject>();
+                for (var i = 0; i < singleHitObject.MultiNumber; i++)
                     singleHitObjects.Add(GenerateRpHitObject(singleHitObject));
-                }
-                singleHitObject.ListBaseHitObject=singleHitObjects;
+                singleHitObject.ListBaseHitObject = singleHitObjects;
             }
 
             return single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter;
@@ -34,15 +29,15 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Generator
 
         public RpHitObject GenerateRpHitObject(SingleHitObjectConvertParameter singleHitObject)
         {
-            RpHitObject rpHitObject=new RpHitObject();
+            var rpHitObject = new RpHitObject();
             //fake sample
             rpHitObject.Sample = new HitSampleInfo
             {
                 Type = SampleType.None,
-                Set = SampleSet.Soft,
+                Set = SampleSet.Soft
             };
             //fake position
-            rpHitObject.Position=new Vector2(100,100);
+            rpHitObject.Position = new Vector2(100, 100);
 
             rpHitObject.StartTime = singleHitObject.StartTime;
             return rpHitObject;

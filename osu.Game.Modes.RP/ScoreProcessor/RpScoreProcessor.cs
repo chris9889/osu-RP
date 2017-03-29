@@ -1,29 +1,26 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Game.Modes.Judgements;
-using osu.Game.Modes.RP.Objects.Drawables;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects;
-using System;
-using osu.Game.Modes.UI;
+using osu.Game.Modes.RP.Objects.Drawables;
 using osu.Game.Modes.Scoring;
+using osu.Game.Modes.UI;
 
 namespace osu.Game.Modes.RP.ScoreProcessor
 {
     /// <summary>
-    /// 簡單來說用來計算成績
+    ///     簡單來說用來計算成績
     /// </summary>
-    class RpScoreProcessor : ScoreProcessor<BaseRpObject, RpJudgement>
+    internal class RpScoreProcessor : ScoreProcessor<BaseRpObject, RpJudgement>
     {
         public RpScoreProcessor()
         {
-
         }
 
-        public RpScoreProcessor(HitRenderer<BaseRpObject, RpJudgement> hitRenderer): base(hitRenderer)
+        public RpScoreProcessor(HitRenderer<BaseRpObject, RpJudgement> hitRenderer)
+            : base(hitRenderer)
         {
-
         }
 
         protected override void Reset()
@@ -37,7 +34,6 @@ namespace osu.Game.Modes.RP.ScoreProcessor
         protected override void OnNewJugement(RpJudgement judgement)
         {
             if (judgement != null)
-            {
                 switch (judgement.Result)
                 {
                     case HitResult.Hit:
@@ -49,14 +45,13 @@ namespace osu.Game.Modes.RP.ScoreProcessor
                         Health.Value -= 0.1f;
                         break;
                 }
-            }
 
             //成績
-            int score = 0;
+            var score = 0;
             //最大成績
-            int maxScore = 0;
+            var maxScore = 0;
 
-            foreach (RpJudgement j in Judgements)
+            foreach (var j in Judgements)
             {
                 switch (j.Score)
                 {

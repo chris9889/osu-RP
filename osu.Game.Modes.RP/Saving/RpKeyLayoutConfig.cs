@@ -1,56 +1,31 @@
-﻿using OpenTK.Input;
-using osu.Game.Modes.RP.Objects.type;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static osu.Game.Modes.RP.Saving.RpKeyLayoutConfig.SingleRpKeyLayoutConfig;
+using osu.Game.Modes.RP.Objects.type;
+using OpenTK.Input;
 
 namespace osu.Game.Modes.RP.Saving
 {
     /// <summary>
-    /// 用來儲存有關按鍵設定
+    ///     用來儲存有關按鍵設定
     /// </summary>
     [Serializable]
     public partial class RpKeyLayoutConfig
     {
         //目前RP按鍵設置
         public List<SingleRpKeyLayoutConfig> ListKayConfig;
-       
+
         //目前預設使用的index
-        private int _defauleIndex = 0;
+        private int _defauleIndex;
     }
 
 
     /// <summary>
-    /// /定義方法
+    ///     /定義方法
     /// </summary>
     public partial class RpKeyLayoutConfig
     {
-
-        public RpKeyLayoutConfig()
-        {
-            if (ListKayConfig == null)
-            {
-                ListKayConfig = new List<SingleRpKeyLayoutConfig>();
-                //ListKayConfig.Add(CreateDefault10K());
-                ListKayConfig.Add(CreateDefault10K());
-                _defauleIndex =0;
-            }
-        }
-
         /// <summary>
-        /// 取得目前設定索引
-        /// </summary>
-        /// <returns></returns>
-        public SingleRpKeyLayoutConfig GetDefaultLayLayout()
-        {
-            return ListKayConfig[DefauleIndex];
-        }
-
-        /// <summary>
-        /// 取得預設的索引
+        ///     取得預設的索引
         /// </summary>
         public int DefauleIndex
         {
@@ -59,14 +34,12 @@ namespace osu.Game.Modes.RP.Saving
                 //如果目前裡面是空的
                 if (ListKayConfig.Count == 0)
                 {
-                    ListKayConfig.Add(CreateDefault6K());//(CreateDefault10K());
+                    ListKayConfig.Add(CreateDefault6K()); //(CreateDefault10K());
                     _defauleIndex = 0;
                 }
                 //索引>陣列
                 if (ListKayConfig.Count < _defauleIndex)
-                {
                     _defauleIndex = ListKayConfig.Count - 1;
-                }
 
                 return _defauleIndex;
             }
@@ -84,44 +57,98 @@ namespace osu.Game.Modes.RP.Saving
 
                 //如果大於範圍
                 if (ListKayConfig.Count < _defauleIndex)
-                {
                     _defauleIndex = ListKayConfig.Count - 1;
-                }
 
                 //如果目前沒有範圍
                 if (_defauleIndex < 0)
                     _defauleIndex = 0;
+            }
+        }
 
+        public RpKeyLayoutConfig()
+        {
+            if (ListKayConfig == null)
+            {
+                ListKayConfig = new List<SingleRpKeyLayoutConfig>();
+                //ListKayConfig.Add(CreateDefault10K());
+                ListKayConfig.Add(CreateDefault10K());
+                _defauleIndex = 0;
             }
         }
 
         /// <summary>
-        /// 建構10K預設
+        ///     取得目前設定索引
+        /// </summary>
+        /// <returns></returns>
+        public SingleRpKeyLayoutConfig GetDefaultLayLayout()
+        {
+            return ListKayConfig[DefauleIndex];
+        }
+
+        /// <summary>
+        ///     會先建立預設的優先順序
+        /// </summary>
+        public SingleRpKeyLayoutConfig10K GenerateDefault10KPriority()
+        {
+            var config10K = new SingleRpKeyLayoutConfig10K();
+            var left = RpBaseHitObjectType.LeftRight.LeftOnly;
+            var right = RpBaseHitObjectType.LeftRight.RightOnly;
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, left, Key.Unknown, KeyName.LeftSlide));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Up, left, Key.Unknown, KeyName10K.LeftTriangle));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Down, left, Key.Unknown, KeyName10K.LeftCross));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Left, left, Key.Unknown, KeyName10K.LeftRectangle));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Right, left, Key.Unknown, KeyName10K.LeftCircle));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Up, right, Key.Unknown, KeyName10K.RightTriangle));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Down, right, Key.Unknown, KeyName10K.RightCross));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Left, right, Key.Unknown, KeyName10K.RightRectangle));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Right, right, Key.Unknown, KeyName10K.RightCircle));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, right, Key.Unknown, KeyName.RightSlide));
+            return config10K;
+        }
+
+        /// <summary>
+        ///     會先建立預設的優先順序
+        /// </summary>
+        public SingleRpKeyLayoutConfig6K GenerateDefault6KPriority()
+        {
+            var config6K = new SingleRpKeyLayoutConfig6K();
+            var both = RpBaseHitObjectType.LeftRight.Both;
+            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, both, Key.Unknown, KeyName.LeftSlide));
+            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Up, both, Key.Unknown, KeyName6K.Triangle));
+            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Left, both, Key.Unknown, KeyName6K.Square));
+            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Down, both, Key.Unknown, KeyName6K.Cross));
+            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Right, both, Key.Unknown, KeyName6K.Circle));
+            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, both, Key.Unknown, KeyName.RightSlide));
+            return config6K;
+        }
+
+        /// <summary>
+        ///     建構10K預設
         /// </summary>
         /// <returns></returns>
         private SingleRpKeyLayoutConfig10K CreateDefault10K()
         {
-            SingleRpKeyLayoutConfig10K config10K = GenerateDefault10KPriority();
+            var config10K = GenerateDefault10KPriority();
             config10K.KeyDictionary[0].Key = Key.A;
             config10K.KeyDictionary[1].Key = Key.E;
             config10K.KeyDictionary[2].Key = Key.D;
             config10K.KeyDictionary[3].Key = Key.S;
-            config10K.KeyDictionary[4].Key = Key.F;//F;
+            config10K.KeyDictionary[4].Key = Key.F; //F;
             config10K.KeyDictionary[5].Key = Key.I;
             config10K.KeyDictionary[6].Key = Key.K;
             config10K.KeyDictionary[7].Key = Key.J;
-            config10K.KeyDictionary[8].Key = Key.L;// L;
+            config10K.KeyDictionary[8].Key = Key.L; // L;
             config10K.KeyDictionary[9].Key = Key.Semicolon;
             return config10K;
         }
 
         /// <summary>
-        /// 建構預設6K
+        ///     建構預設6K
         /// </summary>
         /// <returns></returns>
         private SingleRpKeyLayoutConfig6K CreateDefault6K()
         {
-            SingleRpKeyLayoutConfig6K config6K = GenerateDefault6KPriority();
+            var config6K = GenerateDefault6KPriority();
             config6K.KeyDictionary[0].Key = Key.A;
             config6K.KeyDictionary[1].Key = Key.D;
             config6K.KeyDictionary[2].Key = Key.F;
@@ -130,82 +157,43 @@ namespace osu.Game.Modes.RP.Saving
             config6K.KeyDictionary[5].Key = Key.L;
             return config6K;
         }
-
-        /// <summary>
-        /// 會先建立預設的優先順序
-        /// </summary>
-        public SingleRpKeyLayoutConfig10K GenerateDefault10KPriority()
-        {
-            SingleRpKeyLayoutConfig10K config10K = new SingleRpKeyLayoutConfig10K();
-            RpBaseHitObjectType.LeftRight left = RpBaseHitObjectType.LeftRight.LeftOnly;
-            RpBaseHitObjectType.LeftRight right = RpBaseHitObjectType.LeftRight.RightOnly;
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, left, Key.Unknown ,KeyName10K.LeftSlide));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Up, left, Key.Unknown, KeyName10K.LeftTriangle));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Down, left, Key.Unknown, KeyName10K.LeftCross));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Left, left, Key.Unknown, KeyName10K.LeftRectangle));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Right, left, Key.Unknown, KeyName10K.LeftCircle));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Up, right, Key.Unknown, KeyName10K.RightTriangle));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Down, right, Key.Unknown, KeyName10K.RightCross));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Left, right, Key.Unknown, KeyName10K.RightRectangle));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Right, right, Key.Unknown, KeyName10K.RightCircle));
-            config10K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, right, Key.Unknown, KeyName10K.RightSlide));
-            return config10K;
-        }
-
-        /// <summary>
-        /// 會先建立預設的優先順序
-        /// </summary>
-        public SingleRpKeyLayoutConfig6K GenerateDefault6KPriority()
-        {
-            SingleRpKeyLayoutConfig6K config6K = new SingleRpKeyLayoutConfig6K();
-            RpBaseHitObjectType.LeftRight both = RpBaseHitObjectType.LeftRight.Both;
-            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, both, Key.Unknown, KeyName6K.LeftSlide));
-            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Up, both, Key.Unknown, KeyName6K.Triangle));
-            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Left, both, Key.Unknown, KeyName6K.Square));
-            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Down, both, Key.Unknown, KeyName6K.Cross));
-            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.Right, both, Key.Unknown, KeyName6K.Circle));
-            config6K.KeyDictionary.Add( new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, both, Key.Unknown, KeyName6K.RightSlide));
-            return config6K;
-        }
     }
 
     /// <summary>
-    /// 定義物件
+    ///     定義物件
     /// </summary>
     public partial class RpKeyLayoutConfig
     {
         /// <summary>
-        /// 按鍵配置設定，目前是6K還是10K
+        ///     按鍵配置設定，目前是6K還是10K
         /// </summary>
         public enum KeyLayout
         {
             Kay_NotConfig,
             Key_10K,
-            Key_6K,
+            Key_6K
         }
 
         /// <summary>
-        /// 其中一組Key Layout設置
+        ///     其中一組Key Layout設置
         /// </summary>
         public class SingleRpKeyLayoutConfig
         {
             public KeyLayout KeyLayout = KeyLayout.Kay_NotConfig;
             public List<SingleKey> KeyDictionary = new List<SingleKey>();
-            public String KeyLayoutName;
-
+            public string KeyLayoutName;
         }
 
         /// <summary>
-        /// 10K設置
+        ///     10K設置
         /// </summary>
         public class SingleRpKeyLayoutConfig10K : SingleRpKeyLayoutConfig
         {
             public new KeyLayout KeyLayout = KeyLayout.Key_10K;
-           
         }
 
         /// <summary>
-        /// 6K設置
+        ///     6K設置
         /// </summary>
         public class SingleRpKeyLayoutConfig6K : SingleRpKeyLayoutConfig
         {
@@ -213,10 +201,14 @@ namespace osu.Game.Modes.RP.Saving
         }
 
         /// <summary>
-        /// 
         /// </summary>
         public class SingleKey
         {
+            public Key Key;
+            public string Name;
+            public RpBaseHitObjectType.Shape Type;
+            public RpBaseHitObjectType.LeftRight LeftRight;
+
             public SingleKey(RpBaseHitObjectType.Shape type, RpBaseHitObjectType.LeftRight leftRight, Key key, string name)
             {
                 Key = key;
@@ -224,14 +216,10 @@ namespace osu.Game.Modes.RP.Saving
                 Name = name;
                 Type = type;
             }
-            public Key Key;
-            public string Name;
-            public RpBaseHitObjectType.Shape Type;
-            public RpBaseHitObjectType.LeftRight LeftRight;
         }
 
         /// <summary>
-        /// 按鍵名稱
+        ///     按鍵名稱
         /// </summary>
         public class KeyName
         {
@@ -241,11 +229,11 @@ namespace osu.Game.Modes.RP.Saving
         }
 
         /// <summary>
-        /// 按鍵名稱
+        ///     按鍵名稱
         /// </summary>
         public class KeyName10K : KeyName
         {
-            public static string LeftTriangle= "LeftTriangle";
+            public static string LeftTriangle = "LeftTriangle";
             public static string LeftCross = "LeftCross";
             public static string LeftRectangle;
             public static string LeftCircle;
@@ -257,7 +245,7 @@ namespace osu.Game.Modes.RP.Saving
         }
 
         /// <summary>
-        /// 按鍵名稱
+        ///     按鍵名稱
         /// </summary>
         public class KeyName6K : KeyName
         {
@@ -266,6 +254,5 @@ namespace osu.Game.Modes.RP.Saving
             public static string Square;
             public static string Circle;
         }
-
     }
 }

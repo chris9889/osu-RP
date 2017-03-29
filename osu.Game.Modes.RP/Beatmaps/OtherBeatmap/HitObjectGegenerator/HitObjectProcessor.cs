@@ -9,18 +9,17 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator
 {
     public class HitObjectProcessor
     {
+        private readonly PreAnalyseHitObject PreAnalyseHitObject = new PreAnalyseHitObject();
 
-        PreAnalyseHitObject PreAnalyseHitObject = new PreAnalyseHitObject();
+        private readonly HitObjectGenerator HitObjectGenerator = new HitObjectGenerator();
 
-        HitObjectGenerator HitObjectGenerator=new HitObjectGenerator();
+        private readonly TypeCalculator TypeCalculator = new TypeCalculator();
 
-        TypeCalculator TypeCalculator = new TypeCalculator();
-
-        PositionGenerator PositionGenerator=new PositionGenerator();
+        private readonly PositionGenerator PositionGenerator = new PositionGenerator();
 
         public List<ComvertParameter> Convert(List<ComvertParameter> output)
         {
-            foreach (ComvertParameter single in output)
+            foreach (var single in output)
             {
                 //preAnaylse
                 single.HitObjectConvertParameter = PreAnalyseHitObject.Analyse(single);

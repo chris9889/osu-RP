@@ -3,30 +3,29 @@
 
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
-using OpenTK;
 using osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate;
 using osu.Game.Modes.RP.ScoreProcessor;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
 {
     /// <summary>
-    /// 打擊會產生的特效
+    ///     打擊會產生的特效
     /// </summary>
     public class HitExplosion : FillFlowContainer
     {
         /// <summary>
-        /// 打擊判定
+        ///     打擊判定
         /// </summary>
         private readonly RpJudgement judgement;
 
         /// <summary>
-        /// 顯示特效
+        ///     顯示特效
         /// </summary>
-        BaseHitEffectTemplate _hitEffect;
+        private readonly BaseHitEffectTemplate _hitEffect;
 
         public HitExplosion(RpJudgement judgement, BaseRpObject h = null)
         {
-
             if (h is BaseHitObject)
             {
                 this.judgement = judgement;
@@ -67,10 +66,9 @@ namespace osu.Game.Modes.RP.Objects.Drawables
                 //把物件增加上去
                 Children = new Drawable[]
                 {
-                _hitEffect,
+                    _hitEffect
                 };
             }
-           
         }
 
         protected override void LoadComplete()

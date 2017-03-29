@@ -5,13 +5,12 @@
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
 {
     /// <summary>
-    /// 可以改變Container的一些狀態
+    ///     可以改變Container的一些狀態
     /// </summary>
     public interface IChangeableContainerComponent
     {
-
         /// <summary>
-        /// 改變高度
+        ///     改變高度
         /// </summary>
         /// <param name="newHeight"></param>
         void ChangeHeight(float newHeight);

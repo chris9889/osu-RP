@@ -1,38 +1,34 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Framework.Graphics;
-using osu.Game.Modes.Objects.Drawables;
-using OpenTK;
 using System;
+using osu.Framework.Graphics;
 using osu.Framework.Graphics.Transforms;
+using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.Drawables.Template.HitObject.Slide;
-using osu.Game.Modes.RP.ScoreProcessor;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables
 {
     /// <summary>
-    /// Slider
+    ///     Slider
     /// </summary>
-    class DrawableSliderObject : DrawableBaseHitObject
+    internal class DrawableSliderObject : DrawableBaseHitObject
     {
-        
-
-        public DrawableSliderObject(RpLongTailObject h) : base(h)
+        public DrawableSliderObject(RpLongTailObject h)
+            : base(h)
         {
-            
-
             Template = new SlideTemplate(HitObject)
             {
                 Position = new Vector2(0, 0),
-                Alpha = 1,
+                Alpha = 1
             };
 
             Children = new Drawable[]
-              {
-                    Template,
-                     _rpDetectPress,
-              };
+            {
+                Template,
+                _rpDetectPress
+            };
 
             //may not be so correct
             //Size = _rpDetectPress.DrawSize;
@@ -44,7 +40,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         //public override bool Contains(Vector2 screenSpacePos) => true;
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="userTriggered"></param>
         protected override void CheckJudgement(bool userTriggered)
@@ -56,9 +51,9 @@ namespace osu.Game.Modes.RP.Objects.Drawables
                 return;
             }
 
-            double hitOffset = Math.Abs(Judgement.TimeOffset);
+            var hitOffset = Math.Abs(Judgement.TimeOffset);
 
-            RpJudgement divaInfo = Judgement as RpJudgement;
+            var divaInfo = Judgement;
             divaInfo.HitExplosionPosition.Add(Position);
 
             if (hitOffset < HitObject.hit50)
@@ -74,11 +69,13 @@ namespace osu.Game.Modes.RP.Objects.Drawables
                     divaInfo.Score = RPScoreResult.Safe;
             }
             else
+            {
                 Judgement.Result = HitResult.Miss;
+            }
         }
 
         /// <summary>
-        /// 更新初始狀態
+        ///     更新初始狀態
         /// </summary>
         protected override void UpdateInitialState()
         {
@@ -92,16 +89,15 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 這裡估計會一直更新
+        ///     這裡估計會一直更新
         /// </summary>
         protected override void UpdatePreemptState()
         {
-            
             base.UpdatePreemptState();
         }
 
         /// <summary>
-        /// 持續一直更新物件
+        ///     持續一直更新物件
         /// </summary>
         protected override void Update()
         {
@@ -109,7 +105,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 結果，有打到或是miss
+        ///     結果，有打到或是miss
         /// </summary>
         /// <param name="state"></param>
         protected override void UpdateState(ArmedState state)
@@ -156,5 +152,4 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             //_template.FadeOut();
         }
     }
-    
 }

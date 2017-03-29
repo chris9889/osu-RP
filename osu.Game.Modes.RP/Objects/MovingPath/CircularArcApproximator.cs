@@ -1,25 +1,23 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using OpenTK;
-using osu.Framework.MathUtils;
 using System;
 using System.Collections.Generic;
+using osu.Framework.MathUtils;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.MovingPath
 {
     /// <summary>
-    /// 
     /// </summary>
     public class CircularArcApproximator
     {
-        private Vector2 A;
-        private Vector2 B;
-        private Vector2 C;
+        private const float TOLERANCE = 0.1f;
+        private readonly Vector2 A;
+        private readonly Vector2 B;
+        private readonly Vector2 C;
 
         private int amountPoints;
-
-        private const float TOLERANCE = 0.1f;
 
         public CircularArcApproximator(Vector2 A, Vector2 B, Vector2 C)
         {
@@ -29,49 +27,49 @@ namespace osu.Game.Modes.RP.Objects.MovingPath
         }
 
         /// <summary>
-        /// Creates a piecewise-linear approximation of a circular arc curve.
+        ///     Creates a piecewise-linear approximation of a circular arc curve.
         /// </summary>
         /// <returns>A list of vectors representing the piecewise-linear approximation.</returns>
         public List<Vector2> CreateArc()
         {
-            float aSq = (B - C).LengthSquared;
-            float bSq = (A - C).LengthSquared;
-            float cSq = (A - B).LengthSquared;
+            var aSq = (B - C).LengthSquared;
+            var bSq = (A - C).LengthSquared;
+            var cSq = (A - B).LengthSquared;
 
             // If we have a degenerate triangle where a side-length is almost zero, then give up and fall
             // back to a more numerically stable method.
             if (Precision.AlmostEquals(aSq, 0) || Precision.AlmostEquals(bSq, 0) || Precision.AlmostEquals(cSq, 0))
                 return new List<Vector2>();
 
-            float s = aSq * (bSq + cSq - aSq);
-            float t = bSq * (aSq + cSq - bSq);
-            float u = cSq * (aSq + bSq - cSq);
+            var s = aSq * (bSq + cSq - aSq);
+            var t = bSq * (aSq + cSq - bSq);
+            var u = cSq * (aSq + bSq - cSq);
 
-            float sum = s + t + u;
+            var sum = s + t + u;
 
             // If we have a degenerate triangle with an almost-zero size, then give up and fall
             // back to a more numerically stable method.
             if (Precision.AlmostEquals(sum, 0))
                 return new List<Vector2>();
 
-            Vector2 centre = (s * A + t * B + u * C) / sum;
-            Vector2 dA = A - centre;
-            Vector2 dC = C - centre;
+            var centre = (s * A + t * B + u * C) / sum;
+            var dA = A - centre;
+            var dC = C - centre;
 
-            float r = dA.Length;
+            var r = dA.Length;
 
-            double thetaStart = Math.Atan2(dA.Y, dA.X);
-            double thetaEnd = Math.Atan2(dC.Y, dC.X);
+            var thetaStart = Math.Atan2(dA.Y, dA.X);
+            var thetaEnd = Math.Atan2(dC.Y, dC.X);
 
             while (thetaEnd < thetaStart)
                 thetaEnd += 2 * Math.PI;
 
             double dir = 1;
-            double thetaRange = thetaEnd - thetaStart;
+            var thetaRange = thetaEnd - thetaStart;
 
             // Decide in which direction to draw the circle, depending on which side of 
             // AC B lies.
-            Vector2 orthoAC = C - A;
+            var orthoAC = C - A;
             orthoAC = new Vector2(orthoAC.Y, -orthoAC.X);
             if (Vector2.Dot(orthoAC, B - A) < 0)
             {
@@ -89,13 +87,13 @@ namespace osu.Game.Modes.RP.Objects.MovingPath
             else
                 amountPoints = Math.Max(2, (int)Math.Ceiling(thetaRange / (2 * Math.Acos(1 - TOLERANCE / r))));
 
-            List<Vector2> output = new List<Vector2>(amountPoints);
+            var output = new List<Vector2>(amountPoints);
 
-            for (int i = 0; i < amountPoints; ++i)
+            for (var i = 0; i < amountPoints; ++i)
             {
-                double fract = (double)i / (amountPoints - 1);
-                double theta = thetaStart + dir * fract * thetaRange;
-                Vector2 o = new Vector2((float)Math.Cos(theta), (float)Math.Sin(theta)) * r;
+                var fract = (double)i / (amountPoints - 1);
+                var theta = thetaStart + dir * fract * thetaRange;
+                var o = new Vector2((float)Math.Cos(theta), (float)Math.Sin(theta)) * r;
                 output.Add(centre + o);
             }
 

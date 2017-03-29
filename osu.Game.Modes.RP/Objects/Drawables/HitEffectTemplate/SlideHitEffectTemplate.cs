@@ -1,44 +1,39 @@
-﻿using OpenTK;
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Pieces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using osu.Game.Modes.RP.SkinManager;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
 {
-    class SlideHitEffectTemplate : BaseHitEffectTemplate
+    internal class SlideHitEffectTemplate : BaseHitEffectTemplate
     {
         /// <summary>
-        /// 目前結果
+        ///     目前結果
         /// </summary>
         protected new RPScoreResult RPScoreResult = RPScoreResult.Slider;
 
         /// <summary>
-        /// 白色十字
+        ///     白色十字
         /// </summary>
-        ImagePicec _effectPicec;
+        private readonly ImagePicec _effectPicec;
 
         /// <summary>
-        /// 有音樂形狀那個icon
+        ///     有音樂形狀那個icon
         /// </summary>
-        ImagePicec _onpuPicec;
+        private readonly ImagePicec _onpuPicec;
 
         public SlideHitEffectTemplate()
         {
-
             Children = new Drawable[]
             {
-                _effectPicec= new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Slide_effect"))
+                _effectPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Slide_effect"))
                 {
-                    Position=new Vector2(0,0),
+                    Position = new Vector2(0, 0)
                 },
-                _onpuPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
+                _onpuPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
                 {
-                    Position=new Vector2(0,0),
-                },
+                    Position = new Vector2(0, 0)
+                }
             };
         }
 

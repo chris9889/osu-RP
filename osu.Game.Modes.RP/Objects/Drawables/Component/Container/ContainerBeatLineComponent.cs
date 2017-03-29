@@ -1,32 +1,41 @@
 ﻿using System.Collections.Generic;
-using osu.Game.Modes.RP.Objects.Drawables.Calculator;
 using osu.Game.Modes.RP.Objects.Drawables.Calculator.Height;
+using osu.Game.Modes.RP.Objects.Drawables.Pieces;
+using osu.Game.Modes.RP.SkinManager;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
 {
     /// <summary>
-    /// 裝判定點用
+    ///     裝判定點用
     /// </summary>
-    class ContainerBeatLineComponent : BaseContainerComponent, IChangeableContainerComponent
+    internal class ContainerBeatLineComponent : BaseContainerComponent, IChangeableContainerComponent
     {
         /// <summary>
-        /// 中間的節拍
+        ///     中間的節拍
         /// </summary>
-        private List<Pieces.ImagePicec> _containerBeatDecisionLineComponent = new List<Pieces.ImagePicec>();
+        private readonly List<ImagePicec> _containerBeatDecisionLineComponent = new List<ImagePicec>();
 
         /// <summary>
-        /// 計算物件的相關高度和Height位置
+        ///     計算物件的相關高度和Height位置
         /// </summary>
-        ContainerLayoutHeightCalculator _heightCalculator = new ContainerLayoutHeightCalculator();
+        private ContainerLayoutHeightCalculator _heightCalculator = new ContainerLayoutHeightCalculator();
 
-        public ContainerBeatLineComponent(ObjectContainer hitObject) : base(hitObject)
+        public ContainerBeatLineComponent(ObjectContainer hitObject)
+            : base(hitObject)
         {
-
         }
 
         /// <summary>
-        /// 初始化顯示
+        ///     修改物件高度
+        /// </summary>
+        /// <param name="newHeight"></param>
+        public void ChangeHeight(float newHeight)
+        {
+        }
+
+        /// <summary>
+        ///     初始化顯示
         /// </summary>
         protected override void InitialObject(int layerCount = 0)
         {
@@ -40,14 +49,14 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
         }
 
         /// <summary>
-        /// 初始化節拍點
+        ///     初始化節拍點
         /// </summary>
-        void InitialBeat()
+        private void InitialBeat()
         {
-            for (int i = 0; i < 6; i++)
+            for (var i = 0; i < 6; i++)
             {
                 //物件
-                Pieces.ImagePicec line = new Pieces.ImagePicec(SkinManager.RpTexturePathManager.GetBeatLineTexture());
+                var line = new ImagePicec(RpTexturePathManager.GetBeatLineTexture());
                 //
                 line.Scale = new Vector2(0.6f);
                 //設定位置
@@ -55,15 +64,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
                 //加入
                 _containerBeatDecisionLineComponent.Add(line);
             }
-        }
-
-        /// <summary>
-        /// 修改物件高度
-        /// </summary>
-        /// <param name="newHeight"></param>
-        public new void ChangeHeight(float newHeight)
-        {
-            
         }
     }
 }

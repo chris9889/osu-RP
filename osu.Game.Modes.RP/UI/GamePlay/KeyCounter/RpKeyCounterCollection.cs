@@ -1,6 +1,6 @@
-﻿using osu.Framework.Graphics;
+﻿using System.Collections.Generic;
+using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
-using System.Collections.Generic;
 using osu.Game.Screens.Play;
 using static osu.Game.Modes.RP.Saving.RpKeyLayoutConfig;
 using static osu.Game.Modes.RP.UI.GamePlay.KeyCounter.RpKeyCounterKeyboard;
@@ -8,13 +8,13 @@ using static osu.Game.Modes.RP.UI.GamePlay.KeyCounter.RpKeyCounterKeyboard;
 namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
 {
     /// <summary>
-    /// RP專用的計數器
+    ///     RP專用的計數器
     /// </summary>
-    class RpKeyCounterCollection : Screens.Play.KeyCounterCollection
+    internal class RpKeyCounterCollection : KeyCounterCollection
     {
         public List<KeyCounterKeyboard> ListKey = new List<KeyCounterKeyboard>();
 
-        SingleRpKeyLayoutConfig _singleLayout;
+        private readonly SingleRpKeyLayoutConfig _singleLayout;
 
         public RpKeyCounterCollection(SingleRpKeyLayoutConfig singleLayout)
         {
@@ -25,19 +25,17 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         }
 
         /// <summary>
-        /// 產生按鍵出來
+        ///     產生按鍵出來
         /// </summary>
         private void GeneratorKey()
         {
-            for (int i = 0; i < _singleLayout.KeyDictionary.Count; i++)
+            for (var i = 0; i < _singleLayout.KeyDictionary.Count; i++)
             {
-                RpKeyCounterKeyboard rpKeyCounterKeyboard = new RpKeyCounterKeyboard(_singleLayout.KeyDictionary[i].Key.ToString(), _singleLayout.KeyDictionary[i], SingleKeyLayout.KeyIcon_Count);
+                var rpKeyCounterKeyboard = new RpKeyCounterKeyboard(_singleLayout.KeyDictionary[i].Key.ToString(), _singleLayout.KeyDictionary[i], SingleKeyLayout.KeyIcon_Count);
                 //增加有
-                this.Add(rpKeyCounterKeyboard);
+                Add(rpKeyCounterKeyboard);
                 ListKey.Add(rpKeyCounterKeyboard);
             }
         }
-
-        
     }
 }

@@ -1,20 +1,17 @@
-﻿using osu.Game.Beatmaps;
-using osu.Game.Graphics;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using osu.Game.Beatmaps;
+using osu.Game.Graphics;
 
 namespace osu.Game.Modes.RP.UI.Select
 {
     /// <summary>
-    /// 統計beatmap數據
+    ///     統計beatmap數據
     /// </summary>
-    class BeatmapStatistics : IEnumerable<BeatmapStatistic>
+    internal class BeatmapStatistics : IEnumerable<BeatmapStatistic>
     {
-        Game.Beatmaps.Beatmap _beatmap;
+        private Game.Beatmaps.Beatmap _beatmap;
 
         public BeatmapStatistics(WorkingBeatmap beatmap)
         {
@@ -22,7 +19,6 @@ namespace osu.Game.Modes.RP.UI.Select
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <returns></returns>
         public IEnumerator<BeatmapStatistic> GetEnumerator()
@@ -31,7 +27,7 @@ namespace osu.Game.Modes.RP.UI.Select
             yield return new BeatmapStatistic
             {
                 Name = @"Hit",
-                Content = "10000",//beatmap.Beatmap.HitObjects.Count(h => h is HitCircle).ToString(),
+                Content = "10000", //beatmap.Beatmap.HitObjects.Count(h => h is HitCircle).ToString(),
                 Icon = FontAwesome.fa_dot_circle_o
             };
 
@@ -39,7 +35,7 @@ namespace osu.Game.Modes.RP.UI.Select
             yield return new BeatmapStatistic
             {
                 Name = @"Slider",
-                Content = "10000",//beatmap.Beatmap.HitObjects.Count(h => h is Slider).ToString(),
+                Content = "10000", //beatmap.Beatmap.HitObjects.Count(h => h is Slider).ToString(),
                 Icon = FontAwesome.fa_circle_o
             };
 
@@ -47,7 +43,7 @@ namespace osu.Game.Modes.RP.UI.Select
             yield return new BeatmapStatistic
             {
                 Name = @"Press",
-                Content = "10000",//beatmap.Beatmap.HitObjects.Count(h => h is Slider).ToString(),
+                Content = "10000", //beatmap.Beatmap.HitObjects.Count(h => h is Slider).ToString(),
                 Icon = FontAwesome.fa_circle_o
             };
 
@@ -55,13 +51,12 @@ namespace osu.Game.Modes.RP.UI.Select
             yield return new BeatmapStatistic
             {
                 Name = @"Container",
-                Content = "10000",//beatmap.Beatmap.HitObjects.Count(h => h is Slider).ToString(),
+                Content = "10000", //beatmap.Beatmap.HitObjects.Count(h => h is Slider).ToString(),
                 Icon = FontAwesome.fa_circle_o
             };
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()

@@ -1,40 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using osu.Framework.Allocation;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Transforms;
-using OpenTK;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
-using osu.Framework.Allocation;
 using osu.Framework.Graphics.Textures;
+using osu.Game.Modes.RP.SkinManager;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
 {
     /// <summary>
-    /// 用來顯示矩形元素
-    /// 可以設定長寬，還有顏色
+    ///     用來顯示矩形元素
+    ///     可以設定長寬，還有顏色
     /// </summary>
-    class RectanglePiece : Container
+    internal class RectanglePiece : Container
     {
         /// <summary>
-        /// 設定物件texture
+        ///     設定物件texture
         /// </summary>
-        public String Resource= SkinManager.RpTexturePathManager.GetRectangleTexture();
-
-        /// <summary>
-        /// 物件的大小剛好是100*100
-        /// </summary>
-        private Sprite rectangle;
-
-        /// <summary>
-        /// 寬度
-        /// </summary>
-        private float _rectangleWidth;
-
-        private float _rectangleHeight;
+        public string Resource = RpTexturePathManager.GetRectangleTexture();
 
 
         public new float Width
@@ -58,11 +41,23 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
         }
 
         /// <summary>
-        /// 會根據初始設定的 width Height 改變物件的scale
+        ///     物件的大小剛好是100*100
+        /// </summary>
+        private readonly Sprite rectangle;
+
+        /// <summary>
+        ///     寬度
+        /// </summary>
+        private float _rectangleWidth;
+
+        private float _rectangleHeight;
+
+        /// <summary>
+        ///     會根據初始設定的 width Height 改變物件的scale
         /// </summary>
         /// <param name="width"></param>
         /// <param name="Height"></param>
-        public RectanglePiece(float width,float height)
+        public RectanglePiece(float width, float height)
         {
             Size = new Vector2(width, Height);
             CornerRadius = DrawSize.X / 2;
@@ -76,8 +71,8 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
                 {
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
-                    Size=new Vector2(100,100),
-                },
+                    Size = new Vector2(100, 100)
+                }
             };
 
             //改變大小
@@ -85,7 +80,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
         }
 
         /// <summary>
-        /// 改變大小
+        ///     改變大小
         /// </summary>
         /// <param name="width"></param>
         /// <param name="Height"></param>

@@ -1,25 +1,25 @@
 ﻿using System.Collections.Generic;
-using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.ContainerPosition;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Generator;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.MultiContainer;
-using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.ContainerPosition;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator
 {
-	public class ContainerProcessor
+    public class ContainerProcessor
     {
         //物件數量決定
-        MultiContainerDecidor MultiContainerDecidor=new MultiContainerDecidor();
+        private readonly MultiContainerDecidor MultiContainerDecidor = new MultiContainerDecidor();
 
         //實作並且分配
-        ContainerGenerator ContainerGenerator=new ContainerGenerator();
+        private readonly ContainerGenerator ContainerGenerator = new ContainerGenerator();
 
         //決定物件位置
-        PositionDecidor PositionDecidor =new PositionDecidor();
+        private readonly PositionDecidor PositionDecidor = new PositionDecidor();
 
         public List<ComvertParameter> Convert(List<ComvertParameter> output)
         {
-            foreach (ComvertParameter single in output)
+            foreach (var single in output)
             {
                 //decide the number of container and layout
                 single.ContainerConvertParameter = MultiContainerDecidor.GetParameter(single);
@@ -31,7 +31,5 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator
             }
             return output;
         }
-
-
     }
 }

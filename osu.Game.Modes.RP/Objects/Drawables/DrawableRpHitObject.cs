@@ -10,32 +10,29 @@ using OpenTK;
 namespace osu.Game.Modes.RP.Objects.Drawables
 {
     /// <summary>
-    /// 繪製 RP HitCircle
+    ///     繪製 RP HitCircle
     /// </summary>
-    class DrawableRpHitObject : DrawableBaseHitObject, IDrawableHitObjectWithProxiedApproach
+    internal class DrawableRpHitObject : DrawableBaseHitObject, IDrawableHitObjectWithProxiedApproach
     {
         public Drawable ProxiedLayer
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { throw new NotImplementedException(); }
         }
 
-        public DrawableRpHitObject(RpHitObject h) : base(h)
+        public DrawableRpHitObject(RpHitObject h)
+            : base(h)
         {
-
             Template = new ClickTemplate(HitObject)
             {
-                Position = new Vector2(0,0),
-                Alpha = 1,
+                Position = new Vector2(0, 0),
+                Alpha = 1
             };
 
             Children = new Drawable[]
-              {
-                    Template,
-                     _rpDetectPress,
-              };
+            {
+                Template,
+                _rpDetectPress
+            };
 
             //may not be so correct
             //Size = _rpDetectPress.DrawSize;
@@ -47,7 +44,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         //public override bool Contains(Vector2 screenSpacePos) => true;
 
         /// <summary>
-        /// 更新初始狀態
+        ///     更新初始狀態
         /// </summary>
         protected override void UpdateInitialState()
         {
@@ -61,7 +58,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 初始時會跑一次
+        ///     初始時會跑一次
         /// </summary>
         protected override void UpdatePreemptState()
         {
@@ -69,7 +66,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 持續一直更新物件
+        ///     持續一直更新物件
         /// </summary>
         protected override void Update()
         {
@@ -77,7 +74,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
         /// <summary>
-        /// 結果，有打到或是miss
+        ///     結果，有打到或是miss
         /// </summary>
         /// <param name="state"></param>
         protected override void UpdateState(ArmedState state)
@@ -85,7 +82,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             if (!IsLoaded) return;
 
             base.UpdateState(state);
-            
+
             //glow.FadeOut(400);
 
             switch (state)
@@ -124,7 +121,5 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             //
             //_template.FadeOut();
         }
-
-        
     }
 }

@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
 using osu.Framework.Graphics;
-using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.Drawables;
 
 namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Background
 {
     /// <summary>
-    /// 負責放置背景
-    /// DrawableContainer
+    ///     負責放置背景
+    ///     DrawableContainer
     /// </summary>
-    class BackgroundLayout : BaseGamePlayLayout
+    internal class BackgroundLayout : BaseGamePlayLayout
     {
         /// <summary>
-        /// Container
+        ///     Container
         /// </summary>
         public List<DrawableContainer> _listContainer = new List<DrawableContainer>();
 
@@ -23,7 +22,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Background
         }
 
         /// <summary>
-        /// 增加Container
+        ///     增加Container
         /// </summary>
         public void AddContainer(DrawableContainer drawableContainer)
         {
@@ -32,16 +31,14 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Background
         }
 
         /// <summary>
-        /// 根據時間取得時間點上的Container
+        ///     根據時間取得時間點上的Container
         /// </summary>
         /// <returns></returns>
         public IEnumerable<DrawableContainer> GetContainerByTime(double time)
         {
-            foreach (DrawableContainer container in _listContainer)
-            {
+            foreach (var container in _listContainer)
                 if (container.HitObject.StartTime <= time && container.HitObject.EndTime >= time)
                     yield return container;
-            }
         }
     }
 }

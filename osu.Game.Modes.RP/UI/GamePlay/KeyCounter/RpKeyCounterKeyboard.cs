@@ -1,23 +1,22 @@
-﻿using osu.Framework.Input;
+﻿using osu.Framework.Allocation;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Sprites;
-using static osu.Game.Modes.RP.Saving.RpKeyLayoutConfig;
-using osu.Framework.Graphics.Textures;
-using osu.Framework.Allocation;
 using osu.Framework.Graphics.Containers;
-using OpenTK;
+using osu.Framework.Graphics.Sprites;
+using osu.Framework.Graphics.Textures;
+using osu.Framework.Input;
+using osu.Game.Modes.RP.SkinManager;
 using osu.Game.Screens.Play;
+using OpenTK;
+using static osu.Game.Modes.RP.Saving.RpKeyLayoutConfig;
 
 namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
 {
     /// <summary>
-    /// RP專用計數器裡面的其中一個按鍵
+    ///     RP專用計數器裡面的其中一個按鍵
     /// </summary>
-    class RpKeyCounterKeyboard : KeyCounterKeyboard
+    internal class RpKeyCounterKeyboard : KeyCounterKeyboard
     {
-        
-
-        SingleKeyLayout _layout;
+        private readonly SingleKeyLayout _layout;
 
 
         //顯示按鈕
@@ -25,29 +24,52 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         //顯示按鍵名稱
         private SpriteText _textSprite;
         //
-        SingleKey _singlekey;
+        private readonly SingleKey _singlekey;
 
         /// <summary>
-        /// 建構
+        ///     建構
         /// </summary>
         /// <param name="name"></param>
-        public RpKeyCounterKeyboard(string name, SingleKey singlekey, SingleKeyLayout layout) : base(singlekey.Key)
+        public RpKeyCounterKeyboard(string name, SingleKey singlekey, SingleKeyLayout layout)
+            : base(singlekey.Key)
         {
             _singlekey = singlekey;
             _layout = layout;
             IsCounting = true;
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
+        {
+            IsCounting = true;
+
+            return base.OnKeyDown(state, args);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        protected override bool OnKeyUp(InputState state, KeyUpEventArgs args)
+        {
+            return base.OnKeyUp(state, args);
+        }
+
         [BackgroundDependencyLoader]
         private void load(TextureStore textures)
         {
             Children = new Drawable[]
-           {
+            {
                 buttonSprite = new Sprite
                 {
                     Texture = textures.Get(@"KeyCounter/key-up"),
                     Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
+                    Origin = Anchor.Centre
                 },
                 glowSprite = new Sprite
                 {
@@ -83,24 +105,24 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                         },
                         _buttonIconSprite = new Sprite
                         {
-                            Texture = textures.Get(SkinManager.RpTexturePathManager.GetKeyLayoutButtonIcon(_singlekey.Type)),
+                            Texture = textures.Get(RpTexturePathManager.GetKeyLayoutButtonIcon(_singlekey.Type)),
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,
                             Alpha = 1,
-                            Scale=new Vector2(1.0f),
-                            Position=new Vector2(0, -0.25f),
-                        },
+                            Scale = new Vector2(1.0f),
+                            Position = new Vector2(0, -0.25f)
+                        }
                     }
-                },
+                }
             };
             //Set this manually because an element with Alpha=0 won't take it size to AutoSizeContainer,
             //so the size can be changing between buttonSprite and glowSprite.
             Height = buttonSprite.DrawHeight;
             Width = buttonSprite.DrawWidth;
 
-            Vector2 fixPosition = new Vector2(0, -10f);
-            Vector2 upperPosition = new Vector2(0, -0.25f);
-            Vector2 lowerPosition = new Vector2(0, 0.25f);
+            var fixPosition = new Vector2(0, -10f);
+            var upperPosition = new Vector2(0, -0.25f);
+            var lowerPosition = new Vector2(0, 0.25f);
             switch (_layout)
             {
                 case SingleKeyLayout.KeyIcon_Code:
@@ -121,30 +143,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="state"></param>
-        /// <param name="args"></param>
-        /// <returns></returns>
-        protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
-        {
-            IsCounting = true;
-
-            return base.OnKeyDown(state, args);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="state"></param>
-        /// <param name="args"></param>
-        /// <returns></returns>
-        protected override bool OnKeyUp(InputState state, KeyUpEventArgs args)
-        {
-            return base.OnKeyUp(state, args);
-        }
-
         public enum SingleKeyLayout
         {
             KeyIcon = 1,
@@ -154,6 +152,5 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
             keyCount_Code = keyCode | keyCount,
             KeyIcon_Count = KeyIcon | keyCount
         }
-
     }
 }

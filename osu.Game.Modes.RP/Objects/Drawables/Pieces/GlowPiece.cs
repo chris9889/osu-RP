@@ -10,11 +10,11 @@ using osu.Framework.Graphics.Textures;
 namespace osu.Game.Modes.RP.Objects.Drawables.Pieces
 {
     /// <summary>
-    /// 顯示外框
+    ///     顯示外框
     /// </summary>
     public class GlowPiece : Container
     {
-        private Sprite layer;
+        private readonly Sprite layer;
 
         public GlowPiece()
         {

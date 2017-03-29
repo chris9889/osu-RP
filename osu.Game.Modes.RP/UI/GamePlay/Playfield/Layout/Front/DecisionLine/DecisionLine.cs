@@ -8,9 +8,9 @@ using OpenTK;
 
 namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Front.DecisionLine
 {
-    class DecisionLine : Container
+    internal class DecisionLine : Container
     {
-        private Sprite disc;
+        private readonly Sprite disc;
 
 
         public DecisionLine()
@@ -28,15 +28,15 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Front.DecisionLine
                 {
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
-                    Scale=new Vector2(0.5f,0.3f),
-                },
+                    Scale = new Vector2(0.5f, 0.3f)
+                }
             };
         }
 
         [BackgroundDependencyLoader]
         private void load(TextureStore textures)
         {
-            string name = RpTexturePathManager.GetDecisionLineTexture();
+            var name = RpTexturePathManager.GetDecisionLineTexture();
             disc.Texture = textures.Get(name);
         }
     }

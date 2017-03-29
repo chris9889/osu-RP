@@ -1,59 +1,54 @@
-﻿using OpenTK;
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects.Drawables.Pieces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using osu.Game.Modes.RP.SkinManager;
+using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
 {
     /// <summary>
-    /// 如果是Cool的打擊特效
+    ///     如果是Cool的打擊特效
     /// </summary>
-    class CoolHitEffectTemplate : BaseHitEffectTemplate
+    internal class CoolHitEffectTemplate : BaseHitEffectTemplate
     {
         /// <summary>
-        /// 目前結果
+        ///     目前結果
         /// </summary>
         protected new RPScoreResult RPScoreResult = RPScoreResult.Cool;
 
         /// <summary>
-        /// 黃色光環
+        ///     黃色光環
         /// </summary>
-        ImagePicec _flarePicec;
+        private readonly ImagePicec _flarePicec;
 
         /// <summary>
-        /// 白色圈圈
+        ///     白色圈圈
         /// </summary>
-        ImagePicec _loopPicec;
+        private readonly ImagePicec _loopPicec;
 
         /// <summary>
-        /// 有音樂形狀那個icon
+        ///     有音樂形狀那個icon
         /// </summary>
-        ImagePicec _onpuPicec;
+        private readonly ImagePicec _onpuPicec;
 
         public CoolHitEffectTemplate()
         {
             Children = new Drawable[]
-           {
-                _flarePicec=new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"Flare"))
+            {
+                _flarePicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Flare"))
                 {
-                   Position=new Vector2(0,0),
+                    Position = new Vector2(0, 0)
                 },
-                  _loopPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"Loop"))
-                {
-                    //Colour = osuObject.Colour,
-                    Position=new Vector2(0,0),
-                },
-                 _onpuPicec = new ImagePicec(SkinManager.RpTexturePathManager.GetRPHitEffect(RPScoreResult,"RP"))
+                _loopPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Loop"))
                 {
                     //Colour = osuObject.Colour,
-                    Position=new Vector2(0,0),
+                    Position = new Vector2(0, 0)
                 },
-           };
-            
+                _onpuPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
+                {
+                    //Colour = osuObject.Colour,
+                    Position = new Vector2(0, 0)
+                }
+            };
         }
 
         //開始特效
@@ -85,7 +80,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
             _onpuPicec.Scale = new Vector2(1f);
             _onpuPicec.ScaleTo(1.8f, 200);
             _onpuPicec.ScaleTo(1.8f, 220);
-
         }
     }
 }

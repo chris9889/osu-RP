@@ -6,9 +6,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter
     public class SingleHitObjectConvertParameter
     {
         /// <summary>
-        /// this object is in combo or not
+        ///     this object is in combo or not
         /// </summary>
-		public bool isCombo = false;
+        public bool isCombo = false;
 
         public double StartTime;
 
@@ -17,8 +17,8 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter
         public int MultiNumber = 1;
 
         /// <summary>
-        /// all of the the hitObject in this moment
+        ///     all of the the hitObject in this moment
         /// </summary>
-        public List<BaseHitObject> ListBaseHitObject=new List<BaseHitObject>();
+        public List<BaseHitObject> ListBaseHitObject = new List<BaseHitObject>();
     }
 }

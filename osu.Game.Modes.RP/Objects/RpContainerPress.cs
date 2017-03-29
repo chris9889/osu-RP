@@ -2,27 +2,21 @@
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using osu.Game.Modes.RP.Objects.type;
-using System;
 
 namespace osu.Game.Modes.RP.Objects
 {
     /// <summary>
-    /// 可以往左邊或是右邊長壓滑動
+    ///     可以往左邊或是右邊長壓滑動
     /// </summary>
     public class RpContainerPress : BaseHitObject
     {
-        public RpContainerPress() : base()
-        {
-
-        }
-
         /// <summary>
-        /// 初始化預設物件
+        ///     初始化預設物件
         /// </summary>
         public override void InitialDefaultValue()
         {
             base.InitialDefaultValue();
-            ObjectType = RpBaseHitObjectType.ObjectType.ContainerPress;
+            ObjectType = RpBaseObjectType.ObjectType.ContainerPress;
         }
     }
 }

@@ -1,22 +1,24 @@
-﻿using System.Collections.Generic;
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
+using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Parameter;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
 {
     /// <summary>
-    /// 預先處理出一些之後語法分析會用到的參數
+    ///     預先處理出一些之後語法分析會用到的參數
     /// </summary>
-    class PrefixScanner
+    internal class PrefixScanner
     {
+        private readonly NewComboScanner _newComboScanner;
 
-        NewComboScanner _newComboScanner;
+        private readonly PrePositionDiffScanner _prePositionDiffScanner;
 
-        PrePositionDiffScanner _prePositionDiffScanner;
+        private readonly PostPositionDiffScanner _postPositionDiffScanner;
 
-        PostPositionDiffScanner _postPositionDiffScanner;
-
-        BeatPreDiffScanner _beatPreDiffGenerator;
+        private readonly BeatPreDiffScanner _beatPreDiffGenerator;
 
         public PrefixScanner()
         {
@@ -25,17 +27,10 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
             _postPositionDiffScanner = new PostPositionDiffScanner();
             _beatPreDiffGenerator = new BeatPreDiffScanner();
         }
-        internal List<HitObjectConvertParameter> Convert(List<HitObjectConvertParameter> output)
-        {
-            SetInput(output);
-            Process();
-            SetResult(output);
-            return output;
-        }
 
 
         /// <summary>
-        /// 丟入參數
+        ///     丟入參數
         /// </summary>
         public void SetInput(List<HitObjectConvertParameter> listObject)
         {
@@ -47,7 +42,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
         }
 
         /// <summary>
-        /// 處理轉換問題
+        ///     處理轉換問題
         /// </summary>
         public void Process()
         {
@@ -58,14 +53,14 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
         }
 
         /// <summary>
-        /// 取得轉換過的結果
+        ///     取得轉換過的結果
         /// </summary>
         /// <returns></returns>
         public void SetResult(List<HitObjectConvertParameter> output)
         {
-            for (int i = 0; i < output.Count; i++)
+            for (var i = 0; i < output.Count; i++)
             {
-                ScanParameter result = new ScanParameter();
+                var result = new ScanParameter();
                 result.NewComboScannerResult = _newComboScanner.GetResult()[i];
                 result.ComboGroup = _newComboScanner.GetComboGroupResult()[i];
                 result.PrePositionDiffScannerResult = _prePositionDiffScanner.GetResult()[i];
@@ -75,36 +70,40 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
             }
         }
 
+        internal List<HitObjectConvertParameter> Convert(List<HitObjectConvertParameter> output)
+        {
+            SetInput(output);
+            Process();
+            SetResult(output);
+            return output;
+        }
+
 
         /// <summary>
-        /// 掃描combo
-        /// 會在new Combo 那一個物件顯示之後有連續多少combo
-        /// 例如 3 0 0 10 0 0 0 0 0 0 0 0.....
-        ///            (New Combo)
+        ///     掃描combo
+        ///     會在new Combo 那一個物件顯示之後有連續多少combo
+        ///     例如 3 0 0 10 0 0 0 0 0 0 0 0.....
+        ///     (New Combo)
         /// </summary>
-        class NewComboScanner
+        private class NewComboScanner
         {
             /// <summary>
-            /// 目前處理物件
+            ///     目前處理物件
             /// </summary>
-            List<HitObjectConvertParameter> _listObject;
+            private List<HitObjectConvertParameter> _listObject;
 
             /// <summary>
-            /// 目前結果
+            ///     目前結果
             /// </summary>
-            List<int> _listResult = new List<int>();
+            private readonly List<int> _listResult = new List<int>();
 
             /// <summary>
-            /// 目前結果
+            ///     目前結果
             /// </summary>
-            List<int> _comboGroup = new List<int>();
+            private readonly List<int> _comboGroup = new List<int>();
 
-            public NewComboScanner()
-            {
-
-            }
             /// <summary>
-            /// 丟入參數
+            ///     丟入參數
             /// </summary>
             public void SetInput(List<HitObjectConvertParameter> listObject)
             {
@@ -112,17 +111,17 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
             }
 
             /// <summary>
-            /// 處理轉換問題
+            ///     處理轉換問題
             /// </summary>
             public void Process()
             {
-                int comboGroup = 0;
-                for (int i = 0; i < _listObject.Count; i++)
+                var comboGroup = 0;
+                for (var i = 0; i < _listObject.Count; i++)
                 {
                     if (_listObject[i].OsuHitObject.NewCombo)
                     {
-                        int combo = 0;
-                        for (int j = i + 1; j < _listObject.Count; j++)
+                        var combo = 0;
+                        for (var j = i + 1; j < _listObject.Count; j++)
                         {
                             combo++;
                             if (_listObject[j].OsuHitObject.NewCombo)
@@ -151,19 +150,19 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
         }
 
         /// <summary>
-        /// 掃描座標改變，和前面差異
+        ///     掃描座標改變，和前面差異
         /// </summary>
-        class PrePositionDiffScanner
+        private class PrePositionDiffScanner
         {
             /// <summary>
-            /// 目前處理物件
+            ///     目前處理物件
             /// </summary>
-            List<HitObjectConvertParameter> _listObject;
+            private List<HitObjectConvertParameter> _listObject;
 
-            List<Vector2> _listResult = new List<Vector2>();
+            private readonly List<Vector2> _listResult = new List<Vector2>();
 
             /// <summary>
-            /// 丟入參數
+            ///     丟入參數
             /// </summary>
             public void SetInput(List<HitObjectConvertParameter> listObject)
             {
@@ -171,21 +170,15 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
             }
 
             /// <summary>
-            /// 處理轉換問題
+            ///     處理轉換問題
             /// </summary>
             public void Process()
             {
-                for (int i = 0; i < _listObject.Count; i++)
-                {
+                for (var i = 0; i < _listObject.Count; i++)
                     if (i > 0)
-                    {
                         _listResult.Add(_listObject[i].OsuHitObject.Position - _listObject[i - 1].OsuHitObject.Position);
-                    }
                     else
-                    {
                         _listResult.Add(new Vector2(0, 0));
-                    }
-                }
             }
 
             public List<Vector2> GetResult()
@@ -195,19 +188,19 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
         }
 
         /// <summary>
-        /// 掃描座標改變，和後面差異
+        ///     掃描座標改變，和後面差異
         /// </summary>
-        class PostPositionDiffScanner
+        private class PostPositionDiffScanner
         {
             /// <summary>
-            /// 目前處理物件
+            ///     目前處理物件
             /// </summary>
-            List<HitObjectConvertParameter> _listObject;
+            private List<HitObjectConvertParameter> _listObject;
 
-            List<Vector2> _listResult = new List<Vector2>();
+            private readonly List<Vector2> _listResult = new List<Vector2>();
 
             /// <summary>
-            /// 丟入參數
+            ///     丟入參數
             /// </summary>
             public void SetInput(List<HitObjectConvertParameter> listObject)
             {
@@ -215,21 +208,15 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
             }
 
             /// <summary>
-            /// 處理轉換問題
+            ///     處理轉換問題
             /// </summary>
             public void Process()
             {
-                for (int i = 0; i < _listObject.Count; i++)
-                {
+                for (var i = 0; i < _listObject.Count; i++)
                     if (i < _listObject.Count - 1)
-                    {
                         _listResult.Add(_listObject[i + 1].OsuHitObject.Position - _listObject[i].OsuHitObject.Position);
-                    }
                     else
-                    {
                         _listResult.Add(new Vector2(0, 0));
-                    }
-                }
             }
 
             public List<Vector2> GetResult()
@@ -239,28 +226,27 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
         }
 
         /// <summary>
-        /// 和前方差距幾個節拍
+        ///     和前方差距幾個節拍
         /// </summary>
-        class BeatPreDiffScanner
+        private class BeatPreDiffScanner
         {
             /// <summary>
-            /// 目前處理物件
+            ///     目前處理物件
             /// </summary>
-            List<HitObjectConvertParameter> _listObject;
+            private List<HitObjectConvertParameter> _listObject;
 
             /// <summary>
-            /// 目前結果
+            ///     目前結果
             /// </summary>
-            List<double> _listResult = new List<double>();
+            private readonly List<double> _listResult = new List<double>();
 
             /// <summary>
-            /// 單位用毫秒計算
+            ///     單位用毫秒計算
             /// </summary>
-            /// 
-            List<double> _diffBeat;
+            private List<double> _diffBeat;
 
             /// <summary>
-            /// 丟入參數
+            ///     丟入參數
             /// </summary>
             public void SetInput(List<HitObjectConvertParameter> listObject)
             {
@@ -268,21 +254,15 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
             }
 
             /// <summary>
-            /// 處理轉換問題
+            ///     處理轉換問題
             /// </summary>
             public void Process()
             {
-                for (int i = 0; i < _listObject.Count; i++)
-                {
+                for (var i = 0; i < _listObject.Count; i++)
                     if (i < _listObject.Count - 1)
-                    {
                         _listResult.Add(_listObject[i + 1].OsuHitObject.StartTime - _listObject[i].OsuHitObject.StartTime);
-                    }
                     else
-                    {
                         _listResult.Add(0);
-                    }
-                }
             }
 
 
@@ -291,6 +271,5 @@ namespace osu.Game.Modes.RP.Beatmaps.OsuBeatmap.OsuToParameter.Scanner
                 return _listResult;
             }
         }
-
     }
 }

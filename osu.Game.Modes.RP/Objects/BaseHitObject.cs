@@ -1,43 +1,67 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Game.Beatmaps;
 using osu.Game.Modes.RP.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.type;
-using System.Collections.Generic;
 
 namespace osu.Game.Modes.RP.Objects
 {
     /// <summary>
-    /// 所有打擊物件都會繼承這裡
+    ///     所有打擊物件都會繼承這裡
     /// </summary>
     public abstract class BaseHitObject : BaseRpObject
     {
+        public override double EndTime => StartTime;
+        public override double Duration => EndTime - StartTime;
         //判定
         public double hit50 = 180;
         public double hit100 = 160;
         public double hit300 = 140;
 
         /// <summary>
-        /// 是裝在哪個Container裡面
+        ///     是裝在哪個Container裡面
         /// </summary>
         public int ContainerIndex = 0;
 
-
-        public override double EndTime => StartTime;
-        public override double Duration => EndTime - StartTime;
-
         /// <summary>
-        /// 是在哪一個index上面
+        ///     是在哪一個index上面
         /// </summary>
         public int LayoutIndex = 0;
 
-       
+        /// <summary>
+        ///     畫線的順序
+        /// </summary>
+        public int _drawLinePriority = 0;
 
-        public BaseHitObject() : base()
-        {
+        /// <summary>
+        ///     設定類型
+        /// </summary>
+        public RpBaseHitObjectType.Shape Shape = RpBaseHitObjectType.Shape.Right;
 
-        }
+        /// <summary>
+        ///     設定類型
+        /// </summary>
+        public RpBaseObjectType.Special Special = RpBaseObjectType.Special.Normal;
+
+        /// <summary>
+        ///     設定類型，哪一種生成方式
+        /// </summary>
+        public RpBaseObjectType.CurveGenerate CurveGenerate = RpBaseObjectType.CurveGenerate.Auto;
+
+        /// <summary>
+        ///     設定類型
+        /// </summary>
+        public RpBaseHitObjectType.Multi Multi = RpBaseHitObjectType.Multi.SingleClick;
+
+        /// <summary>
+        ///     設定類型
+        /// </summary>
+        public RpBaseObjectType.Comvert Comvert = RpBaseObjectType.Comvert.Original;
+
+        /// <summary>
+        ///     用不同落下方式當判定點
+        /// </summary>
+        public RpBaseHitObjectType.ApproachType ApproachType = RpBaseHitObjectType.ApproachType.ApproachCircle;
 
 
         public double HitWindowFor(RPScoreResult result)
@@ -67,46 +91,11 @@ namespace osu.Game.Modes.RP.Objects
         }
 
         /// <summary>
-        /// 初始化預設物件
+        ///     初始化預設物件
         /// </summary>
         public override void InitialDefaultValue()
         {
-            ObjectType = RpBaseHitObjectType.ObjectType.HitObject;
+            ObjectType = RpBaseObjectType.ObjectType.HitObject;
         }
-
-        /// <summary>
-        /// 畫線的順序
-        /// </summary>
-        public int _drawLinePriority;
-
-        /// <summary>
-        /// 設定類型
-        /// </summary>
-        public RpBaseHitObjectType.Shape Shape = RpBaseHitObjectType.Shape.Right;
-
-        /// <summary>
-        /// 設定類型
-        /// </summary>
-        public RpBaseHitObjectType.Special Special = RpBaseHitObjectType.Special.Normal;
-
-        /// <summary>
-        /// 設定類型，哪一種生成方式
-        /// </summary>
-        public RpBaseHitObjectType.CurveGenerate CurveGenerate = RpBaseHitObjectType.CurveGenerate.Auto;
-
-        /// <summary>
-        /// 設定類型
-        /// </summary>
-        public RpBaseHitObjectType.Multi Multi = RpBaseHitObjectType.Multi.SingleClick;
-
-        /// <summary>
-        /// 設定類型
-        /// </summary>
-        public RpBaseHitObjectType.Comvert Comvert = RpBaseHitObjectType.Comvert.Original;
-
-        /// <summary>
-        /// 用不同落下方式當判定點
-        /// </summary>
-        public RpBaseHitObjectType.ApproachType ApproachType= RpBaseHitObjectType.ApproachType.ApproachCircle;
     }
 }

@@ -1,15 +1,12 @@
 ﻿namespace osu.Game.Modes.RP.Objects.Drawables.Template.HitObject.Hold
 {
     /// <summary>
-    /// 壓住會轉一圈
-    /// 或是累積加分
+    ///     壓住會轉一圈
+    ///     或是累積加分
     /// </summary>
-    partial class HoldTemplate : RpDrawHitObjectTemplate
+    internal partial class HoldTemplate : RpDrawHitObjectTemplate
     {
-
-
-
-        #if false
+#if false
         public HoldTemplate(BaseHitObject hitObject) : base(hitObject)
         {
             internal HoldTemplate()
@@ -269,9 +266,10 @@
         }
     }
 #endif
-        public HoldTemplate(BaseRpObject hitObject) : base(hitObject)
+
+        public HoldTemplate(BaseRpObject hitObject)
+            : base(hitObject)
         {
         }
     }
-
 }

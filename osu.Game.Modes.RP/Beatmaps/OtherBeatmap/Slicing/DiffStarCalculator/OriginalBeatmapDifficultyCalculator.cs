@@ -7,8 +7,8 @@ using osu.Game.Beatmaps;
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.DiffStarCalculator
 {
     /// <summary>
-    /// in avoid of another GameMode's beatmap change the calculation formula
-    /// use this Calculator
+    ///     in avoid of another GameMode's beatmap change the calculation formula
+    ///     use this Calculator
     /// </summary>
     public class OriginalBeatmapDifficultyCalculator
     {
@@ -16,9 +16,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.DiffStarCalculator
         {
             try
             {
-                int hitObjectNumber = originalBeatmap.HitObjects.Count;
-                float totalTime = (float)(originalBeatmap.HitObjects[hitObjectNumber - 1].StartTime - originalBeatmap.HitObjects[0].StartTime)/1000;
-                float numti = 1.0f;
+                var hitObjectNumber = originalBeatmap.HitObjects.Count;
+                var totalTime = (float)(originalBeatmap.HitObjects[hitObjectNumber - 1].StartTime - originalBeatmap.HitObjects[0].StartTime) / 1000;
+                var numti = 1.0f;
 
                 return hitObjectNumber / totalTime * numti;
             }
@@ -27,7 +27,6 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.DiffStarCalculator
                 Console.WriteLine(e);
                 return 100;
             }
-
         }
     }
 }

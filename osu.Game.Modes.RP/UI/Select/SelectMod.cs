@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using osu.Game.Modes.RP.Mods;
 using osu.Game.Modes.Mods;
+using osu.Game.Modes.RP.Mods;
 
 namespace osu.Game.Modes.RP.UI.Select
 {
     /// <summary>
-    /// 目前選擇模式
+    ///     目前選擇模式
     /// </summary>
-    class SelectMod : IEnumerable<Mod>
+    internal class SelectMod : IEnumerable<Mod>
     {
-        ModType _type;
+        private readonly ModType _type;
 
         public SelectMod(ModType type)
         {
@@ -36,18 +33,18 @@ namespace osu.Game.Modes.RP.UI.Select
                     yield return new MultiMod
                     {
                         Mods = new Mod[]
-                            {
-                                new RpModSuddenDeath(),
-                                new RpModPerfect(),
-                            },
+                        {
+                            new RpModSuddenDeath(),
+                            new RpModPerfect()
+                        }
                     };
                     yield return new MultiMod
                     {
                         Mods = new Mod[]
-                           {
-                                new RpModDoubleTime(),
-                                new RpModNightcore(),
-                           },
+                        {
+                            new RpModDoubleTime(),
+                            new RpModNightcore()
+                        }
                     };
                     yield return new RpModHidden();
                     yield return new RpModFlashlight();
@@ -60,10 +57,10 @@ namespace osu.Game.Modes.RP.UI.Select
                     yield return new MultiMod
                     {
                         Mods = new Mod[]
-                            {
-                                new RpModAutoplay(),
-                                new RpModRelax(),
-                            },
+                        {
+                            new RpModAutoplay(),
+                            new RpModRelax()
+                        }
                     };
                     break;
             }
