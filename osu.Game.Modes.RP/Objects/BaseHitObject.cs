@@ -63,7 +63,11 @@ namespace osu.Game.Modes.RP.Objects
         /// </summary>
         public RpBaseHitObjectType.ApproachType ApproachType = RpBaseHitObjectType.ApproachType.ApproachCircle;
 
-
+        /// <summary>
+        /// 討延遲時間用
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
         public double HitWindowFor(RPScoreResult result)
         {
             switch (result)
