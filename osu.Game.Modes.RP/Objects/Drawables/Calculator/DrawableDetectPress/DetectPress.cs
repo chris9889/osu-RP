@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
+using System.Drawing.Printing;
 using osu.Framework.Input;
 using osu.Game.Modes.Judgements;
 using osu.Game.Modes.Objects;
@@ -32,6 +34,9 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress
 
         //目前按下配對的按鍵
         private Key _nowPressMatchKey = Key.Unknown;
+
+        //目前按下去的按鍵是不是有效的
+        private bool _pressValid = false;
 
         public double PressDownDelayTime = 0;
 
@@ -74,10 +79,15 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress
                 {
                     PressDownDelayTime = pressDelay;
                     _nowPressMatchKey = pressKeyList[0];
+                    _pressValid = true;
                     return Hit?.Invoke() ?? false;
                 }
-            }                
-           return false;
+            }  
+            else if (false)//如果不在時間點內有符合的按鍵進來，要記錄起來，等放開後release
+            {
+
+            }
+            return false;
         }
 
         /// <summary>
@@ -112,6 +122,10 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress
                         }
                     }
                 }
+            }
+            else if(false)
+            {
+                
             }
             return false;
         }

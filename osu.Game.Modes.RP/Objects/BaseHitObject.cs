@@ -14,9 +14,9 @@ namespace osu.Game.Modes.RP.Objects
     public abstract class BaseHitObject : BaseRpObject
     {
         //判定
-        public double hit50 = 150;
-        public double hit100 = 120;
-        public double hit300 = 100;
+        public double hit50 = 180;
+        public double hit100 = 160;
+        public double hit300 = 140;
 
         /// <summary>
         /// 是裝在哪個Container裡面

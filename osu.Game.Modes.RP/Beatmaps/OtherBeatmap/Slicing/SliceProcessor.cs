@@ -5,6 +5,7 @@ using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.DiffStarCalculator;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.TimeSliceCalculator;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.VolocityCalculator;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
 {
@@ -13,6 +14,8 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
         private double _diffStar = 0;
 
         private Beatmap _originalBeatmap;
+
+        ContainerVolocityCalculator _containerVolocityCalculator=new ContainerVolocityCalculator();
 
         /// <summary>
         /// Difficulty Calculator
@@ -42,10 +45,14 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
             //collect ComvertParameter and return list<ComvertParameter>
             while (nowSlidingIndex < originalBeatmap.HitObjects.Count)
             {
+                _containerVolocityCalculator.UpdateCalculateVolocity();
+                //set the slicing time
+                _timeSlicingCalculator.SetSliceTime(_containerVolocityCalculator.GetTime());
                 //calculate by BPM to devide by TimeSliceCalculator
                 int endindex = _timeSlicingCalculator.SlicingFrom(nowSlidingIndex);
                 //follow the tiem to slice the beatmap and get the startTime and endTime
-                list.Add(SlicingSingle(nowSlidingIndex, endindex));
+                float volicity = _containerVolocityCalculator.GetVolocity();
+                list.Add(SlicingSingle(nowSlidingIndex, endindex, volicity));
                 nowSlidingIndex = endindex + 1;
             }
 
@@ -59,7 +66,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
         /// <param name="startIndex"></param>
         /// <param name="endIndex"></param>
         /// <returns></returns>
-        ComvertParameter SlicingSingle(int startIndex, int endIndex)
+        ComvertParameter SlicingSingle(int startIndex, int endIndex,float volicity)
         {
             ComvertParameter single = new ComvertParameter();
 
@@ -70,7 +77,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
             single.Difficulty = _diffStar;
 
             //Generate Parameter
-            single.SliceConvertParameter = GetSliceConvertParameterResult(single);
+            single.SliceConvertParameter = GetSliceConvertParameterResult(single, volicity);
             return single;
         }
 
@@ -79,7 +86,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
         /// </summary>
         /// <param name="result"></param>
         /// <returns></returns>
-        public SliceConvertParameter GetSliceConvertParameterResult(ComvertParameter result)
+        public SliceConvertParameter GetSliceConvertParameterResult(ComvertParameter result, float volicity)
         {
             //decide the number of container and layout
             SliceConvertParameter sliceConvertParameter=new SliceConvertParameter();
@@ -94,6 +101,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
 
             //BPM
             sliceConvertParameter.BPM = _originalBeatmap.TimingInfo.BPMAt(sliceConvertParameter.StartTime);
+            sliceConvertParameter.Volocity = volicity;
 
             return  sliceConvertParameter;
         }

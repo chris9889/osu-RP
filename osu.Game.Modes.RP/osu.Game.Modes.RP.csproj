@@ -66,6 +66,7 @@
     <Compile Include="Beatmaps\OtherBeatmap\PostConvert\PostConvertor.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\Slicing\DiffStarCalculator\OriginalBeatmapDifficultyCalculator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\Slicing\TimeSliceCalculator\TimeSlicingCalculator.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\Slicing\VolocityCalculator\ContainerVolocityCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
     <Compile Include="Mods\ModsElement\AutoReplay\RPAutoReplay.cs" />
@@ -231,7 +232,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RandomShape\" />
-    <Folder Include="Beatmaps\OtherBeatmap\Slicing\VolocityCalculator\" />
     <Folder Include="Samples\Gameplay\RP\" />
     <Folder Include="Textures\Play\RP\Number\ComboCounter\" />
     <Folder Include="Textures\Play\RP\Number\Combo\" />

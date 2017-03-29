@@ -19,5 +19,10 @@
         /// BPM
         /// </summary>
         internal double BPM=180;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public float Volocity;
     }
 }

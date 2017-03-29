@@ -208,7 +208,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
         /// <returns></returns>
         public Vector2 CalculatePosition(double time)
         {
-            return new Vector2((float)_positionCounter.GetPosition(time), 0);
+            return new Vector2((float)_positionCounter.GetPosition(time, HitObject.Velocity), 0);
         }
 
         /// <summary>

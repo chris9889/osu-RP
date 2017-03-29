@@ -10,26 +10,22 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.Position
         /// <summary>
         /// 倍率
         /// </summary>
-        float MULTIPLE = 1000;
+        float MULTIPLE = 300;
 
         /// <summary>
         /// 寬度
         /// </summary>
-        public float Width = 700;//512;
+        public float Width = 1000;//512;
 
-        /// <summary>
-        /// 速度
-        /// </summary>
-        public static float Speed = 0.3f;
 
         /// <summary>
         /// 指標位置(X軸)
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
-        public float GetPosition(double time)
+        public float GetPosition(double time,double volocity)
         {
-            float positionX = ((float)time / 1000) * Speed * MULTIPLE;
+            float positionX = ((float)time / 1000) * (float)volocity * MULTIPLE;
             positionX = positionX % Width;
             //inverse
             //position_x = -position_x + screenWidth + 10;

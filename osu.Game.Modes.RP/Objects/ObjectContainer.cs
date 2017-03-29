@@ -84,7 +84,7 @@ namespace osu.Game.Modes.RP.Objects
             //預設長度
             Lenght = 512;
             //速度
-            Velocity = 0.3f;
+            Velocity = 1f;
             //預設試3秒後結束
             ContainerEndTime = StartTime + 3000;
         }
