@@ -3,23 +3,17 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using osu.Framework.Graphics;
 using osu.Framework.Input;
-using osu.Framework.MathUtils;
 using osu.Game.Beatmaps;
 using osu.Game.Input.Handlers;
 using osu.Game.IO.Legacy;
-using osu.Game.Modes.Objects.Types;
-using osu.Game.Modes.Osu.Objects;
-using osu.Game.Modes.Osu.Objects.Drawables;
 using osu.Game.Modes.RP.Objects;
-using osu.Game.Modes.RP.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.type;
 using OpenTK;
 using OpenTK.Input;
+using System.Linq;
 
 namespace osu.Game.Modes.RP.Mods.ModsElement.AutoReplay
 {
@@ -108,20 +102,59 @@ namespace osu.Game.Modes.RP.Mods.ModsElement.AutoReplay
             //OrderBy startTime
             listHitObjects.Sort((x, y) => x.StartTime.CompareTo(y.StartTime));
 
+            //list of change keyState's time
+            List<double> listPointTime = new List<double>();
+
             //Start processing
             for (int i = 0; i < listHitObjects.Count; i++)
             {
                 BaseHitObject h = listHitObjects[i];
+
                 if (h is RpHitObject)
                 {
-                    addFrameToReplay(new RpLegacyReplayFrame(h.StartTime, getKeyByHitObject(h), h.Position.Y, LegacyButtonState.None));
-                    addFrameToReplay(new RpLegacyReplayFrame(h.StartTime+h.hit300, Key.Unknown, h.Position.Y, LegacyButtonState.None));
+                    //add start and endPoint
+                    listPointTime.Add(h.StartTime);
+                    listPointTime.Add(h.EndTime + h.hit300);
+                }
+                else if (h is RpLongTailObject)
+                { 
+                    //add start and endPoint
+                    listPointTime.Add(h.StartTime);
+					listPointTime.Add(h.EndTime + h.hit300);
                 }
             }
 
+            //TODO : clean out the same point time and sort it
+            listPointTime = listPointTime.Distinct().ToList();
+
+            //to every listPointTime,calculate the 
+            foreach (double time in listPointTime)
+            {
+                List<BaseHitObject> listOnPointTimeHitObject = GetListPressHitObjectByTime(listHitObjects,time).ToList();
+                List<Key> listPressKey = new List<Key>();
+                foreach (BaseHitObject single in listOnPointTimeHitObject)
+                {
+                    //if is on the hit time
+                    if (time <= single.EndTime)
+                        listPressKey.Add(getKeyByHitObject(single));
+                }  
+                addFrameToReplay(new RpLegacyReplayFrame(time, listPressKey, 0, LegacyButtonState.None));
+            }
+
             //Player.currentScore.Replay = InputManager.ReplayScore.Replay;
-            //Player.currentScore.PlayerName = "osu!";
+            //Player.currentScore.PlayerName = "osu!RP";
         }
+
+        /// <summary>
+        ///     取得時間點上的所有打擊物件
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<BaseHitObject> GetListPressHitObjectByTime(List<BaseHitObject> listHitObjects,double time)
+		{
+			foreach (var container in listHitObjects)
+				if (container.StartTime <= time && container.EndTime >= time)
+					yield return container;
+		}
 
         /// <summary>
         /// 

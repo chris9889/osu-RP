@@ -63,18 +63,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             };
         }
 
-        protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
-        {
-            Debug.Print("Down : " + _rpDetectPress.PressDownDelayTime);
-            return false;
-        }
-
-        protected override bool OnKeyUp(InputState state, KeyUpEventArgs args)
-        {
-            Debug.Print("Up : " + _rpDetectPress.PressUpDelayTime);
-            return false;
-        }
-
         /// <summary>
         ///     按下去
         ///     UpdateJudgement 用途 : 給出一個判定，目前是miss還是hit
@@ -83,7 +71,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         {
             //((PositionalJudgementInfo)Judgement).PositionOffset = Vector2.Zero; //todo: set to correct value
             UpdateJudgement(true);
-            Debug.Print(Judgement.Result + " " + HitObject.StartTime + " " + Position.X + "," + Position.Y);
+            //Debug.Print(Judgement.Result + " " + HitObject.StartTime + " " + Position.X + "," + Position.Y);
         }
 
         /// <summary>
@@ -92,7 +80,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         {
             //((PositionalJudgementInfo)Judgement).PositionOffset = Vector2.Zero; //todo: set to correct value
             //UpdateJudgement(true);
-            Debug.Print(Judgement.Result.ToString());
+            //Debug.Print(Judgement.Result.ToString());
         }
 
         /// <summary>

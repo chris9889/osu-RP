@@ -9,9 +9,10 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
     public class TypeCalculator
     {
         //計算隨機
-        private readonly ProcessObjectTypeRandom ProcessObjectTypeRandom = new ProcessObjectTypeRandom();
+        private readonly ProcessObjectTypeRandom _processObjectTypeRandom = new ProcessObjectTypeRandom();
 
-        private readonly ProcessComboObject ProcessComboObject = new ProcessComboObject();
+        //Calculate combo
+        private readonly ProcessComboObject _processComboObject = new ProcessComboObject();
 
         //單一一段的物件
         private ComvertParameter _singleSlideParameter;
@@ -19,11 +20,11 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
         public void ProcessType(ComvertParameter single)
         {
             _singleSlideParameter = single;
-            ProcessObjectTypeRandom.SetComvertParameter(_singleSlideParameter);
-            ProcessComboObject.SetComvertParameter(_singleSlideParameter);
+            _processObjectTypeRandom.SetComvertParameter(_singleSlideParameter);
+            _processComboObject.SetComvertParameter(_singleSlideParameter);
             var tupleCount = _singleSlideParameter.HitObjectConvertParameter.ListSingleHitObjectConvertParameter.Count;
             for (var i = 0; i < tupleCount; i++)
-                if (single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter[i].isCombo)
+                if (single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter[i].IsCombo)
                     AssignComboTupleShapes(single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter[i], i); //Combo
                 else
                     AssignNormalTupleShapes(single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter[i]); //Normal
@@ -32,15 +33,15 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
         //指定一般
         public void AssignNormalTupleShapes(SingleHitObjectConvertParameter singleTuple)
         {
-            ProcessObjectTypeRandom.Process(singleTuple);
-            ProcessComboObject.FisrtConbo = true;
+            _processObjectTypeRandom.Process(singleTuple);
+            _processComboObject.FisrtConbo = true;
         }
 
         //指定Combo
         public void AssignComboTupleShapes(SingleHitObjectConvertParameter singleTuple, int index)
         {
             if (index != 0)
-                ProcessComboObject.Process(singleTuple, index);
+                _processComboObject.Process(singleTuple, index);
             else
                 AssignNormalTupleShapes(singleTuple);
         }

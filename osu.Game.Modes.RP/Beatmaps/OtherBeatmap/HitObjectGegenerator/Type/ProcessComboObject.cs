@@ -10,7 +10,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
     /// <summary>
     ///     處理combo時的狀態
     /// </summary>
-    public class ProcessComboObject
+    internal class ProcessComboObject
     {
         public bool FisrtConbo;
         private ComvertParameter _singleSlideParameter;
@@ -67,7 +67,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
                     convert = true;
                     break;
                 case RpBaseHitObjectType.Shape.Left: //因為左邊真的有夠難打，乾脆不要讓它出現好了
-                    _lastHitObjectTuple.ListBaseHitObject[0].Shape = RpBaseHitObjectType.Shape.Right;
+                    //_lastHitObjectTuple.ListBaseHitObject[0].Shape = RpBaseHitObjectType.Shape.Right;
                     convert = false;
                     break;
                 case RpBaseHitObjectType.Shape.Right:

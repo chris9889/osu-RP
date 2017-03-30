@@ -8,7 +8,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter
         /// <summary>
         ///     this object is in combo or not
         /// </summary>
-        public bool isCombo = false;
+        public bool IsCombo = false;
 
         public double StartTime;
 

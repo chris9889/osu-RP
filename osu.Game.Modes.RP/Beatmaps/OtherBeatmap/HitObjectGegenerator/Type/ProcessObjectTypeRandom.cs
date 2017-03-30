@@ -7,7 +7,7 @@ using osu.Game.Modes.RP.Objects.type;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
 {
-    public class ProcessObjectTypeRandom
+    internal class ProcessObjectTypeRandom
     {
         //單一一段的物件
         private ComvertParameter _singleSlideParameter;

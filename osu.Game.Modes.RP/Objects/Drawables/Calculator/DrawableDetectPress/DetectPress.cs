@@ -41,7 +41,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress
         private Key _nowPressMatchKey = Key.Unknown;
 
         //目前按下去的按鍵是不是有效的
-        private bool _pressValid;
+        private bool _pressValid=false;
 
         public DetectPress(BaseHitObject baseRpObject, Judgement judgement)
         {
@@ -59,7 +59,11 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress
         /// <returns></returns>
         protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
         {
+            if (args.Repeat)
+                return false;
+
             var pressDelay = Math.Abs(Time.Current - _baseRPObject.StartTime);
+
             //Hit at the time
             if (pressDelay < _baseRPObject.hit50 && _nowPressMatchKey == Key.Unknown)
             {
@@ -67,15 +71,22 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress
                 var pressKeyList = FilterMatchKey(state);
 
                 //如果過濾後發現沒有Key
-                if (pressKeyList.Count == 0)
-                    return false;
-                PressDownDelayTime = pressDelay;
-                _nowPressMatchKey = pressKeyList[0];
-                _pressValid = true;
-                return Hit?.Invoke() ?? false;
+                if (pressKeyList.Count > 0)
+                {
+                    PressDownDelayTime = pressDelay;
+                    _nowPressMatchKey = pressKeyList[0];
+                    _pressValid = true;
+                    return Hit?.Invoke() ?? false;
+                }
             }
-            if (false) //如果不在時間點內有符合的按鍵進來，要記錄起來，等放開後release
+            else if (false) //outside the time
             {
+                //目前符合的key
+                var pressKeyList = FilterMatchKey(state);
+
+                //如果過濾後發現沒有Key
+                if (pressKeyList.Count >= 0)
+                    _nowPressMatchKey = pressKeyList[0];;
             }
             return false;
         }
@@ -108,6 +119,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress
             }
             else if (false)
             {
+
             }
             return false;
         }

@@ -23,21 +23,11 @@ namespace osu.Game.Modes.RP
         /// </summary>
         public override FontAwesome Icon => FontAwesome.fa_align_justify;
 
-
+        /// <summary>
+        /// Description
+        /// </summary>
         public override string Description => "osu!RP";
 
-        /// <summary>
-        ///     RP譜面底下物件轉換器
-        /// </summary>
-        /// <returns></returns>
-        /// <summary>
-        ///     打擊計算物件處理
-        /// </summary>
-        /// <param name="hitObjectCount"></param>
-        /// <returns></returns>
-        /// <summary>
-        /// </summary>
-        /// <param name="beatmap"></param>
         /// <returns></returns>
         /// <summary>
         ///     遊玩模式
@@ -51,10 +41,6 @@ namespace osu.Game.Modes.RP
         /// <returns></returns>
         public override HitRenderer CreateHitRendererWith(WorkingBeatmap beatmap) => new RpHitRenderer(beatmap);
 
-        /// <summary>
-        ///     顯示場景計數物件
-        /// </summary>
-        /// <returns></returns>
         /// <summary>
         ///     beatmap的詳細資訊
         /// </summary>
@@ -76,6 +62,10 @@ namespace osu.Game.Modes.RP
         /// <returns></returns>
         public override Game.Beatmaps.DifficultyCalculator CreateDifficultyCalculator(Beatmap beatmap) => new RpDifficultyCalculator(beatmap);
 
+        /// <summary>
+        /// Score processor
+        /// </summary>
+        /// <returns></returns>
         public override Scoring.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor();
 
         /// <summary>

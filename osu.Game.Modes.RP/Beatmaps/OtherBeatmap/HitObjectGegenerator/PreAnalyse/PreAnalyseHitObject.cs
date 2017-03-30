@@ -24,7 +24,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PreAnalys
                 //單一參數
                 var singleParameter = new SingleHitObjectConvertParameter();
                 //有無combo
-                singleParameter.isCombo = AnaylseCombo.IsCombo(single, i);
+                singleParameter.IsCombo = AnaylseCombo.IsCombo(single, i);
                 //出現物件數量
                 singleParameter.MultiNumber = AnaylseMulti.GetMultiNumber(single, i);
                 //開始時間
