@@ -41,16 +41,6 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Container\ContainerProcessor.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Container\GenerateObject\ContainerGenerator.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Container\Position\ContainerPositionGenerator.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\HitObjectProcessor.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Position\EndPosition\EndPositionGenerator.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Position\PathPosition\RpPathGenerator.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Position\StartPosition\StartPositionGenerator.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Syntax\Beat\CalRpBeat.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RuleTable\RpShapeAppearRuleTable.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Special\RpSpecialGenerator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\MultiContainer\MultiContainerDecidor.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Generator\HitObjectGenerator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\ObjectMovingPath\EndPosition\EndPositionGenerator.cs" />
@@ -69,7 +59,7 @@
     <Compile Include="Beatmaps\OtherBeatmap\Slicing\VolocityCalculator\ContainerVolocityCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
-    <Compile Include="Mods\ModsElement\AutoReplay\RPAutoReplay.cs" />
+    <Compile Include="Replay\RPAutoReplay.cs" />
     <Compile Include="Objects\Drawables\Component\Container\IChangeableContainerComponent.cs" />
     <Compile Include="Objects\Drawables\Pieces\ConnectionLine.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\Common\ShapePiece\HitObjectRectanglePiece.cs" />
@@ -133,19 +123,6 @@
     <Compile Include="Objects\ObjectContainerLayer.cs" />
     <Compile Include="UI\Config\RpKeyLayoutConfigUi.cs" />
     <Compile Include="Beatmaps\RPBeatmap\RpBeatmapProcessor.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Convertor.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\GenerateObject\RpObjectGenerator.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Position\ObjectPositionGenerator.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\Syntax\SyntaxProcessor.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\ObjectTypeGenerator.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RpShapeGenerator.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\RpBeatmapConvertor.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\OsuToParameter\OsuToParameterConvertor.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\OsuToParameter\Scanner\PrefixScanner.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\ParameterToRP\ParameterToRpConvertor.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Parameter\ConvertParameter.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Parameter\PassParameter.cs" />
-    <Compile Include="Beatmaps\OsuBeatmap\Parameter\ScanParameter.cs" />
     <Compile Include="RpRuleset.cs" />
     <Compile Include="KeyManager\RpKeyManager.cs" />
     <Compile Include="Objects\Drawables\Calculator\DrawableDetectPress\DetectPress.cs" />
@@ -231,7 +208,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Beatmaps\OsuBeatmap\Convertor\HitObject\Type\Shape\RandomShape\" />
+    <Folder Include="Mods\ModsElement\" />
     <Folder Include="Samples\Gameplay\RP\" />
     <Folder Include="Textures\Play\RP\Number\ComboCounter\" />
     <Folder Include="Textures\Play\RP\Number\Combo\" />

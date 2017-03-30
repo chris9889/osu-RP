@@ -6,8 +6,8 @@ using System.Linq;
 using osu.Game.Beatmaps;
 using osu.Game.Graphics;
 using osu.Game.Modes.Mods;
-using osu.Game.Modes.RP.Mods.ModsElement.AutoReplay;
 using osu.Game.Modes.RP.Objects;
+using osu.Game.Modes.RP.Replay;
 using osu.Game.Modes.RP.ScoreProcessor.Result;
 using osu.Game.Modes.Scoring;
 
@@ -83,7 +83,7 @@ namespace osu.Game.Modes.RP.Mods
     }
 
     /// <summary>
-    ///     休閒模式，用看的就好了
+    ///     休閒模式，其實我也不太確定這是三洨
     /// </summary>
     public class RpModRelax : ModRelax
     {

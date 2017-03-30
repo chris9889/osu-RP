@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using osu.Framework.Graphics;
 using osu.Framework.Input;
 using osu.Game.Beatmaps;
@@ -13,9 +14,8 @@ using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.type;
 using OpenTK;
 using OpenTK.Input;
-using System.Linq;
 
-namespace osu.Game.Modes.RP.Mods.ModsElement.AutoReplay
+namespace osu.Game.Modes.RP.Replay
 {
     /// <summary>
     /// 這邊要把滑鼠的X軸當作按鍵使用
