@@ -35,7 +35,7 @@ namespace osu.Game.Modes.RP.Objects
         //物件在打擊多久前提早出現
         public float TIME_PREEMPT = 1500;
         //打擊過後多久會消失
-        public float TIME_FADEOUT = 100;
+        public float TIME_FADEOUT = 300;
 
         public Color4 Colour;
 

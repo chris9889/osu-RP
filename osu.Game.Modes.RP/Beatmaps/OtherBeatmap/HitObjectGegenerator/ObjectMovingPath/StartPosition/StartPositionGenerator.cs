@@ -1,4 +1,4 @@
-﻿using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Parameter;
+﻿using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMovingPath.StartPosition
 {

@@ -30,7 +30,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
         public override void FadeIn(double time = 0)
         {
             //RP FadeIn 動畫特效
-            var layerCount = 1;
             _rpRectangleComponent.ScaleTo(new Vector2(1, 1), time, EasingTypes.InOutElastic);
         }
 
@@ -40,8 +39,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
         public override void FadeOut(double time = 0)
         {
             //RP FadeIn 動畫特效
-            var layerCount = 1;
-            _rpRectangleComponent.ScaleTo(new Vector2(1, 0), time, EasingTypes.OutElastic);
+            _rpRectangleComponent.ScaleTo(new Vector2(1, 0), time*3, EasingTypes.OutElastic);
         }
 
         /// <summary>

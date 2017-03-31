@@ -73,6 +73,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             base.UpdatePreemptState();
         }
 
+        private bool _startFadeont = false;
         /// <summary>
         ///     持續一直更新物件
         /// </summary>
@@ -81,8 +82,9 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             base.Update();
 
             //如果時間超過就執行
-            if (HitObject.EndTime < Time.Current)
+            if (HitObject.EndTime < Time.Current && !_startFadeont)
             {
+                _startFadeont = true;
                 FadeOut(TIME_FADEOUT);
                 Template.FadeOut(TIME_FADEOUT);
             }

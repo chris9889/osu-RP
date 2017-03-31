@@ -4,9 +4,9 @@
 using System;
 using System.Collections.Generic;
 using osu.Game.Beatmaps;
-using osu.Game.Modes.RP.Beatmaps.OsuBeatmap;
 using osu.Game.Modes.RP.Objects;
 using static osu.Game.Modes.RP.Objects.type.RpBaseObjectType;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap;
 
 namespace osu.Game.Modes.RP.DifficultyCalculator
 {
@@ -183,7 +183,7 @@ namespace osu.Game.Modes.RP.DifficultyCalculator
         }
 
         //轉譜
-        protected override IBeatmapConverter<BaseRpObject> CreateBeatmapConverter() => new RpBeatmapConvertor();
+        protected override IBeatmapConverter<BaseRpObject> CreateBeatmapConverter() => new BeatmapConvertor();
 
         // Those values are used as array indices. Be careful when changing them!
         public enum DifficultyType

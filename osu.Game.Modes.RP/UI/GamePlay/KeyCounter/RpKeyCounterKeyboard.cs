@@ -3,7 +3,6 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
-using osu.Framework.Input;
 using osu.Game.Modes.RP.SkinManager;
 using osu.Game.Screens.Play;
 using OpenTK;
@@ -17,7 +16,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
     internal class RpKeyCounterKeyboard : KeyCounterKeyboard
     {
         private readonly SingleKeyLayout _layout;
-
 
         //顯示按鈕
         private Sprite _buttonIconSprite;
@@ -36,28 +34,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
             _singlekey = singlekey;
             _layout = layout;
             IsCounting = true;
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <param name="state"></param>
-        /// <param name="args"></param>
-        /// <returns></returns>
-        protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
-        {
-            IsCounting = true;
-
-            return base.OnKeyDown(state, args);
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <param name="state"></param>
-        /// <param name="args"></param>
-        /// <returns></returns>
-        protected override bool OnKeyUp(InputState state, KeyUpEventArgs args)
-        {
-            return base.OnKeyUp(state, args);
         }
 
         [BackgroundDependencyLoader]

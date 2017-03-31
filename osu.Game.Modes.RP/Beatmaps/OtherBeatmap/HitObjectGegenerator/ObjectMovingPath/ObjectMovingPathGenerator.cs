@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using osu.Game.Modes.RP.Beatmaps.OsuBeatmap.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMovingPath.EndPosition;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMovingPath.PathPosition;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMovingPath.StartPosition;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
 using osu.Game.Modes.RP.Objects.type;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMovingPath
@@ -34,15 +34,15 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.ObjectMov
         private void ProcessSingleItem(HitObjectConvertParameter input)
         {
             //all auto
-            if (input.ListConvertedParameter[0].CurveGenerate == RpBaseObjectType.CurveGenerate.Auto)
+            if (input.ListSingleHitObjectConvertParameter[0].ListBaseHitObject[0].CurveGenerate == RpBaseObjectType.CurveGenerate.Auto)
                 _startPositionGenerator.Process(input);
 
             //auto create stop position
-            if (input.ListConvertedParameter[0].CurveGenerate >= RpBaseObjectType.CurveGenerate.Manual_Start_End_Position)
+            if (input.ListSingleHitObjectConvertParameter[0].ListBaseHitObject[0].CurveGenerate >= RpBaseObjectType.CurveGenerate.Manual_Start_End_Position)
                 _endPositionGenerator.Process(input);
 
             //create path
-            if (input.ListConvertedParameter[0].CurveGenerate >= RpBaseObjectType.CurveGenerate.Manual_StartPosition)
+            if (input.ListSingleHitObjectConvertParameter[0].ListBaseHitObject[0].CurveGenerate >= RpBaseObjectType.CurveGenerate.Manual_StartPosition)
                 _rpPathGenerator.Process(input);
         }
     }
