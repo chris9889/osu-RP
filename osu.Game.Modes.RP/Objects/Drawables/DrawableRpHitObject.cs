@@ -2,7 +2,10 @@
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
+using osu.Framework.Allocation;
+using osu.Framework.Audio;
 using osu.Framework.Graphics;
+using osu.Game.Beatmaps.Samples;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.Drawables.Template.HitObject.Click;
 using OpenTK;

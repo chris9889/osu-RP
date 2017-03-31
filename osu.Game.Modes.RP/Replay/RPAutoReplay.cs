@@ -10,8 +10,10 @@ using osu.Framework.Input;
 using osu.Game.Beatmaps;
 using osu.Game.Input.Handlers;
 using osu.Game.IO.Legacy;
+using osu.Game.Modes.RP.KeyManager;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.type;
+using osu.Game.Modes.RP.Saving;
 using OpenTK;
 using OpenTK.Input;
 
@@ -173,6 +175,8 @@ namespace osu.Game.Modes.RP.Replay
                     return Key.S;
                 case RpBaseHitObjectType.Shape.Right:
                     return Key.F;
+                case RpBaseHitObjectType.Shape.ContainerPress:
+                    return Key.A;
             }
             return key;
         }
@@ -282,11 +286,17 @@ namespace osu.Game.Modes.RP.Replay
             private List<Key> convertMouseAnixXToKeyList(int positionX)
             {
                 List<Key> listKey = new List<Key>();
-                for (int i = 0; i < 10; i++)
+                if (positionX > 0)
                 {
-
+                    RpKeyLayoutConfig.SingleRpKeyLayoutConfig currentConfig = RpKeyManager.GetCurrentKeyConfig();
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (Math.Ceiling(positionX / Math.Pow(2, i)) % 2 == 1)
+                        {
+                            listKey.Add(currentConfig.KeyDictionary[i].Key);
+                        }
+                    }
                 }
-                listKey.Add(Key.F);
                 return listKey;
             }
 
@@ -296,7 +306,16 @@ namespace osu.Game.Modes.RP.Replay
             /// <returns></returns>
             public int ConvertRpKeysToMouseAnixX(List<Key> listStorageKeys)
             {
-                return 1;
+                RpKeyLayoutConfig.SingleRpKeyLayoutConfig currentConfig= RpKeyManager.GetCurrentKeyConfig();
+                int returnValue = 0;
+                for (int i = 0; i < currentConfig.KeyDictionary.Count; i++)
+                {
+                    if (listStorageKeys.Contains(currentConfig.KeyDictionary[i].Key))
+                    {
+                        returnValue = returnValue + (int)Math.Pow(2,i);
+                    }
+                }
+                return returnValue;
             }
         }
 

@@ -98,6 +98,7 @@
     <Compile Include="ScoreProcessor\RpJudgement.cs" />
     <Compile Include="SkinManager\RpObjectValueManager.cs" />
     <Compile Include="SkinManager\RpTextureColorManager.cs" />
+    <Compile Include="UI\GamePlay\KeyCounter\RpKeyCounterCollection.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\ConnectionRenderer.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\RpHitMulitpleObjectConnectionLine.cs" />
     <Compile Include="Objects\Drawables\DrawableBaseRpObject.cs" />
@@ -149,11 +150,9 @@
     <Compile Include="Parser\RpHitObjectParser.cs" />
     <Compile Include="Objects\MovingPath\SliderCurve.cs" />
     <Compile Include="UI\GamePlay\KeyCounter\RpKeyCounterKeyboard.cs" />
-    <Compile Include="UI\GamePlay\KeyCounter\RpKeyCounterCollection.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\Background\BackgroundLayout.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\BaseGamePlayLayout.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\Front\DecisionLine\DecisionLine.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\Front\FrontLayout.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\KeySound\KeySoundLayout.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\HitObjectConnector.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObject\HitObjectLayout.cs" />
     <Compile Include="ScoreProcessor\Result\RpScore.cs" />
@@ -209,7 +208,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Mods\ModsElement\" />
-    <Folder Include="Samples\Gameplay\RP\" />
     <Folder Include="Textures\Play\RP\Number\ComboCounter\" />
     <Folder Include="Textures\Play\RP\Number\Combo\" />
     <Folder Include="Textures\Play\RP\Number\Score\" />
@@ -293,6 +291,29 @@
     <EmbeddedResource Include="Textures\Play\RP\LoadEffect\Load.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Samples\Gameplay\drum-hitclap.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\drum-hitfinish.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\drum-hitnormal.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\drum-hitwhistle.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\drum-sliderslide.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\drum-slidertick.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\drum-sliderwhistle.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\normal-hitclap.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\normal-hitfinish.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\normal-hitnormal.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\normal-hitwhistle.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\normal-sliderslide.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\normal-slidertick.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\normal-sliderwhistle.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\soft-hitclap.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\soft-hitfinish.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\soft-hitnormal.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\soft-hitwhistle.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\soft-sliderslide.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\soft-slidertick.wav" />
+    <EmbeddedResource Include="Samples\Gameplay\soft-sliderwhistle.wav" />
+    <EmbeddedResource Include="Samples\RPKey\Key-Shape.wav" />
+    <EmbeddedResource Include="Samples\RPKey\Key-ContainerPress.wav" />
     <Content Include="Textures\Play\RP\RPObject\Common\Normal\Container\PointerShadow.png" />
     <Content Include="Textures\Play\RP\RPObject\Common\Special\Container\PointerShadow.png" />
     <EmbeddedResource Include="Textures\Play\RP\RPObject\Common\Special\Container\DecisionLine.png" />

@@ -1,8 +1,14 @@
 ﻿using osu.Framework.Allocation;
+using osu.Framework.Audio;
+using osu.Framework.Audio.Sample;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
+using osu.Framework.Input;
+using osu.Game.Beatmaps.Samples;
+using osu.Game.Modes.Objects;
+using osu.Game.Modes.RP.Objects.type;
 using osu.Game.Modes.RP.SkinManager;
 using osu.Game.Screens.Play;
 using OpenTK;
@@ -28,8 +34,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         ///     建構
         /// </summary>
         /// <param name="name"></param>
-        public RpKeyCounterKeyboard(string name, SingleKey singlekey, SingleKeyLayout layout)
-            : base(singlekey.Key)
+        public RpKeyCounterKeyboard(string name, SingleKey singlekey, SingleKeyLayout layout) : base(singlekey.Key)
         {
             _singlekey = singlekey;
             _layout = layout;

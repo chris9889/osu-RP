@@ -59,7 +59,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         /// <summary>
         ///     顯示前方指針，和一些特殊物件
         /// </summary>
-        private FrontLayout _frontLayout;
+        private KeySoundLayout keySoundLayout;
 
         /// <summary>
         ///     遊玩區域
@@ -91,7 +91,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                     Depth = 1
                     //HitObjectLayout=_rpObjectLayout,
                 },
-                _frontLayout = new FrontLayout //顯示判定點，background.proxy();
+                keySoundLayout = new KeySoundLayout //打擊時要有聲音
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = -1
@@ -121,7 +121,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                 //增加背景物件
                 _backgroundLayout.AddContainer(hitObject as DrawableContainer);
                 //
-                //_frontLayout.Add(_backgroundLayout.CreateProxy());
+                //keySoundLayout.Add(_backgroundLayout.CreateProxy());
             }
             else
             {

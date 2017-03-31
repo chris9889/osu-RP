@@ -1,6 +1,7 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
+using osu.Game.Beatmaps.Samples;
 using osu.Game.Modes.RP.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.type;
 
@@ -11,6 +12,7 @@ namespace osu.Game.Modes.RP.Objects
     /// </summary>
     public abstract class BaseHitObject : BaseRpObject
     {
+       
         public override double EndTime => StartTime;
         public override double Duration => EndTime - StartTime;
         //判定
@@ -62,6 +64,13 @@ namespace osu.Game.Modes.RP.Objects
         ///     用不同落下方式當判定點
         /// </summary>
         public RpBaseHitObjectType.ApproachType ApproachType = RpBaseHitObjectType.ApproachType.ApproachCircle;
+
+        public BaseHitObject()
+        {
+            Sample = new HitSampleInfo();
+            Sample.Set= SampleSet.Soft;
+            Sample.Type = SampleType.Whistle;
+        }
 
         /// <summary>
         /// 討延遲時間用

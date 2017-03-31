@@ -33,7 +33,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Generator
             //fake sample
             rpHitObject.Sample = new HitSampleInfo
             {
-                Type = SampleType.None,
+                Type = SampleType.Whistle,
                 Set = SampleSet.Soft
             };
             //fake position

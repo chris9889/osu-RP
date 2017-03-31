@@ -132,18 +132,17 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             }
         }
 
-        /// <summary>
-        ///     聲音
-        /// </summary>
-        /// <param name="audio"></param>
-        [BackgroundDependencyLoader]
-        protected void load(AudioManager audio)
-        {
-            var hitType = (HitObject.Sample.Type == SampleType.None ? SampleType.Normal : HitObject.Sample.Type).ToString().ToLower();
-            var sampleSet = HitObject.Sample.Set.ToString().ToLower();
 
-            //sample = audio.Sample.Get($@"Gameplay/diva/{sampleSet}-hit{hitType}");
-            seeya = audio.Sample.Get($@"Gameplay/diva/sound");
+        [BackgroundDependencyLoader]
+        private void load(AudioManager audio)
+        {
+            SampleType type = HitObject.Sample?.Type ?? SampleType.Whistle;
+            if (type == SampleType.None)
+                type = SampleType.Normal;
+
+            SampleSet sampleSet = HitObject.Sample?.Set ?? SampleSet.Soft;
+
+            Sample = audio.Sample.Get($@"Gameplay/{sampleSet.ToString().ToLower()}-hit{type.ToString().ToLower()}");
         }
 
         private void InitialDetectPressEvent()
