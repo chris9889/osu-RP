@@ -59,7 +59,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             Children = new Drawable[]
             {
                 Template,
-                _rpDetectPress
+                //_rpDetectPress
             };
         }
 

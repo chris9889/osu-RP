@@ -3,11 +3,13 @@
 
 using osu.Game.Beatmaps;
 using osu.Game.Modes.Objects.Drawables;
+using osu.Game.Modes.Replays;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap;
 using osu.Game.Modes.RP.Beatmaps.RPBeatmap;
 using osu.Game.Modes.RP.KeyManager;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.Drawables;
+using osu.Game.Modes.RP.Replay;
 using osu.Game.Modes.RP.ScoreProcessor;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield;
 using osu.Game.Modes.UI;
@@ -39,6 +41,12 @@ namespace osu.Game.Modes.RP.UI.Beatmap
         /// <returns></returns>
         protected override IBeatmapProcessor<BaseRpObject> CreateBeatmapProcessor() => new RpBeatmapProcessor();
 
+        /// <summary>
+        ///     ReplayInputHandler for RP
+        /// </summary>
+        /// <param name="replay"></param>
+        /// <returns></returns>
+        protected override FramedReplayInputHandler CreateReplayInputHandler(Replays.Replay replay) => new RpReplayInputHandler(replay);
 
         /// <summary>
         ///     建立遊玩區域

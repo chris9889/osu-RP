@@ -25,7 +25,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         }
 
         /// <summary>
-        ///     產生按鍵出來
+        ///     Create the key from default config
         /// </summary>
         private void GeneratorKey()
         {
@@ -34,7 +34,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                 var rpKeyCounterKeyboard = new RpKeyCounterKeyboard(_singleLayout.KeyDictionary[i].Key.ToString(), _singleLayout.KeyDictionary[i], SingleKeyLayout.KeyIcon_Count);
                 //增加有
                 Add(rpKeyCounterKeyboard);
-                ListKey.Add(rpKeyCounterKeyboard);
+                //ListKey.Add(rpKeyCounterKeyboard);
             }
         }
     }

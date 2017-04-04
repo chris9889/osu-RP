@@ -1,6 +1,7 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
+using System;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.Drawables;
@@ -31,7 +32,7 @@ namespace osu.Game.Modes.RP.ScoreProcessor
             Accuracy.Value = 1;
         }
 
-        protected override void OnNewJugement(RpJudgement judgement)
+        protected override void OnNewJudgement(RpJudgement judgement)
         {
             if (judgement != null)
                 switch (judgement.Result)

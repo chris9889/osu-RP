@@ -59,7 +59,7 @@
     <Compile Include="Beatmaps\OtherBeatmap\Slicing\VolocityCalculator\ContainerVolocityCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
-    <Compile Include="Replay\RPAutoReplay.cs" />
+    <Compile Include="Mods\ModsElement\RPAutoReplay.cs" />
     <Compile Include="Objects\Drawables\Component\Container\IChangeableContainerComponent.cs" />
     <Compile Include="Objects\Drawables\Pieces\ConnectionLine.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\Common\ShapePiece\HitObjectRectanglePiece.cs" />
@@ -95,6 +95,8 @@
     <Compile Include="Objects\Drawables\Calculator\Position\ContainerLayoutPositionCounter.cs" />
     <Compile Include="KeyManager\RpKeyConversionInputManager.cs" />
     <Compile Include="Objects\Drawables\Template\HitObject\Slide\EditableSlideTemplate.cs" />
+    <Compile Include="Replay\RpReplayFrame.cs" />
+    <Compile Include="Replay\RpReplayInputHandler.cs" />
     <Compile Include="ScoreProcessor\RpJudgement.cs" />
     <Compile Include="SkinManager\RpObjectValueManager.cs" />
     <Compile Include="SkinManager\RpTextureColorManager.cs" />
@@ -207,7 +209,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mods\ModsElement\" />
     <Folder Include="Textures\Play\RP\Number\ComboCounter\" />
     <Folder Include="Textures\Play\RP\Number\Combo\" />
     <Folder Include="Textures\Play\RP\Number\Score\" />

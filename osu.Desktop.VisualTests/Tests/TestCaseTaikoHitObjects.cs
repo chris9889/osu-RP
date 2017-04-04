@@ -1,14 +1,12 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
+using System.Linq;
 using OpenTK;
 using OpenTK.Graphics;
-using osu.Framework.Allocation;
-using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Testing;
-using osu.Game.Graphics;
-using osu.Game.Modes.Taiko.Objects.Drawable.Pieces;
+using osu.Game.Modes.Taiko.Objects.Drawables.Pieces;
 
 namespace osu.Desktop.VisualTests.Tests
 {
@@ -22,10 +20,10 @@ namespace osu.Desktop.VisualTests.Tests
         {
             base.Reset();
 
-            AddToggle("Kiai", b =>
+            AddToggleStep("Kiai", b =>
             {
                 kiai = !kiai;
-                Reset();
+                updateKiaiState();
             });
 
             Add(new CirclePiece
@@ -76,75 +74,39 @@ namespace osu.Desktop.VisualTests.Tests
                 }
             });
 
-            Add(new SwellCircle(new CirclePiece
+            Add(new CirclePiece
             {
-                KiaiMode = kiai
-            })
-            {
-                Position = new Vector2(100, 500)
-            });
-
-            Add(new SwellCircle(new StrongCirclePiece
-            {
-                KiaiMode = kiai
-            })
-            {
-                Position = new Vector2(350, 500)
-            });
-
-            Add(new DrumRollCircle(new CirclePiece
-            {
-                KiaiMode = kiai
-            })
-            {
-                Width = 250,
-                Position = new Vector2(575, 100)
-            });
-
-            Add(new DrumRollCircle(new StrongCirclePiece
-            {
-                KiaiMode = kiai
-            })
-            {
-                Width = 250,
-                Position = new Vector2(575, 300)
-            });
-        }
-
-        private class SwellCircle : BaseCircle
-        {
-            public SwellCircle(CirclePiece piece)
-                : base(piece)
-            {
-                Piece.Add(new TextAwesome
+                Position = new Vector2(100, 500),
+                Width = 0,
+                AccentColour = Color4.Orange,
+                KiaiMode = kiai,
+                Children = new[]
                 {
-                    Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
-                    TextSize = CirclePiece.SYMBOL_INNER_SIZE,
-                    Icon = FontAwesome.fa_asterisk,
-                    Shadow = false
-                });
-            }
+                    new SwellSymbolPiece()
+                }
+            });
 
-            [BackgroundDependencyLoader]
-            private void load(OsuColour colours)
+            Add(new CirclePiece
             {
-                Piece.AccentColour = colours.YellowDark;
-            }
+                Position = new Vector2(575, 100),
+                Width = 0.25f,
+                AccentColour = Color4.Orange,
+                KiaiMode = kiai,
+            });
+
+            Add(new StrongCirclePiece
+            {
+                Position = new Vector2(575, 300),
+                Width = 0.25f,
+                AccentColour = Color4.Orange,
+                KiaiMode = kiai
+            });
         }
 
-        private class DrumRollCircle : BaseCircle
+        private void updateKiaiState()
         {
-            public DrumRollCircle(CirclePiece piece)
-                : base(piece)
-            {
-            }
-
-            [BackgroundDependencyLoader]
-            private void load(OsuColour colours)
-            {
-                Piece.AccentColour = colours.YellowDark;
-            }
+            foreach (var c in Children.OfType<CirclePiece>())
+                c.KiaiMode = kiai;
         }
 
         private abstract class BaseCircle : Container

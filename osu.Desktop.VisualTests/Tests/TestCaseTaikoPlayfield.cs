@@ -3,13 +3,12 @@
 
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
-using osu.Framework.Graphics.Primitives;
 using osu.Framework.MathUtils;
 using osu.Framework.Testing;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.Taiko.Judgements;
 using osu.Game.Modes.Taiko.Objects;
-using osu.Game.Modes.Taiko.Objects.Drawable;
+using osu.Game.Modes.Taiko.Objects.Drawables;
 using osu.Game.Modes.Taiko.UI;
 
 namespace osu.Desktop.VisualTests.Tests
@@ -20,22 +19,28 @@ namespace osu.Desktop.VisualTests.Tests
 
         private TaikoPlayfield playfield;
 
+        protected override double TimePerAction => 500;
+
         public override void Reset()
         {
             base.Reset();
 
-            AddButton("Hit!", addHitJudgement);
-            AddButton("Miss :(", addMissJudgement);
-            AddButton("Centre", () => addCentreHit(false));
-            AddButton("Strong Centre", () => addCentreHit(true));
-            AddButton("Rim", () => addRimHit(false));
-            AddButton("Strong Rim", () => addRimHit(true));
+            AddStep("Hit!", addHitJudgement);
+            AddStep("Miss :(", addMissJudgement);
+            AddStep("DrumRoll", () => addDrumRoll(false));
+            AddStep("Strong DrumRoll", () => addDrumRoll(true));
+            AddStep("Swell", addSwell);
+            AddStep("Centre", () => addCentreHit(false));
+            AddStep("Strong Centre", () => addCentreHit(true));
+            AddStep("Rim", () => addRimHit(false));
+            AddStep("Strong Rim", () => addRimHit(true));
+            AddStep("Add bar line", () => addBarLine(false));
+            AddStep("Add major bar line", () => addBarLine(true));
 
             Add(new Container
             {
                 RelativeSizeAxes = Axes.X,
                 Y = 200,
-                Padding = new MarginPadding { Left = 200 },
                 Children = new[]
                 {
                     playfield = new TaikoPlayfield()
@@ -55,7 +60,6 @@ namespace osu.Desktop.VisualTests.Tests
                     Result = HitResult.Hit,
                     TaikoResult = hitResult,
                     TimeOffset = 0,
-                    ComboAtHit = 1,
                     SecondHit = RNG.Next(10) == 0
                 }
             });
@@ -68,10 +72,42 @@ namespace osu.Desktop.VisualTests.Tests
                 Judgement = new TaikoJudgement
                 {
                     Result = HitResult.Miss,
-                    TimeOffset = 0,
-                    ComboAtHit = 0
+                    TimeOffset = 0
                 }
             });
+        }
+
+        private void addBarLine(bool major)
+        {
+            BarLine bl = new BarLine
+            {
+                StartTime = Time.Current + 1000,
+                PreEmpt = 1000
+            };
+
+            playfield.AddBarLine(major ? new DrawableMajorBarLine(bl) : new DrawableBarLine(bl));
+        }
+
+        private void addSwell()
+        {
+            playfield.Add(new DrawableSwell(new Swell
+            {
+                StartTime = Time.Current + 1000,
+                EndTime = Time.Current + 1000,
+                PreEmpt = 1000
+            }));
+        }
+        
+        private void addDrumRoll(bool strong)
+        {
+            var d = new DrumRoll
+            {
+                StartTime = Time.Current + 1000,
+                Distance = 1000,
+                PreEmpt = 1000,
+            };
+
+            playfield.Add(strong ? new DrawableStrongDrumRoll(d) : new DrawableDrumRoll(d));
         }
 
         private void addCentreHit(bool strong)

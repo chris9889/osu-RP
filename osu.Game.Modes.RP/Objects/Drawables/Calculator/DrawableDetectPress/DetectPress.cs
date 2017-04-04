@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Input;
 using osu.Game.Modes.Judgements;
@@ -48,6 +49,11 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress
             _baseRPObject = baseRpObject;
             //預先取得那些按鍵按了會有作用
             _compareKey = RpKeyManager.GetListKey(baseRpObject);
+
+            this.Children=new Drawable[]
+            {
+                
+            };
         }
 
         /// <summary>

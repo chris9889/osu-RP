@@ -1,0 +1,183 @@
+﻿Merge branch 'master' of https://github.com/ppy/osu
+
+# Conflicts:
+#	osu.Game/Screens/Play/Player.cs
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   osu-framework
+#	modified:   osu-resources
+#	renamed:    osu.Desktop.Tests/BenchmarkTest.cs -> osu.Desktop.Tests/VisualTests.cs
+#	modified:   osu.Desktop.Tests/osu.Desktop.Tests.csproj
+#	new file:   osu.Desktop.VisualTests/AutomatedVisualTestGame.cs
+#	deleted:    osu.Desktop.VisualTests/Benchmark.cs
+#	modified:   osu.Desktop.VisualTests/Program.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseBeatmapOptionsOverlay.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseChatDisplay.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseDialogOverlay.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseHitObjects.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseKeyCounter.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseLeaderboard.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseModSelectOverlay.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseMusicController.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseNotificationManager.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCasePauseOverlay.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCasePlaySongSelect.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseReplay.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseScoreCounter.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseTabControl.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseTaikoHitObjects.cs
+#	modified:   osu.Desktop.VisualTests/Tests/TestCaseTaikoPlayfield.cs
+#	modified:   osu.Desktop.VisualTests/VisualTestGame.cs
+#	modified:   osu.Desktop.VisualTests/osu.Desktop.VisualTests.csproj
+#	modified:   osu.Desktop/Beatmaps/IO/LegacyFilesystemReader.cs
+#	new file:   osu.Desktop/OpenTK.dll.config
+#	modified:   osu.Desktop/OsuGameDesktop.cs
+#	modified:   osu.Desktop/osu.Desktop.csproj
+#	modified:   osu.Desktop/packages.config
+#	modified:   osu.Game.Modes.Catch/Scoring/CatchScoreProcessor.cs
+#	modified:   osu.Game.Modes.Mania/Scoring/ManiaScoreProcessor.cs
+#	modified:   osu.Game.Modes.Osu/Objects/Drawables/DrawableHitCircle.cs
+#	modified:   osu.Game.Modes.Osu/Objects/Slider.cs
+#	modified:   osu.Game.Modes.Osu/OsuAutoReplay.cs
+#	modified:   osu.Game.Modes.Osu/Scoring/OsuScoreProcessor.cs
+#	modified:   osu.Game.Modes.Taiko/Beatmaps/TaikoBeatmapConverter.cs
+#	modified:   osu.Game.Modes.Taiko/Judgements/TaikoJudgement.cs
+#	new file:   osu.Game.Modes.Taiko/Judgements/TaikoStrongHitJudgement.cs
+#	modified:   osu.Game.Modes.Taiko/Mods/TaikoMod.cs
+#	new file:   osu.Game.Modes.Taiko/Objects/BarLine.cs
+#	new file:   osu.Game.Modes.Taiko/Objects/CentreHit.cs
+#	deleted:    osu.Game.Modes.Taiko/Objects/Drawable/DrawableDrumRoll.cs
+#	deleted:    osu.Game.Modes.Taiko/Objects/Drawable/DrawableDrumRollTick.cs
+#	deleted:    osu.Game.Modes.Taiko/Objects/Drawable/DrawableSwell.cs
+#	new file:   osu.Game.Modes.Taiko/Objects/Drawables/DrawableBarLine.cs
+#	renamed:    osu.Game.Modes.Taiko/Objects/Drawable/DrawableCentreHit.cs -> osu.Game.Modes.Taiko/Objects/Drawables/DrawableCentreHit.cs
+#	new file:   osu.Game.Modes.Taiko/Objects/Drawables/DrawableDrumRoll.cs
+#	new file:   osu.Game.Modes.Taiko/Objects/Drawables/DrawableDrumRollTick.cs
+#	renamed:    osu.Game.Modes.Taiko/Objects/Drawable/DrawableHit.cs -> osu.Game.Modes.Taiko/Objects/Drawables/DrawableHit.cs
+#	new file:   osu.Game.Modes.Taiko/Objects/Drawables/DrawableMajorBarLine.cs
+#	renamed:    osu.Game.Modes.Taiko/Objects/Drawable/DrawableRimHit.cs -> osu.Game.Modes.Taiko/Objects/Drawables/DrawableRimHit.cs
+#	renamed:    osu.Game.Modes.Taiko/Objects/Drawable/DrawableStrongCentreHit.cs -> osu.Game.Modes.Taiko/Objects/Drawables/DrawableStrongCentreHit.cs
+#	new file:   osu.Game.Modes.Taiko/Objects/Drawables/DrawableStrongDrumRoll.cs
+#	renamed:    osu.Game.Modes.Taiko/Objects/Drawable/DrawableStrongHit.cs -> osu.Game.Modes.Taiko/Objects/Drawables/DrawableStrongHit.cs
+#	renamed:    osu.Game.Modes.Taiko/Objects/Drawable/DrawableStrongRimHit.cs -> osu.Game.Modes.Taiko/Objects/Drawables/DrawableStrongRimHit.cs
+#	new file:   osu.Game.Modes.Taiko/Objects/Drawables/DrawableSwell.cs
+#	renamed:    osu.Game.Modes.Taiko/Objects/Drawable/DrawableTaikoHitObject.cs -> osu.Game.Modes.Taiko/Objects/Drawables/DrawableTaikoHitObject.cs
+#	renamed:    osu.Game.Modes.Taiko/Objects/Drawable/Pieces/CentreHitSymbolPiece.cs -> osu.Game.Modes.Taiko/Objects/Drawables/Pieces/CentreHitSymbolPiece.cs
+#	renamed:    osu.Game.Modes.Taiko/Objects/Drawable/Pieces/CirclePiece.cs -> osu.Game.Modes.Taiko/Objects/Drawables/Pieces/CirclePiece.cs
+#	renamed:    osu.Game.Modes.Taiko/Objects/Drawable/Pieces/RimHitSymbolPiece.cs -> osu.Game.Modes.Taiko/Objects/Drawables/Pieces/RimHitSymbolPiece.cs
+#	renamed:    osu.Game.Modes.Taiko/Objects/Drawable/Pieces/StrongCirclePiece.cs -> osu.Game.Modes.Taiko/Objects/Drawables/Pieces/StrongCirclePiece.cs
+#	new file:   osu.Game.Modes.Taiko/Objects/Drawables/Pieces/SwellSymbolPiece.cs
+#	modified:   osu.Game.Modes.Taiko/Objects/DrumRoll.cs
+#	modified:   osu.Game.Modes.Taiko/Objects/DrumRollTick.cs
+#	new file:   osu.Game.Modes.Taiko/Objects/RimHit.cs
+#	modified:   osu.Game.Modes.Taiko/Objects/Swell.cs
+#	modified:   osu.Game.Modes.Taiko/Objects/TaikoHitObject.cs
+#	new file:   osu.Game.Modes.Taiko/Replays/TaikoAutoReplay.cs
+#	new file:   osu.Game.Modes.Taiko/Replays/TaikoFramedReplayInputHandler.cs
+#	modified:   osu.Game.Modes.Taiko/Scoring/TaikoScoreProcessor.cs
+#	modified:   osu.Game.Modes.Taiko/TaikoRuleset.cs
+#	modified:   osu.Game.Modes.Taiko/UI/HitExplosion.cs
+#	modified:   osu.Game.Modes.Taiko/UI/HitTarget.cs
+#	modified:   osu.Game.Modes.Taiko/UI/TaikoHitRenderer.cs
+#	modified:   osu.Game.Modes.Taiko/UI/TaikoPlayfield.cs
+#	modified:   osu.Game.Modes.Taiko/osu.Game.Modes.Taiko.csproj
+#	modified:   osu.Game.Tests/Beatmaps/IO/OszArchiveReaderTest.cs
+#	modified:   osu.Game/Beatmaps/Drawables/BeatmapSetHeader.cs
+#	modified:   osu.Game/Beatmaps/Formats/BeatmapDecoder.cs
+#	deleted:    osu.Game/Beatmaps/Formats/ConstructableBeatmapDecoder.cs
+#	modified:   osu.Game/Beatmaps/Formats/OsuLegacyDecoder.cs
+#	modified:   osu.Game/Beatmaps/IO/ArchiveReader.cs
+#	modified:   osu.Game/Beatmaps/IO/OszArchiveReader.cs
+#	modified:   osu.Game/Beatmaps/Timing/TimingInfo.cs
+#	modified:   osu.Game/Configuration/OsuConfigManager.cs
+#	modified:   osu.Game/Database/BeatmapDatabase.cs
+#	modified:   osu.Game/Database/BeatmapInfo.cs
+#	modified:   osu.Game/Database/DatabaseWorkingBeatmap.cs
+#	modified:   osu.Game/Database/ScoreDatabase.cs
+#	modified:   osu.Game/Graphics/Cursor/GameplayCursor.cs
+#	modified:   osu.Game/Graphics/Cursor/MenuCursor.cs
+#	new file:   osu.Game/Graphics/IHasAccentColour.cs
+#	new file:   osu.Game/Graphics/Transforms/TransformAccent.cs
+#	modified:   osu.Game/Graphics/UserInterface/Nub.cs
+#	modified:   osu.Game/Graphics/UserInterface/OsuCheckbox.cs
+#	modified:   osu.Game/Graphics/UserInterface/OsuSliderBar.cs
+#	modified:   osu.Game/Graphics/UserInterface/OsuTabControl.cs
+#	modified:   osu.Game/Graphics/UserInterface/OsuTabControlCheckBox.cs
+#	modified:   osu.Game/Graphics/UserInterface/PercentageCounter.cs
+#	modified:   osu.Game/Graphics/UserInterface/RollingCounter.cs
+#	modified:   osu.Game/Graphics/UserInterface/ScoreCounter.cs
+#	modified:   osu.Game/Graphics/UserInterface/Volume/VolumeControl.cs
+#	new file:   osu.Game/Modes/Judgements/IPartialJudgement.cs
+#	modified:   osu.Game/Modes/Judgements/Judgement.cs
+#	deleted:    osu.Game/Modes/LegacyReplay.cs
+#	modified:   osu.Game/Modes/Mods/Mod.cs
+#	modified:   osu.Game/Modes/Objects/Drawables/DrawableHitObject.cs
+#	modified:   osu.Game/Modes/Objects/Drawables/HitResult.cs
+#	deleted:    osu.Game/Modes/Replay.cs
+#	new file:   osu.Game/Modes/Replays/FramedReplayInputHandler.cs
+#	new file:   osu.Game/Modes/Replays/Replay.cs
+#	new file:   osu.Game/Modes/Replays/ReplayButtonState.cs
+#	new file:   osu.Game/Modes/Replays/ReplayFrame.cs
+#	modified:   osu.Game/Modes/Scoring/Score.cs
+#	modified:   osu.Game/Modes/Scoring/ScoreProcessor.cs
+#	modified:   osu.Game/Modes/UI/ComboCounter.cs
+#	modified:   osu.Game/Modes/UI/ComboResultCounter.cs
+#	modified:   osu.Game/Modes/UI/HealthDisplay.cs
+#	modified:   osu.Game/Modes/UI/HitRenderer.cs
+#	modified:   osu.Game/Modes/UI/HudOverlay.cs
+#	modified:   osu.Game/OsuGame.cs
+#	modified:   osu.Game/OsuGameBase.cs
+#	modified:   osu.Game/Overlays/Mods/ModSelectOverlay.cs
+#	modified:   osu.Game/Overlays/MusicController.cs
+#	modified:   osu.Game/Overlays/Options/OptionSlider.cs
+#	modified:   osu.Game/Overlays/Options/OptionTextBox.cs
+#	modified:   osu.Game/Overlays/Options/Sections/Graphics/LayoutOptions.cs
+#	modified:   osu.Game/Screens/BackgroundScreen.cs
+#	modified:   osu.Game/Screens/Backgrounds/BackgroundScreenBeatmap.cs
+#	modified:   osu.Game/Screens/Loader.cs
+#	modified:   osu.Game/Screens/Menu/Disclaimer.cs
+#	modified:   osu.Game/Screens/Menu/Intro.cs
+#	modified:   osu.Game/Screens/Menu/MainMenu.cs
+#	modified:   osu.Game/Screens/OsuGameScreen.cs
+#	modified:   osu.Game/Screens/Play/Player.cs
+#	modified:   osu.Game/Screens/Play/PlayerLoader.cs
+#	new file:   osu.Game/Screens/Play/ReplayPlayer.cs
+#	modified:   osu.Game/Screens/Select/BeatmapDetailAreaTabControl.cs
+#	modified:   osu.Game/Screens/Select/BeatmapInfoWedge.cs
+#	modified:   osu.Game/Screens/Select/FilterControl.cs
+#	modified:   osu.Game/Screens/Select/Leaderboards/LeaderboardScore.cs
+#	modified:   osu.Game/Screens/Select/PlaySongSelect.cs
+#	modified:   osu.Game/Screens/Select/SongSelect.cs
+#	modified:   osu.Game/Users/UpdateableAvatar.cs
+#	modified:   osu.Game/osu.Game.csproj
+#
+# Changes not staged for commit:
+#	modified:   osu-framework (modified content)
+#	modified:   osu.Game.Modes.RP/Objects/Drawables/Calculator/DrawableDetectPress/DetectPress.cs
+#	modified:   osu.Game.Modes.RP/Objects/Drawables/DrawableBaseHitObject.cs
+#	deleted:    osu.Game.Modes.RP/Replay/RPAutoReplay.cs
+#	modified:   osu.Game.Modes.RP/ScoreProcessor/RpScoreProcessor.cs
+#	modified:   osu.Game.Modes.RP/UI/Beatmap/RpHitRenderer.cs
+#	modified:   osu.Game.Modes.RP/UI/GamePlay/KeyCounter/RpKeyCounterCollection.cs
+#	modified:   osu.Game.Modes.RP/UI/GamePlay/KeyCounter/RpKeyCounterKeyboard.cs
+#	modified:   osu.Game.Modes.RP/osu.Game.Modes.RP.csproj
+#
+# Untracked files:
+#	osu.Game.Modes.RP/Mods/ModsElement/
+#	osu.Game.Modes.RP/Replay/RpReplayFrame.cs
+#	osu.Game.Modes.RP/Replay/RpReplayInputHandler.cs
+#
+

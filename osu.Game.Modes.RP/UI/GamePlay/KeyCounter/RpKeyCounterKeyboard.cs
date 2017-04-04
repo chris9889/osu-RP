@@ -1,14 +1,9 @@
 ﻿using osu.Framework.Allocation;
-using osu.Framework.Audio;
-using osu.Framework.Audio.Sample;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Graphics.Textures;
-using osu.Framework.Input;
-using osu.Game.Beatmaps.Samples;
-using osu.Game.Modes.Objects;
-using osu.Game.Modes.RP.Objects.type;
+using osu.Game.Graphics.Sprites;
 using osu.Game.Modes.RP.SkinManager;
 using osu.Game.Screens.Play;
 using OpenTK;
@@ -44,13 +39,14 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         [BackgroundDependencyLoader]
         private void load(TextureStore textures)
         {
+            /*
             Children = new Drawable[]
             {
                 buttonSprite = new Sprite
                 {
                     Texture = textures.Get(@"KeyCounter/key-up"),
                     Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre
+                    Origin = Anchor.Centre,
                 },
                 glowSprite = new Sprite
                 {
@@ -94,8 +90,9 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                             Position = new Vector2(0, -0.25f)
                         }
                     }
-                }
+                },
             };
+            
             //Set this manually because an element with Alpha=0 won't take it size to AutoSizeContainer,
             //so the size can be changing between buttonSprite and glowSprite.
             Height = buttonSprite.DrawHeight;
@@ -122,6 +119,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                     _textSprite.Alpha = 0;
                     break;
             }
+            */
         }
 
         public enum SingleKeyLayout

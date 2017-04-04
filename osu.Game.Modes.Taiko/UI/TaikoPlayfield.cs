@@ -14,6 +14,8 @@ using osu.Game.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Graphics.Primitives;
+using System.Linq;
+using osu.Game.Modes.Taiko.Objects.Drawables;
 
 namespace osu.Game.Modes.Taiko.UI
 {
@@ -21,7 +23,7 @@ namespace osu.Game.Modes.Taiko.UI
     {
         /// <summary>
         /// The play field height. This is relative to the size of hit objects
-        /// such that the playfield is just a bit larger than finishers.
+        /// such that the playfield is just a bit larger than strong hits.
         /// </summary>
         public const float PLAYFIELD_HEIGHT = TaikoHitObject.CIRCLE_RADIUS * 2 * 2;
 
@@ -38,11 +40,11 @@ namespace osu.Game.Modes.Taiko.UI
         protected override Container<Drawable> Content => hitObjectContainer;
 
         private readonly Container<HitExplosion> hitExplosionContainer;
-        //private Container<DrawableBarLine> barLineContainer;
+        private readonly Container<DrawableBarLine> barLineContainer;
         private readonly Container<DrawableTaikoJudgement> judgementContainer;
 
         private readonly Container hitObjectContainer;
-        //private Container topLevelHitContainer;
+        private readonly Container topLevelHitContainer;
         private readonly Container leftBackgroundContainer;
         private readonly Container rightBackgroundContainer;
         private readonly Box leftBackground;
@@ -94,10 +96,10 @@ namespace osu.Game.Modes.Taiko.UI
                                     Size = new Vector2(TaikoHitObject.CIRCLE_RADIUS * 2),
                                     BlendingMode = BlendingMode.Additive
                                 },
-                                //barLineContainer = new Container<DrawableBarLine>
-                                //{
-                                //    RelativeSizeAxes = Axes.Both,
-                                //},
+                                barLineContainer = new Container<DrawableBarLine>
+                                {
+                                    RelativeSizeAxes = Axes.Both,
+                                },
                                 new HitTarget
                                 {
                                     Anchor = Anchor.CentreLeft,
@@ -143,10 +145,10 @@ namespace osu.Game.Modes.Taiko.UI
                         },
                     }
                 },
-                //topLevelHitContainer = new Container
-                //{
-                //    RelativeSizeAxes = Axes.Both,
-                //}
+                topLevelHitContainer = new Container
+                {
+                    RelativeSizeAxes = Axes.Both,
+                }
             });
         }
 
@@ -165,14 +167,22 @@ namespace osu.Game.Modes.Taiko.UI
             h.Depth = (float)h.HitObject.StartTime;
 
             base.Add(h);
+
+            // Swells should be moved at the very top of the playfield when they reach the hit target
+            var swell = h as DrawableSwell;
+            if (swell != null)
+                swell.OnStart += () => topLevelHitContainer.Add(swell.CreateProxy());
+        }
+
+        public void AddBarLine(DrawableBarLine barLine)
+        {
+            barLineContainer.Add(barLine);
         }
 
         public override void OnJudgement(DrawableHitObject<TaikoHitObject, TaikoJudgement> judgedObject)
         {
             bool wasHit = judgedObject.Judgement.Result == HitResult.Hit;
-
-            if (wasHit)
-                hitExplosionContainer.Add(new HitExplosion(judgedObject.Judgement));
+            bool secondHit = judgedObject.Judgement.SecondHit;
 
             judgementContainer.Add(new DrawableTaikoJudgement(judgedObject.Judgement)
             {
@@ -181,6 +191,22 @@ namespace osu.Game.Modes.Taiko.UI
                 RelativePositionAxes = Axes.X,
                 X = wasHit ? judgedObject.Position.X : 0,
             });
+
+            if (!wasHit)
+                return;
+
+            if (!secondHit)
+            {
+                if (judgedObject.X >= -0.05f && !(judgedObject is DrawableSwell))
+                {
+                    // If we're far enough away from the left stage, we should bring outselves in front of it
+                    topLevelHitContainer.Add(judgedObject.CreateProxy());
+                }
+
+                hitExplosionContainer.Add(new HitExplosion(judgedObject.Judgement));
+            }
+            else
+                hitExplosionContainer.Children.FirstOrDefault(e => e.Judgement == judgedObject.Judgement)?.VisualiseSecondHit();
         }
     }
 }

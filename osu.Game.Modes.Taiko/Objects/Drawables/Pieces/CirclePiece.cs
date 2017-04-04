@@ -1,15 +1,16 @@
 // Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
+using System;
 using osu.Framework.Extensions.Color4Extensions;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
+using osu.Game.Graphics;
 using osu.Game.Graphics.Backgrounds;
 using OpenTK.Graphics;
-using System;
 
-namespace osu.Game.Modes.Taiko.Objects.Drawable.Pieces
+namespace osu.Game.Modes.Taiko.Objects.Drawables.Pieces
 {
     /// <summary>
     /// A circle piece which is used uniformly through osu!taiko to visualise hitobjects.
@@ -18,7 +19,7 @@ namespace osu.Game.Modes.Taiko.Objects.Drawable.Pieces
     /// a rounded (_[-Width-]_) figure such that a regular "circle" is the result of a parent with Width = 0.
     /// </para>
     /// </summary>
-    public class CirclePiece : Container
+    public class CirclePiece : Container, IHasAccentColour
     {
         public const float SYMBOL_SIZE = TaikoHitObject.CIRCLE_RADIUS * 2f * 0.45f;
         public const float SYMBOL_BORDER = 8;
@@ -35,10 +36,7 @@ namespace osu.Game.Modes.Taiko.Objects.Drawable.Pieces
             {
                 accentColour = value;
 
-                innerBackground.Colour = AccentColour;
-
-                triangles.ColourLight = AccentColour;
-                triangles.ColourDark = AccentColour.Darken(0.1f);
+                background.Colour = AccentColour;
 
                 resetEdgeEffects();
             }
@@ -65,13 +63,11 @@ namespace osu.Game.Modes.Taiko.Objects.Drawable.Pieces
             set { throw new InvalidOperationException($"{nameof(CirclePiece)} must always use CentreLeft origin."); }
         }
 
-        protected override Container<Framework.Graphics.Drawable> Content => SymbolContainer;
+        protected override Container<Drawable> Content => SymbolContainer;
         protected readonly Container SymbolContainer;
 
+        private readonly Container background;
         private readonly Container innerLayer;
-        private readonly Container innerCircleContainer;
-        private readonly Box innerBackground;
-        private readonly Triangles triangles;
 
         public CirclePiece()
         {
@@ -85,28 +81,30 @@ namespace osu.Game.Modes.Taiko.Objects.Drawable.Pieces
                 Anchor = Anchor.Centre,
                 Origin = Anchor.Centre,
                 RelativeSizeAxes = Axes.Y,
-                Children = new Framework.Graphics.Drawable[]
+                Children = new Drawable[]
                 {
-                    innerCircleContainer = new CircularContainer
+                    background = new CircularContainer
                     {
-                        Name = "Inner Circle",
+                        Name = "Background",
                         Anchor = Anchor.Centre,
                         Origin = Anchor.Centre,
                         RelativeSizeAxes = Axes.Both,
                         Masking = true,
-                        Children = new Framework.Graphics.Drawable[]
+                        Children = new Drawable[]
                         {
-                            innerBackground = new Box
+                            new Box
                             {
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
                                 RelativeSizeAxes = Axes.Both,
                             },
-                            triangles = new Triangles
+                            new Triangles
                             {
                                 Anchor = Anchor.Centre,
                                 Origin = Anchor.Centre,
                                 RelativeSizeAxes = Axes.Both,
+                                ColourLight = Color4.White,
+                                ColourDark = Color4.White.Darken(0.1f)
                             }
                         }
                     },
@@ -149,7 +147,7 @@ namespace osu.Game.Modes.Taiko.Objects.Drawable.Pieces
 
         private void resetEdgeEffects()
         {
-            innerCircleContainer.EdgeEffect = new EdgeEffect
+            background.EdgeEffect = new EdgeEffect
             {
                 Type = EdgeEffectType.Glow,
                 Colour = AccentColour,
