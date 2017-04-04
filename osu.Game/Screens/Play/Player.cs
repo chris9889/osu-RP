@@ -15,7 +15,6 @@ using osu.Framework.Screens;
 using osu.Framework.Timing;
 using osu.Game.Configuration;
 using osu.Game.Database;
-using osu.Game.Input.Handlers;
 using osu.Game.Modes;
 using osu.Game.Modes.UI;
 using osu.Game.Screens.Backgrounds;
@@ -34,7 +33,7 @@ namespace osu.Game.Screens.Play
 
         internal override bool HasLocalCursorDisplayed => !hasReplayLoaded && !IsPaused;
 
-        private bool hasReplayLoaded => hitRenderer.InputManager.ReplayInputHandler != null;
+        private bool hasReplayLoaded => HitRenderer.InputManager.ReplayInputHandler != null;
 
         public BeatmapInfo BeatmapInfo;
 
@@ -53,7 +52,7 @@ namespace osu.Game.Screens.Play
         private Ruleset ruleset;
 
         private ScoreProcessor scoreProcessor;
-        private HitRenderer hitRenderer;
+        protected HitRenderer HitRenderer;
         private Bindable<int> dimLevel;
         private SkipButton skipButton;
 
@@ -65,7 +64,7 @@ namespace osu.Game.Screens.Play
         {
             var beatmap = Beatmap.Beatmap;
 
-            if (beatmap.BeatmapInfo?.Mode > PlayMode.Osu)
+            if (beatmap.BeatmapInfo?.Mode > PlayMode.Taiko)
             {
                 //we only support osu! mode for now because the hitobject parsing is crappy and needs a refactor.
                 Exit();
@@ -113,9 +112,10 @@ namespace osu.Game.Screens.Play
 
             //ruleset = Ruleset.GetRuleset(Beatmap.PlayMode);
             ruleset = Ruleset.GetRuleset(PlayMode.RP);
-            hitRenderer = ruleset.CreateHitRendererWith(Beatmap);
+            HitRenderer = ruleset.CreateHitRendererWith(Beatmap);
 
-            scoreProcessor = hitRenderer.CreateScoreProcessor();
+
+            scoreProcessor = HitRenderer.CreateScoreProcessor();
 
             hudOverlay = new StandardHudOverlay();
             hudOverlay.KeyCounter.Add(ruleset.CreateGameplayKeys());
@@ -134,13 +134,10 @@ namespace osu.Game.Screens.Play
             };
 
 
-            if (ReplayInputHandler != null)
-                hitRenderer.InputManager.ReplayInputHandler = ReplayInputHandler;
-
-            hudOverlay.BindHitRenderer(hitRenderer);
+            hudOverlay.BindHitRenderer(HitRenderer);
 
             //bind HitRenderer to ScoreProcessor and ourselves (for a pass situation)
-            hitRenderer.OnAllJudged += onCompletion;
+            HitRenderer.OnAllJudged += onCompletion;
 
             //bind ScoreProcessor to ourselves (for a fail situation)
             scoreProcessor.Failed += onFail;
@@ -153,7 +150,7 @@ namespace osu.Game.Screens.Play
                     Clock = interpolatedSourceClock,
                     Children = new Drawable[]
                     {
-                        hitRenderer,
+                        HitRenderer,
                         skipButton = new SkipButton
                         {
                             Alpha = 0
@@ -230,7 +227,7 @@ namespace osu.Game.Screens.Play
 
             var newPlayer = new Player();
 
-            newPlayer.LoadAsync(Game, delegate
+            LoadComponentAsync(newPlayer, delegate
             {
                 newPlayer.RestartCount = RestartCount + 1;
                 ValidForResume = false;
@@ -280,7 +277,8 @@ namespace osu.Game.Screens.Play
             Background?.FadeTo((100f - dimLevel) / 100, 1500, EasingTypes.OutQuint);
 
             Content.Alpha = 0;
-            dimLevel.ValueChanged += dimChanged;
+
+            dimLevel.ValueChanged += newDim => Background?.FadeTo((100f - newDim) / 100, 800);
 
             Content.ScaleTo(0.7f);
 
@@ -323,21 +321,12 @@ namespace osu.Game.Screens.Play
             {
                 FadeOut(250);
                 Content.ScaleTo(0.7f, 750, EasingTypes.InQuint);
-
-                dimLevel.ValueChanged -= dimChanged;
                 Background?.FadeTo(1f, 200);
                 return base.OnExiting(next);
             }
         }
 
-        private void dimChanged(object sender, EventArgs e)
-        {
-            Background?.FadeTo((100f - dimLevel) / 100, 800);
-        }
-
         private Bindable<bool> mouseWheelDisabled;
-
-        public ReplayInputHandler ReplayInputHandler;
 
         protected override bool OnWheel(InputState state) => mouseWheelDisabled.Value && !IsPaused;
     }
