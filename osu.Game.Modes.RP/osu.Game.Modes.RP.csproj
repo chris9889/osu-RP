@@ -169,8 +169,11 @@
     <Compile Include="SkinManager\RpTexturePathManager.cs" />
     <Compile Include="UI\Beatmap\RpHitRenderer.cs" />
     <Compile Include="UI\GamePlay\Playfield\RpPlayfield.cs" />
-    <Compile Include="UI\Select\BeatmapStatistics.cs" />
-    <Compile Include="UI\Select\SelectMod.cs" />
+    <Compile Include="UI\Select\Detail\RpBeatmapDetails.cs" />
+    <Compile Include="UI\Select\Detail\RpBeatmapDetailsBar.cs" />
+    <Compile Include="UI\Select\Detail\RpBeatmapDetailsGraph.cs" />
+    <Compile Include="UI\Select\Info\BeatmapStatistics.cs" />
+    <Compile Include="UI\Select\Mod\SelectMod.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\Parameter\ComvertParameter.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\Slicing\Parameter\SliceConvertParameter.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Parameter\HitObjectConvertParameter.cs" />

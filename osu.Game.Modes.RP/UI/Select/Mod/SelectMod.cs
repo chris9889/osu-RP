@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using osu.Game.Modes.Mods;
 using osu.Game.Modes.RP.Mods;
 
-namespace osu.Game.Modes.RP.UI.Select
+namespace osu.Game.Modes.RP.UI.Select.Mod
 {
     /// <summary>
     ///     目前選擇模式
     /// </summary>
-    internal class SelectMod : IEnumerable<Mod>
+    internal class SelectMod : IEnumerable<Modes.Mods.Mod>
     {
         private readonly ModType _type;
 
@@ -18,7 +18,7 @@ namespace osu.Game.Modes.RP.UI.Select
             _type = type;
         }
 
-        IEnumerator<Mod> IEnumerable<Mod>.GetEnumerator()
+        IEnumerator<Modes.Mods.Mod> IEnumerable<Modes.Mods.Mod>.GetEnumerator()
         {
             switch (_type)
             {
@@ -32,7 +32,7 @@ namespace osu.Game.Modes.RP.UI.Select
                     yield return new RpModHardRock();
                     yield return new MultiMod
                     {
-                        Mods = new Mod[]
+                        Mods = new Modes.Mods.Mod[]
                         {
                             new RpModSuddenDeath(),
                             new RpModPerfect()
@@ -40,7 +40,7 @@ namespace osu.Game.Modes.RP.UI.Select
                     };
                     yield return new MultiMod
                     {
-                        Mods = new Mod[]
+                        Mods = new Modes.Mods.Mod[]
                         {
                             new RpModDoubleTime(),
                             new RpModNightcore()
@@ -56,7 +56,7 @@ namespace osu.Game.Modes.RP.UI.Select
                     yield return new RpModContainerHitObjectCoco();
                     yield return new MultiMod
                     {
-                        Mods = new Mod[]
+                        Mods = new Modes.Mods.Mod[]
                         {
                             new RpModAutoplay(),
                             new RpModRelax()

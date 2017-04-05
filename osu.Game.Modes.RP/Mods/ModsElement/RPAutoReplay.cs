@@ -9,10 +9,11 @@ using osu.Game.Beatmaps;
 using osu.Game.Modes.Replays;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.type;
+using osu.Game.Modes.RP.Replay;
 using OpenTK;
 using OpenTK.Input;
 
-namespace osu.Game.Modes.RP.Replay
+namespace osu.Game.Modes.RP.Mods.ModsElement
 {
     /// <summary>
     /// 這邊要把滑鼠的X軸當作按鍵使用

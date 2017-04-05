@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using osu.Game.Beatmaps;
 using osu.Game.Graphics;
 
-namespace osu.Game.Modes.RP.UI.Select
+namespace osu.Game.Modes.RP.UI.Select.Info
 {
     /// <summary>
     ///     統計beatmap數據

@@ -6,8 +6,8 @@ using System.Linq;
 using osu.Game.Beatmaps;
 using osu.Game.Graphics;
 using osu.Game.Modes.Mods;
+using osu.Game.Modes.RP.Mods.ModsElement;
 using osu.Game.Modes.RP.Objects;
-using osu.Game.Modes.RP.Replay;
 using osu.Game.Modes.RP.ScoreProcessor.Result;
 using osu.Game.Modes.Scoring;
 

@@ -8,6 +8,7 @@ using osu.Framework.Graphics.Primitives;
 using osu.Game.Beatmaps;
 using osu.Game.Online.API;
 using osu.Game.Online.API.Requests;
+using osu.Game.Screens.Select.Details;
 using osu.Game.Screens.Select.Leaderboards;
 
 namespace osu.Game.Screens.Select
@@ -17,8 +18,9 @@ namespace osu.Game.Screens.Select
         private readonly Container content;
         protected override Container<Drawable> Content => content;
 
-        public readonly Container Details; //todo: replace with a real details view when added
+        public readonly BeatmapDetails Details;
         public readonly Leaderboard Leaderboard;
+        private BeatmapDetailTab currentTab;
 
         private APIAccess api;
 
@@ -32,7 +34,11 @@ namespace osu.Game.Screens.Select
             set
             {
                 beatmap = value;
-                if (IsLoaded) Schedule(updateScores);
+                if (IsLoaded)
+                    if (currentTab == BeatmapDetailTab.Details)
+                        Schedule(updateDetails);
+                    else
+                        Schedule(updateScores);
             }
         }
 
@@ -43,22 +49,22 @@ namespace osu.Game.Screens.Select
                 new BeatmapDetailAreaTabControl
                 {
                     RelativeSizeAxes = Axes.X,
-                    OnFilter = (tab, mods) => 
+                    OnFilter = (tab, mods) =>
                     {
                         switch (tab)
                         {
                             case BeatmapDetailTab.Details:
                                 Details.Show();
                                 Leaderboard.Hide();
+                                updateDetails();
                                 break;
                             default:
                                 Details.Hide();
                                 Leaderboard.Show();
+                                updateScores();
                                 break;
                         }
-
-                        //for now let's always update scores.
-                        updateScores();
+                        currentTab = tab;
                     },
                 },
                 content = new Container
@@ -70,9 +76,10 @@ namespace osu.Game.Screens.Select
 
             Add(new Drawable[]
             {
-                Details = new Container
+                Details = new BeatmapDetails
                 {
                     RelativeSizeAxes = Axes.Both,
+                    Padding = new MarginPadding(5),
                 },
                 Leaderboard = new Leaderboard
                 {
@@ -106,6 +113,17 @@ namespace osu.Game.Screens.Select
             getScoresRequest = new GetScoresRequest(beatmap.BeatmapInfo);
             getScoresRequest.Success += r => Leaderboard.Scores = r.Scores;
             api.Queue(getScoresRequest);
+        }
+
+
+
+        private void updateDetails()
+        {
+            if (!IsLoaded) return;
+
+            if (api == null || beatmap?.BeatmapInfo == null) return;
+
+            Details.Beatmap = beatmap.Beatmap.BeatmapInfo;
         }
     }
 }

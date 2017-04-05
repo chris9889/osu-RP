@@ -8,7 +8,7 @@ using osu.Game.Modes.RP.Objects.type;
 using osu.Game.Modes.RP.Saving;
 using OpenTK.Input;
 
-namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Front
+namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.KeySound
 {
     /// <summary>
     ///     放置顯示在打擊物件之前的東西
