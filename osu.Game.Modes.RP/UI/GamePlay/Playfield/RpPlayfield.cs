@@ -9,6 +9,7 @@ using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.Drawables;
 using osu.Game.Modes.RP.ScoreProcessor;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Background;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.CoopHint;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObject;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectConnector;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.KeySound;
@@ -35,6 +36,8 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                 return new Vector2(aspectSize.X / parentSize.X, aspectSize.Y / parentSize.Y) * base.Size;
             }
         }
+
+        private readonly CoopHintLayout _coopHintLayout;
 
         /// <summary>
         ///     顯示背景
@@ -74,6 +77,11 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
 
             Add(new Drawable[]
             {
+                _coopHintLayout=new CoopHintLayout
+                {
+                    RelativeSizeAxes = Axes.Both,
+                    Depth = 3
+                },
                 _backgroundLayout = new BackgroundLayout //背景
                 {
                     RelativeSizeAxes = Axes.Both,

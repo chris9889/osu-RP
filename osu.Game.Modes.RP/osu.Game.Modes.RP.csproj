@@ -107,6 +107,8 @@
     <Compile Include="SkinManager\RpObjectValueManager.cs" />
     <Compile Include="SkinManager\RpTextureColorManager.cs" />
     <Compile Include="UI\GamePlay\KeyCounter\RpKeyCounterCollection.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\CoopHint\Component\CoopHint.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\CoopHint\CoopHintLayout.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\ConnectionRenderer.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\RpHitMulitpleObjectConnectionLine.cs" />
     <Compile Include="Objects\Drawables\DrawableBaseRpObject.cs" />

@@ -1,16 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Game.Screens.Play;
 using static osu.Game.Modes.RP.Saving.RpKeyLayoutConfig;
-using static osu.Game.Modes.RP.UI.GamePlay.KeyCounter.RpKeyCounterKeyboard;
 
 namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
 {
     /// <summary>
     ///     RP專用的計數器
     /// </summary>
-    internal class RpKeyCounterCollection : KeyCounterCollection
+    internal class RpKeyCounterCollection : KeyCounterCollection //: IEnumerable<Screens.Play.KeyCounter>
     {
         public List<KeyCounterKeyboard> ListKey = new List<KeyCounterKeyboard>();
 
@@ -24,6 +25,11 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
             GeneratorKey();
         }
 
+        public IEnumerator<Screens.Play.KeyCounter> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         ///     Create the key from default config
         /// </summary>
@@ -31,11 +37,17 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         {
             for (var i = 0; i < _singleLayout.KeyDictionary.Count; i++)
             {
-                var rpKeyCounterKeyboard = new RpKeyCounterKeyboard(_singleLayout.KeyDictionary[i].Key.ToString(), _singleLayout.KeyDictionary[i], SingleKeyLayout.KeyIcon_Count);
+                //var rpKeyCounterKeyboard = new KeyCounterKeyboard(_singleLayout.KeyDictionary[i].Key);
+                var rpKeyCounterKeyboard = new RpKeyCounterKeyboard(_singleLayout.KeyDictionary[i].Key.ToString(), _singleLayout.KeyDictionary[i], RpKeyCounterKeyboard.SingleKeyLayout.KeyIcon_Count);
                 //增加有
-                Add(rpKeyCounterKeyboard);
-                //ListKey.Add(rpKeyCounterKeyboard);
+                //Add(rpKeyCounterKeyboard);
+                ListKey.Add(rpKeyCounterKeyboard);
             }
         }
+
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

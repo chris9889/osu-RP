@@ -17,7 +17,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
     internal class RpKeyCounterKeyboard : KeyCounterKeyboard
     {
         private readonly SingleKeyLayout _layout;
-
         //顯示按鈕
         private Sprite _buttonIconSprite;
         //顯示按鍵名稱
@@ -37,16 +36,16 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         }
 
         [BackgroundDependencyLoader]
-        private void load(TextureStore textures)
+        private new  void load(TextureStore textures)
         {
-            /*
+            
             Children = new Drawable[]
-            {
+           {
                 buttonSprite = new Sprite
                 {
                     Texture = textures.Get(@"KeyCounter/key-up"),
                     Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
+                    Origin = Anchor.Centre
                 },
                 glowSprite = new Sprite
                 {
@@ -90,9 +89,17 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                             Position = new Vector2(0, -0.25f)
                         }
                     }
-                },
-            };
-            
+                }
+           };
+
+            //KeyCounter Text Color
+            //KeyDownTextColor = RpTextureColorManager.GetCoopLayoutColor(_singlekey.Coop);
+            //KeyCounter border color
+            buttonSprite.Colour = RpTextureColorManager.GetCoopLayoutColor(_singlekey.Coop);
+            //KeyCounter inside color
+            glowSprite.Colour = RpTextureColorManager.GetCoopLayoutColor(_singlekey.Coop);
+
+
             //Set this manually because an element with Alpha=0 won't take it size to AutoSizeContainer,
             //so the size can be changing between buttonSprite and glowSprite.
             Height = buttonSprite.DrawHeight;
@@ -119,7 +126,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                     _textSprite.Alpha = 0;
                     break;
             }
-            */
         }
 
         public enum SingleKeyLayout
