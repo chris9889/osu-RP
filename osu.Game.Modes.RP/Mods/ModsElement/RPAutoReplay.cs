@@ -7,6 +7,7 @@ using System.Linq;
 using osu.Framework.Graphics;
 using osu.Game.Beatmaps;
 using osu.Game.Modes.Replays;
+using osu.Game.Modes.RP.KeyManager;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.type;
 using osu.Game.Modes.RP.Replay;
@@ -155,34 +156,18 @@ namespace osu.Game.Modes.RP.Mods.ModsElement
 		}
 
         /// <summary>
-        /// 
+        /// Get List Key
         /// </summary>
         /// <returns></returns>
         Key getKeyByHitObject(BaseHitObject hitObject)
         {
-            Key key=Key.Unknown;
-            switch (hitObject.Shape)
-            {
-                 case RpBaseHitObjectType.Shape.Up:
-                    return Key.E;
-                case RpBaseHitObjectType.Shape.Down:
-                    return Key.D;
-                case RpBaseHitObjectType.Shape.Left:
-                    return Key.S;
-                case RpBaseHitObjectType.Shape.Right:
-                    return Key.F;
-                case RpBaseHitObjectType.Shape.ContainerPress:
-                    return Key.A;
-            }
-            return key;
+            List<Key> listCompareKeys = RpKeyManager.GetListKey(hitObject);
+
+            return listCompareKeys[0];
         }
 
 
         //public override ReplayInputHandler CreateInputHandler() => new RpLegacyReplayInputHandler(Frames);
-
-        
-
-       
 
     }
 }

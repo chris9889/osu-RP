@@ -55,7 +55,6 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap
             listComvertParameter = HitObjectProcessor.Convert(listComvertParameter);
             //轉回原本的物件
             return PostConvertor.Convert(listComvertParameter);
-            ;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
         /// <summary>
         ///     目前結果
         /// </summary>
-        protected RPScoreResult RPScoreResult = RPScoreResult.Sad;
+        protected RpScoreResult RPScoreResult = RpScoreResult.Sad;
 
         //開始特效
         public virtual void StartEffect()

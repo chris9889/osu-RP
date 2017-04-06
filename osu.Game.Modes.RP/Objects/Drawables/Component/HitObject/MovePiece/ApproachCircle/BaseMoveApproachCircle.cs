@@ -2,7 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Framework.Graphics;
-using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
+using osu.Game.Modes.RP.Objects.Drawables.Component.CommonInterface;
 using osu.Game.Modes.RP.Objects.Drawables.Pieces;
 using osu.Game.Modes.RP.SkinManager;
 using OpenTK;
@@ -11,7 +11,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Appr
 {
     /// <summary>
     /// </summary>
-    internal class BaseMoveApproachCircle : BaseMovePicec, ISliderProgress
+    internal class BaseMoveApproachCircle : BaseMovePicec, IComponentSliderProgress
     {
         /// <summary>
         ///     像osu! approach circle 那樣

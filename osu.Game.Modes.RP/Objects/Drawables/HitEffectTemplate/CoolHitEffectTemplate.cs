@@ -13,7 +13,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
         /// <summary>
         ///     目前結果
         /// </summary>
-        protected new RPScoreResult RPScoreResult = RPScoreResult.Cool;
+        protected new RpScoreResult RPScoreResult = RpScoreResult.Cool;
 
         /// <summary>
         ///     黃色光環

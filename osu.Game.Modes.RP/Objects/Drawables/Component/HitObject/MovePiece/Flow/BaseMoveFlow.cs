@@ -1,5 +1,5 @@
 ﻿using osu.Framework.Graphics;
-using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
+using osu.Game.Modes.RP.Objects.Drawables.Component.CommonInterface;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common.ShapePiece;
 using OpenTK;
@@ -9,7 +9,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
     /// <summary>
     ///     所有飄移物件
     /// </summary>
-    internal class BaseMoveFlow : BaseMovePicec, ISliderProgress
+    internal class BaseMoveFlow : BaseMovePicec, IComponentSliderProgress
     {
         /// <summary>
         ///     物件身體部分

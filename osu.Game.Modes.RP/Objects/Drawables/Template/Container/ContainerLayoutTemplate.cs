@@ -4,6 +4,7 @@ using osu.Framework.Graphics.Transforms;
 using osu.Game.Modes.RP.Objects.Drawables.Calculator.Height;
 using osu.Game.Modes.RP.Objects.Drawables.Calculator.Position;
 using osu.Game.Modes.RP.Objects.Drawables.Pieces;
+using osu.Game.Modes.RP.SkinManager;
 using OpenTK;
 using OpenTK.Graphics;
 
@@ -132,7 +133,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template.Container
             {
                 Scale = new Vector2(1.0f, 0f),
                 Alpha = 0.5f,
-                Colour = HitObject.Colour
+                Colour = RpTextureColorManager.GetCoopLayoutColor(HitObject.Coop),
             };
         }
 

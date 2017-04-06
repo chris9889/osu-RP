@@ -10,7 +10,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
         /// <summary>
         ///     目前結果
         /// </summary>
-        protected new RPScoreResult RPScoreResult = RPScoreResult.Safe;
+        protected new RpScoreResult RPScoreResult = RpScoreResult.Safe;
 
         /// <summary>
         ///     有音樂形狀那個icon

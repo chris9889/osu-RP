@@ -12,7 +12,7 @@ namespace osu.Game.Modes.RP.ScoreProcessor
     {
         public override string ResultString { get; }
         public override string MaxResultString { get; }
-        public RPScoreResult Score;
+        public RpScoreResult Score;
         public List<Vector2> HitExplosionPosition = new List<Vector2>();
         public int AdditionalPlusScore = 0;
     }

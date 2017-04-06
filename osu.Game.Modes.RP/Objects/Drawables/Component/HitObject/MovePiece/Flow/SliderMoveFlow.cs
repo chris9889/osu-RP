@@ -1,12 +1,12 @@
 ﻿using osu.Framework.Graphics;
-using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
+using osu.Game.Modes.RP.Objects.Drawables.Component.CommonInterface;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common.ShapePiece;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
 {
-    internal class SliderMoveFlow : BaseMoveFlow, ISliderProgress
+    internal class SliderMoveFlow : BaseMoveFlow, IComponentSliderProgress
     {
         /// <summary>
         ///     物件身體部分
@@ -23,8 +23,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
         private readonly HitObjectAnyShapePiece hitObjectAnyShapePieceSecondObjectAny;
 
 
-        public SliderMoveFlow(BaseHitObject baseHitObject)
-            : base(baseHitObject)
+        public SliderMoveFlow(BaseHitObject baseHitObject): base(baseHitObject)
         {
             Children = new Drawable[]
             {

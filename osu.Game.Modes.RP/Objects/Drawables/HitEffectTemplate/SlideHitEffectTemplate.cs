@@ -10,7 +10,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.HitEffectTemplate
         /// <summary>
         ///     目前結果
         /// </summary>
-        protected new RPScoreResult RPScoreResult = RPScoreResult.Slider;
+        protected new RpScoreResult RPScoreResult = RpScoreResult.Slider;
 
         /// <summary>
         ///     白色十字

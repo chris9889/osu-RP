@@ -42,19 +42,19 @@ namespace osu.Game.Modes.RP.Objects.Drawables
                 //根據物件去顯示成績
                 switch (judgement.Score)
                 {
-                    case RPScoreResult.Sad:
+                    case RpScoreResult.Sad:
                         _hitEffect = new SadHitEffectTemplate();
                         break;
-                    case RPScoreResult.Safe:
+                    case RpScoreResult.Safe:
                         _hitEffect = new SafeHitEffectTemplate();
                         break;
-                    case RPScoreResult.Fine:
+                    case RpScoreResult.Fine:
                         _hitEffect = new FineHitEffectTemplate();
                         break;
-                    case RPScoreResult.Cool:
+                    case RpScoreResult.Cool:
                         _hitEffect = new CoolHitEffectTemplate();
                         break;
-                    case RPScoreResult.Slider:
+                    case RpScoreResult.Slider:
                         _hitEffect = new SlideHitEffectTemplate();
                         break;
                 }

@@ -1,12 +1,12 @@
 ﻿using System;
-using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
+using osu.Game.Modes.RP.Objects.Drawables.Component.CommonInterface;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece
 {
     /// <summary>
     ///     結束的物件後面帶的特效
     /// </summary>
-    internal class BaseMovePicec : BaseComponent, ISliderProgress
+    internal class BaseMovePicec : BaseComponent, IComponentSliderProgress
     {
         /// <summary>
         ///     打擊物件

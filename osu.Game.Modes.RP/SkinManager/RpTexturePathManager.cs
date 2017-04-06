@@ -57,7 +57,7 @@ namespace osu.Game.Modes.RP.SkinManager
             return "";
         }
 
-        public static string GetRPHitEffect(RPScoreResult result, string resource)
+        public static string GetRPHitEffect(RpScoreResult result, string resource)
         {
             return RP_HIT_EFFECT_FOLDER + result + @"/" + resource;
         }

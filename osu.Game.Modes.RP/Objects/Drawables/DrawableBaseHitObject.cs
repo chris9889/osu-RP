@@ -3,12 +3,10 @@
 
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using osu.Framework.Allocation;
 using osu.Framework.Audio;
 using osu.Framework.Audio.Sample;
 using osu.Framework.Graphics;
-using osu.Framework.Input;
 using osu.Game.Beatmaps.Samples;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress;
@@ -170,7 +168,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
     ///     如果遇到combo的情況
     ///     用不到，但目前先不要移除
     /// </summary>
-    public enum RPComboResult
+    public enum RpComboResult
     {
         [Description(@"")] None,
         [Description(@"Good")] Good,
@@ -180,7 +178,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
     /// <summary>
     ///     一般打擊
     /// </summary>
-    public enum RPScoreResult
+    public enum RpScoreResult
     {
         [Description(@"Sad")] Sad,
         [Description(@"Safe")] Safe,

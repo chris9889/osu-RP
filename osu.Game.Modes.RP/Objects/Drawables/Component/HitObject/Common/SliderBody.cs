@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 using osu.Framework.Graphics;
-using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
+using osu.Game.Modes.RP.Objects.Drawables.Component.CommonInterface;
 using osu.Game.Modes.RP.Objects.Drawables.Pieces;
 using OpenTK;
 
@@ -12,7 +12,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common
     /// <summary>
     ///     繪製拉感
     /// </summary>
-    internal class SliderBody : BaseComponent, ISliderProgress
+    internal class SliderBody : BaseComponent, IComponentSliderProgress
     {
         public float PathWidth
         {

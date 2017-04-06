@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using osu.Game.Modes.RP.Objects;
+using osu.Game.Modes.RP.Objects.type;
 using osu.Game.Modes.RP.Saving;
 using OpenTK.Input;
 using static osu.Game.Modes.RP.Saving.RpKeyLayoutConfig;
@@ -25,7 +26,15 @@ namespace osu.Game.Modes.RP.KeyManager
 
             foreach (var single in config.KeyDictionary)
                 if (single.Type == baseHitObject.Shape)
-                    output.Add(single.Key);
+                    if (baseHitObject.Coop== RpBaseHitObjectType.Coop.Both)//如果是通用
+                    {
+                        output.Add(single.Key);
+                    }
+                    else if (baseHitObject.Coop == single.Coop)//或是左右屬性符合
+                    {
+                        output.Add(single.Key);
+                    }
+
 
             return output;
         }

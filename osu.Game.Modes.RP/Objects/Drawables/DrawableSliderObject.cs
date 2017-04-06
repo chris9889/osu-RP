@@ -3,7 +3,6 @@
 
 using System;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Transforms;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.Drawables.Template.HitObject.Slide;
 using OpenTK;
@@ -62,11 +61,11 @@ namespace osu.Game.Modes.RP.Objects.Drawables
 
 
                 if (hitOffset < HitObject.hit300)
-                    divaInfo.Score = RPScoreResult.Cool;
+                    divaInfo.Score = RpScoreResult.Cool;
                 else if (hitOffset < HitObject.hit100)
-                    divaInfo.Score = RPScoreResult.Fine;
+                    divaInfo.Score = RpScoreResult.Fine;
                 else if (hitOffset < HitObject.hit50)
-                    divaInfo.Score = RPScoreResult.Safe;
+                    divaInfo.Score = RpScoreResult.Safe;
             }
             else
             {

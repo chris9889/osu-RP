@@ -110,7 +110,7 @@ namespace osu.Game.Modes.RP.Objects.type
         ///     還是只有其中一邊
         /// </summary>
         [Flags]
-        public enum LeftRight
+        public enum Coop
         {
             LeftOnly,
             RightOnly,

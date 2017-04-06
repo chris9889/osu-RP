@@ -91,8 +91,8 @@ namespace osu.Game.Modes.RP.Saving
         public SingleRpKeyLayoutConfig10K GenerateDefault10KPriority()
         {
             var config10K = new SingleRpKeyLayoutConfig10K();
-            var left = RpBaseHitObjectType.LeftRight.LeftOnly;
-            var right = RpBaseHitObjectType.LeftRight.RightOnly;
+            var left = RpBaseHitObjectType.Coop.LeftOnly;
+            var right = RpBaseHitObjectType.Coop.RightOnly;
             config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, left, Key.Unknown, KeyName.LeftSlide));
             config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Up, left, Key.Unknown, KeyName10K.LeftTriangle));
             config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Down, left, Key.Unknown, KeyName10K.LeftCross));
@@ -112,7 +112,7 @@ namespace osu.Game.Modes.RP.Saving
         public SingleRpKeyLayoutConfig6K GenerateDefault6KPriority()
         {
             var config6K = new SingleRpKeyLayoutConfig6K();
-            var both = RpBaseHitObjectType.LeftRight.Both;
+            var both = RpBaseHitObjectType.Coop.Both;
             config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, both, Key.Unknown, KeyName.LeftSlide));
             config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Up, both, Key.Unknown, KeyName6K.Triangle));
             config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Left, both, Key.Unknown, KeyName6K.Square));
@@ -207,12 +207,12 @@ namespace osu.Game.Modes.RP.Saving
             public Key Key;
             public string Name;
             public RpBaseHitObjectType.Shape Type;
-            public RpBaseHitObjectType.LeftRight LeftRight;
+            public RpBaseHitObjectType.Coop Coop;
 
-            public SingleKey(RpBaseHitObjectType.Shape type, RpBaseHitObjectType.LeftRight leftRight, Key key, string name)
+            public SingleKey(RpBaseHitObjectType.Shape type, RpBaseHitObjectType.Coop coop, Key key, string name)
             {
                 Key = key;
-                LeftRight = leftRight;
+                Coop = coop;
                 Name = name;
                 Type = type;
             }

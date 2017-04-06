@@ -32,5 +32,42 @@ namespace osu.Game.Modes.RP.SkinManager
             }
             return new Color4(255, 255, 255, 255);
         }
+
+        /// <summary>
+        /// get the layout color
+        /// </summary>
+        /// <returns></returns>
+        public static Color4 GetCoopLayoutColor(RpBaseHitObjectType.Coop coop)
+        {
+            switch (coop)
+            {
+                case RpBaseHitObjectType.Coop.Both://Both
+                    return new Color4(100, 100, 100, 255);
+                case RpBaseHitObjectType.Coop.LeftOnly://Left : blue
+                    return new Color4(70, 192, 206,255);
+                case RpBaseHitObjectType.Coop.RightOnly://Right : purple
+                    return new Color4(224, 80, 178,255);
+            }
+            return new Color4(255, 255, 255, 255);
+        }
+
+        /// <summary>
+        /// get the layout color
+        /// </summary>
+        /// <returns></returns>
+        public static Color4 GetCoopHitObjectColor(RpBaseHitObjectType.Coop coop)
+        {
+            switch (coop)
+            {
+                case RpBaseHitObjectType.Coop.Both://Both
+                    return new Color4(100, 100, 100, 255);
+                case RpBaseHitObjectType.Coop.LeftOnly://Left : blue
+                    return new Color4(70, 192, 206, 255);
+                case RpBaseHitObjectType.Coop.RightOnly://Right : purple
+                    return new Color4(224, 80, 178, 255);
+            }
+            return new Color4(255, 255, 255, 255);
+        }
+
     }
 }

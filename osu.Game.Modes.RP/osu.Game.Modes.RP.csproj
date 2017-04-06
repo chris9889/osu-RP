@@ -41,6 +41,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\Coop\CoopDecider.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\MultiContainer\MultiContainerDecidor.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Generator\HitObjectGenerator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\ObjectMovingPath\EndPosition\EndPositionGenerator.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\ObjectMovingPath\PathPosition\RpPathGenerator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\ObjectMovingPath\StartPosition\StartPositionGenerator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Position\PositionGenerator.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\PostProcess\HitObjectPostProcessor.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\PreAnalyse\AnaylseMulti.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\PreAnalyse\PreAnalyseHitObject.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Type\ProcessComboObject.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
     <Compile Include="Mods\ModsElement\RPAutoReplay.cs" />
+    <Compile Include="Objects\Drawables\Component\CommonInterface\IWaveWithBpm.cs" />
     <Compile Include="Objects\Drawables\Component\Container\IChangeableContainerComponent.cs" />
     <Compile Include="Objects\Drawables\Pieces\ConnectionLine.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\Common\ShapePiece\HitObjectRectanglePiece.cs" />
@@ -74,6 +77,9 @@
     <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\Hold\BaseStillHold.cs" />
     <Compile Include="Objects\Drawables\Component\HitObject\StillPiece\Slide\BaseStillSlide.cs" />
     <Compile Include="Objects\Drawables\Pieces\Slider.cs" />
+    <Compile Include="Objects\Drawables\Template\CommonInterface\IBaseEditableTemplate.cs" />
+    <Compile Include="Objects\Drawables\Template\CommonInterface\IContainerEditableTemplate.cs" />
+    <Compile Include="Objects\Drawables\Template\CommonInterface\IRpHitObjectEditableTemplate.cs" />
     <Compile Include="Objects\Drawables\Template\Container\EditableContainerLayoutTemplate.cs" />
     <Compile Include="Objects\Drawables\Template\Container\EditableContainerTemplate.cs" />
     <Compile Include="Objects\Drawables\Template\HitObject\Click\EditableClickTemplate.cs" />
@@ -105,8 +111,7 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectConnector\RpHitMulitpleObjectConnectionLine.cs" />
     <Compile Include="Objects\Drawables\DrawableBaseRpObject.cs" />
     <Compile Include="Objects\Drawables\DrawableContainer.cs" />
-    <Compile Include="Objects\Drawables\DrawableMultiBaseHitObject.cs" />
-    <Compile Include="Objects\Drawables\Component\Common\ISliderProgress.cs" />
+    <Compile Include="Objects\Drawables\Component\CommonInterface\IComponentSliderProgress.cs" />
     <Compile Include="Objects\Drawables\Calculator\PathPrecentage\PathPrecentageCounter.cs" />
     <Compile Include="Objects\Drawables\HitEffectTemplate\BaseHitEffectTemplate.cs" />
     <Compile Include="Objects\Drawables\HitEffectTemplate\CoolHitEffectTemplate.cs" />

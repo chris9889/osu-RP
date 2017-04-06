@@ -2,7 +2,7 @@
 using osu.Framework.MathUtils;
 using osu.Game.Modes.RP.Objects.Drawables.Calculator.PathPrecentage;
 using osu.Game.Modes.RP.Objects.Drawables.Component;
-using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
+using osu.Game.Modes.RP.Objects.Drawables.Component.CommonInterface;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common;
 using OpenTK;
 
@@ -22,7 +22,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Template
         /// <summary>
         ///     打擊點上的物件，會隨時間移動
         /// </summary>
-        public List<ISliderProgress> Components = new List<ISliderProgress>();
+        public List<IComponentSliderProgress> Components = new List<IComponentSliderProgress>();
 
         /// <summary>
         ///     把所有開頭物件都丟在這裡

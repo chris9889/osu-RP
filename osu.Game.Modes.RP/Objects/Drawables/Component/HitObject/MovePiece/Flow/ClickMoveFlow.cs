@@ -2,13 +2,13 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Framework.Graphics;
-using osu.Game.Modes.RP.Objects.Drawables.Component.Common;
+using osu.Game.Modes.RP.Objects.Drawables.Component.CommonInterface;
 using osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.Common.ShapePiece;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.Objects.Drawables.Component.HitObject.MovePiece.Flow
 {
-    internal class ClickMoveFlow : BaseMoveFlow, ISliderProgress
+    internal class ClickMoveFlow : BaseMoveFlow, IComponentSliderProgress
     {
         /// <summary>
         ///     開頭和結尾物件

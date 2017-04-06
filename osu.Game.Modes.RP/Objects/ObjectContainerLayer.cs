@@ -1,4 +1,6 @@
-﻿using OpenTK.Graphics;
+﻿using System.Net;
+using osu.Game.Modes.RP.Objects.type;
+using OpenTK.Graphics;
 
 namespace osu.Game.Modes.RP.Objects
 {
@@ -21,6 +23,8 @@ namespace osu.Game.Modes.RP.Objects
         ///     物件長度
         /// </summary>
         public float Lenght = 512;
+
+        public RpBaseHitObjectType.Coop Coop= RpBaseHitObjectType.Coop.Both;
 
         public ObjectContainerLayer(ObjectContainer objectContainer)
         {

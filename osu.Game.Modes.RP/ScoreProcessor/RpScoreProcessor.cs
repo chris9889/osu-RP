@@ -1,7 +1,6 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using System;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.Drawables;
@@ -56,18 +55,18 @@ namespace osu.Game.Modes.RP.ScoreProcessor
             {
                 switch (j.Score)
                 {
-                    case RPScoreResult.Sad:
+                    case RpScoreResult.Sad:
                         maxScore += 300;
                         break;
-                    case RPScoreResult.Safe:
+                    case RpScoreResult.Safe:
                         score += 100;
                         maxScore += 300;
                         break;
-                    case RPScoreResult.Fine:
+                    case RpScoreResult.Fine:
                         score += 250;
                         maxScore += 300;
                         break;
-                    case RPScoreResult.Cool:
+                    case RpScoreResult.Cool:
                         score += 300;
                         maxScore += 300;
                         break;

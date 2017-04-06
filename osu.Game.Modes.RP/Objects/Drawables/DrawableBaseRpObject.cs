@@ -1,7 +1,4 @@
-﻿using osu.Framework.Allocation;
-using osu.Framework.Audio;
-using osu.Framework.Graphics;
-using osu.Game.Beatmaps.Samples;
+﻿using osu.Framework.Graphics;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.Drawables.Template;
 using osu.Game.Modes.RP.ScoreProcessor;
@@ -95,6 +92,6 @@ namespace osu.Game.Modes.RP.Objects.Drawables
             Template.UpdateTemplate(Time.Current);
         }
 
-        protected override RpJudgement CreateJudgement() => new RpJudgement { Score = RPScoreResult.Cool };
+        protected override RpJudgement CreateJudgement() => new RpJudgement { Score = RpScoreResult.Cool };
     }
 }
