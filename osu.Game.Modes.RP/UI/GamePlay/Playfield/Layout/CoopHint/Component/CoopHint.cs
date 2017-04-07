@@ -1,7 +1,4 @@
-﻿
-
-using System.Drawing;
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Game.Modes.RP.Objects.Drawables.Pieces;
 using osu.Game.Modes.RP.Objects.type;

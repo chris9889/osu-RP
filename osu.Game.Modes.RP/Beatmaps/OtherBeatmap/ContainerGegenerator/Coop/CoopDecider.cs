@@ -84,7 +84,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
         /// <returns></returns>
         int GetRandomValue(ComvertParameter single)
         {
-            return single.ListRefrenceObject.Count+single.ContainerConvertParameter.ListObjectContainer.Count;
+            return single.ListRefrenceObject.Count+single.ContainerConvertParameter.ListObjectContainer.Count+1;
         }
     }
 }

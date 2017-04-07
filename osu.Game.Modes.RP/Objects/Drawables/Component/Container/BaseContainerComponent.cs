@@ -12,7 +12,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
         /// <summary>
         ///     負責計算物件在時間點該有的位置
         /// </summary>
-        private readonly ContainerLayoutPositionCounter _positionCounter = new ContainerLayoutPositionCounter();
+        protected readonly ContainerLayoutPositionCounter _positionCounter = new ContainerLayoutPositionCounter();
 
         public BaseContainerComponent(ObjectContainer hitObject)
         {

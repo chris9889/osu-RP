@@ -53,8 +53,11 @@ namespace osu.Game.Modes.RP.Objects.Drawables.Component.Container
         /// </summary>
         private void InitialBeat()
         {
-            for (var i = 0; i < 6; i++)
+            for (var i = 0; i < 20; i++)
             {
+                if(_positionCounter.GetPosition(i * GetDeltaBeatTime(), HitObject.Velocity) > _positionCounter.GetPosition(HitObject.EndTime- HitObject.StartTime, HitObject.Velocity))
+                    break;
+
                 //物件
                 var line = new ImagePicec(RpTexturePathManager.GetBeatLineTexture());
                 //

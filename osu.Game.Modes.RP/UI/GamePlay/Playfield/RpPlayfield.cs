@@ -110,6 +110,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                     Depth = -2
                 }
             });
+            Depth = 1;
         }
 
 

@@ -142,6 +142,8 @@ namespace osu.Game.Screens.Play
             //bind ScoreProcessor to ourselves (for a fail situation)
             scoreProcessor.Failed += onFail;
 
+            hudOverlay.Depth = 0;
+
             Children = new Drawable[]
             {
                 new Container
@@ -155,7 +157,8 @@ namespace osu.Game.Screens.Play
                         {
                             Alpha = 0
                         },
-                    }
+                    },
+                    Depth =1,
                 },
                 hudOverlay,
                 pauseOverlay
