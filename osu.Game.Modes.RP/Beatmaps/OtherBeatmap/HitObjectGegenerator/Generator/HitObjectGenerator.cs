@@ -2,7 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System.Collections.Generic;
-using osu.Game.Beatmaps.Samples;
+using osu.Game.Audio;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Modes.RP.Objects;
@@ -31,11 +31,15 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Generator
         {
             var rpHitObject = new RpHitObject();
             //fake sample
-            rpHitObject.Sample = new HitSampleInfo
-            {
-                Type = SampleType.Whistle,
-                Set = SampleSet.Soft
-            };
+            rpHitObject.Samples.Clear();
+            rpHitObject.Samples.Add(
+                  new SampleInfo
+                  {
+                      Bank="whistle",
+                      Name = "soft"
+                  }
+                );
+               
             //fake position
             rpHitObject.Position = new Vector2(100, 100);
 

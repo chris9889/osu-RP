@@ -1,5 +1,4 @@
-﻿using System.Net;
-using osu.Game.Modes.RP.Objects.type;
+﻿using osu.Game.Modes.RP.Objects.type;
 using OpenTK.Graphics;
 
 namespace osu.Game.Modes.RP.Objects

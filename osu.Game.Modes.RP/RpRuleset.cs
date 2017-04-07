@@ -10,7 +10,6 @@ using osu.Game.Modes.RP.KeyManager;
 using osu.Game.Modes.RP.ScoreProcessor;
 using osu.Game.Modes.RP.UI.Beatmap;
 using osu.Game.Modes.RP.UI.GamePlay.KeyCounter;
-using osu.Game.Modes.RP.UI.Select;
 using osu.Game.Modes.RP.UI.Select.Info;
 using osu.Game.Modes.RP.UI.Select.Mod;
 using osu.Game.Modes.UI;

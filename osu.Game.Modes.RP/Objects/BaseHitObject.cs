@@ -1,7 +1,7 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Game.Beatmaps.Samples;
+using osu.Game.Audio;
 using osu.Game.Modes.RP.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.type;
 
@@ -72,9 +72,13 @@ namespace osu.Game.Modes.RP.Objects
 
         public BaseHitObject()
         {
-            Sample = new HitSampleInfo();
-            Sample.Set= SampleSet.Soft;
-            Sample.Type = SampleType.Whistle;
+            this.Samples.Add(
+                 new SampleInfo
+                 {
+                     Bank = "whistle",
+                     Name = "soft"
+                 }
+            );
         }
 
         /// <summary>

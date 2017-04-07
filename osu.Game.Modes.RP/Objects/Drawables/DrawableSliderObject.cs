@@ -143,7 +143,7 @@ namespace osu.Game.Modes.RP.Objects.Drawables
                     FadeOut(800);
                     ScaleTo(Scale * 1.5f, 400, EasingTypes.OutQuad);
                     //播放打擊的聲音
-                    PlaySample();
+                    PlaySamples();
                     break;
             }
 

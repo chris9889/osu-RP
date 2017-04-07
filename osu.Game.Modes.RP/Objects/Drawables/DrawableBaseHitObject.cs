@@ -3,11 +3,8 @@
 
 using System;
 using System.ComponentModel;
-using osu.Framework.Allocation;
-using osu.Framework.Audio;
 using osu.Framework.Audio.Sample;
 using osu.Framework.Graphics;
-using osu.Game.Beatmaps.Samples;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.Drawables.Calculator.DrawableDetectPress;
 using osu.Game.Modes.RP.Objects.Drawables.Template;
@@ -131,17 +128,17 @@ namespace osu.Game.Modes.RP.Objects.Drawables
         }
 
 
-        [BackgroundDependencyLoader]
-        private void load(AudioManager audio)
-        {
-            SampleType type = HitObject.Sample?.Type ?? SampleType.Whistle;
-            if (type == SampleType.None)
-                type = SampleType.Normal;
+        //[BackgroundDependencyLoader]
+        //private void load(AudioManager audio)
+        //{
+        //    SampleType type = HitObject.Sample?.Type ?? SampleType.Whistle;
+        //    if (type == SampleType.None)
+        //        type = SampleType.Normal;
 
-            SampleSet sampleSet = HitObject.Sample?.Set ?? SampleSet.Soft;
+        //    SampleSet sampleSet = HitObject.Sample?.Set ?? SampleSet.Soft;
 
-            Sample = audio.Sample.Get($@"Gameplay/{sampleSet.ToString().ToLower()}-hit{type.ToString().ToLower()}");
-        }
+        //    Sample = audio.Sample.Get($@"Gameplay/{sampleSet.ToString().ToLower()}-hit{type.ToString().ToLower()}");
+        //}
 
         private void InitialDetectPressEvent()
         {

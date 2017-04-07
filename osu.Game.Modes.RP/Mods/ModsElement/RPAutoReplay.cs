@@ -9,7 +9,6 @@ using osu.Game.Beatmaps;
 using osu.Game.Modes.Replays;
 using osu.Game.Modes.RP.KeyManager;
 using osu.Game.Modes.RP.Objects;
-using osu.Game.Modes.RP.Objects.type;
 using osu.Game.Modes.RP.Replay;
 using OpenTK;
 using OpenTK.Input;

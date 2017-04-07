@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using osu.Game.Beatmaps.Samples;
+using osu.Game.Audio;
 using osu.Game.Modes.Objects;
 using osu.Game.Modes.RP.Objects;
 using OpenTK;
@@ -105,11 +105,13 @@ namespace osu.Game.Modes.RP.Parser
             }
             result.Position = new Vector2(int.Parse(split[0]), int.Parse(split[1]));
             result.StartTime = double.Parse(split[2]);
-            result.Sample = new HitSampleInfo
-            {
-                Type = (SampleType)int.Parse(split[4]),
-                Set = SampleSet.Soft
-            };
+            result.Samples.Add(
+                  new SampleInfo
+                  {
+                      Bank = "whistle",
+                      Name = "soft"
+                  }
+                );
             //result.NewCombo = combo;
             // TODO: "addition" field
             return result;
