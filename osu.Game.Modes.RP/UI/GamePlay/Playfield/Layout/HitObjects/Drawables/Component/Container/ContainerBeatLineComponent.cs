@@ -56,12 +56,11 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         {
             for (var i = 0; i < 20; i++)
             {
-                if(_positionCounter.GetPosition(i * GetDeltaBeatTime(), HitObject.Velocity) > _positionCounter.GetPosition(HitObject.EndTime- HitObject.StartTime, HitObject.Velocity))
+                if (_positionCounter.GetPosition(i * GetDeltaBeatTime(), HitObject.Velocity) > _positionCounter.GetPosition(HitObject.EndTime - HitObject.StartTime, HitObject.Velocity))
                     break;
 
                 //物件
                 var line = new ImagePicec(RpTexturePathManager.GetBeatLineTexture());
-                //
                 line.Scale = new Vector2(0.6f);
                 //設定位置
                 line.Position = CalculatePosition(i * GetDeltaBeatTime());

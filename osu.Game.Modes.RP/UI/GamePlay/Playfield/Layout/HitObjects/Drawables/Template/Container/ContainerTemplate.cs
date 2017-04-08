@@ -29,6 +29,16 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Te
         private readonly List<IChangeableContainerComponent> IChangeableContainerComponent = new List<IChangeableContainerComponent>();
 
         /// <summary>
+        ///     負責計算物件在時間點該有的位置
+        /// </summary>
+        private readonly ContainerLayoutPositionCounter _positionCounter = new ContainerLayoutPositionCounter();
+
+        /// <summary>
+        ///     計算物件的相關高度和Height位置
+        /// </summary>
+        private readonly ContainerLayoutHeightCalculator _heightCalculator = new ContainerLayoutHeightCalculator();
+
+        /// <summary>
         ///     背景
         /// </summary>
         private ContainerBackgroundComponent _containerBackgroundComponent;
@@ -47,16 +57,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Te
         ///     顯示節拍線的
         /// </summary>
         private ContainerBeatLineComponent _containerBeatLineComponent;
-
-        /// <summary>
-        ///     負責計算物件在時間點該有的位置
-        /// </summary>
-        private readonly ContainerLayoutPositionCounter _positionCounter = new ContainerLayoutPositionCounter();
-
-        /// <summary>
-        ///     計算物件的相關高度和Height位置
-        /// </summary>
-        private readonly ContainerLayoutHeightCalculator _heightCalculator = new ContainerLayoutHeightCalculator();
 
         public ContainerTemplate(ObjectContainer hitObject)
             : base(hitObject)

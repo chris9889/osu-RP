@@ -8,18 +8,17 @@ using osu.Game.Modes.Replays;
 namespace osu.Game.Modes.RP.Replay
 {
     /// <summary>
-    /// RP 專用譜面紀錄系統
+    ///     RP 專用譜面紀錄系統
     /// </summary>
     public class RpReplayInputHandler : FramedReplayInputHandler
     {
-
-        public RpReplayInputHandler(Replays.Replay replay) : base(replay)
+        public RpReplayInputHandler(Replays.Replay replay)
+            : base(replay)
         {
-
         }
 
         /// <summary>
-        /// 只有鍵盤
+        ///     只有鍵盤
         /// </summary>
         /// <returns></returns>
         public override List<InputState> GetPendingStates()
@@ -27,13 +26,13 @@ namespace osu.Game.Modes.RP.Replay
             //get the RpReplayFrame
             var correntFrame = (RpReplayFrame)CurrentFrame;
             return new List<InputState>
+            {
+                new InputState
                 {
-                    new InputState
-                    {
-                        //get keys from frame
-                        Keyboard = new ReplayKeyboardState(correntFrame.ListPressKeys)
-                    }
-                };
+                    //get keys from frame
+                    Keyboard = new ReplayKeyboardState(correntFrame.ListPressKeys)
+                }
+            };
         }
     }
 }

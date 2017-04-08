@@ -11,7 +11,7 @@ namespace osu.Game.Modes.RP.UI.Select.Info
     /// </summary>
     internal class BeatmapStatistics : IEnumerable<BeatmapStatistic>
     {
-        private Game.Beatmaps.Beatmap _beatmap;
+        private Beatmap _beatmap;
 
         public BeatmapStatistics(WorkingBeatmap beatmap)
         {

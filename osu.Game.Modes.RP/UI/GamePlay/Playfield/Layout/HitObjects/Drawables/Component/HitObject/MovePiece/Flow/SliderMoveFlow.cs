@@ -24,7 +24,8 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         private readonly HitObjectAnyShapePiece hitObjectAnyShapePieceSecondObjectAny;
 
 
-        public SliderMoveFlow(BaseHitObject baseHitObject): base(baseHitObject)
+        public SliderMoveFlow(BaseHitObject baseHitObject)
+            : base(baseHitObject)
         {
             Children = new Drawable[]
             {

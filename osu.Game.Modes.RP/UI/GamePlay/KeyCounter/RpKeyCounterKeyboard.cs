@@ -16,18 +16,19 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
     internal class RpKeyCounterKeyboard : KeyCounterKeyboard
     {
         private readonly SingleKeyLayout _layout;
+        //
+        private readonly SingleKey _singlekey;
         //顯示按鈕
         private Sprite _buttonIconSprite;
         //顯示按鍵名稱
         private SpriteText _textSprite;
-        //
-        private readonly SingleKey _singlekey;
 
         /// <summary>
         ///     建構
         /// </summary>
         /// <param name="name"></param>
-        public RpKeyCounterKeyboard(string name, SingleKey singlekey, SingleKeyLayout layout) : base(singlekey.Key)
+        public RpKeyCounterKeyboard(string name, SingleKey singlekey, SingleKeyLayout layout)
+            : base(singlekey.Key)
         {
             _singlekey = singlekey;
             _layout = layout;
@@ -35,11 +36,10 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
         }
 
         [BackgroundDependencyLoader]
-        private new  void load(TextureStore textures)
+        private void load(TextureStore textures)
         {
-            
             Children = new Drawable[]
-           {
+            {
                 buttonSprite = new Sprite
                 {
                     Texture = textures.Get(@"KeyCounter/key-up"),
@@ -89,7 +89,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                         }
                     }
                 }
-           };
+            };
 
             //KeyCounter Text Color
             //KeyDownTextColor = RpTextureColorManager.GetCoopLayoutColor(_singlekey.Coop);

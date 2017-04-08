@@ -39,7 +39,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         public override void FadeOut(double time = 0)
         {
             //RP FadeIn 動畫特效
-            _rpRectangleComponent.ScaleTo(new Vector2(1, 0), time*3, EasingTypes.OutElastic);
+            _rpRectangleComponent.ScaleTo(new Vector2(1, 0), time * 3, EasingTypes.OutElastic);
         }
 
         /// <summary>

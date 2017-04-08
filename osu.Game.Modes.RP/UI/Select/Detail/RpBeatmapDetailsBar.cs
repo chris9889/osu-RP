@@ -11,6 +11,38 @@ namespace osu.Game.Modes.RP.UI.Select.Detail
 {
     internal class RpBeatmapDetailsBar : Container
     {
+        public float Length
+        {
+            get { return length; }
+            set
+            {
+                length = MathHelper.Clamp(value, 0, 1);
+                updateBarLength();
+            }
+        }
+
+        public SRGBColour BackgroundColour
+        {
+            get { return background.Colour; }
+            set { background.Colour = value; }
+        }
+
+        public SRGBColour BarColour
+        {
+            get { return bar.Colour; }
+            set { bar.Colour = value; }
+        }
+
+        public BarDirection Direction
+        {
+            get { return direction; }
+            set
+            {
+                direction = value;
+                updateBarLength();
+            }
+        }
+
         private readonly Box background;
         private readonly Box bar;
 
@@ -19,68 +51,20 @@ namespace osu.Game.Modes.RP.UI.Select.Detail
         private const EasingTypes easing = EasingTypes.InOutCubic;
 
         private float length;
-        public float Length
-        {
-            get
-            {
-                return length;
-            }
-            set
-            {
-                length = MathHelper.Clamp(value,0,1);
-                updateBarLength();
-            }
-        }
-
-        public SRGBColour BackgroundColour
-        {
-            get
-            {
-                return background.Colour;
-            }
-            set
-            {
-                background.Colour = value;
-            }
-        }
-
-        public SRGBColour BarColour
-        {
-            get
-            {
-                return bar.Colour;
-            }
-            set
-            {
-                bar.Colour = value;
-            }
-        }
 
         private BarDirection direction = BarDirection.LeftToRight;
-        public BarDirection Direction
-        {
-            get
-            {
-                return direction;
-            }
-            set
-            {
-                direction = value;
-                updateBarLength();
-            }
-        }
 
         public RpBeatmapDetailsBar()
         {
-            Children = new []
+            Children = new[]
             {
                 background = new Box
                 {
-                    RelativeSizeAxes = Axes.Both,
+                    RelativeSizeAxes = Axes.Both
                 },
                 bar = new Box
                 {
-                    RelativeSizeAxes = Axes.Both,
+                    RelativeSizeAxes = Axes.Both
                 }
             };
         }
@@ -120,6 +104,6 @@ namespace osu.Game.Modes.RP.UI.Select.Detail
         LeftToRight,
         RightToLeft,
         TopToBottom,
-        BottomToTop,
+        BottomToTop
     }
 }

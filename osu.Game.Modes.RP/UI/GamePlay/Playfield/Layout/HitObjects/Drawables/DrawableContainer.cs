@@ -26,6 +26,8 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             set { Template = value; }
         }
 
+        private bool _startFadeont;
+
         /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
@@ -74,7 +76,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             base.UpdatePreemptState();
         }
 
-        private bool _startFadeont = false;
         /// <summary>
         ///     持續一直更新物件
         /// </summary>

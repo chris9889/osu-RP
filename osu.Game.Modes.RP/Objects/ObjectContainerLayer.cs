@@ -23,7 +23,7 @@ namespace osu.Game.Modes.RP.Objects
         /// </summary>
         public float Lenght = 512;
 
-        public RpBaseHitObjectType.Coop Coop= RpBaseHitObjectType.Coop.Both;
+        public RpBaseHitObjectType.Coop Coop = RpBaseHitObjectType.Coop.Both;
 
         public ObjectContainerLayer(ObjectContainer objectContainer)
         {

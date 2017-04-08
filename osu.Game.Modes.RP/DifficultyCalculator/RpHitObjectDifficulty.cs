@@ -50,10 +50,10 @@ namespace osu.Game.Modes.RP.DifficultyCalculator
         private const double almost_diameter = 90;
 
         private readonly float scalingFactor;
-        private float lazySliderLength;
 
         private readonly Vector2 startPosition;
         private readonly Vector2 endPosition;
+        private float lazySliderLength;
 
         internal RpHitObjectDifficulty(BaseRpObject baseHitObject)
         {

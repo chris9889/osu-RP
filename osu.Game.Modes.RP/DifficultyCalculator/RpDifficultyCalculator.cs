@@ -4,9 +4,9 @@
 using System;
 using System.Collections.Generic;
 using osu.Game.Beatmaps;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap;
 using osu.Game.Modes.RP.Objects;
 using static osu.Game.Modes.RP.Objects.type.RpBaseObjectType;
-using osu.Game.Modes.RP.Beatmaps.OtherBeatmap;
 
 namespace osu.Game.Modes.RP.DifficultyCalculator
 {

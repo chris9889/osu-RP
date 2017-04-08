@@ -10,10 +10,6 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
 {
     public class SliceProcessor
     {
-        private double _diffStar;
-
-        private Beatmap _originalBeatmap;
-
         private readonly ContainerVolocityCalculator _containerVolocityCalculator = new ContainerVolocityCalculator();
 
         /// <summary>
@@ -25,6 +21,10 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
         ///     回傳時間範圍內的index
         /// </summary>
         private readonly TimeSlicingCalculator _timeSlicingCalculator = new TimeSlicingCalculator();
+
+        private double _diffStar;
+
+        private Beatmap _originalBeatmap;
 
         /// <summary>
         ///     回傳切割結果

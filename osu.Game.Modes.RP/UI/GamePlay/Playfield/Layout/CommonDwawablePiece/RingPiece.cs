@@ -15,8 +15,8 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece
     /// </summary>
     public class RingPiece : Container
     {
-        private RpHitObject _rpObject;
         private readonly Sprite ring;
+        private RpHitObject _rpObject;
 
         public RingPiece(RpHitObject rpObject)
         {

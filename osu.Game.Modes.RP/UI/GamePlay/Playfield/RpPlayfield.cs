@@ -77,7 +77,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
 
             Add(new Drawable[]
             {
-                _coopHintLayout=new CoopHintLayout
+                _coopHintLayout = new CoopHintLayout
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = 3

@@ -18,7 +18,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator
 
         private readonly PositionGenerator positionGenerator = new PositionGenerator();
 
-        HitObjectPostProcessor hitObjectPostProcessor=new HitObjectPostProcessor();
+        private readonly HitObjectPostProcessor hitObjectPostProcessor = new HitObjectPostProcessor();
 
         public List<ComvertParameter> Convert(List<ComvertParameter> output)
         {

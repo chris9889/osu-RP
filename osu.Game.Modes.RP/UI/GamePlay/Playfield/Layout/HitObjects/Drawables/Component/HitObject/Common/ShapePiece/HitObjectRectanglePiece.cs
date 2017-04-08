@@ -16,6 +16,11 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         public bool IsFirst = true;
 
         /// <summary>
+        ///     外框
+        /// </summary>
+        private readonly ImagePicec _borderImagePicec;
+
+        /// <summary>
         ///     Mask
         /// </summary>
         private ImagePicec _maskImagePicec;
@@ -24,11 +29,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         ///     Mask 底下的背景物件
         /// </summary>
         private ImagePicec _startBackgroundImagePicec;
-
-        /// <summary>
-        ///     外框
-        /// </summary>
-        private readonly ImagePicec _borderImagePicec;
 
 
         /// <summary>

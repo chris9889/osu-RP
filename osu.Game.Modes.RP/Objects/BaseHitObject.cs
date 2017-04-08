@@ -12,7 +12,6 @@ namespace osu.Game.Modes.RP.Objects
     /// </summary>
     public abstract class BaseHitObject : BaseRpObject
     {
-       
         public override double EndTime => StartTime;
         public override double Duration => EndTime - StartTime;
         //判定
@@ -72,17 +71,17 @@ namespace osu.Game.Modes.RP.Objects
 
         public BaseHitObject()
         {
-            this.Samples.Add(
-                 new SampleInfo
-                 {
-                     Bank = "whistle",
-                     Name = "soft"
-                 }
+            Samples.Add(
+                new SampleInfo
+                {
+                    Bank = "whistle",
+                    Name = "soft"
+                }
             );
         }
 
         /// <summary>
-        /// 討延遲時間用
+        ///     討延遲時間用
         /// </summary>
         /// <param name="result"></param>
         /// <returns></returns>

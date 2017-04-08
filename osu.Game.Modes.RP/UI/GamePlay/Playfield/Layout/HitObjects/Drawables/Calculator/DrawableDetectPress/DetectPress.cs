@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Input;
-using osu.Game.Modes.Judgements;
 using osu.Game.Modes.RP.KeyManager;
 using osu.Game.Modes.RP.Objects;
 using OpenTK.Input;
@@ -43,7 +42,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Ca
         private Key _nowPressMatchKey = Key.Unknown;
 
         //目前按下去的按鍵是不是有效的
-        private bool _pressValid=false;
+        private bool _pressValid;
 
         public DetectPress(BaseHitObject baseRpObject, Judgements.Judgement judgement)
         {
@@ -51,9 +50,8 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Ca
             //預先取得那些按鍵按了會有作用
             _compareKey = RpKeyManager.GetListKey(baseRpObject);
 
-            this.Children=new Drawable[]
+            Children = new Drawable[]
             {
-                
             };
         }
 
@@ -93,7 +91,8 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Ca
 
                 //如果過濾後發現沒有Key
                 if (pressKeyList.Count >= 0)
-                    _nowPressMatchKey = pressKeyList[0];;
+                    _nowPressMatchKey = pressKeyList[0];
+                ;
             }
             return false;
         }
@@ -126,7 +125,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Ca
             }
             else if (false)
             {
-
             }
             return false;
         }

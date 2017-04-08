@@ -18,7 +18,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator
         //決定物件位置
         private readonly PositionDecidor positionDecidor = new PositionDecidor();
 
-        CoopDecider coopDecider=new CoopDecider();
+        private readonly CoopDecider coopDecider = new CoopDecider();
 
         public List<ComvertParameter> Convert(List<ComvertParameter> output)
         {

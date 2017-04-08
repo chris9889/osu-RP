@@ -25,7 +25,7 @@ namespace osu.Game.Modes.RP
         public override FontAwesome Icon => FontAwesome.fa_align_justify;
 
         /// <summary>
-        /// Description
+        ///     Description
         /// </summary>
         public override string Description => "osu!RP";
 
@@ -64,7 +64,7 @@ namespace osu.Game.Modes.RP
         public override Game.Beatmaps.DifficultyCalculator CreateDifficultyCalculator(Beatmap beatmap) => new RpDifficultyCalculator(beatmap);
 
         /// <summary>
-        /// Score processor
+        ///     Score processor
         /// </summary>
         /// <returns></returns>
         public override Scoring.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor();

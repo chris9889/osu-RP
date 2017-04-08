@@ -44,9 +44,10 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
             }
         }
 
-        //IEnumerator IEnumerable.GetEnumerator()
-        //{
-        //    throw new NotImplementedException();
         //}
+        //    throw new NotImplementedException();
+        //{
+
+        //IEnumerator IEnumerable.GetEnumerator()
     }
 }

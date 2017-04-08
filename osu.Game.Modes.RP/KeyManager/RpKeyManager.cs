@@ -26,14 +26,10 @@ namespace osu.Game.Modes.RP.KeyManager
 
             foreach (var single in config.KeyDictionary)
                 if (single.Type == baseHitObject.Shape)
-                    if (baseHitObject.Coop== RpBaseHitObjectType.Coop.Both)//如果是通用
-                    {
+                    if (baseHitObject.Coop == RpBaseHitObjectType.Coop.Both) //如果是通用
                         output.Add(single.Key);
-                    }
-                    else if (baseHitObject.Coop == single.Coop)//或是左右屬性符合
-                    {
+                    else if (baseHitObject.Coop == single.Coop) //或是左右屬性符合
                         output.Add(single.Key);
-                    }
 
 
             return output;

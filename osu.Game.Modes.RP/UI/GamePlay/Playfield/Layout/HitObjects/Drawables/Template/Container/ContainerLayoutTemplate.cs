@@ -6,7 +6,6 @@ using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Calculator.Height;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Calculator.Position;
 using OpenTK;
-using OpenTK.Graphics;
 
 namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.Container
 {
@@ -25,16 +24,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Te
         protected ObjectContainerLayer HitObject;
 
         /// <summary>
-        ///     顯示單行背景
-        /// </summary>
-        private RectanglePiece _rpRectanglePiece;
-
-        /// <summary>
-        ///     顯示單行背景
-        /// </summary>
-        private RectanglePiece _linePiece;
-
-        /// <summary>
         ///     負責計算物件在時間點該有的位置
         /// </summary>
         private readonly ContainerLayoutPositionCounter _positionCounter = new ContainerLayoutPositionCounter();
@@ -43,6 +32,16 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Te
         ///     計算物件的相關高度和Height位置
         /// </summary>
         private readonly ContainerLayoutHeightCalculator _heightCalculator = new ContainerLayoutHeightCalculator();
+
+        /// <summary>
+        ///     顯示單行背景
+        /// </summary>
+        private RectanglePiece _rpRectanglePiece;
+
+        /// <summary>
+        ///     顯示單行背景
+        /// </summary>
+        private RectanglePiece _linePiece;
 
         public ContainerLayoutTemplate(ObjectContainerLayer hitObject)
             : base(hitObject)
@@ -120,7 +119,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Te
             {
                 Origin = Anchor.CentreRight,
                 Scale = new Vector2(1.0f, 0f),
-                Colour = new Color4(214, 23, 23, 255)
+                Colour = RpTextureColorManager.GetCoopJudgementLineColor(HitObject.Coop)
             };
         }
 
@@ -133,7 +132,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Te
             {
                 Scale = new Vector2(1.0f, 0f),
                 Alpha = 0.5f,
-                Colour = RpTextureColorManager.GetCoopLayoutColor(HitObject.Coop),
+                Colour = RpTextureColorManager.GetCoopLayoutColor(HitObject.Coop)
             };
         }
 

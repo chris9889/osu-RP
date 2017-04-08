@@ -106,12 +106,12 @@ namespace osu.Game.Modes.RP.Parser
             result.Position = new Vector2(int.Parse(split[0]), int.Parse(split[1]));
             result.StartTime = double.Parse(split[2]);
             result.Samples.Add(
-                  new SampleInfo
-                  {
-                      Bank = "whistle",
-                      Name = "soft"
-                  }
-                );
+                new SampleInfo
+                {
+                    Bank = "whistle",
+                    Name = "soft"
+                }
+            );
             //result.NewCombo = combo;
             // TODO: "addition" field
             return result;

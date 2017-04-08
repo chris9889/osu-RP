@@ -54,7 +54,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
             Children = new Drawable[]
             {
-                Template,
+                Template
                 //_rpDetectPress
             };
         }

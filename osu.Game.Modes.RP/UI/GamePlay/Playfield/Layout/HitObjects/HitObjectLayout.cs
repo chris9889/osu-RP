@@ -44,7 +44,8 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects
                 if (drawableHitObject is DrawableRpLongPress)
                     ContainerBackgroundLayout.GetContainerByTime(drawableHitObject.HitObject.StartTime).ElementAt(containerIndex).ContainerTemplate.AddObject(drawableHitObject as DrawableRpLongPress);
                 else
-                    ContainerBackgroundLayout.GetContainerByTime(drawableHitObject.HitObject.StartTime).ElementAt(containerIndex).ContainerTemplate.ListLayoutTemplate[layoutIndex].AddObject(drawableHitObject);
+                    ContainerBackgroundLayout.GetContainerByTime(drawableHitObject.HitObject.StartTime).ElementAt(containerIndex).ContainerTemplate.ListLayoutTemplate[layoutIndex].AddObject(
+                        drawableHitObject);
             }
             catch
             {

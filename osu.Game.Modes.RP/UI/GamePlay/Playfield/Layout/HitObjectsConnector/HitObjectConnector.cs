@@ -49,14 +49,14 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
         }
 
         /// <summary>
-        /// </summary>
-        private int pointDistance = 32;
-
-        /// <summary>
         ///     will scan when the beatmap converted Finish
         ///     add all the same time's HitObject's Tuple will place in there
         /// </summary>
         private readonly List<List<DrawableBaseHitObject>> ListTuple = new List<List<DrawableBaseHitObject>>();
+
+        /// <summary>
+        /// </summary>
+        private int pointDistance = 32;
 
         private int preEmpt = 800;
 
@@ -73,7 +73,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
             foreach (var currHitObject in hitObjects)
             {
                 if (lastObjectTime != null && currHitObject.HitObject.StartTime == lastObjectTime.HitObject.StartTime)
-                {
                     if (ListTuple.Count > 0 && ListTuple[ListTuple.Count - 1][0].HitObject.StartTime == lastObjectTime.HitObject.StartTime) //exist tuple
                     {
                         ListTuple[ListTuple.Count - 1].Add(currHitObject);
@@ -85,7 +84,6 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
                         sligleTuple.Add(currHitObject);
                         ListTuple.Add(sligleTuple);
                     }
-                }
                 lastObjectTime = currHitObject;
             }
 

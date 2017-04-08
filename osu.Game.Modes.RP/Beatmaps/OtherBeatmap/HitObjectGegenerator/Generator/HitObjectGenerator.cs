@@ -33,13 +33,13 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Generator
             //fake sample
             rpHitObject.Samples.Clear();
             rpHitObject.Samples.Add(
-                  new SampleInfo
-                  {
-                      Bank="whistle",
-                      Name = "soft"
-                  }
-                );
-               
+                new SampleInfo
+                {
+                    Bank = "whistle",
+                    Name = "soft"
+                }
+            );
+
             //fake position
             rpHitObject.Position = new Vector2(100, 100);
 
