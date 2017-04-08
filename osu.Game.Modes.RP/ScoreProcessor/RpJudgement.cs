@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 using osu.Game.Modes.Judgements;
-using osu.Game.Modes.RP.Objects.Drawables;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 using OpenTK;
 
 namespace osu.Game.Modes.RP.ScoreProcessor

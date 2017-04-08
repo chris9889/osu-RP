@@ -2,8 +2,8 @@
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using osu.Game.Audio;
-using osu.Game.Modes.RP.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.type;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 
 namespace osu.Game.Modes.RP.Objects
 {

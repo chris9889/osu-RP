@@ -8,7 +8,7 @@ using osu.Game.Modes.Mods;
 using osu.Game.Modes.RP.DifficultyCalculator;
 using osu.Game.Modes.RP.KeyManager;
 using osu.Game.Modes.RP.ScoreProcessor;
-using osu.Game.Modes.RP.UI.Beatmap;
+using osu.Game.Modes.RP.UI.GamePlay.HitRenderer;
 using osu.Game.Modes.RP.UI.GamePlay.KeyCounter;
 using osu.Game.Modes.RP.UI.Select.Info;
 using osu.Game.Modes.RP.UI.Select.Mod;

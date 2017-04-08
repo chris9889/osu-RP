@@ -6,12 +6,12 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects;
-using osu.Game.Modes.RP.Objects.Drawables;
 using osu.Game.Modes.RP.ScoreProcessor;
-using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Background;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.ContainerBackground;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.CoopHint;
-using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObject;
-using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectConnector;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.KeySound;
 using osu.Game.Modes.UI;
 using OpenTK;
@@ -42,7 +42,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         /// <summary>
         ///     顯示背景
         /// </summary>
-        private readonly BackgroundLayout _backgroundLayout;
+        private readonly ContainerBackgroundLayou containerBackgroundLayou;
 
         /// <summary>
         ///     用來顯示打擊物件的 Layout
@@ -82,7 +82,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                     RelativeSizeAxes = Axes.Both,
                     Depth = 3
                 },
-                _backgroundLayout = new BackgroundLayout //背景
+                containerBackgroundLayou = new ContainerBackgroundLayou //背景
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = 2
@@ -91,7 +91,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = 1,
-                    _backgroundLayout = _backgroundLayout
+                    containerBackgroundLayou = containerBackgroundLayou
                 },
                 _hitObjectConnector = new HitObjectConnector //物件連線
                 {
@@ -128,9 +128,9 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
             if (hitObject is DrawableContainer)
             {
                 //增加背景物件
-                _backgroundLayout.AddContainer(hitObject as DrawableContainer);
+                containerBackgroundLayou.AddContainer(hitObject as DrawableContainer);
                 //
-                //keySoundLayout.Add(_backgroundLayout.CreateProxy());
+                //keySoundLayout.Add(containerBackgroundLayou.CreateProxy());
             }
             else
             {

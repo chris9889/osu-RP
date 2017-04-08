@@ -3,7 +3,7 @@
 
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects;
-using osu.Game.Modes.RP.Objects.Drawables;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 using osu.Game.Modes.Scoring;
 using osu.Game.Modes.UI;
 

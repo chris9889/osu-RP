@@ -1,6 +1,6 @@
 ﻿using osu.Game.Modes.RP.Objects;
-using osu.Game.Modes.RP.Objects.Drawables;
 using osu.Game.Modes.RP.Objects.type;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 using OpenTK.Graphics;
 
 namespace osu.Game.Modes.RP.SkinManager
