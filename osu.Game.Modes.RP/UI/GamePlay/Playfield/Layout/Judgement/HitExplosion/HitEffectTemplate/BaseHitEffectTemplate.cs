@@ -1,6 +1,7 @@
 ﻿using osu.Framework.Graphics.Containers;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 
-namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.HitEffectTemplate
+namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosion.HitEffectTemplate
 {
     /// <summary>
     ///     打擊特效

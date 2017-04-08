@@ -115,12 +115,12 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableContainer.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\CommonInterface\IComponentSliderProgress.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Calculator\PathPrecentage\PathPrecentageCounter.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\HitEffectTemplate\BaseHitEffectTemplate.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\HitEffectTemplate\CoolHitEffectTemplate.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\HitEffectTemplate\FineHitEffectTemplate.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\HitEffectTemplate\SadHitEffectTemplate.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\HitEffectTemplate\SafeHitEffectTemplate.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\HitEffectTemplate\SlideHitEffectTemplate.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\HitExplosion\HitEffectTemplate\BaseHitEffectTemplate.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\HitExplosion\HitEffectTemplate\CoolHitEffectTemplate.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\HitExplosion\HitEffectTemplate\FineHitEffectTemplate.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\HitExplosion\HitEffectTemplate\SadHitEffectTemplate.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\HitExplosion\HitEffectTemplate\SafeHitEffectTemplate.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\HitExplosion\HitEffectTemplate\SlideHitEffectTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\BarPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\ImagePicec.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\HitObject\Click\ClickTemplate.cs" />
@@ -150,7 +150,7 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\ExplodePiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\FlashPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\GlowPiece.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\HitExplosion.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\HitExplosion\HitExplosion.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\HitObject\Common\ComboNumberPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\RingPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\Triangles.cs" />
@@ -161,6 +161,7 @@
     <Compile Include="UI\GamePlay\KeyCounter\RpKeyCounterKeyboard.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\ContainerBackground\ContainerBackgroundLayout.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\BaseGamePlayLayout.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\JudgementLayout.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\KeySound\KeySoundLayout.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectsConnector\HitObjectConnector.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\HitObjectLayout.cs" />

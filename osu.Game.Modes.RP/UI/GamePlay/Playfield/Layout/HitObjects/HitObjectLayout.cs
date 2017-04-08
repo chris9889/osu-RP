@@ -12,7 +12,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects
     {
         /// <summary>
         /// </summary>
-        public ContainerBackgroundLayou containerBackgroundLayou;
+        public ContainerBackgroundLayout ContainerBackgroundLayout;
 
         /// <summary>
         ///     那些找不到Container 的物件
@@ -42,9 +42,9 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects
 
                 //如果是背景按壓物件
                 if (drawableHitObject is DrawableRpLongPress)
-                    containerBackgroundLayou.GetContainerByTime(drawableHitObject.HitObject.StartTime).ElementAt(containerIndex).ContainerTemplate.AddObject(drawableHitObject as DrawableRpLongPress);
+                    ContainerBackgroundLayout.GetContainerByTime(drawableHitObject.HitObject.StartTime).ElementAt(containerIndex).ContainerTemplate.AddObject(drawableHitObject as DrawableRpLongPress);
                 else
-                    containerBackgroundLayou.GetContainerByTime(drawableHitObject.HitObject.StartTime).ElementAt(containerIndex).ContainerTemplate.ListLayoutTemplate[layoutIndex].AddObject(drawableHitObject);
+                    ContainerBackgroundLayout.GetContainerByTime(drawableHitObject.HitObject.StartTime).ElementAt(containerIndex).ContainerTemplate.ListLayoutTemplate[layoutIndex].AddObject(drawableHitObject);
             }
             catch
             {
@@ -58,7 +58,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects
         /// <returns></returns>
         public IEnumerable<DrawableBaseRpObject> GetHitObjectByTime(double time)
         {
-            var listContainer = containerBackgroundLayou.GetContainerByTime(time);
+            var listContainer = ContainerBackgroundLayout.GetContainerByTime(time);
             if (listContainer.Count() > 0)
                 foreach (var container in listContainer)
                 {

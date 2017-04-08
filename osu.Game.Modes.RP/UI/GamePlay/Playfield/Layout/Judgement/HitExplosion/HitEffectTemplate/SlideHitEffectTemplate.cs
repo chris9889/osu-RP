@@ -1,9 +1,10 @@
 ﻿using osu.Framework.Graphics;
 using osu.Game.Modes.RP.SkinManager;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 using OpenTK;
 
-namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.HitEffectTemplate
+namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosion.HitEffectTemplate
 {
     internal class SlideHitEffectTemplate : BaseHitEffectTemplate
     {

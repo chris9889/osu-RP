@@ -45,7 +45,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Ca
         //目前按下去的按鍵是不是有效的
         private bool _pressValid=false;
 
-        public DetectPress(BaseHitObject baseRpObject, Judgement judgement)
+        public DetectPress(BaseHitObject baseRpObject, Judgements.Judgement judgement)
         {
             _baseRPObject = baseRpObject;
             //預先取得那些按鍵按了會有作用

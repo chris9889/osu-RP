@@ -3,7 +3,6 @@
 
 using System.Linq;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Containers;
 using osu.Game.Modes.Objects.Drawables;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.ScoreProcessor;
@@ -12,6 +11,7 @@ using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.CoopHint;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Judgement;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.KeySound;
 using osu.Game.Modes.UI;
 using OpenTK;
@@ -42,7 +42,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         /// <summary>
         ///     顯示背景
         /// </summary>
-        private readonly ContainerBackgroundLayou containerBackgroundLayou;
+        private readonly ContainerBackgroundLayout containerBackgroundLayout;
 
         /// <summary>
         ///     用來顯示打擊物件的 Layout
@@ -57,7 +57,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         /// <summary>
         ///     用來判斷打擊的 Layout
         /// </summary>
-        private readonly Container _judgementLayer;
+        private readonly JudgementLayout _judgementLayer;
 
         /// <summary>
         ///     顯示前方指針，和一些特殊物件
@@ -82,7 +82,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                     RelativeSizeAxes = Axes.Both,
                     Depth = 3
                 },
-                containerBackgroundLayou = new ContainerBackgroundLayou //背景
+                containerBackgroundLayout = new ContainerBackgroundLayout //背景
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = 2
@@ -91,7 +91,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = 1,
-                    containerBackgroundLayou = containerBackgroundLayou
+                    ContainerBackgroundLayout = containerBackgroundLayout
                 },
                 _hitObjectConnector = new HitObjectConnector //物件連線
                 {
@@ -104,7 +104,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                     RelativeSizeAxes = Axes.Both,
                     Depth = -1
                 },
-                _judgementLayer = new Container //打擊特效
+                _judgementLayer = new JudgementLayout //打擊特效
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = -2
@@ -128,9 +128,9 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
             if (hitObject is DrawableContainer)
             {
                 //增加背景物件
-                containerBackgroundLayou.AddContainer(hitObject as DrawableContainer);
+                containerBackgroundLayout.AddContainer(hitObject as DrawableContainer);
                 //
-                //keySoundLayout.Add(containerBackgroundLayou.CreateProxy());
+                //keySoundLayout.Add(containerBackgroundLayout.CreateProxy());
             }
             else
             {
@@ -155,8 +155,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         /// <param name="j"></param>
         public override void OnJudgement(DrawableHitObject<BaseRpObject, RpJudgement> drawableHitObject)
         {
-            var explosion = new HitExplosion(drawableHitObject.Judgement, drawableHitObject.HitObject);
-            _judgementLayer.Add(explosion);
+            _judgementLayer.AddHitEffect(drawableHitObject);
         }
     }
 }

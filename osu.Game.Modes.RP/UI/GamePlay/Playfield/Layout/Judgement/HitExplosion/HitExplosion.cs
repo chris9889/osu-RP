@@ -5,10 +5,11 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.ScoreProcessor;
-using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.HitEffectTemplate;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
+using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosion.HitEffectTemplate;
 using OpenTK;
 
-namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
+namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosion
 {
     /// <summary>
     ///     打擊會產生的特效

@@ -8,14 +8,14 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
     ///     負責放置背景
     ///     DrawableContainer
     /// </summary>
-    internal class ContainerBackgroundLayou : BaseGamePlayLayout
+    internal class ContainerBackgroundLayout : BaseGamePlayLayout
     {
         /// <summary>
         ///     Container
         /// </summary>
         public List<DrawableContainer> _listContainer = new List<DrawableContainer>();
 
-        public ContainerBackgroundLayou()
+        public ContainerBackgroundLayout()
         {
             Anchor = Anchor.Centre;
             Origin = Anchor.Centre;
