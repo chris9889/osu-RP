@@ -20,15 +20,15 @@ namespace osu.Game.Modes.RP.SkinManager
             switch (type)
             {
                 case RpBaseHitObjectType.Shape.Right:
-                    return new Color4(255, 194, 224, 255);
+                    return new Color4(226, 66, 54, 255);
                 case RpBaseHitObjectType.Shape.Down:
-                    return new Color4(255, 194, 224, 255);
+                    return new Color4(54, 99, 226, 255);
                 case RpBaseHitObjectType.Shape.Left:
-                    return new Color4(255, 194, 224, 255);
+                    return new Color4(226, 54, 177, 255);
                 case RpBaseHitObjectType.Shape.Up:
-                    return new Color4(255, 194, 224, 255);
+                    return new Color4(131, 226, 54, 255);
                 case RpBaseHitObjectType.Shape.ContainerPress:
-                    return new Color4(189, 189, 189, 255);
+                    return new Color4(169, 188, 185, 255);
             }
             return new Color4(255, 255, 255, 255);
         }
@@ -41,12 +41,12 @@ namespace osu.Game.Modes.RP.SkinManager
         {
             switch (coop)
             {
-                case RpBaseHitObjectType.Coop.Both: //Both
+                case RpBaseHitObjectType.Coop.Both://Both
                     return new Color4(100, 100, 100, 255);
-                case RpBaseHitObjectType.Coop.LeftOnly: //Left : blue
-                    return new Color4(255, 255, 255, 255);
-                case RpBaseHitObjectType.Coop.RightOnly: //Right : purple
-                    return new Color4(255, 255, 255, 255);
+                case RpBaseHitObjectType.Coop.LeftOnly://Left : blue
+                    return new Color4(70, 192, 206, 255);
+                case RpBaseHitObjectType.Coop.RightOnly://Right : purple
+                    return new Color4(224, 80, 178, 255);
             }
             return new Color4(255, 255, 255, 255);
         }
@@ -59,12 +59,12 @@ namespace osu.Game.Modes.RP.SkinManager
         {
             switch (coop)
             {
-                case RpBaseHitObjectType.Coop.Both: //Both
-                    return new Color4(214, 23, 23, 255);
-                case RpBaseHitObjectType.Coop.LeftOnly: //Left : blue
-                    return new Color4(214, 23, 23, 255);
-                case RpBaseHitObjectType.Coop.RightOnly: //Right : purple
-                    return new Color4(214, 23, 23, 255);
+                case RpBaseHitObjectType.Coop.Both://Both
+                    return new Color4(100, 100, 100, 255);
+                case RpBaseHitObjectType.Coop.LeftOnly://Left : blue
+                    return new Color4(70, 192, 206, 255);
+                case RpBaseHitObjectType.Coop.RightOnly://Right : purple
+                    return new Color4(224, 80, 178, 255);
             }
             return new Color4(255, 255, 255, 255);
         }

@@ -39,13 +39,13 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.KeySound
                 return false;
             var hitIndex = 0;
             if (_listShapeKeys.Contains(args.Key))
-                for (var i = 0; i < _listShapeKeys.Count; i++)
+                for (int i = 0; i < _listShapeKeys.Count; i++)
                     if (_listShapeKeys[i] == args.Key)
                         PlayShapeSample(i);
             else if (_containerPressKeys.Contains(args.Key))
-                for (var i = 0; i < _containerPressKeys.Count; i++)
-                    if (_containerPressKeys[i] == args.Key)
-                        PlayContainerPressSample(i);
+                for (int j = 0; j < _containerPressKeys.Count; j++)
+                    if (_containerPressKeys[j] == args.Key)
+                        PlayContainerPressSample(j);
             return base.OnKeyDown(state, args);
         }
 
