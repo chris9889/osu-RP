@@ -162,6 +162,10 @@ namespace osu.Game.Screens.Play
                 {
                     OnRetry = Restart,
                     OnQuit = Exit,
+                },
+                new HotkeyRetryOverlay
+                {
+                    Action = Restart,
                 }
             };
         }
