@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System.Collections.Generic;
@@ -14,11 +14,11 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Generator
     /// </summary>
     public class HitObjectGenerator
     {
-        public List<SingleHitObjectConvertParameter> GeneratorListHitObject(ComvertParameter single)
+        public List<SingleHitObjectConvertParameter> GeneratorListHitObject(ConvertParameter single)
         {
             foreach (var singleHitObject in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             {
-                var singleHitObjects = new List<BaseHitObject>();
+                var singleHitObjects = new List<BaseRpHitObject>();
                 for (var i = 0; i < singleHitObject.MultiNumber; i++)
                     singleHitObjects.Add(GenerateRpHitObject(singleHitObject));
                 singleHitObject.ListBaseHitObject = singleHitObjects;

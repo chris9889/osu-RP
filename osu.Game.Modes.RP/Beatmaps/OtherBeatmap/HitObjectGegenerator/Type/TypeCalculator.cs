@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
@@ -15,13 +15,13 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
         private readonly ProcessComboObject _processComboObject = new ProcessComboObject();
 
         //單一一段的物件
-        private ComvertParameter _singleSlideParameter;
+        private ConvertParameter _singleSlideParameter;
 
-        public void ProcessType(ComvertParameter single)
+        public void ProcessType(ConvertParameter single)
         {
             _singleSlideParameter = single;
-            _processObjectTypeRandom.SetComvertParameter(_singleSlideParameter);
-            _processComboObject.SetComvertParameter(_singleSlideParameter);
+            _processObjectTypeRandom.SetConvertParameter(_singleSlideParameter);
+            _processComboObject.SetConvertParameter(_singleSlideParameter);
             var tupleCount = _singleSlideParameter.HitObjectConvertParameter.ListSingleHitObjectConvertParameter.Count;
             for (var i = 0; i < tupleCount; i++)
                 if (single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter[i].IsCombo)

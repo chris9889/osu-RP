@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 
@@ -13,7 +13,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
         /// <summary>
         ///     Container
         /// </summary>
-        public List<DrawableContainer> _listContainer = new List<DrawableContainer>();
+        public List<DrawableRpContainer> _listContainer = new List<DrawableRpContainer>();
 
         public ContainerBackgroundLayout()
         {
@@ -24,7 +24,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
         /// <summary>
         ///     增加Container
         /// </summary>
-        public void AddContainer(DrawableContainer drawableContainer)
+        public void AddContainer(DrawableRpContainer drawableContainer)
         {
             _listContainer.Add(drawableContainer);
             Add(drawableContainer);
@@ -34,7 +34,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
         ///     根據時間取得時間點上的Container
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<DrawableContainer> GetContainerByTime(double time)
+        public IEnumerable<DrawableRpContainer> GetContainerByTime(double time)
         {
             foreach (var container in _listContainer)
                 if (container.HitObject.StartTime <= time && container.HitObject.EndTime >= time)

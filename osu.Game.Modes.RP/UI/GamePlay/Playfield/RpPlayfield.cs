@@ -1,4 +1,4 @@
-﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
+//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System.Linq;
@@ -52,7 +52,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         /// <summary>
         ///     連接多個物件用來畫線的
         /// </summary>
-        private readonly ConnectionRenderer<DrawableBaseHitObject> _hitObjectConnector;
+        private readonly ConnectionRenderer<DrawableBaseRpHitObject> _hitObjectConnector;
 
         /// <summary>
         ///     用來判斷打擊的 Layout
@@ -125,10 +125,10 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
             //IDrawableHitObjectWithProxiedApproach c = hitObject as IDrawableHitObjectWithProxiedApproach;
 
 
-            if (hitObject is DrawableContainer)
+            if (hitObject is DrawableRpContainer)
             {
                 //增加背景物件
-                containerBackgroundLayout.AddContainer(hitObject as DrawableContainer);
+                containerBackgroundLayout.AddContainer(hitObject as DrawableRpContainer);
                 //
                 //keySoundLayout.Add(containerBackgroundLayout.CreateProxy());
             }
@@ -136,7 +136,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
             {
                 base.Add(hitObject);
                 //增加物件
-                _rpObjectLayout.AddDrawObject(hitObject as DrawableBaseHitObject);
+                _rpObjectLayout.AddDrawObject(hitObject as DrawableBaseRpHitObject);
             }
         }
 
@@ -144,7 +144,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         public override void PostProcess()
         {
             //order by time
-            _hitObjectConnector.HitObjects = HitObjects.Children.Select(d => (DrawableBaseHitObject)d).OrderBy(h => h.HitObject.StartTime);
+            _hitObjectConnector.HitObjects = HitObjects.Children.Select(d => (DrawableBaseRpHitObject)d).OrderBy(h => h.HitObject.StartTime);
             _hitObjectConnector.ScanSameTuple();
         }
 

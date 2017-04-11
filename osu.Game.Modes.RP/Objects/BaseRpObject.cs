@@ -6,6 +6,7 @@ using osu.Game.Modes.RP.Objects.type;
 using OpenTK;
 using OpenTK.Graphics;
 using SliderCurve = osu.Game.Modes.RP.Objects.MovingPath.SliderCurve;
+using System;
 
 namespace osu.Game.Modes.RP.Objects
 {
@@ -13,7 +14,7 @@ namespace osu.Game.Modes.RP.Objects
     ///     目前所有RP物件共通都會出現的
     ///     包括打擊物件和Container(乘載RP物件的地方)
     /// </summary>
-    public abstract class BaseRpObject : HitObject
+    public abstract class BaseRpObject : HitObject 
     {
         public virtual double EndTime => StartTime;
 

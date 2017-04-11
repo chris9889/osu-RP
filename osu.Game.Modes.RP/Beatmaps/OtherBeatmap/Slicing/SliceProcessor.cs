@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using osu.Game.Beatmaps;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing.DiffStarCalculator;
@@ -30,9 +30,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
         ///     回傳切割結果
         /// </summary>
         /// <returns>The list comvert parameter.</returns>
-        public List<ComvertParameter> GetListComvertParameter(Beatmap originalBeatmap)
+        public List<ConvertParameter> GetListConvertParameter(Beatmap originalBeatmap)
         {
-            var list = new List<ComvertParameter>();
+            var list = new List<ConvertParameter>();
             _originalBeatmap = originalBeatmap;
             //Get The Diff of beatmap;
             _diffStar = _originalBeatmapDifficultyCalculator.CalculateBeatmapDifficulty(_originalBeatmap);
@@ -62,7 +62,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
         /// </summary>
         /// <param name="result"></param>
         /// <returns></returns>
-        public SliceConvertParameter GetSliceConvertParameterResult(ComvertParameter result, float volicity)
+        public SliceConvertParameter GetSliceConvertParameterResult(ConvertParameter result, float volicity)
         {
             //decide the number of container and layout
             var sliceConvertParameter = new SliceConvertParameter();
@@ -89,9 +89,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Slicing
         /// <param name="startIndex"></param>
         /// <param name="endIndex"></param>
         /// <returns></returns>
-        private ComvertParameter SlicingSingle(int startIndex, int endIndex, float volicity)
+        private ConvertParameter SlicingSingle(int startIndex, int endIndex, float volicity)
         {
-            var single = new ComvertParameter();
+            var single = new ConvertParameter();
 
             //Get Physical Refrence Object
             single.ListRefrenceObject = _originalBeatmap.HitObjects.GetRange(startIndex, endIndex - startIndex);

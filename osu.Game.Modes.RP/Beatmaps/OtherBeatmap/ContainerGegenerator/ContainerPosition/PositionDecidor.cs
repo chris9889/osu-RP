@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.ContainerPosition
@@ -22,7 +22,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Container
                 _listLineRemainCount.Add(0);
         }
 
-        public void AllocatePosition(ComvertParameter single)
+        public void AllocatePosition(ConvertParameter single)
         {
             var availLine = ScanAvailableList();
 
@@ -69,7 +69,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Container
             return 0;
         }
 
-        private int GetRandNumber(ComvertParameter single, int index)
+        private int GetRandNumber(ConvertParameter single, int index)
         {
             //確保
             return single.ContainerConvertParameter.LayoutNumber + (int)single.SliceConvertParameter.StartTime + index * (_listLineRemainCount.Count - 2) - ScanAvailableList(); //確保每次物件會間隔兩個位置

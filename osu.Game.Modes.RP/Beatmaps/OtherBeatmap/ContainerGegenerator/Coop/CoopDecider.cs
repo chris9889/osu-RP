@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.type;
@@ -13,7 +13,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
         ///     DecideCoop
         /// </summary>
         /// <param name="single"></param>
-        internal void DecideCoop(ComvertParameter single)
+        internal void DecideCoop(ConvertParameter single)
         {
             var layoutNumber = 0;
             //Get the number of layoutNumber;
@@ -33,7 +33,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
         /// <summary>
         ///     all the layout will have non-coop
         /// </summary>
-        private void GenerateNonCoop(ComvertParameter single)
+        private void GenerateNonCoop(ConvertParameter single)
         {
             foreach (var sligleContainer in single.ContainerConvertParameter.ListObjectContainer)
             foreach (var layout in sligleContainer.ContainerLayerList)
@@ -43,9 +43,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
         /// <summary>
         ///     Depend on how many layout and decide the coop
         /// </summary>
-        private void GenerateCoop(ComvertParameter single)
+        private void GenerateCoop(ConvertParameter single)
         {
-            var listLayout = new List<ObjectContainerLayer>();
+            var listLayout = new List<RpContainerLayout>();
             foreach (var sligleContainer in single.ContainerConvertParameter.ListObjectContainer)
                 listLayout.AddRange(sligleContainer.ContainerLayerList);
 
@@ -61,7 +61,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
         ///     generate readom value by something
         /// </summary>
         /// <returns></returns>
-        private int GetRandomValue(ComvertParameter single)
+        private int GetRandomValue(ConvertParameter single)
         {
             return single.ListRefrenceObject.Count + single.ContainerConvertParameter.ListObjectContainer.Count + 1;
         }

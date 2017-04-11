@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
@@ -14,7 +14,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PreAnalys
         //目前同時有幾個物件按壓
         private readonly AnaylseMulti AnaylseMulti = new AnaylseMulti();
 
-        public HitObjectConvertParameter Analyse(ComvertParameter single)
+        public HitObjectConvertParameter Analyse(ConvertParameter single)
         {
             //打擊物件的參數
             var parameter = new HitObjectConvertParameter();

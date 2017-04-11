@@ -7,7 +7,7 @@ using osu.Game.Graphics;
 namespace osu.Game.Modes.RP.UI.Select.Info
 {
     /// <summary>
-    ///     統計beatmap數據
+    ///     get some information of the beatmap
     /// </summary>
     internal class BeatmapStatistics : IEnumerable<BeatmapStatistic>
     {
@@ -23,7 +23,7 @@ namespace osu.Game.Modes.RP.UI.Select.Info
         /// <returns></returns>
         public IEnumerator<BeatmapStatistic> GetEnumerator()
         {
-            //打擊點數量
+            //RpHitObject
             yield return new BeatmapStatistic
             {
                 Name = @"Hit",
@@ -31,7 +31,7 @@ namespace osu.Game.Modes.RP.UI.Select.Info
                 Icon = FontAwesome.fa_dot_circle_o
             };
 
-            //slider數量
+            //RpSlider
             yield return new BeatmapStatistic
             {
                 Name = @"Slider",
@@ -39,7 +39,7 @@ namespace osu.Game.Modes.RP.UI.Select.Info
                 Icon = FontAwesome.fa_circle_o
             };
 
-            //press數量
+            //RpPress
             yield return new BeatmapStatistic
             {
                 Name = @"Press",
@@ -47,7 +47,7 @@ namespace osu.Game.Modes.RP.UI.Select.Info
                 Icon = FontAwesome.fa_circle_o
             };
 
-            //Container數量
+            //RpContainer
             yield return new BeatmapStatistic
             {
                 Name = @"Container",
@@ -57,6 +57,7 @@ namespace osu.Game.Modes.RP.UI.Select.Info
         }
 
         /// <summary>
+        /// GetEnumerator
         /// </summary>
         /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()

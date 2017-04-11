@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.ContainerPosition;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Generator;
@@ -20,7 +20,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator
 
         private readonly CoopDecider coopDecider = new CoopDecider();
 
-        public List<ComvertParameter> Convert(List<ComvertParameter> output)
+        public List<ConvertParameter> Convert(List<ConvertParameter> output)
         {
             foreach (var single in output)
             {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -36,7 +36,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Ca
         protected List<Key> _compareKey;
 
         //RP物件
-        private readonly BaseHitObject _baseRPObject;
+        private readonly BaseRpHitObject _baseRPObject;
 
         //目前按下配對的按鍵
         private Key _nowPressMatchKey = Key.Unknown;
@@ -44,7 +44,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Ca
         //目前按下去的按鍵是不是有效的
         private bool _pressValid;
 
-        public DetectPress(BaseHitObject baseRpObject, Judgements.Judgement judgement)
+        public DetectPress(BaseRpHitObject baseRpObject, Judgements.Judgement judgement)
         {
             _baseRPObject = baseRpObject;
             //預先取得那些按鍵按了會有作用

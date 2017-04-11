@@ -1,4 +1,4 @@
-﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
+//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
@@ -27,14 +27,14 @@ namespace osu.Game.Modes.RP.Parser
             var combo = type.HasFlag(ObjectType.NewCombo);
             type &= (ObjectType)0xF;
             type &= ~ObjectType.NewCombo;
-            BaseHitObject result;
+            BaseRpHitObject result;
             switch (type)
             {
                 case ObjectType.Click:
                     result = new RpHitObject();
                     break;
                 case ObjectType.LongTail:
-                    var s = new RpLongTailObject();
+                    var s = new RpSliderObject();
 
                     var curveType = CurveTypes.Catmull;
                     var repeatCount = 0;
@@ -68,19 +68,19 @@ namespace osu.Game.Modes.RP.Parser
 
                         var temp = pointsplit[i].Split(':');
                         var v = new Vector2(
-                            (int)Convert.ToDouble(temp[0], CultureInfo.InvariantCulture),
-                            (int)Convert.ToDouble(temp[1], CultureInfo.InvariantCulture)
+                            (int)System.Convert.ToDouble(temp[0], CultureInfo.InvariantCulture),
+                            (int)System.Convert.ToDouble(temp[1], CultureInfo.InvariantCulture)
                         );
                         points.Add(v);
                     }
 
-                    repeatCount = Convert.ToInt32(split[6], CultureInfo.InvariantCulture);
+                    repeatCount = System.Convert.ToInt32(split[6], CultureInfo.InvariantCulture);
 
                     if (repeatCount > 9000)
                         throw new ArgumentOutOfRangeException("wacky man");
 
                     if (split.Length > 7)
-                        length = Convert.ToDouble(split[7], CultureInfo.InvariantCulture);
+                        length = System.Convert.ToDouble(split[7], CultureInfo.InvariantCulture);
 
                     //s.RepeatCount = repeatCount;
 

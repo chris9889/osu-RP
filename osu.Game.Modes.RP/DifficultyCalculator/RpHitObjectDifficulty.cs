@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
@@ -60,7 +60,7 @@ namespace osu.Game.Modes.RP.DifficultyCalculator
             BaseHitObject = baseHitObject;
             var circleRadius = baseHitObject.Scale * 64;
 
-            var slider = BaseHitObject as RpLongTailObject;
+            var slider = BaseHitObject as RpSliderObject;
             if (slider != null)
                 MaxCombo += 2; // slider.Ticks.Count();
 

@@ -1,4 +1,4 @@
-﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
+//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
@@ -13,7 +13,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     繪製 RP HitCircle
     /// </summary>
-    internal class DrawableRpHitObject : DrawableBaseHitObject, IDrawableHitObjectWithProxiedApproach
+    internal class DrawableRpHitObject : DrawableBaseRpHitObject, IDrawableHitObjectWithProxiedApproach
     {
         public Drawable ProxiedLayer
         {

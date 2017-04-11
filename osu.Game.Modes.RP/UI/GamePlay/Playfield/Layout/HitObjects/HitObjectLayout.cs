@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.ContainerBackground;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
@@ -25,7 +25,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects
         /// <param name="drawObject"></param>
         public void AddDrawObject(DrawableBaseRpObject drawObject)
         {
-            var drawableHitObject = drawObject as DrawableBaseHitObject;
+            var drawableHitObject = drawObject as DrawableBaseRpHitObject;
             AddDrawableBaseHitObject(drawableHitObject);
         }
 
@@ -33,7 +33,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects
         ///     增加物件進來
         /// </summary>
         /// <param name="drawableHitObject"></param>
-        public void AddDrawableBaseHitObject(DrawableBaseHitObject drawableHitObject)
+        public void AddDrawableBaseHitObject(DrawableBaseRpHitObject drawableHitObject)
         {
             try
             {

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Modes.RP.Objects;
 
@@ -11,10 +11,10 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Generator
         /// <summary>
         ///     Generators the object by parameter.
         /// </summary>
-        internal List<ObjectContainer> GetListContainer(ComvertParameter single)
+        internal List<RpContainer> GetListContainer(ConvertParameter single)
         {
-            var returnContainer = new List<ObjectContainer>();
-            var listLayout = new List<ObjectContainerLayer>();
+            var returnContainer = new List<RpContainer>();
+            var listLayout = new List<RpContainerLayout>();
 
             //container number
             for (var i = 0; i < single.ContainerConvertParameter.ContainerNumber; i++)
@@ -33,9 +33,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Generator
         }
 
 
-        private ObjectContainer GenerateSingleContainer(ComvertParameter single)
+        private RpContainer GenerateSingleContainer(ConvertParameter single)
         {
-            var objectContainer = new ObjectContainer(single.SliceConvertParameter.StartTime);
+            var objectContainer = new RpContainer(single.SliceConvertParameter.StartTime);
             objectContainer.StartTime = single.SliceConvertParameter.StartTime;
             objectContainer.ContainerEndTime = single.SliceConvertParameter.EndTime;
             objectContainer.BPM = single.SliceConvertParameter.BPM;
@@ -43,9 +43,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Generator
             return objectContainer;
         }
 
-        private ObjectContainerLayer GenerateSingleLayout(ComvertParameter single, ObjectContainer container)
+        private RpContainerLayout GenerateSingleLayout(ConvertParameter single, RpContainer container)
         {
-            var objectContainerLayer = new ObjectContainerLayer(container);
+            var objectContainerLayer = new RpContainerLayout(container);
             objectContainerLayer.StartTime = single.SliceConvertParameter.StartTime;
             objectContainerLayer.EndTime = single.SliceConvertParameter.EndTime;
             return objectContainerLayer;

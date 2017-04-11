@@ -7,7 +7,7 @@ using osu.Game.Modes.RP.Mods;
 namespace osu.Game.Modes.RP.UI.Select.Mod
 {
     /// <summary>
-    ///     目前選擇模式
+    ///     not available mod for selection 
     /// </summary>
     internal class SelectMod : IEnumerable<Modes.Mods.Mod>
     {

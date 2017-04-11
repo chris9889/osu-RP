@@ -19,6 +19,10 @@ using OpenTK.Graphics;
 
 namespace osu.Game.Modes.RP.UI.Select.Detail
 {
+    /// <summary>
+    /// modified form osu!vitaru
+    /// and need to modify after
+    /// </summary>
     public class RpBeatmapDetails : BeatmapDetails
     {
         public new BeatmapInfo Beatmap

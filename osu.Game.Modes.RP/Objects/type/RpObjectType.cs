@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace osu.Game.Modes.RP.Objects.type
 {
@@ -17,21 +17,21 @@ namespace osu.Game.Modes.RP.Objects.type
             HitObject = 2,
             Container = 4,
             ContainerLayout = 8,
-            Click = 16, //打
+            Click = 16, //扁E
             LongTail = 32, //Slider
-            Hold = 64, //壓住可以累積分數
-            ContainerPress = 128, //背景壓住
+            Hold = 64, //壓住可以累積�E數
+            ContainerPress = 128, //背景壓佁E
             NewCombo = 256
         }
 
         /// <summary>
-        ///     物件是轉換過的，還是原本譜面
+        ///     物件是轉換過的�E�還是原本譜面
         /// </summary>
         [Flags]
-        public enum Comvert
+        public enum Convert
         {
             Original,
-            Comvert
+            Convert
         }
 
         /// <summary>
@@ -47,8 +47,8 @@ namespace osu.Game.Modes.RP.Objects.type
         }
 
         /// <summary>
-        ///     定義是正常模式還是gold 模式
-        ///     如果是在Arcade 模式底下兩個一起按的也會變成gold 模式
+        ///     定義是正常模式還是gold 模弁E
+        ///     如果是在Arcade 模式底下�E個一起按的也會變�Egold 模弁E
         /// </summary>
         [Flags]
         public enum Special
@@ -59,18 +59,18 @@ namespace osu.Game.Modes.RP.Objects.type
 
         /// <summary>
         ///     出現位置
-        ///     要全自動，半自動還是全部手動
+        ///     要�E自動，半自動還是全部手動
         /// </summary>
         [Flags]
         public enum CurveGenerate
         {
-            //RP譜面，所有頂點都是手動
+            //RP譜面�E�所有頂點�E是手動
             Manual = 1,
-            //RP譜面，只有製作開始和結束位置
+            //RP譜面�E�只有製作開始和結束位置
             Manual_Start_End_Position = 2,
-            //RP譜面，只有設定開始位置
+            //RP譜面�E�只有設定開始位置
             Manual_StartPosition = 4,
-            //全部由osu譜面出來的
+            //全部由osu譜面出侁E��
             Auto = 8
         }
     }
@@ -87,7 +87,7 @@ namespace osu.Game.Modes.RP.Objects.type
         [Flags]
         public enum Shape
         {
-            Up = 1, //三角(對應上下左右的定義)
+            Up = 1, //三见E對應上下左右皁E��義)
             Down = 2, //叉叉
             Left = 4, //方
             Right = 8, //圈圈
@@ -96,7 +96,7 @@ namespace osu.Game.Modes.RP.Objects.type
         }
 
         /// <summary>
-        ///     是同時按壓一個鍵還是多個同時
+        ///     是同時按壓一個鍵邁E��多個同晁E
         /// </summary>
         [Flags]
         public enum Multi
@@ -106,8 +106,8 @@ namespace osu.Game.Modes.RP.Objects.type
         }
 
         /// <summary>
-        ///     是左右邊都OK
-        ///     還是只有其中一邊
+        ///     是左右邊�EOK
+        ///     邁E��只有�E中一邁E
         /// </summary>
         [Flags]
         public enum Coop
@@ -118,7 +118,7 @@ namespace osu.Game.Modes.RP.Objects.type
         }
 
         /// <summary>
-        ///     定義落下方式是osu! 那樣還是 Diva那樣
+        ///     定義落下方式是osu! 那樣邁E�� Diva那樣
         /// </summary>
         [Flags]
         public enum ApproachType

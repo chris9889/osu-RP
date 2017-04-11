@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Generator;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Position;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PostProcess;
@@ -20,7 +20,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator
 
         private readonly HitObjectPostProcessor hitObjectPostProcessor = new HitObjectPostProcessor();
 
-        public List<ComvertParameter> Convert(List<ComvertParameter> output)
+        public List<ConvertParameter> Convert(List<ConvertParameter> output)
         {
             foreach (var single in output)
             {

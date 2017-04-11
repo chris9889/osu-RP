@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using osu.Game.Beatmaps;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator;
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator;
@@ -48,7 +48,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap
         private List<BaseRpObject> convertHitObjects(Beatmap originalBeatmap, float stackLeniency)
         {
             //先把listObject切出來
-            var listComvertParameter = SliceProcessor.GetListComvertParameter(originalBeatmap);
+            var listComvertParameter = SliceProcessor.GetListConvertParameter(originalBeatmap);
             //整理出Container
             listComvertParameter = ContainerProcessor.Convert(listComvertParameter);
             //整理出HitObjects

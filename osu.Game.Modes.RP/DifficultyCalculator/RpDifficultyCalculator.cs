@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
@@ -42,7 +42,7 @@ namespace osu.Game.Modes.RP.DifficultyCalculator
         {
             foreach (var h in Objects)
                 if (h.ObjectType == ObjectType.LongTail)
-                    ((RpLongTailObject)h).Curve.Calculate();
+                    ((RpSliderObject)h).Curve.Calculate();
         }
 
         protected override double CalculateInternal(Dictionary<string, string> categoryDifficulty)

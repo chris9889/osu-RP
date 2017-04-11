@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Parameter;
@@ -8,7 +8,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.MultiCont
 {
     public class MultiContainerDecidor
     {
-        public containerConvertParameter GetParameter(ComvertParameter parameter)
+        public containerConvertParameter GetParameter(ConvertParameter parameter)
         {
             var output = new containerConvertParameter();
             output.ContainerNumber = ContainerNumber(parameter);
@@ -16,7 +16,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.MultiCont
             return output;
         }
 
-        private int ContainerNumber(ComvertParameter parameter)
+        private int ContainerNumber(ConvertParameter parameter)
         {
             var refHitObjectNum = parameter.ListRefrenceObject.Count;
             var reruenContainerNumber = 1;
@@ -29,7 +29,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.MultiCont
             return reruenContainerNumber;
         }
 
-        private int LayoutNumber(containerConvertParameter output, ComvertParameter parameter)
+        private int LayoutNumber(containerConvertParameter output, ConvertParameter parameter)
         {
             var containerNumber = output.ContainerNumber;
 

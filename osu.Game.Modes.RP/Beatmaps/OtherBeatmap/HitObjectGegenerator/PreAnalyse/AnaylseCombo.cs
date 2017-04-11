@@ -1,4 +1,4 @@
-﻿using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PreAnalyse
 {
@@ -11,7 +11,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PreAnalys
 
         private double _lastHitObjectTime;
 
-        public bool IsCombo(ComvertParameter single, int i)
+        public bool IsCombo(ConvertParameter single, int i)
         {
             var result = false;
             if (single.ListRefrenceObject[i].StartTime - _lastHitObjectTime < DELTA_COMBO_TIME)

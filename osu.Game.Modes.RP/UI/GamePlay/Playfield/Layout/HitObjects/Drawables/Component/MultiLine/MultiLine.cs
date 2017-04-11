@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.HitObject.Common;
@@ -12,13 +12,13 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
     internal class MultiLine : BaseComponent
     {
         //會根據物件順序畫出來
-        private readonly List<BaseHitObject> _listHitObject;
+        private readonly List<BaseRpHitObject> _listHitObject;
 
         private SliderBody _sliderBody;
 
         /// <summary>
         /// </summary>
-        public MultiLine(List<BaseHitObject> listHitObject)
+        public MultiLine(List<BaseRpHitObject> listHitObject)
         {
             _listHitObject = listHitObject;
             Children = new Drawable[]

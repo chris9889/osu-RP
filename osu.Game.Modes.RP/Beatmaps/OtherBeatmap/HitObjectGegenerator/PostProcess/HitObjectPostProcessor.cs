@@ -1,11 +1,11 @@
-﻿using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
+using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Modes.RP.Objects.type;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PostProcess
 {
     internal class HitObjectPostProcessor
     {
-        internal void PostProcess(ComvertParameter single)
+        internal void PostProcess(ConvertParameter single)
         {
             //follow the coop on the layout HotObject locate in
             ProcessCoop(single);
@@ -19,7 +19,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PostProce
         ///     Process coop
         /// </summary>
         /// <param name="single"></param>
-        private void ProcessCoop(ComvertParameter single)
+        private void ProcessCoop(ConvertParameter single)
         {
             //同一群組內的物件位置
             foreach (var singleTupleHitObjects in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
@@ -35,19 +35,19 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PostProce
         ///     the object is convert from other beatmap or RP beatmap
         /// </summary>
         /// <param name="single"></param>
-        private void ProcessConvert(ComvertParameter single)
+        private void ProcessConvert(ConvertParameter single)
         {
             //同一群組內的物件位置
             foreach (var singleTupleHitObjects in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             foreach (var singleObject in singleTupleHitObjects.ListBaseHitObject)
-                singleObject.Comvert = RpBaseObjectType.Comvert.Comvert;
+                singleObject.Convert = RpBaseObjectType.Convert.Convert;
         }
 
         /// <summary>
         ///     Set the object is multiObject or not
         /// </summary>
         /// <param name="single"></param>
-        private void ProcessMulti(ComvertParameter single)
+        private void ProcessMulti(ConvertParameter single)
         {
             //同一群組內的物件位置
             foreach (var singleTupleHitObjects in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)

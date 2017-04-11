@@ -20,7 +20,7 @@ namespace osu.Game.Modes.RP
     public class RpRuleset : Ruleset
     {
         /// <summary>
-        ///     使用icon
+        ///     what the icon does osu!RP use
         /// </summary>
         public override FontAwesome Icon => FontAwesome.fa_align_justify;
 
@@ -31,12 +31,12 @@ namespace osu.Game.Modes.RP
 
         /// <returns></returns>
         /// <summary>
-        ///     遊玩模式
+        ///     PlayMode
         /// </summary>
         protected override PlayMode PlayMode => PlayMode.RP;
 
         /// <summary>
-        ///     RP物件會被轉換成可以顯示的物件
+        ///     RP Object will be convert to Deawable Object
         /// </summary>
         /// <param name="objects"></param>
         /// <returns></returns>
@@ -70,7 +70,7 @@ namespace osu.Game.Modes.RP
         public override Scoring.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor();
 
         /// <summary>
-        ///     取得目前有哪些按鍵
+        ///     get the keys that currently use
         /// </summary>
         /// <returns></returns>
         public override IEnumerable<KeyCounter> CreateGameplayKeys() => new RpKeyCounterCollection(RpKeyManager.GetCurrentKeyConfig()).ListKey;

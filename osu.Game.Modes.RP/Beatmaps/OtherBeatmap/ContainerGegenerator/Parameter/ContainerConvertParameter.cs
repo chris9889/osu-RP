@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using osu.Game.Modes.RP.Objects;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Parameter
@@ -23,6 +23,6 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Parameter
         /// <summary>
         ///     all of the container class
         /// </summary>
-        public List<ObjectContainer> ListObjectContainer = new List<ObjectContainer>();
+        public List<RpContainer> ListObjectContainer = new List<RpContainer>();
     }
 }

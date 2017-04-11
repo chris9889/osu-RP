@@ -28,7 +28,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.HitRenderer
 
 
         /// <summary>
-        ///     從其他譜面轉過來
+        ///     the beatmap that convert from other beatmap
         /// </summary>
         /// <returns></returns>
         protected override IBeatmapConverter<BaseRpObject> CreateBeatmapConverter() => new BeatmapConvertor();
@@ -36,32 +36,32 @@ namespace osu.Game.Modes.RP.UI.GamePlay.HitRenderer
         //protected override IBeatmapConverter<BaseRpObject> CreateBeatmapConverter() => new RpBeatmapConvertor();
 
         /// <summary>
-        ///     RP 專用譜面
+        ///     RP format beatmap
         /// </summary>
         /// <returns></returns>
         protected override IBeatmapProcessor<BaseRpObject> CreateBeatmapProcessor() => new RpBeatmapProcessor();
 
         /// <summary>
-        ///     ReplayInputHandler for RP
+        ///     get all the rp keys 
         /// </summary>
         /// <param name="replay"></param>
         /// <returns></returns>
         protected override FramedReplayInputHandler CreateReplayInputHandler(Replays.Replay replay) => new RpReplayInputHandler(replay);
 
         /// <summary>
-        ///     建立遊玩區域
+        ///     Create the play field
         /// </summary>
         /// <returns></returns>
         protected override Playfield<BaseRpObject, RpJudgement> CreatePlayfield() => new RpPlayfield();
 
         /// <summary>
-        ///     目前不知道用途
+        ///     didn't know what is it
         /// </summary>
         /// <returns></returns>
         protected override KeyConversionInputManager CreateKeyConversionInputManager() => new RpKeyConversionInputManager();
 
         /// <summary>
-        ///     把RP物件轉換成可以繪製的物件
+        ///     Change objects into drawable
         /// </summary>
         /// <param name="h"></param>
         /// <returns></returns>
@@ -69,12 +69,12 @@ namespace osu.Game.Modes.RP.UI.GamePlay.HitRenderer
         {
             if (h is RpHitObject)
                 return new DrawableRpHitObject((RpHitObject)h);
-            if (h is RpLongTailObject)
-                return new DrawableSliderObject((RpLongTailObject)h);
+            if (h is RpSliderObject)
+                return new DrawableRpSliderObject((RpSliderObject)h);
             if (h is RpContainerPress)
                 return new DrawableRpLongPress((RpContainerPress)h);
-            if (h is ObjectContainer)
-                return new DrawableContainer((ObjectContainer)h);
+            if (h is RpContainer)
+                return new DrawableRpContainer((RpContainer)h);
             return null;
         }
     }

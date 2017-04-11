@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
@@ -13,7 +13,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
     internal class ProcessComboObject
     {
         public bool FisrtConbo;
-        private ComvertParameter _singleSlideParameter;
+        private ConvertParameter _singleSlideParameter;
 
         private bool convert;
 
@@ -47,7 +47,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
             }
         }
 
-        internal void SetComvertParameter(ComvertParameter singleSlideParameter)
+        internal void SetConvertParameter(ConvertParameter singleSlideParameter)
         {
             _singleSlideParameter = singleSlideParameter;
         }

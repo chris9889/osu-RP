@@ -1,4 +1,4 @@
-﻿using osu.Game.Modes.RP.Objects;
+using osu.Game.Modes.RP.Objects;
 using osu.Game.Modes.RP.Objects.type;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 using OpenTK.Graphics;
@@ -52,7 +52,7 @@ namespace osu.Game.Modes.RP.SkinManager
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
-        public static string GetRPHitSound(BaseHitObject baseHitObject)
+        public static string GetRPHitSound(BaseRpHitObject baseHitObject)
         {
             return "";
         }
@@ -92,7 +92,7 @@ namespace osu.Game.Modes.RP.SkinManager
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
-        public static string GetStartObjectImageNameByType(BaseHitObject baseHitObject)
+        public static string GetStartObjectImageNameByType(BaseRpHitObject baseHitObject)
         {
             return GetObjectImagePathByType(baseHitObject, false) + GetImageNameByType(baseHitObject);
         }
@@ -102,7 +102,7 @@ namespace osu.Game.Modes.RP.SkinManager
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
-        public static string GetEndObjectImageNameByType(BaseHitObject baseHitObject)
+        public static string GetEndObjectImageNameByType(BaseRpHitObject baseHitObject)
         {
             return GetObjectImagePathByType(baseHitObject, true) + GetImageNameByType(baseHitObject);
         }
@@ -112,7 +112,7 @@ namespace osu.Game.Modes.RP.SkinManager
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
-        public static string GetStartObjectMaskByType(BaseHitObject baseHitObject)
+        public static string GetStartObjectMaskByType(BaseRpHitObject baseHitObject)
         {
             return GetObjectImagePathByType(baseHitObject, false) + "Mask";
         }
@@ -122,7 +122,7 @@ namespace osu.Game.Modes.RP.SkinManager
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
-        public static string GetEndObjectMaskByType(BaseHitObject baseHitObject)
+        public static string GetEndObjectMaskByType(BaseRpHitObject baseHitObject)
         {
             return GetObjectImagePathByType(baseHitObject, true) + "Mask";
         }
@@ -132,7 +132,7 @@ namespace osu.Game.Modes.RP.SkinManager
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
-        public static string GetStartObjectBackgroundByType(BaseHitObject baseHitObject)
+        public static string GetStartObjectBackgroundByType(BaseRpHitObject baseHitObject)
         {
             var str = GetObjectImagePathByType(baseHitObject, false) + "background-" + GetImageNameByType(baseHitObject);
             return str;
@@ -143,7 +143,7 @@ namespace osu.Game.Modes.RP.SkinManager
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
-        public static string GetEndObjectBackgroundByType(BaseHitObject baseHitObject)
+        public static string GetEndObjectBackgroundByType(BaseRpHitObject baseHitObject)
         {
             return GetObjectImagePathByType(baseHitObject, true) + "background-" + GetImageNameByType(baseHitObject);
         }
@@ -153,7 +153,7 @@ namespace osu.Game.Modes.RP.SkinManager
         ///     會在之後實作
         /// </summary>
         /// <returns></returns>
-        public static Color4 GetColor(BaseHitObject baseHitObject)
+        public static Color4 GetColor(BaseRpHitObject baseHitObject)
         {
             var colour = new Color4(255, 255, 255, 255);
             return colour;
@@ -164,7 +164,7 @@ namespace osu.Game.Modes.RP.SkinManager
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
-        private static string GetObjectImagePathByType(BaseHitObject baseHitObject, bool end = false)
+        private static string GetObjectImagePathByType(BaseRpHitObject baseHitObject, bool end = false)
         {
             var fileName = "";
 
@@ -199,7 +199,7 @@ namespace osu.Game.Modes.RP.SkinManager
         /// <param name="baseHitObject"></param>
         /// <param name="border"></param>
         /// <returns></returns>
-        private static string GetImageNameByType(BaseHitObject baseHitObject)
+        private static string GetImageNameByType(BaseRpHitObject baseHitObject)
         {
             string fileName = null;
             switch (baseHitObject.Shape)

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using osu.Game.Modes.RP.Objects;
 
 namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter
@@ -19,6 +19,6 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter
         /// <summary>
         ///     all of the the hitObject in this moment
         /// </summary>
-        public List<BaseHitObject> ListBaseHitObject = new List<BaseHitObject>();
+        public List<BaseRpHitObject> ListBaseHitObject = new List<BaseRpHitObject>();
     }
 }

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.Parameter;
@@ -7,7 +7,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PreAnalys
 {
     public class AnaylseMulti
     {
-        public int GetMultiNumber(ComvertParameter single, int i)
+        public int GetMultiNumber(ConvertParameter single, int i)
         {
             if (single.ContainerConvertParameter.LayoutNumber > 1)
                 return CalRandomNumber(single, i) % single.ContainerConvertParameter.LayoutNumber + 1;
@@ -20,7 +20,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PreAnalys
         /// <param name="single"></param>
         /// <param name="i"></param>
         /// <returns></returns>
-        private int CalRandomNumber(ComvertParameter single, int i)
+        private int CalRandomNumber(ConvertParameter single, int i)
         {
             return single.ListRefrenceObject.Count + (int)single.ListRefrenceObject[i].StartTime;
         }

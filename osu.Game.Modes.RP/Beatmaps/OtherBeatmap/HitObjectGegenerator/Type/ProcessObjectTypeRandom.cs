@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
@@ -10,10 +10,10 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
     internal class ProcessObjectTypeRandom
     {
         //單一一段的物件
-        private ComvertParameter _singleSlideParameter;
+        private ConvertParameter _singleSlideParameter;
 
 
-        internal void SetComvertParameter(ComvertParameter singleSlideParameter)
+        internal void SetConvertParameter(ConvertParameter singleSlideParameter)
         {
             _singleSlideParameter = singleSlideParameter;
         }
