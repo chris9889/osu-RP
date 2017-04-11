@@ -45,35 +45,33 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
         private readonly ContainerBackgroundLayout containerBackgroundLayout;
 
         /// <summary>
-        ///     用來顯示打擊物件的 Layout
+        ///     用侁E��示打擊物件皁ELayout
         /// </summary>
         private readonly HitObjectLayout _rpObjectLayout;
 
         /// <summary>
-        ///     連接多個物件用來畫線的
+        ///     連接多個物件用侁E��線的
         /// </summary>
         private readonly ConnectionRenderer<DrawableBaseRpHitObject> _hitObjectConnector;
 
         /// <summary>
-        ///     用來判斷打擊的 Layout
+        ///     用侁E��斷打擊皁ELayout
         /// </summary>
         private readonly JudgementLayout _judgementLayer;
 
         /// <summary>
-        ///     顯示前方指針，和一些特殊物件
+        ///     顯示前方持E�E�E�和一些特殊物件
         /// </summary>
         private KeySoundLayout keySoundLayout;
 
         /// <summary>
-        ///     遊玩區域
+        ///     遊玩區埁E
         /// </summary>
         public RpPlayfield()
             : base(512)
         {
             Anchor = Anchor.Centre;
             Origin = Anchor.Centre;
-            RelativeSizeAxes = Axes.Both;
-            Size = new Vector2(0.75f);
 
             Add(new Drawable[]
             {
@@ -87,13 +85,13 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                     RelativeSizeAxes = Axes.Both,
                     Depth = 2
                 },
-                _rpObjectLayout = new HitObjectLayout //物件放置，用來做取得用
+                _rpObjectLayout = new HitObjectLayout //物件放置�E�用侁E��取得用
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = 1,
                     ContainerBackgroundLayout = containerBackgroundLayout
                 },
-                _hitObjectConnector = new HitObjectConnector //物件連線
+                _hitObjectConnector = new HitObjectConnector //物件連緁E
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = 1
@@ -104,7 +102,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                     RelativeSizeAxes = Axes.Both,
                     Depth = -1
                 },
-                _judgementLayer = new JudgementLayout //打擊特效
+                _judgementLayer = new JudgementLayout //打擊特敁E
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = -2
@@ -115,7 +113,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
 
 
         /// <summary>
-        ///     會把要顯示的物件逐一加進來
+        ///     朁E��要E��示皁E��件逐一加進侁E
         /// </summary>
         /// <param name="h"></param>
         public override void Add(DrawableHitObject<BaseRpObject, RpJudgement> hitObject)
