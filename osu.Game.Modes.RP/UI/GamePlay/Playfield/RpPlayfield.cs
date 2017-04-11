@@ -24,7 +24,8 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
     public class RpPlayfield : Playfield<BaseRpObject, RpJudgement>
     {
         /// <summary>
-        ///     鬘ｯ遉ｺ螟ｧ蟆擾ｼ御ｼｰ險域怎譬ｹ謫夊ｦ也ｪ怜､ｧ蟆剰ｪｿ謨ｴ
+        ///     set the size
+        ///     This Code maybe form osu mode
         /// </summary>
         public override Vector2 Size
         {
@@ -37,35 +38,39 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
             }
         }
 
+        /// <summary>
+        /// Show the co-op backgrounf
+        /// </summary>
         private readonly CoopHintLayout _coopHintLayout;
 
         /// <summary>
-        ///     鬘ｯ遉ｺ閭梧勹
+        ///     RpContainer Object's layout
         /// </summary>
         private readonly ContainerBackgroundLayout containerBackgroundLayout;
 
         /// <summary>
-        ///     逕ｨ萓・｡ｯ遉ｺ謇捺投迚ｩ莉ｶ逧・Layout
+        ///     RpHitObject's Layout
+        ///     It only store on the list, not added to the Drawable Child
         /// </summary>
         private readonly HitObjectLayout _rpObjectLayout;
 
         /// <summary>
-        ///     騾｣謗･螟壼狗黄莉ｶ逕ｨ萓・吻邱夂噪
+        ///     Draw the line connected to mulit Hit Object
         /// </summary>
         private readonly ConnectionRenderer<DrawableBaseRpHitObject> _hitObjectConnector;
 
         /// <summary>
-        ///     逕ｨ萓・愛譁ｷ謇捺投逧・Layout
+        ///     Hit Effect Layer
         /// </summary>
         private readonly JudgementLayout _judgementLayer;
 
         /// <summary>
-        ///     鬘ｯ遉ｺ蜑肴婿謖・・・悟柱荳莠帷音谿顔黄莉ｶ
+        ///     HitSound Layer
         /// </summary>
         private KeySoundLayout keySoundLayout;
 
         /// <summary>
-        ///     驕顔自蜊蝓・
+        ///     Initial Play Field
         /// </summary>
         public RpPlayfield()
             : base(512)
@@ -80,29 +85,29 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
                     RelativeSizeAxes = Axes.Both,
                     Depth = 3
                 },
-                containerBackgroundLayout = new ContainerBackgroundLayout //閭梧勹
+                containerBackgroundLayout = new ContainerBackgroundLayout 
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = 2
                 },
-                _rpObjectLayout = new HitObjectLayout //迚ｩ莉ｶ謾ｾ鄂ｮ・檎畑萓・★蜿門ｾ礼畑
+                _rpObjectLayout = new HitObjectLayout 
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = 1,
                     ContainerBackgroundLayout = containerBackgroundLayout
                 },
-                _hitObjectConnector = new HitObjectConnector //迚ｩ莉ｶ騾｣邱・
+                _hitObjectConnector = new HitObjectConnector
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = 1
                     //HitObjectLayout=_rpObjectLayout,
                 },
-                keySoundLayout = new KeySoundLayout //謇捺投譎りｦ∵怏閨ｲ髻ｳ
+                keySoundLayout = new KeySoundLayout 
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = -1
                 },
-                _judgementLayer = new JudgementLayout //謇捺投迚ｹ謨・
+                _judgementLayer = new JudgementLayout 
                 {
                     RelativeSizeAxes = Axes.Both,
                     Depth = -2
@@ -113,7 +118,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield
 
 
         /// <summary>
-        ///     譛・滑隕・｡ｯ遉ｺ逧・黄莉ｶ騾蝉ｸ蜉騾ｲ萓・
+        ///     Add the DrawableHitObject
         /// </summary>
         /// <param name="h"></param>
         public override void Add(DrawableHitObject<BaseRpObject, RpJudgement> hitObject)

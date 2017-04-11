@@ -94,7 +94,6 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\RpContainer\ContainerStartEndComponent.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\RectanglePiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\RpHitObject\Common\LoadEffect.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\MultiLine\MultiLine.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Calculator\Position\ContainerLayoutPositionCounter.cs" />
     <Compile Include="KeyManager\RpKeyConversionInputManager.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpHitObject\Slide\EditableSlideTemplate.cs" />

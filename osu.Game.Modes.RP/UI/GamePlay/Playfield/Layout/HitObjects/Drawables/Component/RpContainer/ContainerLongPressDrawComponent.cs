@@ -5,9 +5,9 @@ using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.Container
 {
     /// <summary>
-    ///     負責顯示RP 按壓 時黑色物件
-    ///     時間點後會把物件藏起來
-    ///     這個功能會等到 5 月後才會開始實作
+    ///     負責顯示RP 按壁E時黑色物件
+    ///     時間點後會把物件藏起侁E
+    ///     這個功能朁E��到 5 月後才朁E��始實佁E
     /// </summary>
     internal class ContainerLongPressDrawComponent : BaseContainerComponent, IChangeableContainerComponent
     {
@@ -17,7 +17,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         public List<DrawableRpLongPress> ListPressObject = new List<DrawableRpLongPress>();
 
         /// <summary>
-        ///     負責劃出矩形
+        ///     負責劁E�E矩形
         /// </summary>
         public List<RectanglePiece> Rectangle = new List<RectanglePiece>();
 

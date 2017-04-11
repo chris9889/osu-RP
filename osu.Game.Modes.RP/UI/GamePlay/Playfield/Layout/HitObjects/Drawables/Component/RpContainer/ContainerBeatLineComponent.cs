@@ -4,21 +4,22 @@ using osu.Game.Modes.RP.SkinManager;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Calculator.Height;
 using OpenTK;
+using System;
 
 namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.Container
 {
     /// <summary>
-    ///     è£åˆ¤å®šé»ç”¨
+    ///     åä”»’èêy—p
     /// </summary>
-    internal class ContainerBeatLineComponent : BaseContainerComponent, IChangeableContainerComponent
+    internal class ContainerBeatLineComponent : BaseContainerComponent, IChangeableContainerComponent, IComponentHasStartTime,IComponentHasEndTime,IComponentHasBpm
     {
         /// <summary>
-        ///     ä¸­é–“çš„ç¯€æ‹
+        ///     ’†ŠÔ“Iß”
         /// </summary>
         private readonly List<ImagePicec> _containerBeatDecisionLineComponent = new List<ImagePicec>();
 
         /// <summary>
-        ///     è¨ˆç®—ç‰©ä»¶çš„ç›¸é—œé«˜åº¦å’ŒHeightä½ç½®
+        ///     ŒvZ•¨Œ“I‘Šè‚“x˜aHeightˆÊ’u
         /// </summary>
         private ContainerLayoutHeightCalculator _heightCalculator = new ContainerLayoutHeightCalculator();
 
@@ -28,7 +29,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         }
 
         /// <summary>
-        ///     ä¿®æ”¹ç‰©ä»¶é«˜åº¦
+        ///     C‰ü•¨Œ‚“x
         /// </summary>
         /// <param name="newHeight"></param>
         public void ChangeHeight(float newHeight)
@@ -36,7 +37,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         }
 
         /// <summary>
-        ///     åˆå§‹åŒ–é¡¯ç¤º
+        ///     ‰n‰»èû¦
         /// </summary>
         protected override void InitialObject(int layerCount = 0)
         {
@@ -50,7 +51,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         }
 
         /// <summary>
-        ///     åˆå§‹åŒ–ç¯€æ‹é»
+        ///     ‰n‰»ß”êy
         /// </summary>
         private void InitialBeat()
         {
@@ -59,14 +60,29 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
                 if (_positionCounter.GetPosition(i * GetDeltaBeatTime(), HitObject.Velocity) > _positionCounter.GetPosition(HitObject.EndTime - HitObject.StartTime, HitObject.Velocity))
                     break;
 
-                //ç‰©ä»¶
+                //•¨Œ
                 var line = new ImagePicec(RpTexturePathManager.GetBeatLineTexture());
                 line.Scale = new Vector2(0.6f);
-                //è¨­å®šä½ç½®
+                //İ’èˆÊ’u
                 line.Position = CalculatePosition(i * GetDeltaBeatTime());
-                //åŠ å…¥
+                //‰Á“ü
                 _containerBeatDecisionLineComponent.Add(line);
             }
+        }
+
+        public void SetStartTime(double startTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetEndTime(double time)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ChangeBPM(double newBpm)
+        {
+            throw new NotImplementedException();
         }
     }
 }

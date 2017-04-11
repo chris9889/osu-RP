@@ -11,7 +11,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         public new RpContainer HitObject;
 
         /// <summary>
-        ///     è² è²¬è¨ˆç®—ç‰©ä»¶åœ¨æ™‚é–“é»è©²æœ‰çš„ä½ç½®
+        ///     •‰ÓŒvZ•¨ŒİŠÔêyŠY—L“IˆÊ’u
         /// </summary>
         protected readonly ContainerLayoutPositionCounter _positionCounter = new ContainerLayoutPositionCounter();
 
@@ -23,16 +23,16 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         }
 
         /// <summary>
-        ///     æ›´æ–°æ–°çš„ Layoutæ•¸é‡
+        ///     XVV“I LayoutÉ—Ê
         /// </summary>
         /// <param name="newLayerNumber"></param>
         public virtual void UpdateLayerNumber()
         {
-            //è³‡æ–™å¾ ObjectContainer è£¡é¢è®€å–
+            //‘—¿œn ObjectContainer —¡–Êæ¤æ
         }
 
         /// <summary>
-        ///     å¦‚æœæ›´æ–°äº†é–‹å§‹æˆ–æ˜¯çµæŸçš„æ™‚é–“
+        ///     ”@‰ÊXV—¹ŠJnˆ½¥Œ‹‘©“IŠÔ
         /// </summary>
         public virtual void UpdateTime()
         {
@@ -40,21 +40,21 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
 
 
         /// <summary>
-        ///     åˆå§‹åŒ–æ‰€æœ‰é¡¯ç¤ºç‰©ä»¶
+        ///     ‰n‰»Š—Lèû¦•¨Œ
         /// </summary>
         protected virtual void InitialObject(int layerCount = 1)
         {
         }
 
         /// <summary>
-        ///     åˆå§‹åŒ–æ‰€æœ‰é¡¯ç¤ºç‰©ä»¶
+        ///     ‰n‰»Š—Lèû¦•¨Œ
         /// </summary>
         protected virtual void InitialChild()
         {
         }
 
         /// <summary>
-        ///     æ ¹æ“šæ™‚é–“é»è¨ˆç®—ç‰©ä»¶ä½ç½®
+        ///     ªŸŠÔêyŒvZ•¨ŒˆÊ’u
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
@@ -64,7 +64,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         }
 
         /// <summary>
-        ///     å–å¾—é–“éš”æ™‚é–“
+        ///     æ“¾ŠÔŠuŠÔ
         /// </summary>
         /// <returns></returns>
         protected double GetDeltaBeatTime()

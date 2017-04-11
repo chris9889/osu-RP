@@ -7,15 +7,15 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
 {
     /// <summary>
     /// </summary>
-    internal class ContainerStartEndComponent : BaseContainerComponent, IChangeableContainerComponent
+    internal class ContainerStartEndComponent : BaseContainerComponent, IChangeableContainerComponent,IComponentHasStartTime,IComponentHasEndTime
     {
         /// <summary>
-        ///     ÈñãÂßãÈªû
+        ///     Start Point
         /// </summary>
         private RectanglePiece _containerStartDecisionLineComponent;
 
         /// <summary>
-        ///     ÁµêÊùü
+        ///    EndPoint
         /// </summary>
         private RectanglePiece _containerEndDecisionLineComponent;
 
@@ -28,7 +28,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         }
 
         /// <summary>
-        ///     ‰øÆÊîπÁâ©‰ª∂È´òÂ∫¶
+        ///     èCâ¸ï®åèçÇìx
         /// </summary>
         /// <param name="newHeight"></param>
         public void ChangeHeight(float newHeight)
@@ -42,13 +42,13 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         /// <param name="layerCount"></param>
         protected override void InitialObject(int layerCount = 1)
         {
-            //ÈñãÂßãÈªû
+            //äJénÍy
             _containerStartDecisionLineComponent = new RectanglePiece(100, 100)
             {
                 Scale = new Vector2(0.002f, 0.2f * layerCount),
                 Position = CalculatePosition(0)
             };
-            //ÁµêÊùüÁâ©‰ª∂
+            //åãë©ï®åè
             _containerEndDecisionLineComponent = new RectanglePiece(100, 100)
             {
                 Scale = new Vector2(0.002f, 0.2f * layerCount),
@@ -62,6 +62,24 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
             listContainer.Add(_containerStartDecisionLineComponent);
             listContainer.Add(_containerEndDecisionLineComponent);
             Children = listContainer;
+        }
+
+        /// <summary>
+        /// update start Time
+        /// </summary>
+        /// <param name="startTime"></param>
+        public void SetStartTime(double startTime)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Update End Time
+        /// </summary>
+        /// <param name="time"></param>
+        public void SetEndTime(double time)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

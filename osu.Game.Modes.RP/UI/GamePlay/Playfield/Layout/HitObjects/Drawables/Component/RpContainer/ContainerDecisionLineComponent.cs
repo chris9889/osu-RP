@@ -8,10 +8,10 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
 {
     /// <summary>
     /// </summary>
-    internal class ContainerDecisionLineComponent : BaseContainerComponent, IChangeableContainerComponent
+    internal class ContainerDecisionLineComponent : BaseContainerComponent, IChangeableContainerComponent,IComponentHasStartTime,IComponentHasEndTime
     {
         /// <summary>
-        ///     åˆ¤å®šç·š
+        ///     ”»’èü
         /// </summary>
         private ImagePicec _containerDecisionLineComponent;
 
@@ -23,17 +23,17 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
         }
 
         /// <summary>
-        ///     æ›´æ–°æ™‚é–“
+        ///     XVŠÔ
         /// </summary>
         /// <param name="time"></param>
         public void UpdateTime(double time)
         {
-            //è¨ˆç®—æŒ‡é‡ä½ç½® 
+            //ŒvZwjˆÊ’u 
             _containerDecisionLineComponent.Position = CalculatePosition(time - HitObject.StartTime);
         }
 
         /// <summary>
-        ///     ä¿®æ”¹ç‰©ä»¶é«˜åº¦
+        ///     C‰ü•¨Œ‚“x
         /// </summary>
         /// <param name="newHeight"></param>
         public void ChangeHeight(float newHeight)
@@ -43,7 +43,7 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
 
         protected override void InitialObject(int layerCount = 1)
         {
-            //æŒ‡æ¨™
+            //w•W
             _containerDecisionLineComponent = new ImagePicec(RpTexturePathManager.GetDecisionLineTexture())
             {
                 Position = new Vector2(0, 0),
@@ -57,6 +57,25 @@ namespace osu.Game.Modes.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Co
             var listDrawable = new List<Framework.Graphics.Containers.Container>();
             listDrawable.Add(_containerDecisionLineComponent);
             Children = listDrawable;
+        }
+
+        
+        public void SetStartTime(double startTime)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void SetEndTime(double time)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        void UpdateMovingTransform()
+        {
+
         }
     }
 }
