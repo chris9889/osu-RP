@@ -10,9 +10,9 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Position
     {
         internal void ProcessPosition(ConvertParameter single)
         {
-            //同一群組內的物件位置
+            //同一群絁E�E皁E��件位置
             foreach (var singleTupleHitObjects in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
-                if (single.ContainerConvertParameter.LayoutNumber == 1) //如果layout只有一個就沒什麼好決定了
+                if (single.ContainerConvertParameter.LayoutNumber == 1) //如果layout只有一個就沒什麼好決定亁E
                 {
                     singleTupleHitObjects.ListBaseHitObject[0].ContainerIndex = 0;
                     singleTupleHitObjects.ListBaseHitObject[0].LayoutIndex = 0;
@@ -21,12 +21,12 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Position
                 {
                     for (var i = 0; i < singleTupleHitObjects.ListBaseHitObject.Count; i++)
                     {
-                        //目前在哪一個container 裡面的 哪個index裡面
+                        //目前在哪一個container 裡面皁E哪個index裡面
                         var layoutindex = GetRandomValue(singleTupleHitObjects, i) % single.ContainerConvertParameter.LayoutNumber;
 
                         var remain = layoutindex;
 
-                        //取得container位置和對應的layoutindex
+                        //取得container位置和對應皁Eayoutindex
                         for (var j = 0; j < single.ContainerConvertParameter.ContainerNumber; j++)
                         {
                             var layoutNumberinSingleContainer = single.ContainerConvertParameter.ListObjectContainer[i].ContainerLayerList.Count;
@@ -41,7 +41,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Position
                 }
         }
 
-        //產生亂數，數字不要重複優先
+        //產生亂數�E�數字不要E��褁E��允E
         private int GetRandomValue(SingleHitObjectConvertParameter singleTupleHitObjects, int index)
         {
             //getTheTotal

@@ -21,7 +21,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PostProce
         /// <param name="single"></param>
         private void ProcessCoop(ConvertParameter single)
         {
-            //同一群組內的物件位置
+            //同一群絁E�E皁E��件位置
             foreach (var singleTupleHitObjects in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             foreach (var singleObject in singleTupleHitObjects.ListBaseHitObject)
             {
@@ -37,7 +37,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PostProce
         /// <param name="single"></param>
         private void ProcessConvert(ConvertParameter single)
         {
-            //同一群組內的物件位置
+            //同一群絁E�E皁E��件位置
             foreach (var singleTupleHitObjects in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             foreach (var singleObject in singleTupleHitObjects.ListBaseHitObject)
                 singleObject.Convert = RpBaseObjectType.Convert.Convert;
@@ -49,7 +49,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PostProce
         /// <param name="single"></param>
         private void ProcessMulti(ConvertParameter single)
         {
-            //同一群組內的物件位置
+            //同一群絁E�E皁E��件位置
             foreach (var singleTupleHitObjects in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             foreach (var singleObject in singleTupleHitObjects.ListBaseHitObject)
                 if (singleTupleHitObjects.ListBaseHitObject.Count > 1)

@@ -20,7 +20,7 @@ namespace osu.Game.Modes.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.MultiCont
         {
             var refHitObjectNum = parameter.ListRefrenceObject.Count;
             var reruenContainerNumber = 1;
-            //å¦‚æœè£¡é¢ç‰©ä»¶è¶Šå°‘ï¼ŒContainerè¶Šå¤š
+            //”@‰Ê—¡–Ê•¨Œ‰z­CContainer‰z‘½
             if (refHitObjectNum / 2 < parameter.Difficulty)
                 reruenContainerNumber = 2;
             else if (refHitObjectNum < parameter.Difficulty)

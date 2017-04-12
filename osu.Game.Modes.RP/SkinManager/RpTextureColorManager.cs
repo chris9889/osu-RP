@@ -17,6 +17,23 @@ namespace osu.Game.Modes.RP.SkinManager
         /// <returns></returns>
         public static Color4 GetKeyLayoutButtonShage(RpBaseHitObjectType.Shape type)
         {
+            /*
+            switch (type)
+            {
+                case RpBaseHitObjectType.Shape.Right:
+                    return new Color4(200, 200, 200, 255);
+                case RpBaseHitObjectType.Shape.Down:
+                    return new Color4(200, 200, 200, 255);
+                case RpBaseHitObjectType.Shape.Left:
+                    return new Color4(200, 200, 200, 255);
+                case RpBaseHitObjectType.Shape.Up:
+                    return new Color4(200, 200, 200, 255);
+                case RpBaseHitObjectType.Shape.ContainerPress:
+                    return new Color4(200, 200, 200, 255);
+            }
+            return new Color4(255, 255, 255, 255);
+            */
+
             switch (type)
             {
                 case RpBaseHitObjectType.Shape.Right:
@@ -42,7 +59,7 @@ namespace osu.Game.Modes.RP.SkinManager
             switch (coop)
             {
                 case RpBaseHitObjectType.Coop.Both://Both
-                    return new Color4(100, 100, 100, 255);
+                    return new Color4(226, 190, 122, 255);
                 case RpBaseHitObjectType.Coop.LeftOnly://Left : blue
                     return new Color4(70, 192, 206, 255);
                 case RpBaseHitObjectType.Coop.RightOnly://Right : purple

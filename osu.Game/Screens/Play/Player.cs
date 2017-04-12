@@ -118,7 +118,12 @@ namespace osu.Game.Screens.Play
 
             scoreProcessor = HitRenderer.CreateScoreProcessor();
 
-            hudOverlay = new StandardHudOverlay();
+            hudOverlay = new StandardHudOverlay()
+            {
+                Anchor = Anchor.Centre,
+                Origin = Anchor.Centre
+            };
+
             hudOverlay.KeyCounter.Add(ruleset.CreateGameplayKeys());
             hudOverlay.BindProcessor(scoreProcessor);
             hudOverlay.BindHitRenderer(HitRenderer);
@@ -165,7 +170,12 @@ namespace osu.Game.Screens.Play
                 },
                 new HotkeyRetryOverlay
                 {
-                    Action = Restart,
+                    Action = () => {
+                        //we want to hide the hitrenderer immediately (looks better).
+                        //we may be able to remove this once the mouse cursor trail is improved.
+                        HitRenderer?.Hide();
+                        Restart();
+                    },
                 }
             };
         }
@@ -309,8 +319,7 @@ namespace osu.Game.Screens.Play
 
         protected override void OnSuspending(Screen next)
         {
-            Content.FadeOut(350);
-            Content.ScaleTo(0.7f, 750, EasingTypes.InQuint);
+            fadeOut();
 
             base.OnSuspending(next);
         }
@@ -329,12 +338,20 @@ namespace osu.Game.Screens.Play
                 }
             }
 
-            HitRenderer?.FadeOut(60);
-
-            FadeOut(250);
-            Content.ScaleTo(0.7f, 750, EasingTypes.InQuint);
-            Background?.FadeTo(1f, 200);
+            fadeOut();
             return base.OnExiting(next);
+        }
+
+        private void fadeOut()
+        {
+            const float fade_out_duration = 250;
+
+            HitRenderer?.FadeOut(fade_out_duration);
+            Content.FadeOut(fade_out_duration);
+
+            hudOverlay.ScaleTo(0.7f, fade_out_duration * 3, EasingTypes.In);
+
+            Background?.FadeTo(1f, fade_out_duration);
         }
 
         private Bindable<bool> mouseWheelDisabled;

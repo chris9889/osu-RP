@@ -13,7 +13,6 @@ using osu.Framework.Graphics.Sprites;
 using osu.Game.Database;
 using osu.Game.Graphics;
 using osu.Game.Graphics.Sprites;
-using osu.Game.Screens.Select.Details;
 using OpenTK;
 using OpenTK.Graphics;
 
@@ -23,8 +22,9 @@ namespace osu.Game.Modes.RP.UI.Select.Detail
     /// modified form osu!vitaru
     /// and need to modify after
     /// </summary>
-    public class RpBeatmapDetails : BeatmapDetails
+    public class RpBeatmapDetails //: BeatmapDetails
     {
+        /*
         public new BeatmapInfo Beatmap
         {
             get { return beatmap; }
@@ -472,5 +472,6 @@ namespace osu.Game.Modes.RP.UI.Select.Detail
                 failBar.Colour = colour.YellowDarker;
             }
         }
+        */
     }
 }

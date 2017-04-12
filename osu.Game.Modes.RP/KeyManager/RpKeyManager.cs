@@ -28,7 +28,7 @@ namespace osu.Game.Modes.RP.KeyManager
                 if (single.Type == baseHitObject.Shape)
                     if (baseHitObject.Coop == RpBaseHitObjectType.Coop.Both) //如果是通用
                         output.Add(single.Key);
-                    else if (baseHitObject.Coop == single.Coop) //或是左右屬性符合
+                    else if (baseHitObject.Coop == single.Coop) //或是左右屬性符吁E
                         output.Add(single.Key);
 
 
@@ -36,7 +36,7 @@ namespace osu.Game.Modes.RP.KeyManager
         }
 
         /// <summary>
-        ///     取得目前排列
+        ///     取得目前排刁E
         /// </summary>
         /// <returns></returns>
         public static SingleRpKeyLayoutConfig GetCurrentKeyConfig()
@@ -46,7 +46,7 @@ namespace osu.Game.Modes.RP.KeyManager
         }
 
         /// <summary>
-        ///     把目前RP的按鍵設定儲存回去
+        ///     把目前RP皁E��鍵設定儲存回去
         /// </summary>
         /// <param name="listKey"></param>
         /// <param name="keyLayout"></param>

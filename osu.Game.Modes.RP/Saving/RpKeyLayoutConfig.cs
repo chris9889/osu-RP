@@ -94,13 +94,13 @@ namespace osu.Game.Modes.RP.Saving
             var left = RpBaseHitObjectType.Coop.LeftOnly;
             var right = RpBaseHitObjectType.Coop.RightOnly;
             config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, left, Key.Unknown, KeyName.LeftSlide));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Up, left, Key.Unknown, KeyName10K.LeftTriangle));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Down, left, Key.Unknown, KeyName10K.LeftCross));
             config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Left, left, Key.Unknown, KeyName10K.LeftRectangle));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Down, left, Key.Unknown, KeyName10K.LeftCross));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Up, left, Key.Unknown, KeyName10K.LeftTriangle));
             config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Right, left, Key.Unknown, KeyName10K.LeftCircle));
+            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Left, right, Key.Unknown, KeyName10K.RightRectangle));
             config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Up, right, Key.Unknown, KeyName10K.RightTriangle));
             config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Down, right, Key.Unknown, KeyName10K.RightCross));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Left, right, Key.Unknown, KeyName10K.RightRectangle));
             config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Right, right, Key.Unknown, KeyName10K.RightCircle));
             config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, right, Key.Unknown, KeyName.RightSlide));
             return config10K;
@@ -130,13 +130,13 @@ namespace osu.Game.Modes.RP.Saving
         {
             var config10K = GenerateDefault10KPriority();
             config10K.KeyDictionary[0].Key = Key.A;
-            config10K.KeyDictionary[1].Key = Key.E;
+            config10K.KeyDictionary[1].Key = Key.S;
             config10K.KeyDictionary[2].Key = Key.D;
-            config10K.KeyDictionary[3].Key = Key.S;
+            config10K.KeyDictionary[3].Key = Key.E;
             config10K.KeyDictionary[4].Key = Key.F; //F;
-            config10K.KeyDictionary[5].Key = Key.I;
-            config10K.KeyDictionary[6].Key = Key.K;
-            config10K.KeyDictionary[7].Key = Key.J;
+            config10K.KeyDictionary[5].Key = Key.J;
+            config10K.KeyDictionary[6].Key = Key.I;
+            config10K.KeyDictionary[7].Key = Key.K;
             config10K.KeyDictionary[8].Key = Key.L; // L;
             config10K.KeyDictionary[9].Key = Key.Semicolon;
             return config10K;

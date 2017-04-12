@@ -81,10 +81,11 @@ namespace osu.Game.Modes.RP.UI.GamePlay.KeyCounter
                         _buttonIconSprite = new Sprite
                         {
                             Texture = textures.Get(RpTexturePathManager.GetKeyLayoutButtonIcon(_singlekey.Type)),
+                            Colour = RpTextureColorManager.GetCoopHitObjectColor(_singlekey.Coop),
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,
                             Alpha = 1,
-                            Scale = new Vector2(1.0f),
+                            Scale = new Vector2(0.25f),
                             Position = new Vector2(0, -0.25f)
                         }
                     }
