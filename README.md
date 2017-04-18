@@ -1,5 +1,12 @@
-﻿# osu-RP   
-the new gameMode in osu!laser : )   
+﻿# osu-RP  
+[Notification]   
+Because I need to concentrate on preparing Japanese examination(N2),    
+So i decide stop developing this project for 2.5 monthes.   
+.   
+See you in July : )   
+.
+[introduce]   
+the new gameMode in osu!laser : )   
 .   
 this gameMode is not official project, but maybe can play by adding additional plugin in osu!laser.   
 .   
