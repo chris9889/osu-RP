@@ -51,6 +51,15 @@ namespace osu.Game.Rulesets.RP.UI.Select.RpMod
                     break;
                 case ModType.Special:
                     //yield return new RpModRelax();
+                    yield return new MultiMod
+                    {
+                        Mods = new Mod[]
+                        {
+                            new RpKeyMod2K(),
+                            new RpKeyMod3K(),
+                            new RpKeyMod4K(),
+                        }
+                    };
                     yield return new RpModContainerHitObjectPressOut();
                     yield return new RpModShapeHitObjectCoco();
                     yield return new RpModContainerHitObjectCoco();

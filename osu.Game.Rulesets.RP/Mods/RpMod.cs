@@ -120,7 +120,6 @@ namespace osu.Game.Rulesets.RP.Mods
         public override string Description => @"Play RP highhhhhhhhhhhhhhhhhh";
         public override double ScoreMultiplier => 1.12;
 
-
         public override void ApplyToClock(IAdjustableClock clock)
         {
             var pitchAdjust = clock as IHasPitchAdjust;
@@ -192,5 +191,42 @@ namespace osu.Game.Rulesets.RP.Mods
         public override double ScoreMultiplier => 1;
         public override bool Ranked => true;
         public override Type[] IncompatibleMods => new Type[] { };
+    }
+
+    /// <summary>
+    /// Set the Rp Key Number
+    /// </summary>
+    public abstract class RpKeyMod : Mod
+    {
+        public abstract int KeyCount { get; }
+        public override double ScoreMultiplier => 1; // TODO: Implement the mania key mod score multiplier
+        public override bool Ranked => true;
+    }
+
+    /// <summary>
+    /// 2K
+    /// </summary>
+    public class RpKeyMod2K : RpKeyMod
+    {
+        public override int KeyCount => 2;
+        public override string Name => "2K";
+    }
+
+    /// <summary>
+    /// 3K
+    /// </summary>
+    public class RpKeyMod3K : RpKeyMod
+    {
+        public override int KeyCount => 3;
+        public override string Name => "3K";
+    }
+
+    /// <summary>
+    /// 4K
+    /// </summary>
+    public class RpKeyMod4K : RpKeyMod
+    {
+        public override int KeyCount => 4;
+        public override string Name => "4K";
     }
 }

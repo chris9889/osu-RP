@@ -4,6 +4,8 @@
 using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Beatmaps;
 using osu.Game.Rulesets.Objects.Drawables;
+using osu.Game.Rulesets.Replays;
+using osu.Game.Rulesets.RP.BeatmapReplay;
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap;
 using osu.Game.Rulesets.RP.Beatmaps.RPBeatmap;
 using osu.Game.Rulesets.RP.KeyManager;
@@ -42,11 +44,11 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         protected override BeatmapProcessor<BaseRpObject> CreateBeatmapProcessor() => new RpBeatmapProcessor();
 
         /// <summary>
-        ///     get all the rp keys 
+        ///     set the keys and keyboard that can use as input when replay
         /// </summary>
         /// <param name="replay"></param>
         /// <returns></returns>
-        ///protected override FramedReplayInputHandler CreateReplayInputHandler(Replay replay) => new RpReplayInputHandler(replay);
+        protected override FramedReplayInputHandler CreateReplayInputHandler(Replay replay) => new RpReplayInputHandler(replay);
 
         /// <summary>
         ///     Create the play field
