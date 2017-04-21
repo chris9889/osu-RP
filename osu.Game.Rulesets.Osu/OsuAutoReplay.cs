@@ -12,6 +12,7 @@ using System.Diagnostics;
 using osu.Framework.Graphics;
 using osu.Game.Rulesets.Objects.Types;
 using osu.Game.Rulesets.Replays;
+using osu.Game.Users;
 
 namespace osu.Game.Rulesets.Osu
 {
@@ -26,6 +27,11 @@ namespace osu.Game.Rulesets.Osu
         public OsuAutoReplay(Beatmap<OsuHitObject> beatmap)
         {
             this.beatmap = beatmap;
+
+            User = new User
+            {
+                Username = @"Autoplay",
+            };
 
             createAutoReplay();
         }
@@ -132,8 +138,7 @@ namespace osu.Game.Rulesets.Osu
 
                 if (h is Spinner)
                 {
-                    targetPosition.X = Frames[Frames.Count - 1].MouseX;
-                    targetPosition.Y = Frames[Frames.Count - 1].MouseY;
+                    targetPosition = Frames[Frames.Count - 1].Position;
 
                     Vector2 difference = spinner_centre - targetPosition;
 
@@ -187,7 +192,7 @@ namespace osu.Game.Rulesets.Osu
                         addFrameToReplay(lastFrame);
                     }
 
-                    Vector2 lastPosition = new Vector2(lastFrame.MouseX, lastFrame.MouseY);
+                    Vector2 lastPosition = lastFrame.Position;
 
                     double timeDifference = applyModsToTime(h.StartTime - lastFrame.Time);
 
@@ -213,7 +218,7 @@ namespace osu.Game.Rulesets.Osu
 
                 ReplayButtonState button = buttonIndex % 2 == 0 ? ReplayButtonState.Left1 : ReplayButtonState.Right1;
 
-                double hEndTime = (h as IHasEndTime)?.EndTime ?? h.StartTime;
+                double hEndTime = ((h as IHasEndTime)?.EndTime ?? h.StartTime) + KEY_UP_DELAY;
 
                 ReplayFrame newFrame = new ReplayFrame(h.StartTime, targetPosition.X, targetPosition.Y, button);
                 ReplayFrame endFrame = new ReplayFrame(hEndTime + endDelay, h.EndPosition.X, h.EndPosition.Y, ReplayButtonState.None);

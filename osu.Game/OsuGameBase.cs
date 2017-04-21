@@ -116,6 +116,7 @@ namespace osu.Game
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Exo2.0-BlackItalic"));
 
             Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Venera"));
+            Fonts.AddStore(new GlyphStore(Resources, @"Fonts/Venera-Light"));
 
             OszArchiveReader.Register();
 
@@ -144,9 +145,18 @@ namespace osu.Game
 
             AddInternal(ratioContainer = new RatioAdjust
             {
-                Children = new[]
+                Children = new Drawable[]
                 {
-                    Cursor = new MenuCursor { Depth = float.MinValue }
+                    new Container
+                    {
+                        RelativeSizeAxes = Axes.Both,
+                        Depth = float.MinValue,
+                        Children = new Drawable[]
+                        {
+                            Cursor = new MenuCursor(),
+                            new TooltipContainer(Cursor) { Depth = -1 },
+                        }
+                    },
                 }
             });
         }

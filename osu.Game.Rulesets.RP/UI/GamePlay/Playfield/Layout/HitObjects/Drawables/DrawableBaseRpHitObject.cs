@@ -14,17 +14,17 @@ using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Tem
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
     /// <summary>
-    ///     繪製可以打擊皁E��件
+    ///     繪製可以打擊皁E�E��E�件
     /// </summary>
     internal class DrawableBaseRpHitObject : DrawableBaseRpObject
     {
         /// <summary>
-        ///     打擊物件�E�DrawableHitCircle 朁E��據打擊物件抁E物件繪製出侁E
+        ///     打擊物件�E�E�E�DrawableHitCircle 朁E�E��E�據打擊物件抁E物件繪製出侁E
         /// </summary>
         public new BaseRpHitObject HitObject;
 
         /// <summary>
-        ///     目前是當作RP物件皁E��尾
+        ///     目前是當作RP物件皁E�E��E�尾
         /// </summary>
         protected DetectPress _rpDetectPress;
 
@@ -61,7 +61,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         /// <summary>
         ///     按下去
-        ///     UpdateJudgement 用送E: 給出一個判定，目前是miss邁E��hit
+        ///     UpdateJudgement 用送E: 給出一個判定，目前是miss邁E�E��E�hit
         /// </summary>
         protected virtual void OnKeyPressDown()
         {
@@ -163,8 +163,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     }
 
     /// <summary>
-    ///     如果遁E��combo皁E��況E
-    ///     用不到�E�佁E��前�E不要移除
+    ///     如果遁E�E��E�combo皁E�E��E�況E
+    ///     用不到�E�E�E�佁E�E��E�前�E不要移除
     /// </summary>
     public enum RpComboResult
     {

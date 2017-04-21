@@ -13,6 +13,7 @@ namespace osu.Game.Rulesets.RP.Scoreing
         public override string ResultString { get; }
         public override string MaxResultString { get; }
         public RpScoreResult Score;
+        public RpComboResult Combo;
         public List<Vector2> HitExplosionPosition = new List<Vector2>();
         public int AdditionalPlusScore = 0;
     }

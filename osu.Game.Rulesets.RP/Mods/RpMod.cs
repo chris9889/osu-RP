@@ -3,6 +3,8 @@
 
 using System;
 using System.Linq;
+using osu.Framework.Audio;
+using osu.Framework.Timing;
 using osu.Game.Beatmaps;
 using osu.Game.Graphics;
 using osu.Game.Rulesets.Mods;
@@ -80,6 +82,12 @@ namespace osu.Game.Rulesets.RP.Mods
         public override string Description => @"Speed Up";
         public override double ScoreMultiplier => 1.12;
         public override Type[] IncompatibleMods => base.IncompatibleMods.Concat(new[] { typeof(RpModHalfTime) }).ToArray();
+
+
+        public override void ApplyToClock(IAdjustableClock clock)
+        {
+            clock.Rate = 1.3;
+        }
     }
 
     /// <summary>
@@ -111,6 +119,17 @@ namespace osu.Game.Rulesets.RP.Mods
     {
         public override string Description => @"Play RP highhhhhhhhhhhhhhhhhh";
         public override double ScoreMultiplier => 1.12;
+
+
+        public override void ApplyToClock(IAdjustableClock clock)
+        {
+            var pitchAdjust = clock as IHasPitchAdjust;
+            if (pitchAdjust != null)
+                pitchAdjust.PitchAdjust = 1.5;
+            else
+                base.ApplyToClock(clock);
+            clock.Rate = 1.3/1.5;
+        }
     }
 
     /// <summary>

@@ -1,6 +1,8 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
+using System.Collections.Generic;
+using osu.Framework.Extensions;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
@@ -31,10 +33,31 @@ namespace osu.Game.Rulesets.RP.Scoreing
             Accuracy.Value = 1;
         }
 
+        private readonly Dictionary<RpScoreResult, int> scoreResultCounts = new Dictionary<RpScoreResult, int>();
+        private readonly Dictionary<RpComboResult, int> comboResultCounts = new Dictionary<RpComboResult, int>();
+
+        public override void PopulateScore(Score score)
+        {
+            base.PopulateScore(score);
+
+            score.Statistics[@"Cool"] = scoreResultCounts.GetOrDefault(RpScoreResult.Cool);
+            score.Statistics[@"Fine"] = scoreResultCounts.GetOrDefault(RpScoreResult.Fine);
+            score.Statistics[@"Safe"] = scoreResultCounts.GetOrDefault(RpScoreResult.Safe);
+            score.Statistics[@"Sad"] = scoreResultCounts.GetOrDefault(RpScoreResult.Safe);
+        }
+
         protected override void OnNewJudgement(RpJudgement judgement)
         {
             if (judgement != null)
-                switch (judgement.Result)
+
+                //登入成績
+                if (judgement.Result != HitResult.None)
+                {
+                    scoreResultCounts[judgement.Score] = scoreResultCounts.GetOrDefault(judgement.Score) + 1;
+                    comboResultCounts[judgement.Combo] = comboResultCounts.GetOrDefault(judgement.Combo) + 1;
+                }
+
+            switch (judgement.Result)
                 {
                     case HitResult.Hit:
                         Combo.Value++;

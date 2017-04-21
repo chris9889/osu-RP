@@ -194,6 +194,7 @@ namespace osu.Game
             };
 
             Dependencies.Cache(options);
+            Dependencies.Cache(chat);
             Dependencies.Cache(musicController);
             Dependencies.Cache(notificationManager);
             Dependencies.Cache(dialogOverlay);
@@ -202,13 +203,7 @@ namespace osu.Game
             {
                 Depth = -3,
                 OnHome = delegate { intro?.ChildScreen?.MakeCurrent(); },
-                OnRulesetChange = r => Ruleset.Value = r,
-            }, t =>
-            {
-                Ruleset.ValueChanged += delegate { Toolbar.SetRuleset(Ruleset.Value); };
-                Ruleset.TriggerChange();
-                overlayContent.Add(Toolbar);
-            });
+            }, overlayContent.Add);
 
             options.StateChanged += delegate
             {

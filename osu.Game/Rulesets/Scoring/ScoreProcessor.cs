@@ -20,6 +20,11 @@ namespace osu.Game.Rulesets.Scoring
         public event Action Failed;
 
         /// <summary>
+        /// Invoked when a new judgement has occurred. This occurs after the judgement has been processed by the <see cref="ScoreProcessor"/>.
+        /// </summary>
+        public event Action<Judgement> NewJudgement;
+
+        /// <summary>
         /// The current total score.
         /// </summary>
         public readonly BindableDouble TotalScore = new BindableDouble { MinValue = 0 };
@@ -61,18 +66,20 @@ namespace osu.Game.Rulesets.Scoring
             Reset();
         }
 
-        /// <summary>
-        /// Creates a Score applicable to the ruleset in which this ScoreProcessor resides.
-        /// </summary>
-        /// <returns>The Score.</returns>
-        public virtual Score CreateScore() => new Score
+        private ScoreRank rankFrom(double acc)
         {
-            TotalScore = TotalScore,
-            Combo = Combo,
-            MaxCombo = HighestCombo,
-            Accuracy = Accuracy,
-            Health = Health,
-        };
+            if (acc == 1)
+                return ScoreRank.X;
+            if (acc > 0.95)
+                return ScoreRank.S;
+            if (acc > 0.9)
+                return ScoreRank.A;
+            if (acc > 0.8)
+                return ScoreRank.B;
+            if (acc > 0.7)
+                return ScoreRank.C;
+            return ScoreRank.D;
+        }
 
         /// <summary>
         /// Resets this ScoreProcessor to a default state.
@@ -101,6 +108,29 @@ namespace osu.Game.Rulesets.Scoring
 
             alreadyFailed = true;
             Failed?.Invoke();
+        }
+
+        /// <summary>
+        /// Notifies subscribers of <see cref="NewJudgement"/> that a new judgement has occurred.
+        /// </summary>
+        /// <param name="judgement">The judgement to notify subscribers of.</param>
+        protected void NotifyNewJudgement(Judgement judgement)
+        {
+            NewJudgement?.Invoke(judgement);
+        }
+
+        /// <summary>
+        /// Retrieve a score populated with data for the current play this processor is responsible for.
+        /// </summary>
+        public virtual void PopulateScore(Score score)
+        {
+            score.TotalScore = TotalScore;
+            score.Combo = Combo;
+            score.MaxCombo = HighestCombo;
+            score.Accuracy = Accuracy;
+            score.Rank = rankFrom(Accuracy);
+            score.Date = DateTime.Now;
+            score.Health = Health;
         }
     }
 
@@ -161,6 +191,8 @@ namespace osu.Game.Rulesets.Scoring
 
                 Judgements.Add(judgement);
                 OnNewJudgement(judgement);
+
+                NotifyNewJudgement(judgement);
             }
             else
                 OnJudgementChanged(judgement);
