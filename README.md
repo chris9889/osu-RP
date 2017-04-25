@@ -1,3 +1,4 @@
+
 ﻿# osu-RP  
 [Notification]   
 Because I need to concentrate on preparing Japanese examination(N2),    
@@ -34,5 +35,3 @@ and this is README's editor,just let me to edit this file more convenient
 README.md 的編輯器用這個，貼在這邊比方便之後找   
 http://dillinger.io/   
 還有換行季記得要空兩個空格以上    
-
-
