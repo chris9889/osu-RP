@@ -17,6 +17,11 @@ using osu.Game.Screens.Play;
 
 namespace osu.Game.Rulesets.RP
 {
+    /// <summary>
+    /// note : 
+    /// mac beatmamp save path : /Users/Mac/.local/share/osu
+    /// windows : 
+    /// </summary>
     public class RpRuleset : Ruleset
     {
         /// <summary>
