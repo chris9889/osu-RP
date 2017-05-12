@@ -24,6 +24,6 @@ namespace osu.Game.Rulesets.RP.Objects.RpEffect.Point
         /// Gets or sets the process time.
         /// </summary>
         /// <value>The process time.</value>
-        public Double ProcessTime { get; set}
+        public Double ProcessTime { get; set; }
     }
 }
