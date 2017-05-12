@@ -198,6 +198,14 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\Common\IComponentHasScale.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\Common\IComponentHasBpm.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\Common\IComponentDragable.cs" />
+    <Compile Include="Objects\RpEffect\RpEffect.cs" />
+    <Compile Include="Objects\RpEffect\Point\EffectPoint.cs" />
+    <Compile Include="Objects\RpEffect\Point\ScaleEffectPoint.cs" />
+    <Compile Include="Objects\RpEffect\Point\SparkleEffectPoint.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\Common\IComponentAcceptEffect.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\EffectPiece.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\HitEffectPiece.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\BpmEffectPiece.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj">
@@ -245,6 +253,8 @@
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Hold\Start\" />
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Long\End\" />
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Long\Start\" />
+    <Folder Include="Objects\RpEffect\" />
+    <Folder Include="Objects\RpEffect\Point\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Textures\Play\RP\HitEffect\Cool\RP.png" />
