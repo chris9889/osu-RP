@@ -92,7 +92,7 @@ namespace osu.Game.Rulesets.RP.Objects.type
             Left = 4, //方
             Right = 8, //圈圈
             Special = 16, // Up| Down| Left| Right, //特殊，隨便按一個鍵都OK
-            ContainerPress = 32
+            ContainerPress = 32 //
         }
 
         /// <summary>

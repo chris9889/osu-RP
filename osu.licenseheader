@@ -1,9 +1,9 @@
 ﻿extensions: .cs
-// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
-// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
+// Copyright (c) 2017-20?? osu!RP gamemode.
+// Github is here : https://github.com/andy840119/osu-RP
 
 extensions:  .xml .config .xsd
 <!--
-Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
-Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
+Copyright (c) 2017-20?? osu!RP gamemode.
+Github is here : https://github.com/andy840119/osu-RP
 -->

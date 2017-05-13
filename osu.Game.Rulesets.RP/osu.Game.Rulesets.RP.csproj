@@ -206,6 +206,7 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\EffectPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\HitEffectPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\BpmEffectPiece.cs" />
+    <Compile Include="Parser\RpEffectParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj">
