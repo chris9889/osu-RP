@@ -101,8 +101,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece
         [BackgroundDependencyLoader]
         private void load(OsuConfigManager config)
         {
-            snakingIn = config.GetBindable<bool>(OsuConfig.SnakingInSliders);
-            snakingOut = config.GetBindable<bool>(OsuConfig.SnakingOutSliders);
+            //snakingIn = config.GetBindable<bool>(OsuConfig.SnakingInSliders);
+            //snakingOut = config.GetBindable<bool>(OsuConfig.SnakingOutSliders);
 
             //int textureWidth = (int)PathWidth * 2;
 
