@@ -7,9 +7,9 @@ namespace osu.Game.Rulesets.RP.Objects.RpEffect.Point
     /// <summary>
     /// Sparkle effect point.
     /// </summary>
-    public class SparkleEffectPoint : EffectPoint
+    public class ColorEffectPoint : EffectPoint
     {
-        public SparkleEffectPoint()
+        public ColorEffectPoint()
         {
             //Set default effect ProcessTime is 200ms
             ProcessTime = 200;
@@ -20,6 +20,6 @@ namespace osu.Game.Rulesets.RP.Objects.RpEffect.Point
         /// New Scale
         /// </summary>
         /// <value>The new scale.</value>
-        public Color4 SparkleColor { get; set; }
+        public Color4 Color { get; set; }
     }
 }

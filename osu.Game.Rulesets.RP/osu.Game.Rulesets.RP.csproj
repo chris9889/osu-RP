@@ -201,12 +201,14 @@
     <Compile Include="Objects\RpEffect\RpEffect.cs" />
     <Compile Include="Objects\RpEffect\Point\EffectPoint.cs" />
     <Compile Include="Objects\RpEffect\Point\ScaleEffectPoint.cs" />
-    <Compile Include="Objects\RpEffect\Point\SparkleEffectPoint.cs" />
+    <Compile Include="Objects\RpEffect\Point\ColorEffectPoint.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\Common\IComponentAcceptEffect.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\EffectPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\HitEffectPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\BpmEffectPiece.cs" />
     <Compile Include="Parser\RpEffectParser.cs" />
+    <Compile Include="Objects\RpEffect\Point\PositionEffectPoint.cs" />
+    <Compile Include="Objects\RpEffect\Point\RotationEffectPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj">

@@ -2,6 +2,7 @@
 using osu.Framework.Graphics.Containers;
 using osu.Game.Rulesets.RP.Objects.RpEffect;
 using osu.Game.Rulesets.RP.Objects.RpEffect.Point;
+using System.Collections.Generic;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece
 {
@@ -26,6 +27,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece
         {
             
         }
+
+        //TODO :  set the filter effect
+        public Type[] IncompatibleMods;//=> new[] { typeof(ModAutoplay), typeof(RpModRelax) };
 
         /// <summary>
         /// Sets the target container.
@@ -64,9 +68,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece
             Double delay = 0;
             Double lastEffectDeltaTime = 0;
 
+            List<EffectPoint> listSortedPoint = Effect.GetFilterEffectPoint(IncompatibleMods);
             do
             {
-                foreach (EffectPoint singleEffectPoint in Effect.ListEffectPoint)
+                foreach (EffectPoint singleEffectPoint in listSortedPoint)
                 {
                     delay = singleEffectPoint.Time - lastEffectDeltaTime - delay;
                     //set the effect time
@@ -88,10 +93,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece
                 ScaleEffectPoint effectPoint = singleEffectPoint as ScaleEffectPoint;
                 TargetContainer.ScaleTo(effectPoint.NewScale,effectPoint.ProcessTime,effectPoint.EasingTypes);
             }
-            else if(singleEffectPoint is SparkleEffectPoint)
+            else if(singleEffectPoint is ColorEffectPoint)
             {
-                SparkleEffectPoint effectPoint = singleEffectPoint as SparkleEffectPoint;
-                TargetContainer.FadeColour(effectPoint.SparkleColor, effectPoint.ProcessTime, effectPoint.EasingTypes);
+                ColorEffectPoint effectPoint = singleEffectPoint as ColorEffectPoint;
+                TargetContainer.FadeColour(effectPoint.Color, effectPoint.ProcessTime, effectPoint.EasingTypes);
             }
         }
 
