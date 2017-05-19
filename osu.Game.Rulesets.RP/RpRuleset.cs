@@ -45,7 +45,7 @@ namespace osu.Game.Rulesets.RP
         /// </summary>
         /// <param name="objects"></param>
         /// <returns></returns>
-        public override HitRenderer CreateHitRendererWith(WorkingBeatmap beatmap) => new RpHitRenderer(beatmap);
+        public override HitRenderer CreateHitRendererWith(WorkingBeatmap beatmap, bool isForCurrentRuleset) => new RpHitRenderer(beatmap,isForCurrentRuleset);
 
         /// <summary>
         ///     beatmap的詳細資訊
@@ -83,6 +83,6 @@ namespace osu.Game.Rulesets.RP
         /// <summary>
         /// Do not override this unless you are a legacy mode.
         /// </summary>
-        public override int LegacyID => 4;
+        //public override int LegacyID => 4;
     }
 }

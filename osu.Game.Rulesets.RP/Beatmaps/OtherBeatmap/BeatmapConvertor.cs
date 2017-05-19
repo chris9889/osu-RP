@@ -17,16 +17,16 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap
     /// </summary>
     public class BeatmapConvertor : BeatmapConverter<BaseRpObject>
     {
-        //蛻・・ｽ・ｽ
+        //???E?E??E?
         private readonly SliceProcessor sliceProcessor = new SliceProcessor();
 
-        //蟒ｺ讒気ontainer
+        //??????Container
         private readonly ContainerProcessor containerProcessor = new ContainerProcessor();
 
-        //蟒ｺ讒区遠謫顔黄莉ｶ
+        //??????????????????
         private readonly HitObjectProcessor hitObjectProcessor = new HitObjectProcessor();
 
-        //謚雁純謨ｸ霓牙屓RP迚ｩ莉ｶ
+        //???????????????RP??????
         private readonly PostConvertor postConvertor = new PostConvertor();
 
 
@@ -89,7 +89,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap
         /// </summary>
         /// <param name="original">The un-converted Beatmap.</param>
         /// <returns>The converted Beatmap.</returns>
-        protected override Beatmap<BaseRpObject> ConvertBeatmap(Beatmap original)
+        protected override Beatmap<BaseRpObject> ConvertBeatmap(Beatmap original, bool isForCurrentRuleset)
         {
             return new Beatmap<BaseRpObject>(original)
             {
@@ -99,20 +99,20 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap
 
 
         /// <summary>
-        ///     陬｡髱｢荳滂ｿｽE逧・・ｽE譏ｯOsuHitObject
-        ///     隕∬ｽ画鋤謌・RPHitObject
+        ///     ????????????E???E?E?E???OsuHitObject
+        ///     ????????????ERPHitObject
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
         private List<BaseRpObject> convertHitObjects(Beatmap originalBeatmap, float stackLeniency)
         {
-            //蜈域滑listObject蛻・・ｽE萓・
+            //??????listObject???E?E?E???E
             var listComvertParameter = sliceProcessor.GetListConvertParameter(originalBeatmap);
-            //謨ｴ逅・・ｽEContainer
+            //??????E?E?EContainer
             listComvertParameter = containerProcessor.Convert(listComvertParameter);
-            //謨ｴ逅・・ｽEHitObjects
+            //??????E?E?EHitObjects
             listComvertParameter = hitObjectProcessor.Convert(listComvertParameter);
-            //霓牙屓蜴滓悽逧・・ｽ・ｽ莉ｶ
+            //???????????????E?E??E????
             return postConvertor.Convert(listComvertParameter);
         }
     }

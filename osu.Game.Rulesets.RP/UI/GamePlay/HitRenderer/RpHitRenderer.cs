@@ -20,7 +20,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
 {
     public class RpHitRenderer : HitRenderer<BaseRpObject, RpJudgement>
     {
-        public RpHitRenderer(WorkingBeatmap beatmap): base(beatmap)
+        public RpHitRenderer(WorkingBeatmap beatmap, bool isForCurrentRuleset): base(beatmap,isForCurrentRuleset)
         {
         }
 
