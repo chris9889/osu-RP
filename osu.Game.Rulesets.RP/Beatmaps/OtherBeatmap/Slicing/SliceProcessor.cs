@@ -75,8 +75,9 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.Slicing
             double lastHitObjectDuration = 0;
             sliceConvertParameter.EndTime = result.ListRefrenceObject[endIndex].StartTime + lastHitObjectDuration;
 
+            //TODO : get the BGM by startTime
             //BPM
-            sliceConvertParameter.BPM = _originalBeatmap.TimingInfo.BPMAt(sliceConvertParameter.StartTime);
+            sliceConvertParameter.BPM = 60000 / _originalBeatmap.ControlPointInfo.TimingPointAt(sliceConvertParameter.StartTime).BeatLength;
             sliceConvertParameter.Volocity = volicity;
 
             return sliceConvertParameter;
