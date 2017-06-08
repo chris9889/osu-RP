@@ -20,6 +20,6 @@
         void OnThisRemove();
 
         //remove single Object
-        void Remove(T);
+        //void Remove(T);
     }
 }
