@@ -21,6 +21,25 @@ namespace osu.Desktop.VisualTests
                 else
                     host.Run(new VisualTestGame());
             }
+
+            //TODO : Editor
+            //          EditorField
+
+            //Todo : GamePlay
+            //          Field
+            //          ContainerAddLayoutNumber,spin
+            //          layout
+            //          object
+            //          longPress
+            //          beatmap convertor
+
+            //TODO : Seledt
+            //          showGameMode
+
+            //TODO : Setting
+            //          show setting page
+
+            //
         }
     }
 }

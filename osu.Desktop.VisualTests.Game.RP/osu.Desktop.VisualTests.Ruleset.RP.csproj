@@ -233,6 +233,7 @@
     <Compile Include="Tests\Undefined\TestCaseUserPanel.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetailArea.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetails.cs" />
+    <Compile Include="Tests\Setting\TestCaseGameModeSettingPage.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
