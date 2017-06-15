@@ -183,56 +183,67 @@
       <Project>{0d3fbf8a-7464-4cf7-8c90-3e7886df2d4d}</Project>
       <Name>osu.Game</Name>
     </ProjectReference>
+    <ProjectReference Include="..\osu.Game.Rulesets.RP\osu.Game.Rulesets.RP.csproj">
+      <Project>{07E65AA5-5A23-4089-9024-21046E882BED}</Project>
+      <Name>osu.Game.Rulesets.RP</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutomatedVisualTestGame.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Tests\TestCaseChatDisplay.cs" />
-    <Compile Include="Tests\TestCaseBeatmapDetails.cs" />
-    <Compile Include="Tests\TestCaseContextMenu.cs" />
-    <Compile Include="Tests\TestCaseDrawings.cs" />
-    <Compile Include="Tests\TestCaseGamefield.cs" />
-    <Compile Include="Tests\TestCaseGraph.cs" />
-    <Compile Include="Tests\TestCaseManiaHitObjects.cs" />
-    <Compile Include="Tests\TestCaseManiaPlayfield.cs" />
-    <Compile Include="Tests\TestCaseMenuOverlays.cs" />
-    <Compile Include="Tests\TestCaseMusicController.cs" />
-    <Compile Include="Tests\TestCaseNotificationManager.cs" />
-    <Compile Include="Tests\TestCaseOnScreenDisplay.cs" />
-    <Compile Include="Tests\TestCaseReplaySettingsOverlay.cs" />
-    <Compile Include="Tests\TestCasePlayer.cs" />
-    <Compile Include="Tests\TestCaseHitObjects.cs" />
-    <Compile Include="Tests\TestCaseKeyCounter.cs" />
-    <Compile Include="Tests\TestCaseMenuButtonSystem.cs" />
-    <Compile Include="Tests\TestCaseReplay.cs" />
-    <Compile Include="Tests\TestCaseResults.cs" />
-    <Compile Include="Tests\TestCaseScoreCounter.cs" />
-    <Compile Include="Tests\TestCaseSkipButton.cs" />
-    <Compile Include="Tests\TestCaseTabControl.cs" />
-    <Compile Include="Tests\TestCaseTaikoHitObjects.cs" />
-    <Compile Include="Tests\TestCaseTaikoPlayfield.cs" />
-    <Compile Include="Tests\TestCaseTextAwesome.cs" />
-    <Compile Include="Tests\TestCasePlaySongSelect.cs" />
-    <Compile Include="Tests\TestCaseTwoLayerButton.cs" />
     <Compile Include="VisualTestGame.cs" />
     <Compile Include="Platform\TestStorage.cs" />
-    <Compile Include="Tests\TestCaseSettings.cs" />
-    <Compile Include="Tests\TestCaseSongProgress.cs" />
-    <Compile Include="Tests\TestCaseMods.cs" />
-    <Compile Include="Tests\TestCaseDialogOverlay.cs" />
-    <Compile Include="Tests\TestCaseBeatmapOptionsOverlay.cs" />
-    <Compile Include="Tests\TestCaseLeaderboard.cs" />
     <Compile Include="Beatmaps\TestWorkingBeatmap.cs" />
-    <Compile Include="Tests\TestCaseBeatmapDetailArea.cs" />
-    <Compile Include="Tests\TestCaseDrawableRoom.cs" />
-    <Compile Include="Tests\TestCaseUserPanel.cs" />
-    <Compile Include="Tests\TestCaseDirect.cs" />
-    <Compile Include="Tests\TestCaseSocial.cs" />
-    <Compile Include="Tests\TestCaseBreadcrumbs.cs" />
+    <Compile Include="Tests\Old\TestCaseBeatmapDetailArea.cs" />
+    <Compile Include="Tests\Old\TestCaseBeatmapDetails.cs" />
+    <Compile Include="Tests\Old\TestCaseBeatmapOptionsOverlay.cs" />
+    <Compile Include="Tests\Old\TestCaseBreadcrumbs.cs" />
+    <Compile Include="Tests\Old\TestCaseChatDisplay.cs" />
+    <Compile Include="Tests\Old\TestCaseContextMenu.cs" />
+    <Compile Include="Tests\Old\TestCaseDialogOverlay.cs" />
+    <Compile Include="Tests\Old\TestCaseDirect.cs" />
+    <Compile Include="Tests\Old\TestCaseDrawableRoom.cs" />
+    <Compile Include="Tests\Old\TestCaseDrawings.cs" />
+    <Compile Include="Tests\Old\TestCaseGamefield.cs" />
+    <Compile Include="Tests\Old\TestCaseGraph.cs" />
+    <Compile Include="Tests\Old\TestCaseHitObjects.cs" />
+    <Compile Include="Tests\Old\TestCaseKeyCounter.cs" />
+    <Compile Include="Tests\Old\TestCaseLeaderboard.cs" />
+    <Compile Include="Tests\Old\TestCaseManiaHitObjects.cs" />
+    <Compile Include="Tests\Old\TestCaseManiaPlayfield.cs" />
+    <Compile Include="Tests\Old\TestCaseMenuButtonSystem.cs" />
+    <Compile Include="Tests\Old\TestCaseMenuOverlays.cs" />
+    <Compile Include="Tests\Old\TestCaseMods.cs" />
+    <Compile Include="Tests\Old\TestCaseMusicController.cs" />
+    <Compile Include="Tests\Old\TestCaseNotificationManager.cs" />
+    <Compile Include="Tests\Old\TestCaseOnScreenDisplay.cs" />
+    <Compile Include="Tests\Old\TestCasePlayer.cs" />
+    <Compile Include="Tests\Old\TestCasePlaySongSelect.cs" />
+    <Compile Include="Tests\Old\TestCaseReplay.cs" />
+    <Compile Include="Tests\Old\TestCaseReplaySettingsOverlay.cs" />
+    <Compile Include="Tests\Old\TestCaseResults.cs" />
+    <Compile Include="Tests\Old\TestCaseScoreCounter.cs" />
+    <Compile Include="Tests\Old\TestCaseSettings.cs" />
+    <Compile Include="Tests\Old\TestCaseSkipButton.cs" />
+    <Compile Include="Tests\Old\TestCaseSocial.cs" />
+    <Compile Include="Tests\Old\TestCaseSongProgress.cs" />
+    <Compile Include="Tests\Old\TestCaseTabControl.cs" />
+    <Compile Include="Tests\Old\TestCaseTaikoHitObjects.cs" />
+    <Compile Include="Tests\Old\TestCaseTaikoPlayfield.cs" />
+    <Compile Include="Tests\Old\TestCaseTextAwesome.cs" />
+    <Compile Include="Tests\Old\TestCaseTwoLayerButton.cs" />
+    <Compile Include="Tests\Old\TestCaseUserPanel.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Tests\Select\" />
+    <Folder Include="Tests\GamePlay\" />
+    <Folder Include="Tests\Editor\" />
+    <Folder Include="Tests\Setting\" />
+    <Folder Include="Tests\Old\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
