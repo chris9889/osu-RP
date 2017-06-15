@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Framework.Desktop", "osu-framework\osu.Framework.Desktop\osu.Framework.Desktop.csproj", "{65DC628F-A640-4111-AB35-3A5652BC1E17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Desktop.Game.Ruleset.VisualTests", "osu.Desktop.Game.RP.VisualTests\osu.Desktop.Game.Ruleset.VisualTests.csproj", "{69051C69-12AE-4E7D-A3E6-460D2E282312}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Desktop.VisualTests.Ruleset.RP", "osu.Desktop.VisualTests.Game.RP\osu.Desktop.VisualTests.Ruleset.RP.csproj", "{69051C69-12AE-4E7D-A3E6-460D2E282312}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu.Game.Tests", "osu.Game.Tests\osu.Game.Tests.csproj", "{54377672-20B1-40AF-8087-5CF73BF3953A}"
 EndProject
