@@ -32,13 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
-      <HintPath>..\packages\ppy.OpenTK.2.0.50727.1339\lib\net45\OpenTK.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="OpenTK">
+      <HintPath>..\packages\ppy.OpenTK.3.0\lib\net45\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\Coop\CoopDecider.cs" />

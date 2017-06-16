@@ -23,18 +23,18 @@ namespace osu.Desktop.VisualTests
             }
 
             //Todo : GamePlay
-            //          Field
-            //          ContainerAddLayoutNumber,spin
-            //          layout
-            //          object
-            //          longPress
-            //          beatmap convertor
+            //          Field ..V
+            //          ContainerAddLayoutNumber...V
+            //          layout...V
+            //          object...V
+            //          longPress...V
+            //          beatmap convertor...V
 
             //TODO : Seledt
-            //          showGameMode
+            //          showGameMode...V
 
             //TODO : Setting
-            //          show setting page
+            //          show setting page...V
 
             //
         }

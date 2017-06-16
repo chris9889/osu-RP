@@ -4,8 +4,11 @@
 using osu.Framework.Testing;
 using osu.Game.Graphics.UserInterface;
 
-namespace osu.Desktop.VisualTests.Tests
+namespace osu.Desktop.VisualTests.Tests.Common
 {
+    /// <summary>
+    /// test back button
+    /// </summary>
     internal class TestCaseBackButton : TestCase
     {
         public override string Description => @"Mostly back button.";

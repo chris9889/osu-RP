@@ -5,6 +5,7 @@ using osu.Framework.Platform;
 using osu.Framework.Testing;
 using osu.Game;
 using osu.Game.Screens.Backgrounds;
+using osu.Desktop.VisualTests.Ruleset.RP;
 
 namespace osu.Desktop.VisualTests
 {
@@ -18,7 +19,7 @@ namespace osu.Desktop.VisualTests
 
             // Have to construct this here, rather than in the constructor, because
             // we depend on some dependencies to be loaded within OsuGameBase.load().
-            Add(new TestBrowser());
+            Add(new RpTestBrowser());
         }
 
         public override void SetHost(GameHost host)

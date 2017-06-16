@@ -229,6 +229,14 @@
     <Compile Include="Tests\Common\TestCaseTextAwesome.cs" />
     <Compile Include="Tests\HomePage\TestCaseUserPanel.cs" />
     <Compile Include="Tests\Common\TestCaseBackButton.cs" />
+    <Compile Include="Tests\GamePlay\TestCaseContainerAddLayout.cs" />
+    <Compile Include="Tests\GamePlay\TestCaseLayoutAddHitObject.cs" />
+    <Compile Include="Tests\GamePlay\TestCaseBeatmapConvertor.cs" />
+    <Compile Include="Tests\CategoryTestCase.cs" />
+    <Compile Include="Tools\RpTestBrowser.cs" />
+    <Compile Include="Tools\TestBrowserConfig.cs" />
+    <Compile Include="Tools\TestCaseButton.cs" />
+    <Compile Include="Tools\TestCaseCategoryButton.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
@@ -238,12 +246,12 @@
     <Folder Include="Tests\GamePlay\" />
     <Folder Include="Tests\Editor\" />
     <Folder Include="Tests\Setting\" />
-    <Folder Include="Tests\Undefined\" />
     <Folder Include="Tests\Chatroom\" />
     <Folder Include="Tests\Common\" />
     <Folder Include="Tests\Direct\" />
     <Folder Include="Tests\MultiPlay\" />
     <Folder Include="Tests\HomePage\" />
+    <Folder Include="Tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
