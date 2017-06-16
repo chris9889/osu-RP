@@ -22,9 +22,6 @@ namespace osu.Desktop.VisualTests
                     host.Run(new VisualTestGame());
             }
 
-            //TODO : Editor
-            //          EditorField
-
             //Todo : GamePlay
             //          Field
             //          ContainerAddLayoutNumber,spin
