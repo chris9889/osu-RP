@@ -27,7 +27,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
         
         public CategoryTestCase CurrentTest { get; private set; }
 
-        private FillFlowContainer<TestCaseButton> leftFlowContainer;
+        private FillFlowContainer<TestCaseCategoryButton> leftFlowContainer;
         private FillFlowContainer<TestCaseButton> secondaryFlowContainer;
 
         private Container testContentContainer;
@@ -67,6 +67,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
 
             Children = new Drawable[]
             {
+                //Main category
                 new Container
                 {
                     RelativeSizeAxes = Axes.Y,
@@ -85,7 +86,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
                             Children = new[]
                             {
                                 //main category
-                                leftFlowContainer = new FillFlowContainer<TestCaseButton>
+                                leftFlowContainer = new FillFlowContainer<TestCaseCategoryButton>
                                 {
                                     Padding = new MarginPadding(3),
                                     Direction = FillDirection.Vertical,
@@ -97,6 +98,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
                         }
                     }
                 },
+                //Same category list
                 new Container
                 {
                     RelativeSizeAxes = Axes.Y,
@@ -106,7 +108,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
                     {
                         new Box
                         {
-                            Colour = Color4.DimGray,
+                            Colour=new Color4(142, 101, 142,150),
                             RelativeSizeAxes = Axes.Both
                         },
                         new ScrollContainer
@@ -118,6 +120,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
                                 //sub category
                                 secondaryFlowContainer = new FillFlowContainer<TestCaseButton>
                                 {
+                                    Colour=new Color4(255, 255, 255,255),
                                     Padding = new MarginPadding(3),
                                     Direction = FillDirection.Vertical,
                                     Spacing = new Vector2(0, 5),
@@ -128,6 +131,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
                         }
                     }
                 },
+                //TestSpace
                 testContentContainer = new Container
                 {
                     RelativeSizeAxes = Axes.Both,
@@ -161,18 +165,19 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
                 }
             };
 
-            //Add buttons for each TestCase.
-            leftFlowContainer.Add(Tests.Select(t => new TestCaseButton(t.Value) { Action = () => LoadTest(t.Value) }));
-
-            secondaryFlowContainer.Add(Tests.Select(t => new TestCaseButton(t.Value) { Action = () => LoadTest(t.Value) }));
-
-            //
+            //Background
             backgroundCompiler = new DynamicClassCompiler<CategoryTestCase>()
             {
                 CompilationStarted = compileStarted,
                 CompilationFinished = compileFinished,
                 WatchDirectory = @"Tests",
             };
+
+            //update category
+            UpdateCategory();
+            //TODO : get first category's name
+            UpdateCategoryItem("");
+
 
             try
             {
@@ -183,6 +188,32 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
                 //it's okay for this to fail for now.
             }
         }
+
+        /// <summary>
+        /// Update Category
+        /// </summary>
+        private void UpdateCategory()
+        {
+            leftFlowContainer.Clear();
+            //Add buttons for each TestCase.
+
+            List<string> ListCategory = Tests.Keys.Distinct().ToList();
+
+
+            leftFlowContainer.Add(ListCategory.Select(t => new TestCaseCategoryButton(t) { Action = () => UpdateCategoryItem(t) }));
+        }
+
+        /// <summary>
+        /// if change to another category ,update this view
+        /// </summary>
+        /// <param name="selectedCategory">Selected category.</param>
+        private void UpdateCategoryItem(string selectedCategory)
+        {
+            //TODO : switch category
+            secondaryFlowContainer.Clear();
+            secondaryFlowContainer.Add(Tests.Select(t => new TestCaseButton(t.Value) { Action = () => LoadTest(t.Value) }));
+        }
+
 
         private void compileStarted()
         {
@@ -214,9 +245,26 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
         {
             base.LoadComplete();
 
-            //andy840119 TODO : get from last record
-            //if (CurrentTest == null)
-                //LoadTest(Tests.get(t => t.Name == config.Get<string>(TestBrowserSetting.LastTest)));
+            //get last record
+            try
+            {
+                //LoadTest(Tests.(t => t.Name == config.Get<string>(TestBrowserSetting.LastTest)));
+                if (CurrentTest == null)
+                    foreach (KeyValuePair<String, CategoryTestCase> item in Tests)
+                    {
+                        if (item.Value.TestName == config.Get<string>(TestBrowserSetting.LastTest)) ;
+                        LoadTest(item.Value);
+                    }
+                    
+            }
+            catch
+            {
+                
+            }
+
+            //if null ,use first testCase
+            if (CurrentTest == null)
+                LoadTest(Tests.First().Value);
         }
 
         protected override bool OnExiting(Screen next)
@@ -227,7 +275,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
             return base.OnExiting(next);
         }
 
-
+        //load single test
         public void LoadTest(CategoryTestCase testCase = null, Action onCompletion = null)
         {
             //get first value
@@ -258,6 +306,6 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
             }
         }
 
-        private TestCaseButton getButtonFor(CategoryTestCase currentTest) => leftFlowContainer.Children.FirstOrDefault(b => b.TestCase.Name == currentTest.Name);
+        private TestCaseButton getButtonFor(CategoryTestCase currentTest) => secondaryFlowContainer.Children.FirstOrDefault(b => b.TestCase.Name == currentTest.Name);
     }
 }

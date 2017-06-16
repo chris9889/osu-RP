@@ -5,6 +5,7 @@ using osu.Framework.Input;
 using OpenTK;
 using OpenTK.Graphics;
 using osu.Desktop.VisualTests.Ruleset.RP.Tests;
+using System;
 
 namespace osu.Desktop.VisualTests.Ruleset.RP
 {
@@ -16,7 +17,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
         private readonly Box box;
         private readonly Container text;
 
-        private readonly string _testCategoey;
+        public readonly String CategoryName;
 
         public bool Current
         {
@@ -42,7 +43,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
         {
             Masking = true;
 
-            _testCategoey = testCategoey;
+            CategoryName = testCategoey;
 
             CornerRadius = 5;
             RelativeSizeAxes = Axes.X;
@@ -71,7 +72,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
                         {
                             Anchor = Anchor.TopCentre,
                             Origin = Anchor.TopCentre,
-                            Text = _testCategoey,
+                            Text = CategoryName,
                         },
                         new SpriteText
                         {
