@@ -175,6 +175,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
 
             //update category
             UpdateCategory();
+
             //TODO : get first category's name
             UpdateCategoryItem("");
 
@@ -209,7 +210,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
         /// <param name="selectedCategory">Selected category.</param>
         private void UpdateCategoryItem(string selectedCategory)
         {
-            //TODO : switch category
+            //TODO : impliment switch category
             secondaryFlowContainer.Clear();
             secondaryFlowContainer.Add(Tests.Select(t => new TestCaseButton(t.Value) { Action = () => LoadTest(t.Value) }));
         }
