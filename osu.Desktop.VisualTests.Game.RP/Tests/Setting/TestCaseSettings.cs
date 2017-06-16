@@ -6,6 +6,9 @@ using osu.Game.Overlays;
 
 namespace osu.Desktop.VisualTests.Tests
 {
+    /// <summary>
+    /// Just show the left bar setting view
+    /// </summary>
     internal class TestCaseSettings : TestCase
     {
         public override string Description => @"Tests the settings overlay";

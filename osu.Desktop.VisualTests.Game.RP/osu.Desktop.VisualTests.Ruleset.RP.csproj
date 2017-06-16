@@ -196,7 +196,6 @@
     <Compile Include="Beatmaps\TestWorkingBeatmap.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetailArea.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetails.cs" />
-    <Compile Include="Tests\Setting\TestCaseGameModeSettingPage.cs" />
     <Compile Include="Tests\Editor\TestCaseEditorField.cs" />
     <Compile Include="Tests\GamePlay\TestCaseGamefield.cs" />
     <Compile Include="Tests\Editor\TestCaseBreadcrumbs.cs" />
@@ -237,6 +236,9 @@
     <Compile Include="Tools\TestBrowserConfig.cs" />
     <Compile Include="Tools\TestCaseButton.cs" />
     <Compile Include="Tools\TestCaseCategoryButton.cs" />
+    <Compile Include="Tests\TestCaseCategory.cs" />
+    <Compile Include="Tests\GamePlay\TestCaseGameModeSettingPage.cs" />
+    <Compile Include="Tests\Setting\TestCaseRpSettingPage.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
