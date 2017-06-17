@@ -9,9 +9,14 @@ using OpenTK;
 
 namespace osu.Desktop.VisualTests.Tests
 {
-    internal class TestCaseUserPanel : TestCase
+    internal class TestCaseUserPanel : CategoryTestCase
     {
         public override string Description => @"Panels for displaying a user's status";
+
+        public override string Category => TestCaseCategory.HomePage.ToString();
+
+        public override string TestName => @"User Panel";
+
 
         public override void Reset()
         {

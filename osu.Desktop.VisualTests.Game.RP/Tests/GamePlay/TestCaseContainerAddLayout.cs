@@ -1,6 +1,6 @@
 ﻿using System;
 using osu.Desktop.VisualTests.Ruleset.RP.Tests;
-
+using osu.Desktop.VisualTests.Tests;
 
 namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
 {
@@ -9,6 +9,11 @@ namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
     /// </summary>
     public class TestCaseContainerAddLayout : CategoryTestCase
     {
+        public override string Category => TestCaseCategory.GamePlay.ToString();
+
+        public override string TestName => @"ContainerAddLayer";
+
+
         public TestCaseContainerAddLayout()
         {
         }

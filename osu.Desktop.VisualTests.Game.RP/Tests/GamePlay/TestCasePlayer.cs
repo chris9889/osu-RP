@@ -21,13 +21,18 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// show the playField and can be played instancely
     /// </summary>
-    internal class TestCasePlayer : TestCase
+    internal class TestCasePlayer : CategoryTestCase
     {
         protected Player Player;
         private BeatmapDatabase db;
         private RulesetDatabase rulesets;
 
         public override string Description => @"Showing everything to play the game.";
+
+        public override string Category => TestCaseCategory.GamePlay.ToString();
+
+        public override string TestName => @"Test Case Player";
+
 
         [BackgroundDependencyLoader]
         private void load(BeatmapDatabase db, RulesetDatabase rulesets)

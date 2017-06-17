@@ -18,9 +18,14 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// test case RP keyCounter
     /// </summary>
-    internal class TestCaseKeyCounter : TestCase
+    internal class TestCaseKeyCounter : CategoryTestCase
     {
         public override string Description => @"Tests key counter";
+
+        public override string Category => TestCaseCategory.GamePlay.ToString();
+
+        public override string TestName => @"KeyCounter";
+
 
         public override void Reset()
         {

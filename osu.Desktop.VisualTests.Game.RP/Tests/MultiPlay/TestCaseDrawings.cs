@@ -8,9 +8,14 @@ using osu.Game.Screens.Tournament.Teams;
 
 namespace osu.Desktop.VisualTests.Tests
 {
-    internal class TestCaseDrawings : TestCase
+    internal class TestCaseDrawings : CategoryTestCase
     {
         public override string Description => "Tournament drawings";
+
+        public override string Category => TestCaseCategory.MultiPlay.ToString();
+
+        public override string TestName => @"Drawings";
+
 
         public override void Reset()
         {

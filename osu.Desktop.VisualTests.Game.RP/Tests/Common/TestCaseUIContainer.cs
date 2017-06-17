@@ -13,9 +13,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// show the verious UI item
     /// it can be add and sorted in the bottom
     /// </summary>
-    internal class TestCaseUIContainer : TestCase
+    internal class TestCaseUIContainer : CategoryTestCase
     {
         public override string Description => @"Settings visible in replay/auto";
+
+        public override string Category => TestCaseCategory.Common.ToString();
+
+        public override string TestName => @"UIContainer";
 
         private ExampleContainer container;
 

@@ -25,11 +25,16 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// show RP gameField
     /// </summary>
-    internal class TestCaseGamefield : TestCase
+    internal class TestCaseGamefield : CategoryTestCase
     {
         private RulesetDatabase rulesets;
 
         public override string Description => @"Showing hitobjects and what not.";
+
+        public override string Category => TestCaseCategory.GamePlay.ToString();
+
+        public override string TestName => @"GameField";
+
 
         [BackgroundDependencyLoader]
         private void load(RulesetDatabase rulesets)

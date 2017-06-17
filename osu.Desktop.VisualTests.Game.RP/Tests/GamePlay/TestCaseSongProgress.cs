@@ -14,9 +14,14 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// not sure if will modified for RP
     /// </summary>
-    internal class TestCaseSongProgress : TestCase
+    internal class TestCaseSongProgress : CategoryTestCase
     {
         public override string Description => @"With fake data";
+
+        public override string Category => TestCaseCategory.GamePlay.ToString();
+
+        public override string TestName => @"Song Progress";
+
 
         private SongProgress progress;
         private SongProgressGraph graph;

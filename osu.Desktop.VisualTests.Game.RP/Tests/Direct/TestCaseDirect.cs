@@ -12,9 +12,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// Not sure will have RP beatmap into direct
     /// </summary>
-    public class TestCaseDirect : TestCase
+    public class TestCaseDirect : CategoryTestCase
     {
         public override string Description => @"osu!direct overlay";
+
+        public override string Category => TestCaseCategory.Direct.ToString();
+
+        public override string TestName => @"Direct";
 
         private DirectOverlay direct;
         private RulesetDatabase rulesets;

@@ -11,9 +11,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// show the menuOverlay
     /// </summary>
-    internal class TestCaseMenuOverlays : TestCase
+    internal class TestCaseMenuOverlays : CategoryTestCase
     {
         public override string Description => @"Tests pause and fail overlays";
+
+        public override string Category => TestCaseCategory.Common.ToString();
+
+        public override string TestName => @"MenuOverlays";
 
         private PauseContainer.PauseOverlay pauseOverlay;
         private FailOverlay failOverlay;

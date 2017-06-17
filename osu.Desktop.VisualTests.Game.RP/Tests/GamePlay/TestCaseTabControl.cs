@@ -14,9 +14,14 @@ namespace osu.Desktop.VisualTests.Tests
     /// may be use in the editor 
     /// or not,i'm not sure
     /// </summary>
-    public class TestCaseTabControl : TestCase
+    public class TestCaseTabControl : CategoryTestCase
     {
         public override string Description => @"Filter for song select";
+
+        public override string Category => TestCaseCategory.GamePlay.ToString();
+
+        public override string TestName => @"Tab Control";
+
 
         public override void Reset()
         {

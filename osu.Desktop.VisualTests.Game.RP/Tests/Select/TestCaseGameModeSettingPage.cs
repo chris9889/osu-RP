@@ -11,9 +11,14 @@ namespace osu.Desktop.VisualTests.Tests
     ///  // Remove / Clear / Edit / Delete // 
     /// Beatmap Button
     /// </summary>
-    internal class TestCaseGameModeSettingPage : TestCase
+    internal class TestCaseGameModeSettingPage : CategoryTestCase
     {
         public override string Description => @"testing game setting page";
+
+        public override string Category => TestCaseCategory.Select.ToString();
+
+        public override string TestName => @"BeatmapOptionOverlay";
+
 
         public override void Reset()
         {

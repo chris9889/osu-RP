@@ -15,9 +15,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// not sure will have custome textAwsome
     /// </summary>
-    internal class TestCaseTextAwesome : TestCase
+    internal class TestCaseTextAwesome : CategoryTestCase
     {
         public override string Description => @"Tests display of icons";
+
+        public override string Category => TestCaseCategory.Common.ToString();
+
+        public override string TestName => @"TextAwsome";
 
         public override void Reset()
         {

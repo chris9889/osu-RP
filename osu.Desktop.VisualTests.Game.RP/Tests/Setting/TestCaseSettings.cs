@@ -9,9 +9,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// Just show the left bar setting view
     /// </summary>
-    internal class TestCaseSettings : TestCase
+    internal class TestCaseSettings : CategoryTestCase
     {
         public override string Description => @"Tests the settings overlay";
+
+        public override string Category => TestCaseCategory.Setting.ToString();
+
+        public override string TestName => @"Settings";
 
         private SettingsOverlay settings;
 

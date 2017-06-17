@@ -6,9 +6,14 @@ using osu.Game.Screens.Play;
 
 namespace osu.Desktop.VisualTests.Tests
 {
-    internal class TestCaseSkipButton : TestCase
+    internal class TestCaseSkipButton : CategoryTestCase
     {
         public override string Description => @"Skip skip skippediskip";
+
+        public override string Category => TestCaseCategory.GamePlay.ToString();
+
+        public override string TestName => @"Skip Button";
+
 
         public override void Reset()
         {

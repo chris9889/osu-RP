@@ -16,9 +16,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// show list result
     /// not sure will show the RP gamePlay result
     /// </summary>
-    internal class TestCaseLeaderboard : TestCase
+    internal class TestCaseLeaderboard : CategoryTestCase
     {
         public override string Description => @"From song select";
+
+        public override string Category => TestCaseCategory.Select.ToString();
+
+        public override string TestName => @"Leader board";
 
         private Leaderboard leaderboard;
 

@@ -17,11 +17,16 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// show the gameMode's result
     /// </summary>
-    internal class TestCaseResults : TestCase
+    internal class TestCaseResults : CategoryTestCase
     {
         private BeatmapDatabase db;
 
         public override string Description => @"Results after playing.";
+
+        public override string Category => TestCaseCategory.GamePlay.ToString();
+
+        public override string TestName => @"Show GamePlay Result";
+
 
         [BackgroundDependencyLoader]
         private void load(BeatmapDatabase db)

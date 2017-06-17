@@ -12,9 +12,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// show Music controller show in the right up
     /// </summary>
-    internal class TestCaseMusicController : TestCase
+    internal class TestCaseMusicController : CategoryTestCase
     {
         public override string Description => @"Tests music controller ui.";
+
+        public override string Category => TestCaseCategory.Common.ToString();
+
+        public override string TestName => @"MusicController";
 
         private MusicController mc;
 

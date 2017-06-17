@@ -14,9 +14,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// switch to different mods for each gameMode
     /// </summary>
-    internal class TestCaseMods : TestCase
+    internal class TestCaseMods : CategoryTestCase
     {
         public override string Description => @"Mod select overlay and in-game display";
+
+        public override string Category => TestCaseCategory.Select.ToString();
+
+        public override string TestName => @"Mods";
 
         private ModSelectOverlay modSelect;
         private ModDisplay modDisplay;

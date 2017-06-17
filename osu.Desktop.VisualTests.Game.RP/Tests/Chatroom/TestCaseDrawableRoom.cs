@@ -14,9 +14,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// show user info
     /// </summary>
-    internal class TestCaseDrawableRoom : TestCase
+    internal class TestCaseDrawableRoom : CategoryTestCase
     {
         public override string Description => @"Select your favourite room";
+
+        public override string Category => TestCaseCategory.Chatroom.ToString();
+
+        public override string TestName => @"DrawableRoom";
 
         public override void Reset()
         {

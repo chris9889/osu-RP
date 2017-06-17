@@ -7,9 +7,13 @@ using osu.Game.Users;
 
 namespace osu.Desktop.VisualTests.Tests
 {
-    public class TestCaseSocial : TestCase
+    public class TestCaseSocial : CategoryTestCase
     {
         public override string Description => @"social browser overlay";
+
+        public override string Category => TestCaseCategory.Chatroom.ToString();
+
+        public override string TestName => @"ChatDisplay";
 
         public override void Reset()
         {

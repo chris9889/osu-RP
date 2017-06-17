@@ -12,9 +12,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// tset draw triangle made form regtangle
     /// </summary>
-    internal class TestCaseGraph : TestCase
+    internal class TestCaseGraph : CategoryTestCase
     {
         public override string Description => "graph";
+
+        public override string Category => TestCaseCategory.Common.ToString();
+
+        public override string TestName => @"Graph";
 
         private BarGraph graph;
 

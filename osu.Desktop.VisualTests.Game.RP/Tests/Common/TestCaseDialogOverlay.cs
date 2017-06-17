@@ -11,9 +11,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// test show DialogOverlay
     /// </summary>
-    internal class TestCaseDialogOverlay : TestCase
+    internal class TestCaseDialogOverlay : CategoryTestCase
     {
         public override string Description => @"Display dialogs";
+
+        public override string Category => TestCaseCategory.Common.ToString();
+
+        public override string TestName => @"DialogOverlay";
 
         private DialogOverlay overlay;
 

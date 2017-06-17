@@ -8,9 +8,14 @@ using osu.Game.Screens.Select;
 
 namespace osu.Desktop.VisualTests.Tests
 {
-    internal class TestCaseBeatmapDetailArea : TestCase
+    internal class TestCaseBeatmapDetailArea : CategoryTestCase
     {
         public override string Description => @"Beatmap details in song select";
+
+        public override string Category => TestCaseCategory.Select.ToString();
+
+        public override string TestName => @"Beatmap Detail Area";
+
 
         public override void Reset()
         {

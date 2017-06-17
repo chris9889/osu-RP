@@ -2,13 +2,19 @@
 using osu.Framework.Testing;
 
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Editor
+namespace osu.Desktop.VisualTests.Tests
 {
     /// <summary>
     /// show the edit field
     /// </summary>
-    public class TestCaseEditorField : TestCase
+    public class TestCaseEditorField : CategoryTestCase
     {
+        public override string Description => @"Test Editor Field";
+        
+        public override string Category => TestCaseCategory.Editor.ToString();
+
+        public override string TestName => @"Breadcrumbs";
+
         public TestCaseEditorField()
         {
         }

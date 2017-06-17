@@ -237,8 +237,8 @@
     <Compile Include="Tools\TestCaseButton.cs" />
     <Compile Include="Tools\TestCaseCategoryButton.cs" />
     <Compile Include="Tests\TestCaseCategory.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseGameModeSettingPage.cs" />
     <Compile Include="Tests\Setting\TestCaseRpSettingPage.cs" />
+    <Compile Include="Tests\Select\TestCaseGameModeSettingPage.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />

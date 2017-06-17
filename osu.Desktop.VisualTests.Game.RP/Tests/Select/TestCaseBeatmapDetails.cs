@@ -9,9 +9,13 @@ using System.Linq;
 
 namespace osu.Desktop.VisualTests.Tests
 {
-    internal class TestCaseBeatmapDetails : TestCase
+    internal class TestCaseBeatmapDetails : CategoryTestCase
     {
         public override string Description => "BeatmapDetails tab of BeatmapDetailArea";
+
+        public override string Category => TestCaseCategory.Select.ToString();
+
+        public override string TestName => @"Beatmap Details";
 
         private BeatmapDetails details;
 

@@ -1,13 +1,18 @@
 ﻿using System;
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Setting
+namespace osu.Desktop.VisualTests.Tests
 {
     /// <summary>
     /// Just show the setting page 
     /// like keyboard 
     /// for RP gameMode
     /// </summary>
-    public class TestCaseRpSettingPage
+    public class TestCaseRpSettingPage : CategoryTestCase
     {
+
+        public override string Category => TestCaseCategory.Setting.ToString();
+
+        public override string TestName => @"setting page";
+
         public TestCaseRpSettingPage()
         {
             

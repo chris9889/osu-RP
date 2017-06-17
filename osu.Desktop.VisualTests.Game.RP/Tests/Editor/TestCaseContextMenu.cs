@@ -17,9 +17,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// right click and show the menu item
     /// </summary>
-    internal class TestCaseContextMenu : TestCase
+    internal class TestCaseContextMenu : CategoryTestCase
     {
         public override string Description => @"Menu visible on right click";
+
+        public override string Category => TestCaseCategory.Editor.ToString();
+
+        public override string TestName => @"ContextMenu";
 
         private const int start_time = 0;
         private const int duration = 1000;

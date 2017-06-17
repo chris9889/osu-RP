@@ -14,13 +14,17 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// select the songs and show the song's info
     /// </summary>
-    internal class TestCasePlaySongSelect : TestCase
+    internal class TestCasePlaySongSelect : CategoryTestCase
     {
         private BeatmapDatabase db;
         private TestStorage storage;
         private PlaySongSelect songSelect;
 
         public override string Description => @"with fake data";
+
+        public override string Category => TestCaseCategory.Select.ToString();
+
+        public override string TestName => @"play songs select";
 
         private RulesetDatabase rulesets;
 

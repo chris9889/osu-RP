@@ -15,9 +15,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// not sure will show RP Message or broadcase in the future
     /// </summary>
-    internal class TestCaseNotificationManager : TestCase
+    internal class TestCaseNotificationManager : CategoryTestCase
     {
         public override string Description => @"I handle notifications";
+
+        public override string Category => TestCaseCategory.Common.ToString();
+
+        public override string TestName => @"NotificationManager";
 
         private NotificationManager manager;
 

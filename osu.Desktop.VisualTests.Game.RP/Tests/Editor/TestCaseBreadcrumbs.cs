@@ -11,9 +11,13 @@ namespace osu.Desktop.VisualTests.Tests
     /// looks like "Click >> The >> Circle"
     /// It might be use in the Editor
     /// </summary>
-    internal class TestCaseBreadcrumbs : TestCase
+    internal class TestCaseBreadcrumbs : CategoryTestCase
     {
         public override string Description => @"breadcrumb > control";
+
+        public override string Category => TestCaseCategory.Editor.ToString();
+
+        public override string TestName => @"Breadcrumbs";
 
         public override void Reset()
         {

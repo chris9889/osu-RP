@@ -9,9 +9,13 @@ namespace osu.Desktop.VisualTests.Tests.Common
     /// <summary>
     /// test back button
     /// </summary>
-    internal class TestCaseBackButton : TestCase
+    internal class TestCaseBackButton : CategoryTestCase
     {
         public override string Description => @"Mostly back button.";
+
+        public override string Category => TestCaseCategory.Common.ToString();
+
+        public override string TestName => @"BackButton";
 
         public override void Reset()
         {

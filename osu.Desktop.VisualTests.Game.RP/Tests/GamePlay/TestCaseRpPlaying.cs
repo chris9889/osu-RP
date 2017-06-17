@@ -19,12 +19,17 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// will be modified for RP for testing hit
     /// </summary>
-    internal class TestCaseRpPlaying : TestCase
+    internal class TestCaseRpPlaying : CategoryTestCase
     {
         private const double default_duration = 300;
         private const float scroll_time = 1000;
 
         public override string Description => "Taiko playfield";
+
+        public override string Category => TestCaseCategory.GamePlay.ToString();
+
+        public override string TestName => @"Test RP Playing";
+
 
         protected override double TimePerAction => default_duration * 2;
 

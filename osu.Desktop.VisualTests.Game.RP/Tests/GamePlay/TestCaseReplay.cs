@@ -16,6 +16,11 @@ namespace osu.Desktop.VisualTests.Tests
     {
         public override string Description => @"Testing replay playback.";
 
+        public override string Category => TestCaseCategory.GamePlay.ToString();
+
+        public override string TestName => @"Test Replay";
+
+
         protected override Player CreatePlayer(WorkingBeatmap beatmap)
         {
             beatmap.Mods.Value = new Mod[] { new OsuModAutoplay() };

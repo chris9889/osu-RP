@@ -15,6 +15,7 @@ using OpenTK;
 using OpenTK.Graphics;
 using osu.Framework.Testing;
 using osu.Desktop.VisualTests.Ruleset.RP.Tests;
+using osu.Desktop.VisualTests.Tests;
 
 
 namespace osu.Desktop.VisualTests.Ruleset.RP
@@ -34,7 +35,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
         private Container compilingNotice;
 
         //change it into dictionary
-        public readonly Dictionary<String,CategoryTestCase> Tests = new Dictionary<String,CategoryTestCase>();
+        public readonly List<CategoryTestCase> Tests = new List<CategoryTestCase>();
 
         private ConfigManager<TestBrowserSetting> config;
 
@@ -52,7 +53,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
                 if(singleTestCase.AddToTest)
                 {
                     //Category it
-                    Tests.Add(singleTestCase.Category,singleTestCase);
+                    Tests.Add(singleTestCase);
                 }
                    
             }
@@ -198,7 +199,13 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
             leftFlowContainer.Clear();
             //Add buttons for each TestCase.
 
-            List<string> ListCategory = Tests.Keys.Distinct().ToList();
+            List<string> ListCategory = new List<string>();
+
+            foreach(CategoryTestCase single in Tests)
+            {
+                if (!ListCategory.Contains(single.Category))
+                    ListCategory.Add(single.Category);
+            }
 
 
             leftFlowContainer.Add(ListCategory.Select(t => new TestCaseCategoryButton(t) { Action = () => UpdateCategoryItem(t) }));
@@ -212,7 +219,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
         {
             //TODO : impliment switch category
             secondaryFlowContainer.Clear();
-            secondaryFlowContainer.Add(Tests.Select(t => new TestCaseButton(t.Value) { Action = () => LoadTest(t.Value) }));
+            secondaryFlowContainer.Add(Tests.Where(t=>t.Category==selectedCategory).Select(t => new TestCaseButton(t) { Action = () => LoadTest(t) }));
         }
 
 
@@ -251,10 +258,10 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
             {
                 //LoadTest(Tests.(t => t.Name == config.Get<string>(TestBrowserSetting.LastTest)));
                 if (CurrentTest == null)
-                    foreach (KeyValuePair<String, CategoryTestCase> item in Tests)
+                    foreach (CategoryTestCase item in Tests)
                     {
-                        if (item.Value.TestName == config.Get<string>(TestBrowserSetting.LastTest)) ;
-                        LoadTest(item.Value);
+                        if (item.TestName == config.Get<string>(TestBrowserSetting.LastTest)) ;
+                        LoadTest(item);
                     }
                     
             }
@@ -265,7 +272,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
 
             //if null ,use first testCase
             if (CurrentTest == null)
-                LoadTest(Tests.First().Value);
+                LoadTest(Tests.First());
         }
 
         protected override bool OnExiting(Screen next)
@@ -281,7 +288,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
         {
             //get first value
             if (testCase == null && Tests.Count > 0)
-                testCase = Tests.First().Value;
+                testCase = Tests.First();
 
             config.Set(TestBrowserSetting.LastTest, testCase?.Name);
 

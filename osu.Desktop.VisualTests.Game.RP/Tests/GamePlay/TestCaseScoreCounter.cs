@@ -15,9 +15,14 @@ namespace osu.Desktop.VisualTests.Tests
     /// test score counter
     /// it will count the score by adding Hit,miss or by beatmap's difficulty
     /// </summary>
-    internal class TestCaseScoreCounter : TestCase
+    internal class TestCaseScoreCounter : CategoryTestCase
     {
         public override string Description => @"Tests multiple counters";
+
+        public override string Category => TestCaseCategory.GamePlay.ToString();
+
+        public override string TestName => @"Score Counter";
+
 
         public override void Reset()
         {
