@@ -68,13 +68,13 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
                         {
                             Anchor = Anchor.TopCentre,
                             Origin = Anchor.TopCentre,
-                            Text = test.Name,
+                            Text = TestCase.Name,
                         },
                         new SpriteText
                         {
                             Anchor = Anchor.BottomLeft,
                             Origin = Anchor.BottomLeft,
-                            Text = test.Description,
+                            Text = TestCase.Description,
                             TextSize = 15,
                             AutoSizeAxes = Axes.Y,
                             RelativeSizeAxes = Axes.X,

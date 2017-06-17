@@ -14,6 +14,7 @@ namespace osu.Desktop.VisualTests.Tests
         HomePage,
         MultiPlay,
         Select,
-        Setting
+        Setting,
+        TestCase,
     }
 }

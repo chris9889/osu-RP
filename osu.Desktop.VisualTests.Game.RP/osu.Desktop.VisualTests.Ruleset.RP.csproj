@@ -239,6 +239,7 @@
     <Compile Include="Tests\TestCaseCategory.cs" />
     <Compile Include="Tests\Setting\TestCaseRpSettingPage.cs" />
     <Compile Include="Tests\Select\TestCaseGameModeSettingPage.cs" />
+    <Compile Include="Tests\TestingTool\TestCaseTestUnitTestTool.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
@@ -254,6 +255,7 @@
     <Folder Include="Tests\MultiPlay\" />
     <Folder Include="Tests\HomePage\" />
     <Folder Include="Tools\" />
+    <Folder Include="Tests\TestingTool\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
