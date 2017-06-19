@@ -7,6 +7,9 @@ using osu.Game.Users;
 
 namespace osu.Desktop.VisualTests.Tests
 {
+    /// <summary>
+    /// list of player
+    /// </summary>
     public class TestCaseSocial : CategoryTestCase
     {
         public override string Description => @"social browser overlay";

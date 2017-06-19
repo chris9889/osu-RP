@@ -198,7 +198,6 @@
     <Compile Include="Tests\Select\TestCaseBeatmapDetails.cs" />
     <Compile Include="Tests\Editor\TestCaseEditorField.cs" />
     <Compile Include="Tests\GamePlay\TestCaseGamefield.cs" />
-    <Compile Include="Tests\Editor\TestCaseBreadcrumbs.cs" />
     <Compile Include="Tests\Chatroom\TestCaseChatDisplay.cs" />
     <Compile Include="Tests\Editor\TestCaseContextMenu.cs" />
     <Compile Include="Tests\Common\TestCaseDialogOverlay.cs" />
@@ -240,6 +239,10 @@
     <Compile Include="Tests\Setting\TestCaseRpSettingPage.cs" />
     <Compile Include="Tests\Select\TestCaseGameModeSettingPage.cs" />
     <Compile Include="Tests\TestingTool\TestCaseTestUnitTestTool.cs" />
+    <Compile Include="TestsScript\Beatmaps\GetOsuBeatmapScript.cs" />
+    <Compile Include="TestsScript\Beatmaps\GetRpBeatmapScript.cs" />
+    <Compile Include="Tests\Editor\TestCaseBreadcrumbs.cs" />
+    <Compile Include="Tests\MultiPlay\TestCaseMultiPlayField.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
@@ -256,6 +259,8 @@
     <Folder Include="Tests\HomePage\" />
     <Folder Include="Tools\" />
     <Folder Include="Tests\TestingTool\" />
+    <Folder Include="TestsScript\" />
+    <Folder Include="TestsScript\Beatmaps\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

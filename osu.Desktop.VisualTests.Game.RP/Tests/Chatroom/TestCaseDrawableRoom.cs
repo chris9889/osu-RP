@@ -12,7 +12,7 @@ using osu.Game.Database;
 namespace osu.Desktop.VisualTests.Tests
 {
     /// <summary>
-    /// show user info
+    /// room
     /// </summary>
     internal class TestCaseDrawableRoom : CategoryTestCase
     {

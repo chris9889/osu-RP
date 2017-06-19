@@ -1,4 +1,4 @@
-﻿﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+﻿﻿﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using osu.Framework.Testing;
@@ -10,6 +10,7 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// looks like "Click >> The >> Circle"
     /// It might be use in the Editor
+    /// Maybe
     /// </summary>
     internal class TestCaseBreadcrumbs : CategoryTestCase
     {

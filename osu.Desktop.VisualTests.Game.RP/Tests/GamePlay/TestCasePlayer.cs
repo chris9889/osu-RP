@@ -15,6 +15,7 @@ using osu.Game.Screens.Play;
 using OpenTK.Graphics;
 using osu.Desktop.VisualTests.Beatmaps;
 using osu.Game.Rulesets.Osu.UI;
+using osu.Desktop.VisualTests.Ruleset.RP.TestsScript.Beatmaps;
 
 namespace osu.Desktop.VisualTests.Tests
 {
@@ -24,8 +25,6 @@ namespace osu.Desktop.VisualTests.Tests
     internal class TestCasePlayer : CategoryTestCase
     {
         protected Player Player;
-        private BeatmapDatabase db;
-        private RulesetDatabase rulesets;
 
         public override string Description => @"Showing everything to play the game.";
 
@@ -33,60 +32,20 @@ namespace osu.Desktop.VisualTests.Tests
 
         public override string TestName => @"Test Case Player";
 
+        GetOsuBeatmapScript _getOsuBeatmapScript;
 
         [BackgroundDependencyLoader]
         private void load(BeatmapDatabase db, RulesetDatabase rulesets)
         {
-            this.rulesets = rulesets;
-            this.db = db;
+            _getOsuBeatmapScript = new GetOsuBeatmapScript(db, rulesets);
         }
+
 
         public override void Reset()
         {
             base.Reset();
 
-            WorkingBeatmap beatmap = null;
-
-            var beatmapInfo = db.Query<BeatmapInfo>().FirstOrDefault(b => b.RulesetID == 0);
-            if (beatmapInfo != null)
-                beatmap = db.GetWorkingBeatmap(beatmapInfo);
-
-            if (beatmap?.Track == null)
-            {
-                var objects = new List<HitObject>();
-
-                int time = 1500;
-                for (int i = 0; i < 50; i++)
-                {
-                    objects.Add(new HitCircle
-                    {
-                        StartTime = time,
-                        Position = new Vector2(i % 4 == 0 || i % 4 == 2 ? 0 : OsuPlayfield.BASE_SIZE.X,
-                        i % 4 < 2 ? 0 : OsuPlayfield.BASE_SIZE.Y),
-                        NewCombo = i % 4 == 0
-                    });
-
-                    time += 500;
-                }
-
-                Beatmap b = new Beatmap
-                {
-                    HitObjects = objects,
-                    BeatmapInfo = new BeatmapInfo
-                    {
-                        Difficulty = new BeatmapDifficulty(),
-                        Ruleset = rulesets.Query<RulesetInfo>().First(),
-                        Metadata = new BeatmapMetadata
-                        {
-                            Artist = @"Unknown",
-                            Title = @"Sample Beatmap",
-                            Author = @"peppy",
-                        }
-                    }
-                };
-
-                beatmap = new TestWorkingBeatmap(b);
-            }
+            WorkingBeatmap beatmap = _getOsuBeatmapScript.GetOsuBeatmap();
 
             Add(new Box
             {
@@ -95,6 +54,7 @@ namespace osu.Desktop.VisualTests.Tests
             });
 
             Add(Player = CreatePlayer(beatmap));
+
         }
 
         protected virtual Player CreatePlayer(WorkingBeatmap beatmap)
