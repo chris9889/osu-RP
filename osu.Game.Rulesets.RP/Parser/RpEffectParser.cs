@@ -7,7 +7,6 @@ using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.type;
 using OpenTK;
 using SliderCurve = osu.Game.Rulesets.RP.Objects.MovingPath.SliderCurve;
-using osu.Game.Rulesets.RP.Objects.RpEffect;
    
 namespace osu.Game.Rulesets.RP.Parser
 {

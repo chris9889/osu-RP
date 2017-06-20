@@ -20,7 +20,8 @@ namespace osu.Desktop.VisualTests.TestsScript.Beatmaps
 
         public GetOsuBeatmapScript(BeatmapDatabase db, RulesetDatabase rulesets)
         {
-            
+            this.db = db;
+            this.rulesets = rulesets;
         }
 
         //get single osu beatmap

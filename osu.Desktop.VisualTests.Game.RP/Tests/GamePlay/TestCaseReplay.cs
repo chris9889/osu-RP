@@ -24,7 +24,6 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
         protected override Player CreatePlayer(WorkingBeatmap beatmap)
         {
             beatmap.Mods.Value = new Mod[] { new OsuModAutoplay() };
-
             return base.CreatePlayer(beatmap);
         }
     }

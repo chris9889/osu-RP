@@ -1,8 +1,11 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
+using System.Collections.Generic;
+using osu.Framework.Configuration;
 using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Beatmaps;
+using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Replays;
 using osu.Game.Rulesets.RP.BeatmapReplay;
@@ -20,8 +23,11 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
 {
     public class RpHitRenderer : HitRenderer<BaseRpObject, RpJudgement>
     {
+        
+
         public RpHitRenderer(WorkingBeatmap beatmap, bool isForCurrentRuleset): base(beatmap,isForCurrentRuleset)
         {
+            
         }
 
         /// <summary>
@@ -69,6 +75,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         /// <returns></returns>
         protected override DrawableHitObject<BaseRpObject, RpJudgement> GetVisualRepresentation(BaseRpObject h)
         {
+            //TODO : you can get IEnumerable<Mod> Mods; ,and Impliment convert them
             if (h is RpHitObject)
                 return new DrawableRpHitObject((RpHitObject)h);
             if (h is RpSliderObject)

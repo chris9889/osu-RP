@@ -11,12 +11,10 @@ using osu.Framework.Timing;
 using osu.Game.Beatmaps;
 using osu.Game.Beatmaps.ControlPoints;
 using osu.Game.Database;
-using osu.Game.Rulesets.Catch.UI;
-using osu.Game.Rulesets.Mania.UI;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Rulesets.Osu.UI;
-using osu.Game.Rulesets.Taiko.UI;
+using osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer;
 using OpenTK;
 
 namespace osu.Desktop.VisualTests.Tests.GamePlay
@@ -98,19 +96,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
                             Anchor = Anchor.TopLeft,
                             Origin = Anchor.TopLeft
                         },
-                        new TaikoHitRenderer(beatmap, false)
-                        {
-                            Scale = new Vector2(0.5f),
-                            Anchor = Anchor.TopRight,
-                            Origin = Anchor.TopRight
-                        },
-                        new CatchHitRenderer(beatmap, false)
-                        {
-                            Scale = new Vector2(0.5f),
-                            Anchor = Anchor.BottomLeft,
-                            Origin = Anchor.BottomLeft
-                        },
-                        new ManiaHitRenderer(beatmap, false)
+
+                        new RpHitRenderer(beatmap, false)
                         {
                             Scale = new Vector2(0.5f),
                             Anchor = Anchor.BottomRight,
