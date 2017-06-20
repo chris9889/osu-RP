@@ -2,9 +2,24 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System.Collections.Generic;
-using osu.Desktop.VisualTests.Ruleset.RP.Beatmaps;
+using osu.Desktop.VisualTests.Beatmaps;
+using osu.Framework.Allocation;
+using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
+using osu.Framework.MathUtils;
+using osu.Framework.Timing;
+using osu.Game.Beatmaps;
+using osu.Game.Beatmaps.ControlPoints;
+using osu.Game.Database;
+using osu.Game.Rulesets.Catch.UI;
+using osu.Game.Rulesets.Mania.UI;
+using osu.Game.Rulesets.Objects;
+using osu.Game.Rulesets.Osu.Objects;
+using osu.Game.Rulesets.Osu.UI;
+using osu.Game.Rulesets.Taiko.UI;
+using OpenTK;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay
 {
     /// <summary>
     /// show RP gameField
@@ -51,7 +66,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
                 BeatLength = 200
             });
 
-            WorkingBeatmap beatmap = new TestWorkingBeatmap(new Beatmap
+            WorkingBeatmap beatmap = new RpTestWorkingBeatmap(new Beatmap
             {
                 HitObjects = objects,
                 BeatmapInfo = new BeatmapInfo

@@ -1,7 +1,14 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
+using osu.Framework.Graphics;
+using osu.Framework.Graphics.Sprites;
+using osu.Framework.MathUtils;
+using osu.Game.Graphics.UserInterface;
+using osu.Game.Screens.Play.HUD;
+using OpenTK;
+
+namespace osu.Desktop.VisualTests.Tests.GamePlay
 {
     /// <summary>
     /// test score counter

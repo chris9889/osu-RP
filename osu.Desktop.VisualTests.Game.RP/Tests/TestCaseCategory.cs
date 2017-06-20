@@ -1,4 +1,4 @@
-﻿namespace osu.Desktop.VisualTests.Ruleset.RP.Tests
+﻿namespace osu.Desktop.VisualTests.Tests
 {
     /// <summary>
     /// list category;

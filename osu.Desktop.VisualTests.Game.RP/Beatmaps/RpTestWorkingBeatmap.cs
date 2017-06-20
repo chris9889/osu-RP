@@ -1,11 +1,15 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Beatmaps
+using osu.Framework.Audio.Track;
+using osu.Framework.Graphics.Textures;
+using osu.Game.Beatmaps;
+
+namespace osu.Desktop.VisualTests.Beatmaps
 {
-    public class TestWorkingBeatmap : WorkingBeatmap
+    public class RpTestWorkingBeatmap : WorkingBeatmap
     {
-        public TestWorkingBeatmap(Beatmap beatmap)
+        public RpTestWorkingBeatmap(Beatmap beatmap)
             : base(beatmap.BeatmapInfo)
         {
             this.beatmap = beatmap;

@@ -1,4 +1,6 @@
-﻿namespace osu.Desktop.VisualTests.Ruleset.RP.Tests
+﻿using osu.Framework.Testing;
+
+namespace osu.Desktop.VisualTests.Tests
 {
     /// <summary>
     /// inherit the TestCase and has more function

@@ -1,19 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using osu.Desktop.VisualTests.Ruleset.RP.Beatmaps;
-using osu.Framework.Allocation;
-using osu.Framework.Testing;
+using osu.Desktop.VisualTests.Beatmaps;
 using osu.Game.Beatmaps;
-using OpenTK;
-using osu.Framework.Graphics.Sprites;
 using osu.Game.Database;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Osu.Objects;
-using osu.Game.Screens.Play;
-using OpenTK.Graphics;
 using osu.Game.Rulesets.Osu.UI;
+using OpenTK;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.TestsScript.Beatmaps
+namespace osu.Desktop.VisualTests.TestsScript.Beatmaps
 {
     /// <summary>
     /// Get osu beatmap script.
@@ -72,7 +67,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP.TestsScript.Beatmaps
                     }
                 };
 
-                beatmap = new TestWorkingBeatmap(b);
+                beatmap = new RpTestWorkingBeatmap(b);
             }
 
             return beatmap;

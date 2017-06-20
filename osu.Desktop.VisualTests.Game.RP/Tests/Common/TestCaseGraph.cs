@@ -2,8 +2,11 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System.Linq;
+using osu.Framework.Graphics;
+using osu.Game.Graphics.UserInterface;
+using OpenTK;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Common
+namespace osu.Desktop.VisualTests.Tests.Common
 {
     /// <summary>
     /// tset draw triangle made form regtangle

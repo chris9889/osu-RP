@@ -1,6 +1,6 @@
-﻿using osu.Desktop.VisualTests.Ruleset.RP.Tools;
+﻿using osu.Desktop.VisualTests.Tools;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.TestingTool
+namespace osu.Desktop.VisualTests.Tests.TestingTool
 {
     /// <summary>
     /// Test case's unit test

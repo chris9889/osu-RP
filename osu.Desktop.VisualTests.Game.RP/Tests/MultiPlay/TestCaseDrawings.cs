@@ -2,8 +2,10 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System.Collections.Generic;
+using osu.Game.Screens.Tournament;
+using osu.Game.Screens.Tournament.Teams;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.MultiPlay
+namespace osu.Desktop.VisualTests.Tests.MultiPlay
 {
     internal class TestCaseDrawings : CategoryTestCase
     {

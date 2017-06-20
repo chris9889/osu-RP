@@ -1,6 +1,9 @@
-﻿using osu.Desktop.VisualTests.Ruleset.RP.TestsScript.Beatmaps;
+﻿using osu.Desktop.VisualTests.TestsScript.Beatmaps;
+using osu.Framework.Allocation;
+using osu.Game.Beatmaps;
+using osu.Game.Database;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay
 {
     /// <summary>
     /// convert osu beatmap into RP beatmap

@@ -3,8 +3,15 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using osu.Framework.Allocation;
+using osu.Game.Beatmaps;
+using osu.Game.Database;
+using osu.Game.Rulesets.Scoring;
+using osu.Game.Screens.Ranking;
+using osu.Game.Users;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay
 {
     /// <summary>
     /// show the gameMode's result

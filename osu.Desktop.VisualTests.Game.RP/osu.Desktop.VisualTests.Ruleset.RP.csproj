@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>osu.Desktop.VisualTests.Ruleset.RP</RootNamespace>
+    <RootNamespace>osu.Desktop.VisualTests</RootNamespace>
     <AssemblyName>osu!</AssemblyName>
     <ManifestCertificateThumbprint>3CF060CD28877D0E3112948951A64B2A7CEEC909</ManifestCertificateThumbprint>
     <ManifestKeyFile>codesigning.pfx</ManifestKeyFile>
@@ -191,9 +191,9 @@
   <ItemGroup>
     <Compile Include="AutomatedVisualTestGame.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="VisualTestGame.cs" />
-    <Compile Include="Platform\TestStorage.cs" />
-    <Compile Include="Beatmaps\TestWorkingBeatmap.cs" />
+    <Compile Include="RpVisualTestGame.cs" />
+    <Compile Include="Platform\RpTestStorage.cs" />
+    <Compile Include="Beatmaps\RpTestWorkingBeatmap.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetailArea.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetails.cs" />
     <Compile Include="Tests\Editor\TestCaseEditorField.cs" />
@@ -247,21 +247,7 @@
   <ItemGroup />
   <ItemGroup />
   <ItemGroup />
-  <ItemGroup>
-    <Folder Include="Tests\Select\" />
-    <Folder Include="Tests\GamePlay\" />
-    <Folder Include="Tests\Editor\" />
-    <Folder Include="Tests\Setting\" />
-    <Folder Include="Tests\Chatroom\" />
-    <Folder Include="Tests\Common\" />
-    <Folder Include="Tests\Direct\" />
-    <Folder Include="Tests\MultiPlay\" />
-    <Folder Include="Tests\HomePage\" />
-    <Folder Include="Tools\" />
-    <Folder Include="Tests\TestingTool\" />
-    <Folder Include="TestsScript\" />
-    <Folder Include="TestsScript\Beatmaps\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

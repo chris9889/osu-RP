@@ -1,7 +1,4 @@
-﻿using System;
-using osu.Desktop.VisualTests.Ruleset.RP.Tests;
-
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
+﻿namespace osu.Desktop.VisualTests.Tests.GamePlay
 {
     /// <summary>
     /// test container add layout

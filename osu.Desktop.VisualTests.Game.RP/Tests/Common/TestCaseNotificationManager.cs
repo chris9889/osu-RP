@@ -3,8 +3,13 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using osu.Framework.Graphics.Containers;
+using osu.Framework.MathUtils;
+using osu.Game.Overlays;
+using osu.Game.Overlays.Notifications;
+using osu.Framework.Graphics;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Common
+namespace osu.Desktop.VisualTests.Tests.Common
 {
     /// <summary>
     /// not sure will show RP Message or broadcase in the future

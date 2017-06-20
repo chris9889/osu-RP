@@ -1,11 +1,14 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Desktop.VisualTests.Ruleset.RP.Tools;
+using osu.Desktop.VisualTests.Tools;
+using osu.Framework.Platform;
+using osu.Game;
+using osu.Game.Screens.Backgrounds;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP
+namespace osu.Desktop.VisualTests
 {
-    internal class VisualTestGame : OsuGameBase
+    internal class RpVisualTestGame : OsuGameBase
     {
         protected override void LoadComplete()
         {

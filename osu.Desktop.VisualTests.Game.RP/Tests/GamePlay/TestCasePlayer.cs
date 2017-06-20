@@ -1,9 +1,15 @@
 ﻿﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Desktop.VisualTests.Ruleset.RP.TestsScript.Beatmaps;
+using osu.Desktop.VisualTests.TestsScript.Beatmaps;
+using osu.Framework.Allocation;
+using osu.Framework.Graphics.Sprites;
+using osu.Game.Beatmaps;
+using osu.Game.Database;
+using osu.Game.Screens.Play;
+using OpenTK.Graphics;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay
 {
     /// <summary>
     /// show the playField and can be played instancely

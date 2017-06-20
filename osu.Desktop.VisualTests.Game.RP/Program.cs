@@ -2,8 +2,11 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
+using osu.Desktop.VisualTests.Ruleset.RP;
+using osu.Framework.Desktop;
+using osu.Framework.Platform;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP
+namespace osu.Desktop.VisualTests
 {
     public static class Program
     {
@@ -17,7 +20,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP
                 if (benchmark)
                     host.Run(new AutomatedVisualTestGame());
                 else
-                    host.Run(new VisualTestGame());
+                    host.Run(new RpVisualTestGame());
             }
 
             //Todo : GamePlay

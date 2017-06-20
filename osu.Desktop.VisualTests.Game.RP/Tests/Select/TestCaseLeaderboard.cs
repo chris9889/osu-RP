@@ -1,7 +1,15 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Select
+using OpenTK;
+using osu.Framework.Graphics;
+using osu.Game.Rulesets.Mods;
+using osu.Game.Rulesets.Osu.Mods;
+using osu.Game.Rulesets.Scoring;
+using osu.Game.Screens.Select.Leaderboards;
+using osu.Game.Users;
+
+namespace osu.Desktop.VisualTests.Tests.Select
 {
     /// <summary>
     /// show list result

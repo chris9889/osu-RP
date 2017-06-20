@@ -2,8 +2,13 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System.Collections.Generic;
+using osu.Framework.Graphics;
+using osu.Framework.MathUtils;
+using osu.Framework.Timing;
+using osu.Game.Rulesets.Objects;
+using osu.Game.Screens.Play;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay
 {
     /// <summary>
     /// not sure if will modified for RP

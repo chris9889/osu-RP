@@ -1,7 +1,12 @@
 // Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.HomePage
+using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
+using osu.Game.Users;
+using OpenTK;
+
+namespace osu.Desktop.VisualTests.Tests.HomePage
 {
     internal class TestCaseUserPanel : CategoryTestCase
     {
