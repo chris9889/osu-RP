@@ -8,7 +8,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
     /// <summary>
     /// convert osu beatmap into RP beatmap
     /// </summary>
-    public class TestCaseBeatmapConvertor : CategoryTestCase
+    internal class TestCaseBeatmapConvertor : CategoryTestCase
     {
         public override string Category => TestCaseCategory.GamePlay.ToString();
 
@@ -22,7 +22,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
             _getOsuBeatmapScript = new GetOsuBeatmapScript(db, rulesets);
         }
 
-        public TestCaseBeatmapConvertor()
+        public override void Reset()
         {
             WorkingBeatmap beatmap = _getOsuBeatmapScript.GetOsuBeatmap();
             //TODO : get beatmap info of someing that can be test
