@@ -1,15 +1,7 @@
 // Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Framework.Graphics.Containers;
-using osu.Framework.Graphics;
-using osu.Framework.Testing;
-using osu.Game.Screens.Multiplayer;
-using osu.Game.Online.Multiplayer;
-using osu.Game.Users;
-using osu.Game.Database;
-
-namespace osu.Desktop.VisualTests.Tests
+namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Chatroom
 {
     /// <summary>
     /// room

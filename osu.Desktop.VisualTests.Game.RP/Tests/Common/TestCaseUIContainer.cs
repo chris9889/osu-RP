@@ -1,13 +1,7 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Framework.Graphics;
-using osu.Framework.Testing;
-using osu.Game.Graphics.UserInterface;
-using osu.Game.Screens.Play;
-using osu.Game.Screens.Play.ReplaySettings;
-
-namespace osu.Desktop.VisualTests.Tests
+namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Common
 {
     /// <summary>
     /// show the verious UI item

@@ -1,8 +1,4 @@
-﻿using System;
-using osu.Framework.Testing;
-
-
-namespace osu.Desktop.VisualTests.Tests
+﻿namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Editor
 {
     /// <summary>
     /// show the edit field

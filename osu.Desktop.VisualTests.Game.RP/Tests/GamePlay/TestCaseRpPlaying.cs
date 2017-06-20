@@ -1,20 +1,9 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using OpenTK;
-using osu.Framework.Graphics;
-using osu.Framework.Graphics.Containers;
-using osu.Framework.MathUtils;
-using osu.Framework.Testing;
-using osu.Framework.Timing;
-using osu.Game.Rulesets.Objects.Drawables;
-using osu.Game.Rulesets.Taiko.Judgements;
-using osu.Game.Rulesets.Taiko.Objects;
-using osu.Game.Rulesets.Taiko.Objects.Drawables;
-using osu.Game.Rulesets.Taiko.UI;
 using System;
 
-namespace osu.Desktop.VisualTests.Tests
+namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
 {
     /// <summary>
     /// will be modified for RP for testing hit

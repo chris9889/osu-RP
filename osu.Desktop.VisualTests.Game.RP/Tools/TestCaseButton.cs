@@ -1,13 +1,6 @@
-﻿using osu.Framework.Graphics;
-using osu.Framework.Graphics.Containers;
-using osu.Framework.Graphics.Sprites;
-using osu.Framework.Input;
-using OpenTK;
-using OpenTK.Graphics;
-using osu.Desktop.VisualTests.Ruleset.RP.Tests;
-using osu.Desktop.VisualTests.Tests;
+﻿using osu.Desktop.VisualTests.Ruleset.RP.Tests;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP
+namespace osu.Desktop.VisualTests.Ruleset.RP.Tools
 {
     internal class TestCaseButton : ClickableContainer
     {

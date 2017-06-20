@@ -1,13 +1,9 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Framework.Platform;
-using osu.Framework.Testing;
-using osu.Game;
-using osu.Game.Screens.Backgrounds;
-using osu.Desktop.VisualTests.Ruleset.RP;
+using osu.Desktop.VisualTests.Ruleset.RP.Tools;
 
-namespace osu.Desktop.VisualTests
+namespace osu.Desktop.VisualTests.Ruleset.RP
 {
     internal class VisualTestGame : OsuGameBase
     {

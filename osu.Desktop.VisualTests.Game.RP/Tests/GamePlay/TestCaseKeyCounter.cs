@@ -1,19 +1,7 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Framework.Testing;
-using osu.Framework.Graphics;
-using OpenTK.Input;
-using osu.Framework.Graphics.UserInterface;
-using osu.Framework.Configuration;
-using osu.Framework.Graphics.Containers;
-using OpenTK;
-using OpenTK.Graphics;
-using osu.Framework.MathUtils;
-using osu.Framework.Graphics.Sprites;
-using osu.Game.Screens.Play;
-
-namespace osu.Desktop.VisualTests.Tests
+namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
 {
     /// <summary>
     /// test case RP keyCounter

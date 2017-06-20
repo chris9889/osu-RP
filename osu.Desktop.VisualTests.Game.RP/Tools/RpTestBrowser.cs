@@ -2,23 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using osu.Framework.Allocation;
-using osu.Framework.Configuration;
-using osu.Framework.Extensions;
-using osu.Framework.Graphics;
-using osu.Framework.Graphics.Containers;
-using osu.Framework.Graphics.Sprites;
-using osu.Framework.Platform;
-using osu.Framework.Screens;
-using osu.Framework.Testing.Drawables;
-using OpenTK;
-using OpenTK.Graphics;
-using osu.Framework.Testing;
 using osu.Desktop.VisualTests.Ruleset.RP.Tests;
-using osu.Desktop.VisualTests.Tests;
 
-
-namespace osu.Desktop.VisualTests.Ruleset.RP
+namespace osu.Desktop.VisualTests.Ruleset.RP.Tools
 {
     /// <summary>
     /// this test browser can sorted by class category

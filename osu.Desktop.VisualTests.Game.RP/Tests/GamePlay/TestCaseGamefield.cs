@@ -1,26 +1,10 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using OpenTK;
-using osu.Framework.Graphics;
-using osu.Framework.Graphics.Containers;
-using osu.Framework.MathUtils;
-using osu.Framework.Testing;
-using osu.Framework.Timing;
-using osu.Game.Beatmaps;
-using osu.Game.Database;
-using osu.Game.Rulesets.Catch.UI;
-using osu.Game.Rulesets.Mania.UI;
-using osu.Game.Rulesets.Objects;
-using osu.Game.Rulesets.Osu.Objects;
-using osu.Game.Rulesets.Osu.UI;
-using osu.Game.Rulesets.Taiko.UI;
 using System.Collections.Generic;
-using osu.Desktop.VisualTests.Beatmaps;
-using osu.Framework.Allocation;
-using osu.Game.Beatmaps.ControlPoints;
+using osu.Desktop.VisualTests.Ruleset.RP.Beatmaps;
 
-namespace osu.Desktop.VisualTests.Tests
+namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
 {
     /// <summary>
     /// show RP gameField

@@ -1,13 +1,6 @@
-﻿using osu.Framework.Graphics;
-using osu.Framework.Graphics.Containers;
-using osu.Framework.Graphics.Sprites;
-using osu.Framework.Input;
-using OpenTK;
-using OpenTK.Graphics;
-using osu.Desktop.VisualTests.Ruleset.RP.Tests;
-using System;
+﻿using System;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP
+namespace osu.Desktop.VisualTests.Ruleset.RP.Tools
 {
     /// <summary>
     /// the category of the unitTest

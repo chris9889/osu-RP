@@ -1,14 +1,12 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Framework;
-using osu.Framework.Desktop.Platform;
 using SQLite.Net;
 using SQLite.Net.Interop;
 using SQLite.Net.Platform.Generic;
 using SQLite.Net.Platform.Win32;
 
-namespace osu.Desktop.VisualTests.Platform
+namespace osu.Desktop.VisualTests.Ruleset.RP.Platform
 {
     public class TestStorage : DesktopStorage
     {

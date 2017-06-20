@@ -1,7 +1,4 @@
-﻿using osu.Framework.Configuration;
-using osu.Framework.Platform;
-
-namespace osu.Desktop.VisualTests.Ruleset.RP
+﻿namespace osu.Desktop.VisualTests.Ruleset.RP.Tools
 {
     public class TestBrowserConfig : ConfigManager<TestBrowserSetting>
     {

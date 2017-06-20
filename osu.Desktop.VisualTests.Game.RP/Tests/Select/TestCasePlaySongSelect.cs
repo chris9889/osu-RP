@@ -2,14 +2,9 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System.Collections.Generic;
-using osu.Desktop.VisualTests.Platform;
-using osu.Framework.Testing;
-using osu.Framework.MathUtils;
-using osu.Game.Database;
-using osu.Game.Screens.Select;
-using osu.Game.Screens.Select.Filter;
+using osu.Desktop.VisualTests.Ruleset.RP.Platform;
 
-namespace osu.Desktop.VisualTests.Tests
+namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Select
 {
     /// <summary>
     /// select the songs and show the song's info

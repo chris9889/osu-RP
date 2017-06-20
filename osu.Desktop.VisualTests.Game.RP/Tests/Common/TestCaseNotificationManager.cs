@@ -2,15 +2,9 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System.Collections.Generic;
-using osu.Framework.Graphics;
-using osu.Framework.Testing;
-using osu.Framework.MathUtils;
-using osu.Game.Overlays;
 using System.Linq;
-using osu.Game.Overlays.Notifications;
-using osu.Framework.Graphics.Containers;
 
-namespace osu.Desktop.VisualTests.Tests
+namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Common
 {
     /// <summary>
     /// not sure will show RP Message or broadcase in the future

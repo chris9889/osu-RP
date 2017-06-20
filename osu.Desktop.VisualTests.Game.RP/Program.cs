@@ -2,10 +2,8 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
-using osu.Framework.Desktop;
-using osu.Framework.Platform;
 
-namespace osu.Desktop.VisualTests
+namespace osu.Desktop.VisualTests.Ruleset.RP
 {
     public static class Program
     {

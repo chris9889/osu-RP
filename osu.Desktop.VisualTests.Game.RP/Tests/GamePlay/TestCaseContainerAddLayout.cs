@@ -1,6 +1,5 @@
 ﻿using System;
 using osu.Desktop.VisualTests.Ruleset.RP.Tests;
-using osu.Desktop.VisualTests.Tests;
 
 namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
 {

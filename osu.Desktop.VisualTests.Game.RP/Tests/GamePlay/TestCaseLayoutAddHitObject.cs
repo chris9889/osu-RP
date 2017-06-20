@@ -1,5 +1,4 @@
-﻿using System;
-namespace osu.Desktop.VisualTests.Tests
+﻿namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.GamePlay
 {
     /// <summary>
     /// Test case layout add hit object.
