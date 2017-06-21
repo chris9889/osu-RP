@@ -194,6 +194,8 @@
     <Compile Include="RpVisualTestGame.cs" />
     <Compile Include="Platform\RpTestStorage.cs" />
     <Compile Include="Beatmaps\RpTestWorkingBeatmap.cs" />
+    <Compile Include="TestsScript\Beatmaps\GetOsuFakeBeatmapScript.cs" />
+    <Compile Include="TestsScript\Beatmaps\GetRpFakeBeatmapScript.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetailArea.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetails.cs" />
     <Compile Include="Tests\Editor\TestCaseEditorField.cs" />
@@ -239,8 +241,7 @@
     <Compile Include="Tests\Setting\TestCaseRpSettingPage.cs" />
     <Compile Include="Tests\Select\TestCaseGameModeSettingPage.cs" />
     <Compile Include="Tests\TestingTool\TestCaseTestUnitTestTool.cs" />
-    <Compile Include="TestsScript\Beatmaps\GetOsuBeatmapScript.cs" />
-    <Compile Include="TestsScript\Beatmaps\GetRpBeatmapScript.cs" />
+    <Compile Include="TestsScript\Beatmaps\GetWorkingBeatmapScript.cs" />
     <Compile Include="Tests\Editor\TestCaseBreadcrumbs.cs" />
     <Compile Include="Tests\MultiPlay\TestCaseMultiPlayField.cs" />
   </ItemGroup>

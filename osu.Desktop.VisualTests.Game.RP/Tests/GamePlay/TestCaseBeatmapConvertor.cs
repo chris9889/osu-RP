@@ -14,12 +14,12 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
 
         public override string TestName => @"Breadcrumbs";
 
-        GetOsuBeatmapScript _getOsuBeatmapScript;
+        GetWorkingBeatmapScript _getOsuBeatmapScript;
 
         [BackgroundDependencyLoader]
         private void load(BeatmapDatabase db, RulesetDatabase rulesets)
         {
-            _getOsuBeatmapScript = new GetOsuBeatmapScript(db, rulesets);
+            _getOsuBeatmapScript = new GetWorkingBeatmapScript(db, rulesets);
         }
 
         public override void Reset()
