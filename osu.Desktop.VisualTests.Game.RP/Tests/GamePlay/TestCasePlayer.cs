@@ -3,7 +3,7 @@
 
 using osu.Desktop.VisualTests.TestsScript.Beatmaps;
 using osu.Framework.Allocation;
-using osu.Framework.Graphics.Sprites;
+using osu.Framework.Graphics.Shapes;
 using osu.Game.Beatmaps;
 using osu.Game.Database;
 using osu.Game.Screens.Play;
