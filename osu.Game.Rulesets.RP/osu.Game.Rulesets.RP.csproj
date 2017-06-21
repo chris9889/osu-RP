@@ -62,6 +62,9 @@
     <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
     <Compile Include="Mods\ModsElement\RPAutoReplay.cs" />
+    <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\GameField\GameFieldModsProcessor.cs" />
+    <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\HitObject\HitObjectModsProcessor.cs" />
+    <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\ModsProcessor.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\RpContainer\IChangeableContainerComponent.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\ConnectionLine.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\RpHitObject\Common\ShapePiece\HitObjectRectanglePiece.cs" />

@@ -23,17 +23,18 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
 {
     public class RpHitRenderer : HitRenderer<BaseRpObject, RpJudgement>
     {
-        
+        private readonly EventProcessor.ModsProcessor _modProcessor;
 
         public RpHitRenderer(WorkingBeatmap beatmap, bool isForCurrentRuleset): base(beatmap,isForCurrentRuleset)
         {
-            
+            _modProcessor = new EventProcessor.ModsProcessor(beatmap.Mods.Value);
+            _modProcessor.ProcessGameField(Playfield);
         }
 
         /// <summary>
-        /// Creates the score processor.
+        /// Creates the score _modProcessor.
         /// </summary>
-        /// <returns>The score processor.</returns>
+        /// <returns>The score _modProcessor.</returns>
         public override osu.Game.Rulesets.Scoring.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor(this);
 
 
@@ -75,16 +76,21 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         /// <returns></returns>
         protected override DrawableHitObject<BaseRpObject, RpJudgement> GetVisualRepresentation(BaseRpObject h)
         {
-            //TODO : you can get IEnumerable<Mod> Mods; ,and Impliment convert them
+            DrawableHitObject<BaseRpObject, RpJudgement> returnObject = null;
+            
             if (h is RpHitObject)
-                return new DrawableRpHitObject((RpHitObject)h);
+                returnObject= new DrawableRpHitObject((RpHitObject)h);
             if (h is RpHoldObject)
-                return new DrawableRpHoldObject((RpHoldObject)h);
+                returnObject= new DrawableRpHoldObject((RpHoldObject)h);
             if (h is RpContainerLineHoldObject)
-                return new DrawableRpContainerLineHoldObject((RpContainerLineHoldObject)h);
+                returnObject= new DrawableRpContainerLineHoldObject((RpContainerLineHoldObject)h);
             if (h is RpContainerLineGroup)
-                return new DrawableRpContainerLineGroup((RpContainerLineGroup)h);
-            return null;
+                returnObject= new DrawableRpContainerLineGroup((RpContainerLineGroup)h);
+
+            //adding Mods
+            _modProcessor.ProcessHitObject(returnObject);
+
+            return returnObject;
         }
     }
 }
