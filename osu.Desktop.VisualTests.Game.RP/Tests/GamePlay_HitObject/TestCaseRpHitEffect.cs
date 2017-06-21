@@ -13,7 +13,7 @@ using osu.Game.Rulesets.Taiko.Objects.Drawables;
 using osu.Game.Rulesets.Taiko.UI;
 using OpenTK;
 
-namespace osu.Desktop.VisualTests.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 {
     /// <summary>
     /// will be modified for RP for testing hit

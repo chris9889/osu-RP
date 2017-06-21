@@ -2,7 +2,6 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
-using osu.Desktop.VisualTests.Ruleset.RP;
 using osu.Framework.Desktop;
 using osu.Framework.Platform;
 
@@ -18,7 +17,7 @@ namespace osu.Desktop.VisualTests
             using (GameHost host = Host.GetSuitableHost(@"osu"))
             {
                 if (benchmark)
-                    host.Run(new AutomatedVisualTestGame());
+                    host.Run(new RpAutomatedVisualTestGame());
                 else
                     host.Run(new RpVisualTestGame());
             }

@@ -19,7 +19,7 @@ using osu.Game.Rulesets.Osu.UI;
 using osu.Game.Rulesets.Taiko.UI;
 using OpenTK;
 
-namespace osu.Desktop.VisualTests.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 {
     /// <summary>
     /// show RP gameField

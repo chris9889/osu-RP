@@ -8,7 +8,7 @@ using osu.Framework.Timing;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Screens.Play;
 
-namespace osu.Desktop.VisualTests.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 {
     /// <summary>
     /// not sure if will modified for RP

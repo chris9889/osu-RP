@@ -1,4 +1,4 @@
-﻿namespace osu.Desktop.VisualTests.Tests.GamePlay
+﻿namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 {
     /// <summary>
     /// Test case layout add hit object.

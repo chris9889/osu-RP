@@ -11,7 +11,7 @@ using osu.Game.Rulesets.Scoring;
 using osu.Game.Screens.Ranking;
 using osu.Game.Users;
 
-namespace osu.Desktop.VisualTests.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 {
     /// <summary>
     /// show the gameMode's result

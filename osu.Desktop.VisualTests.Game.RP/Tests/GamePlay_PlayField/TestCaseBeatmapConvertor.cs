@@ -3,7 +3,7 @@ using osu.Framework.Allocation;
 using osu.Game.Beatmaps;
 using osu.Game.Database;
 
-namespace osu.Desktop.VisualTests.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 {
     /// <summary>
     /// convert osu beatmap into RP beatmap

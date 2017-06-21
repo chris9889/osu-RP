@@ -7,7 +7,7 @@ using osu.Game.Graphics.UserInterface;
 using osu.Game.Screens.Select.Filter;
 using OpenTK;
 
-namespace osu.Desktop.VisualTests.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 {
     /// <summary>
     /// may be use in the editor 

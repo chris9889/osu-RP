@@ -3,7 +3,7 @@
 
 using osu.Game.Screens.Play;
 
-namespace osu.Desktop.VisualTests.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 {
     internal class TestCaseSkipButton : CategoryTestCase
     {

@@ -25,6 +25,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         protected Objects.RpContainerLineGroup HitObject;
 
+
         private readonly List<IChangeableContainerComponent> IChangeableContainerComponent = new List<IChangeableContainerComponent>();
 
         /// <summary>

@@ -8,7 +8,7 @@ using osu.Game.Graphics.UserInterface;
 using osu.Game.Screens.Play.HUD;
 using OpenTK;
 
-namespace osu.Desktop.VisualTests.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 {
     /// <summary>
     /// test score counter

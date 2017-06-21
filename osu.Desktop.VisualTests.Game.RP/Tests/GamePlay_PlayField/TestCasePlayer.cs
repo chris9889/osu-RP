@@ -9,7 +9,7 @@ using osu.Game.Database;
 using osu.Game.Screens.Play;
 using OpenTK.Graphics;
 
-namespace osu.Desktop.VisualTests.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 {
     /// <summary>
     /// show the playField and can be played instancely

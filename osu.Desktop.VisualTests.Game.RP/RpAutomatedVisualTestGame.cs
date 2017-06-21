@@ -6,7 +6,7 @@ using osu.Game;
 
 namespace osu.Desktop.VisualTests.Ruleset.RP
 {
-    public class AutomatedVisualTestGame : OsuGameBase
+    public class RpAutomatedVisualTestGame : OsuGameBase
     {
         protected override void LoadComplete()
         {
