@@ -23,7 +23,7 @@ namespace osu.Desktop.VisualTests.TestsScript.Beatmaps
         }
 
         //get single osu beatmap
-        public WorkingBeatmap GetOsuBeatmap(int rulesetID=0,bool useFake=false, int beatmapIndex = 0, List<Mod> listMops = null)
+        public WorkingBeatmap GetWorkingBeatmap(int rulesetID=0,bool useFake=false, int beatmapIndex = 0, List<Mod> listMops = null)
         {
             WorkingBeatmap beatmap = null;
 

@@ -5,9 +5,11 @@
     /// </summary>
     public class TestCaseContainerAddLayout : CategoryTestCase
     {
-        public override string Category => TestCaseCategory.GamePlay.ToString();
+        public override string Category => TestCaseCategory.GamePlay_HitObject.ToString();
 
         public override string TestName => @"ContainerAddLayer";
+
+        public override string Description => @"ContainerAddLayer";
 
 
         public override void Reset()

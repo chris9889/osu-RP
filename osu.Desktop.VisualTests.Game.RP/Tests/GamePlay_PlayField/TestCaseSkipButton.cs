@@ -9,7 +9,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
     {
         public override string Description => @"Skip skip skippediskip";
 
-        public override string Category => TestCaseCategory.GamePlay.ToString();
+        public override string Category => TestCaseCategory.GamePlay_PlayField.ToString();
 
         public override string TestName => @"Skip Button";
 

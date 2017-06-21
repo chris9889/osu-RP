@@ -10,7 +10,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
     /// </summary>
     internal class TestCaseBeatmapConvertor : CategoryTestCase
     {
-        public override string Category => TestCaseCategory.GamePlay.ToString();
+        public override string Category => TestCaseCategory.GamePlay_PlayField.ToString();
 
         public override string TestName => @"Breadcrumbs";
 
@@ -24,7 +24,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
 
         public override void Reset()
         {
-            WorkingBeatmap beatmap = _getOsuBeatmapScript.GetOsuBeatmap();
+            WorkingBeatmap beatmap = _getOsuBeatmapScript.GetWorkingBeatmap();
             //TODO : get beatmap info of someing that can be test
 
         }

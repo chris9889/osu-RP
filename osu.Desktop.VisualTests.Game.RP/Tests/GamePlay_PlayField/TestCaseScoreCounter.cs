@@ -18,7 +18,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
     {
         public override string Description => @"Tests multiple counters";
 
-        public override string Category => TestCaseCategory.GamePlay.ToString();
+        public override string Category => TestCaseCategory.GamePlay_PlayField.ToString();
 
         public override string TestName => @"Score Counter";
 

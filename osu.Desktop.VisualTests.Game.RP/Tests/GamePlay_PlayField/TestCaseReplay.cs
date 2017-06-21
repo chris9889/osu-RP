@@ -16,7 +16,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
     {
         public override string Description => @"Testing replay playback.";
 
-        public override string Category => TestCaseCategory.GamePlay.ToString();
+        public override string Category => TestCaseCategory.GamePlay_PlayField.ToString();
 
         public override string TestName => @"Test Replay";
 

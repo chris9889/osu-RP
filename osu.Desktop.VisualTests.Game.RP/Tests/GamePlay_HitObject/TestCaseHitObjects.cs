@@ -22,6 +22,13 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
     /// </summary>
     internal class TestCaseHitObjects : CategoryTestCase
     {
+        public override string Category => TestCaseCategory.GamePlay_HitObject.ToString();
+
+        public override string TestName => @"HitObjects";
+
+        public override string Description => @"Testing hitObjects";
+
+
         private readonly FramedClock framedClock;
 
         private bool auto;

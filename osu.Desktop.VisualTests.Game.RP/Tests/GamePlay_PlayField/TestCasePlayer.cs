@@ -20,7 +20,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
 
         public override string Description => @"Showing everything to play the game.";
 
-        public override string Category => TestCaseCategory.GamePlay.ToString();
+        public override string Category => TestCaseCategory.GamePlay_PlayField.ToString();
 
         public override string TestName => @"Test Case Player";
 
@@ -37,7 +37,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay
         {
             base.Reset();
 
-            WorkingBeatmap beatmap = _getOsuBeatmapScript.GetOsuBeatmap();
+            WorkingBeatmap beatmap = _getOsuBeatmapScript.GetWorkingBeatmap();
 
             Add(new Box
             {
