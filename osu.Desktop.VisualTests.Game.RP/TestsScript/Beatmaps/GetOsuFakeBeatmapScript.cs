@@ -17,7 +17,7 @@ namespace osu.Desktop.VisualTests.TestsScript.Beatmaps
        
         public Beatmap GetFakeBeatmap(RulesetInfo info)
         {
-            var objects = new List<HitObject>();
+            var objects = new List<Game.Rulesets.Objects.HitObject>();
 
             int time = 1500;
             for (int i = 0; i < 50; i++)

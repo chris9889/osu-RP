@@ -10,6 +10,13 @@ namespace osu.Desktop.VisualTests.TestsScript.Beatmaps.HitObject
 {
     public class RpHitObjectCreatorScript
     {
+
+        private bool _editable = false;
+        public void SetObjectEditable(bool editable)
+        {
+            _editable = editable;
+        }
+
         public RpContainerLine CreateRpContainerLine(Vector2 position,Double startTime,Double endTime)
         {
             return null;

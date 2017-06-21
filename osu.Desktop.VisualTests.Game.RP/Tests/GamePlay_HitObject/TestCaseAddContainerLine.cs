@@ -11,12 +11,10 @@
 
         public override string Description => @"ContainerAddLayer";
 
-
         public override void Reset()
         {
 
         }
-
 
     }
 }

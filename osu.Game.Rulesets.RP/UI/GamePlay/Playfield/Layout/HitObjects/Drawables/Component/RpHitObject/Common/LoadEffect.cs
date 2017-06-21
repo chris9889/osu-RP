@@ -9,7 +9,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     載入效果
     /// </summary>
-    internal class LoadEffect : BaseComponent
+    public class LoadEffect : BaseComponent
     {
         /// <summary>
         ///     外框
