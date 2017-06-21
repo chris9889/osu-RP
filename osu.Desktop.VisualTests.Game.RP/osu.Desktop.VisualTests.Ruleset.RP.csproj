@@ -196,6 +196,7 @@
     <Compile Include="Beatmaps\RpTestWorkingBeatmap.cs" />
     <Compile Include="TestsScript\Beatmaps\GetOsuFakeBeatmapScript.cs" />
     <Compile Include="TestsScript\Beatmaps\GetRpFakeBeatmapScript.cs" />
+    <Compile Include="TestsScript\Beatmaps\HitObject\RpHitObjectCreatorScript.cs" />
     <Compile Include="Tests\GamePlay_HitObject\TestCaseContainerUpdatePositionAndRotation.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetailArea.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetails.cs" />
