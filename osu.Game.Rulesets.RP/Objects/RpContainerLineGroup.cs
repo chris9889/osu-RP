@@ -8,7 +8,7 @@ namespace osu.Game.Rulesets.RP.Objects
     /// <summary>
     ///     包住RP物件的容器
     /// </summary>
-    public class RpContainer : BaseRpObject, IHasPosition, IHasEndTime
+    public class RpContainerLineGroup : BaseRpObject, IHasPosition, IHasEndTime
     {
         /// <summary>
         ///     結束時間，可以任意設定
@@ -57,13 +57,13 @@ namespace osu.Game.Rulesets.RP.Objects
         /// <summary>
         ///     Layout
         /// </summary>
-        public List<RpContainerLayout> ContainerLayerList = new List<RpContainerLayout>();
+        public List<RpContainerLine> ContainerLayerList = new List<RpContainerLine>();
 
         /// <summary>
         ///     建立預設的Container
         /// </summary>
         /// <param name="startTime"></param>
-        public RpContainer(double startTime)
+        public RpContainerLineGroup(double startTime)
         {
             StartTime = startTime;
         }
@@ -94,9 +94,9 @@ namespace osu.Game.Rulesets.RP.Objects
         /// </summary>
         /// <param name="SplitTime"></param>
         /// <returns></returns>
-        public RpContainer Split(double SplitTime)
+        public RpContainerLineGroup Split(double SplitTime)
         {
-            return new RpContainer(SplitTime);
+            return new RpContainerLineGroup(SplitTime);
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace osu.Game.Rulesets.RP.Objects
         private void InitialLayer()
         {
             //每個Container裡面至少會有一層Layout
-            ContainerLayerList.Add(new RpContainerLayout(this));
+            ContainerLayerList.Add(new RpContainerLine(this));
         }
     }
 }

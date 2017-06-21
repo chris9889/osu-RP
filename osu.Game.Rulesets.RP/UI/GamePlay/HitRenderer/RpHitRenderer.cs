@@ -78,12 +78,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
             //TODO : you can get IEnumerable<Mod> Mods; ,and Impliment convert them
             if (h is RpHitObject)
                 return new DrawableRpHitObject((RpHitObject)h);
-            if (h is RpSliderObject)
-                return new DrawableRpSliderObject((RpSliderObject)h);
-            if (h is RpContainerPress)
-                return new DrawableRpLongPress((RpContainerPress)h);
-            if (h is RpContainer)
-                return new DrawableRpContainer((RpContainer)h);
+            if (h is RpHoldObject)
+                return new DrawableRpHoldObject((RpHoldObject)h);
+            if (h is RpContainerLineHoldObject)
+                return new DrawableRpContainerLineHoldObject((RpContainerLineHoldObject)h);
+            if (h is RpContainerLineGroup)
+                return new DrawableRpContainerGroup((RpContainerLineGroup)h);
             return null;
         }
     }

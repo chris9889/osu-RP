@@ -60,7 +60,7 @@ namespace osu.Game.Rulesets.RP.DifficultyCalculator
             BaseHitObject = baseHitObject;
             var circleRadius = baseHitObject.Scale * 64;
 
-            var slider = BaseHitObject as RpSliderObject;
+            var slider = BaseHitObject as RpHoldObject;
             if (slider != null)
                 MaxCombo += 2; // slider.Ticks.Count();
 
@@ -101,7 +101,7 @@ namespace osu.Game.Rulesets.RP.DifficultyCalculator
 
                 // Actual computation of the first lazy curve
 
-                //andy840119 ç›®å‰ slider æ²’æœ‰è£½ä½œTick
+                //andy840119 –Ú‘O slider Ÿ“—L»ìTick
                 //foreach (var tick in slider.Ticks)
                 //    addSliderVertex(tick.StackedPosition);
 

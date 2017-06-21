@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
@@ -25,7 +25,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
         /// <param name="drawObject"></param>
         public void AddDrawObject(DrawableBaseRpObject drawObject)
         {
-            var drawableHitObject = drawObject as DrawableBaseRpHitObject;
+            var drawableHitObject = drawObject as DrawableBaseRpHitableObject;
             AddDrawableBaseHitObject(drawableHitObject);
         }
 
@@ -33,7 +33,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
         ///     增加物件進來
         /// </summary>
         /// <param name="drawableHitObject"></param>
-        public void AddDrawableBaseHitObject(DrawableBaseRpHitObject drawableHitObject)
+        public void AddDrawableBaseHitObject(DrawableBaseRpHitableObject drawableHitObject)
         {
             try
             {
@@ -41,8 +41,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
                 var layoutIndex = drawableHitObject.HitObject.LayoutIndex;
 
                 //如果是背景按壓物件
-                if (drawableHitObject is DrawableRpLongPress)
-                    ContainerBackgroundLayout.GetContainerByTime(drawableHitObject.HitObject.StartTime).ElementAt(containerIndex).ContainerTemplate.AddObject(drawableHitObject as DrawableRpLongPress);
+                if (drawableHitObject is DrawableRpContainerLineHoldObject)
+                    ContainerBackgroundLayout.GetContainerByTime(drawableHitObject.HitObject.StartTime).ElementAt(containerIndex).ContainerTemplate.AddObject(drawableHitObject as DrawableRpContainerLineHoldObject);
                 else
                     ContainerBackgroundLayout.GetContainerByTime(drawableHitObject.HitObject.StartTime).ElementAt(containerIndex).ContainerTemplate.ListLayoutTemplate[layoutIndex].AddObject(
                         drawableHitObject);
@@ -69,7 +69,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
                             yield return container;
                     //HitObject
                     foreach (var layoutTemplate in container.ContainerTemplate.ListLayoutTemplate)
-                    foreach (DrawableRpLongPress hitObject in layoutTemplate.ListHitObject)
+                    foreach (DrawableRpContainerLineHoldObject hitObject in layoutTemplate.ListHitObject)
                         if (hitObject.HitObject.StartTime <= time && hitObject.HitObject.EndTime >= time)
                             yield return container;
                 }

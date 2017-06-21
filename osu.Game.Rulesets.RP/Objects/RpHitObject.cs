@@ -5,10 +5,10 @@ using osu.Game.Rulesets.RP.Objects.type;
 
 namespace osu.Game.Rulesets.RP.Objects
 {
-    public class RpHitObject : BaseRpHitObject
+    public class RpHitObject : BaseRpHitableObject
     {
         /// <summary>
-        ///     åˆå§‹åŒ–é è¨­ç‰©ä»¶
+        ///     ‰n‰»—aİ•¨Œ
         /// </summary>
         public override void InitialDefaultValue()
         {

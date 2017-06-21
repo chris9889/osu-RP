@@ -3,14 +3,14 @@ using osu.Game.Rulesets.RP.Objects;
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
     /// <summary>
-    ///     ç¹ªè£½èƒŒæ™¯æŒ‰å£“çš„ç‰©ä»¶
+    ///     ã‰»”wŒiˆÂšØ“I•¨Œ
     /// </summary>
-    internal class DrawableRpLongPress : DrawableBaseRpHitObject
+    internal class DrawableRpContainerLineHoldObject : DrawableBaseRpHitableObject
     {
         /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
-        public DrawableRpLongPress(BaseRpHitObject hitObject)
+        public DrawableRpContainerLineHoldObject(BaseRpHitableObject hitObject)
             : base(hitObject)
         {
         }

@@ -8,12 +8,12 @@ namespace osu.Game.Rulesets.RP.Objects
     /// <summary>
     ///     裡面朁E��存所有該在上面皁E��件
     /// </summary>
-    public class RpContainerLayout : BaseRpObject, IHasEndTime
+    public class RpContainerLine : BaseRpObject, IHasEndTime
     {
         /// <summary>
         ///     用侁E��原本的Container裡面取得一些賁E��E
         /// </summary>
-        public RpContainer ObjectContainer;
+        public RpContainerLineGroup ObjectContainer;
 
         /// <summary>
         ///     結束時間�E�可以任意設宁E
@@ -27,7 +27,7 @@ namespace osu.Game.Rulesets.RP.Objects
 
         public RpBaseHitObjectType.Coop Coop = RpBaseHitObjectType.Coop.Both;
 
-        public RpContainerLayout(RpContainer objectContainer)
+        public RpContainerLine(RpContainerLineGroup objectContainer)
         {
             UpdateContainerLayout(objectContainer);
 
@@ -59,7 +59,7 @@ namespace osu.Game.Rulesets.RP.Objects
         ///     更新裡面皁E��E��E
         /// </summary>
         /// <param name="objectContainer"></param>
-        public void UpdateContainerLayout(RpContainer objectContainer)
+        public void UpdateContainerLayout(RpContainerLineGroup objectContainer)
         {
             ObjectContainer = objectContainer;
             StartTime = ObjectContainer.StartTime;

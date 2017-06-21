@@ -108,7 +108,7 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectsConnector\ConnectionRenderer.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectsConnector\RpHitMulitpleObjectConnectionLine.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableBaseRpObject.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableRpContainer.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableRpContainerGroup.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Calculator\PathPrecentage\PathPrecentageCounter.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\HitExplosion\HitEffectTemplate\BaseHitEffectTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\HitExplosion\HitEffectTemplate\CoolHitEffectTemplate.cs" />
@@ -119,13 +119,13 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\BarPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\ImagePicec.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpHitObject\Click\ClickTemplate.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpContainer\ContainerLayoutTemplate.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpContainer\ContainerLineTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpContainer\ContainerTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpDrawBaseObjectTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpHitObject\Hold\HoldTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpHitObject\Slide\SlideTemplate.cs" />
-    <Compile Include="Objects\RpContainer.cs" />
-    <Compile Include="Objects\RpContainerLayout.cs" />
+    <Compile Include="Objects\RpContainerLineGroup.cs" />
+    <Compile Include="Objects\RpContainerLine.cs" />
     <Compile Include="UI\Config\RpKeyLayoutConfigUi.cs" />
     <Compile Include="Beatmaps\RPBeatmap\RpBeatmapProcessor.cs" />
     <Compile Include="RpRuleset.cs" />
@@ -134,12 +134,12 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\RpHitObject\MovePiece\BaseMovePicec.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\RpHitObject\Common\ShapePiece\HitObjectAnyShapePiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\RpHitObject\StillPiece\BaseStillPiece.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableRpLongPress.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableRpContainerLineHoldObject.cs" />
     <Compile Include="Objects\MovingPath\BezierApproximator.cs" />
     <Compile Include="Objects\MovingPath\CircularArcApproximator.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableBaseRpHitObject.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableBaseRpHitableObject.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\Pointer.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableRpSliderObject.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableRpHoldObject.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\ExplodePiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\FlashPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\GlowPiece.cs" />
@@ -162,9 +162,9 @@
     <Compile Include="Scoreing\RpScoreProcessor.cs" />
     <Compile Include="Objects\RpHitObject.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableRpHitObject.cs" />
-    <Compile Include="Objects\BaseRpHitObject.cs" />
-    <Compile Include="Objects\RpSliderObject.cs" />
-    <Compile Include="Objects\RpContainerPress.cs" />
+    <Compile Include="Objects\BaseRpHitableObject.cs" />
+    <Compile Include="Objects\RpHoldObject.cs" />
+    <Compile Include="Objects\RpContainerLineHoldObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Saving\RpKeyLayoutConfig.cs" />
     <Compile Include="SkinManager\RpTexturePathManager.cs" />
@@ -256,8 +256,6 @@
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Hold\Start\" />
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Long\End\" />
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Long\Start\" />
-    <Folder Include="Objects\RpEffect\" />
-    <Folder Include="Objects\RpEffect\Point\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Textures\Play\RP\HitEffect\Cool\RP.png" />

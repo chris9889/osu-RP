@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.Common;
 
@@ -12,9 +12,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         ///     打擊物件
         /// </summary>
-        protected BaseRpHitObject BaseHitObject;
+        protected BaseRpHitableObject BaseHitObject;
 
-        public BaseMovePicec(BaseRpHitObject baseHitObject)
+        public BaseMovePicec(BaseRpHitableObject baseHitObject)
         {
             BaseHitObject = baseHitObject;
         }

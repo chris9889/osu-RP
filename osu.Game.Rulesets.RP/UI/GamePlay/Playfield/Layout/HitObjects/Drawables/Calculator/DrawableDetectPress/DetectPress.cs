@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -37,7 +37,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         protected List<Key> _compareKey;
 
         //RP物件
-        private readonly BaseRpHitObject _baseRPObject;
+        private readonly BaseRpHitableObject _baseRPObject;
 
         //目前按下�E對的按鍵
         private Key _nowPressMatchKey = Key.Unknown;
@@ -45,7 +45,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         //目前按下去皁E��鍵是不是有效皁E
         private bool _pressValid;
 
-        public DetectPress(BaseRpHitObject baseRpObject, RpJudgement judgement)
+        public DetectPress(BaseRpHitableObject baseRpObject, RpJudgement judgement)
         {
             _baseRPObject = baseRpObject;
             //預�E取得那些按鍵按亁E��有作用

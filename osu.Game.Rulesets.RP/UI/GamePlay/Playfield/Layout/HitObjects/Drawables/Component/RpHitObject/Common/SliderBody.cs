@@ -11,7 +11,7 @@ using OpenTK;
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.RpHitObject.Common
 {
     /// <summary>
-    ///     ç¹ªè£½æ‹‰æ„Ÿ
+    ///     ã‰»fŠ´
     /// </summary>
     internal class SliderBody : BaseComponent, IComponentSliderProgress
     {
@@ -23,14 +23,14 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         private readonly Slider slider;
 
-        private readonly BaseRpHitObject sliderHitObject;
+        private readonly BaseRpHitableObject sliderHitObject;
 
-        public SliderBody(BaseRpHitObject s)
+        public SliderBody(BaseRpHitableObject s)
         {
             sliderHitObject = s;
 
             slider = new Slider();
-            //ä¿®æ­£é¡¯ç¤ºåº§æ¨™
+            //C³èû¦À•W
             //slider.Position = -path.PositionInBoundingBox(sliderHitObject.Curve.PositionAt(0) - sliderHitObject[0]);
             slider.Position = -sliderHitObject.Curve.PositionAt(0);
             Children = new Drawable[]
@@ -40,10 +40,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         }
 
         /// <summary>
-        ///     å¾é€™é‚Šå»æ›´æ–°é¡¯ç¤ºç¯„åœ
+        ///     œn”‡ç²‹XVèû¦”Íš¡
         /// </summary>
         /// <param name="progress">0~1</param>
-        /// <param name="repeat">é€™è£¡é è¨­æ˜¯0</param>
+        /// <param name="repeat">”‡—¡—aİ¥0</param>
         public void UpdateProgress(double progress, double endProgress = 1)
         {
             var start = progress;

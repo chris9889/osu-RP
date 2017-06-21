@@ -4,7 +4,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
     internal partial class SlideTemplate : RpDrawHitObjectTemplate
     {
-        public SlideTemplate(BaseRpHitObject hitObject)
+        public SlideTemplate(BaseRpHitableObject hitObject)
             : base(hitObject)
         {
         }

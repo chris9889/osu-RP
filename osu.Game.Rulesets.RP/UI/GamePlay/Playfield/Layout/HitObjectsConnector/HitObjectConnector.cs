@@ -6,9 +6,9 @@ using OpenTK;
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
 {
     /// <summary>
-    ///     Áî®‰æÜÈÄ£Êé•Áâ©‰ª∂ÁöÑÁ∑ö
+    ///     ópò“òAê⁄ï®åèìIê¸
     /// </summary>
-    internal class HitObjectConnector : ConnectionRenderer<DrawableBaseRpHitObject>
+    internal class HitObjectConnector : ConnectionRenderer<DrawableBaseRpHitableObject>
     {
         /// <summary>
         ///     Determines how much space there is between points.
@@ -38,7 +38,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
             }
         }
 
-        public override IEnumerable<DrawableBaseRpHitObject> HitObjects
+        public override IEnumerable<DrawableBaseRpHitableObject> HitObjects
         {
             get { return hitObjects; }
             set
@@ -52,7 +52,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
         ///     will scan when the beatmap converted Finish
         ///     add all the same time's HitObject's Tuple will place in there
         /// </summary>
-        private readonly List<List<DrawableBaseRpHitObject>> ListTuple = new List<List<DrawableBaseRpHitObject>>();
+        private readonly List<List<DrawableBaseRpHitableObject>> ListTuple = new List<List<DrawableBaseRpHitableObject>>();
 
         /// <summary>
         /// </summary>
@@ -60,14 +60,14 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
 
         private int preEmpt = 800;
 
-        private IEnumerable<DrawableBaseRpHitObject> hitObjects;
+        private IEnumerable<DrawableBaseRpHitableObject> hitObjects;
 
         /// <summary>
         ///     Add all the same time's HitObject's Tuple will place in there
         /// </summary>
         public override void ScanSameTuple()
         {
-            DrawableBaseRpHitObject lastObjectTime = null;
+            DrawableBaseRpHitableObject lastObjectTime = null;
             ListTuple.Clear();
 
             foreach (var currHitObject in hitObjects)
@@ -79,7 +79,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
                     }
                     else //new tuple
                     {
-                        var sligleTuple = new List<DrawableBaseRpHitObject>();
+                        var sligleTuple = new List<DrawableBaseRpHitableObject>();
                         sligleTuple.Add(lastObjectTime);
                         sligleTuple.Add(currHitObject);
                         ListTuple.Add(sligleTuple);

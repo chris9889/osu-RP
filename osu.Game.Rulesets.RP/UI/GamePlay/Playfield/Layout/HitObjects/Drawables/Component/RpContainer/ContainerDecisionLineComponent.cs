@@ -17,7 +17,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         /// <summary>
         /// </summary>
-        public ContainerDecisionLineComponent(Objects.RpContainer hitObject)
+        public ContainerDecisionLineComponent(Objects.RpContainerLineGroup hitObject)
             : base(hitObject)
         {
         }

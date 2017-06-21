@@ -19,7 +19,7 @@ using OpenTK;
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
 {
     /// <summary>
-    ///     éŠæˆ²ç‰©ä»¶é¡¯ç¤º
+    ///     —VE•¨Œèû¦
     /// </summary>
     public class RpPlayfield : Playfield<BaseRpObject, RpJudgement>
     {
@@ -57,7 +57,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
         /// <summary>
         ///     Draw the line connected to mulit Hit Object
         /// </summary>
-        private readonly ConnectionRenderer<DrawableBaseRpHitObject> _hitObjectConnector;
+        private readonly ConnectionRenderer<DrawableBaseRpHitableObject> _hitObjectConnector;
 
         /// <summary>
         ///     Hit Effect Layer
@@ -128,18 +128,18 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
             //IDrawableHitObjectWithProxiedApproach c = hitObject as IDrawableHitObjectWithProxiedApproach;
 
 
-            if (hitObject is DrawableRpContainer)
+            if (hitObject is DrawableRpContainerGroup)
             {
-                //å¢åŠ èƒŒæ™¯ç‰©ä»¶
-                containerBackgroundLayout.AddContainer(hitObject as DrawableRpContainer);
+                //ú‰Á”wŒi•¨Œ
+                containerBackgroundLayout.AddContainer(hitObject as DrawableRpContainerGroup);
                 //
                 //keySoundLayout.Add(containerBackgroundLayout.CreateProxy());
             }
             else
             {
                 base.Add(hitObject);
-                //å¢åŠ ç‰©ä»¶
-                _rpObjectLayout.AddDrawObject(hitObject as DrawableBaseRpHitObject);
+                //ú‰Á•¨Œ
+                _rpObjectLayout.AddDrawObject(hitObject as DrawableBaseRpHitableObject);
             }
         }
 
@@ -147,7 +147,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
         public override void PostProcess()
         {
             //order by time
-            _hitObjectConnector.HitObjects = HitObjects.Children.Select(d => (DrawableBaseRpHitObject)d).OrderBy(h => h.HitObject.StartTime);
+            _hitObjectConnector.HitObjects = HitObjects.Children.Select(d => (DrawableBaseRpHitableObject)d).OrderBy(h => h.HitObject.StartTime);
             _hitObjectConnector.ScanSameTuple();
         }
 

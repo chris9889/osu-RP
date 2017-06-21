@@ -8,9 +8,9 @@ using osu.Game.Rulesets.RP.Objects.type;
 namespace osu.Game.Rulesets.RP.Objects
 {
     /// <summary>
-    ///     RPé•·ç‰©ä»¶
+    ///     RP’·•¨Œ
     /// </summary>
-    public class RpSliderObject : BaseRpHitObject, IHasEndTime
+    public class RpHoldObject : BaseRpHitableObject, IHasEndTime
     {
         public bool isHold
         {
@@ -33,7 +33,7 @@ namespace osu.Game.Rulesets.RP.Objects
         public double StartHoldingTime;
 
         /// <summary>
-        ///     çµæŸæ™‚é–“
+        ///     Œ‹‘©ŠÔ
         /// </summary>
         public double EndTime => StartTime + Curve.Length / Velocity;
 
@@ -44,7 +44,7 @@ namespace osu.Game.Rulesets.RP.Objects
         }
 
         /// <summary>
-        ///     åˆå§‹åŒ–é è¨­ç‰©ä»¶
+        ///     ‰n‰»—aİ•¨Œ
         /// </summary>
         public override void InitialDefaultValue()
         {

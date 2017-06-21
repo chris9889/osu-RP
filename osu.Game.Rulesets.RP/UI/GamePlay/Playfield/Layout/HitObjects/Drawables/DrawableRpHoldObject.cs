@@ -1,4 +1,4 @@
-//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
+﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
@@ -13,9 +13,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     Slider
     /// </summary>
-    internal class DrawableRpSliderObject : DrawableBaseRpHitObject
+    internal class DrawableRpHoldObject : DrawableBaseRpHitableObject
     {
-        public DrawableRpSliderObject(RpSliderObject h)
+        public DrawableRpHoldObject(RpHoldObject h)
             : base(h)
         {
             Template = new SlideTemplate(HitObject)

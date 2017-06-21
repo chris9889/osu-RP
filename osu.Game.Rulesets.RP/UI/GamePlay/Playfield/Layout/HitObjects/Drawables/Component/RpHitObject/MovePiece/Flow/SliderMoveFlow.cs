@@ -10,12 +10,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     internal class SliderMoveFlow : BaseMoveFlow, IComponentSliderProgress
     {
         /// <summary>
-        ///     ç‰©ä»¶èº«é«”éƒ¨åˆ†
+        ///     •¨Œgé“•”•ª
         /// </summary>
         private readonly SliderBody _rpLongBody;
 
         /// <summary>
-        ///     é–‹é ­å’Œçµå°¾ç‰©ä»¶
+        ///     ŠJ“ª˜aŒ‹”ö•¨Œ
         /// </summary>
         private readonly HitObjectAnyShapePiece hitObjectAnyShapePieceFirstObjectAny;
 
@@ -24,25 +24,25 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         private readonly HitObjectAnyShapePiece hitObjectAnyShapePieceSecondObjectAny;
 
 
-        public SliderMoveFlow(BaseRpHitObject baseHitObject)
+        public SliderMoveFlow(BaseRpHitableObject baseHitObject)
             : base(baseHitObject)
         {
             Children = new Drawable[]
             {
-                //Sliderèº«é«”
+                //Slidergé“
                 _rpLongBody = new SliderBody(BaseHitObject)
                 {
                     Position = new Vector2(0, 0),
                     PathWidth = BaseHitObject.Scale * 15
                 },
-                //çµå°¾ç‰©ä»¶
+                //Œ‹”ö•¨Œ
                 hitObjectAnyShapePieceSecondObjectAny = new HitObjectAnyShapePiece(BaseHitObject) //true
                 {
                     Position = new Vector2(0, 0),
                     //Scale = new Vector2(_hitObject.Scale),
                     IsFirst = false
                 },
-                //é–‹é ­ç‰©ä»¶
+                //ŠJ“ª•¨Œ
                 hitObjectAnyShapePieceFirstObjectAny = new HitObjectAnyShapePiece(BaseHitObject) //false
                 {
                     Position = new Vector2(0, 0),
@@ -53,7 +53,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         }
 
         /// <summary>
-        ///     åˆå§‹åŒ–é¡¯ç¤º
+        ///     ‰n‰»èû¦
         /// </summary>
         public override void Initial()
         {
@@ -61,14 +61,14 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         }
 
         /// <summary>
-        ///     é–‹å§‹ç‰¹æ•ˆ
+        ///     ŠJn“ÁÁ
         /// </summary>
         public override void FadeIn(double time = 0)
         {
         }
 
         /// <summary>
-        ///     çµæŸ
+        ///     Œ‹‘©
         /// </summary>
         public override void FadeOut(double time = 0)
         {

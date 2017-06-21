@@ -1,4 +1,4 @@
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.SkinManager;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
@@ -45,7 +45,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
                 //�w�i�C����masking
                 _startBackgroundImagePicec = new ImagePicec("") //(RPSkinManager.GetStartObjectBackgroundByType(HitObject as BaseHitObject))
                 {
-                    Colour = RpTextureColorManager.GetKeyLayoutButtonShage(((BaseRpHitObject)HitObject).Shape),
+                    Colour = RpTextureColorManager.GetKeyLayoutButtonShage(((BaseRpHitableObject)HitObject).Shape),
                     Scale = new Vector2(0.5f),
                     CornerRadius = DrawSize.X / 2,
                     Masking = true
@@ -60,9 +60,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
                 },
 
                 //�O�y�g�p
-                _borderImagePicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(HitObject as BaseRpHitObject))
+                _borderImagePicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(HitObject as BaseRpHitableObject))
                 {
-                    Colour = RpTextureColorManager.GetKeyLayoutButtonShage(((BaseRpHitObject)HitObject).Shape),
+                    Colour = RpTextureColorManager.GetKeyLayoutButtonShage(((BaseRpHitableObject)HitObject).Shape),
                     Scale = new Vector2(0.5f)
                 }
             };

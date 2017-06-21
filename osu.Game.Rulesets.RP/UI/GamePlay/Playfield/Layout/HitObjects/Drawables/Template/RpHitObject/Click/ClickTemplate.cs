@@ -1,4 +1,4 @@
-using osu.Game.Rulesets.RP.Objects;
+﻿using osu.Game.Rulesets.RP.Objects;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpHitObject.Click
 {
@@ -7,7 +7,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// </summary>
     internal partial class ClickTemplate : RpDrawHitObjectTemplate
     {
-        public ClickTemplate(BaseRpHitObject hitObject)
+        public ClickTemplate(BaseRpHitableObject hitObject)
             : base(hitObject)
         {
         }

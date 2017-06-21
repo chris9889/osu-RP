@@ -16,12 +16,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     郢ｪ陬ｽ蜿ｯ莉･謇捺投逧・・ｽ・ｽ莉ｶ
     /// </summary>
-    internal class DrawableBaseRpHitObject : DrawableBaseRpObject
+    internal class DrawableBaseRpHitableObject : DrawableBaseRpObject
     {
         /// <summary>
         ///     謇捺投迚ｩ莉ｶ・ｽE・ｽDrawableHitCircle 譛・・ｽ・ｽ謫壽遠謫顔黄莉ｶ謚・迚ｩ莉ｶ郢ｪ陬ｽ蜃ｺ萓・
         /// </summary>
-        public new BaseRpHitObject HitObject;
+        public new BaseRpHitableObject HitObject;
 
         /// <summary>
         ///     逶ｮ蜑肴弍逡ｶ菴彝P迚ｩ莉ｶ逧・・ｽ・ｽ蟆ｾ
@@ -34,7 +34,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         ///     蟒ｺ讒具ｼ梧園譛臥噪RP迚ｩ莉ｶ荳螳夊ｦ∝ｻｺ讒句芦騾咎ｊ
         /// </summary>
         /// <param name="hitObject"></param>
-        public DrawableBaseRpHitObject(BaseRpHitObject hitObject)
+        public DrawableBaseRpHitableObject(BaseRpHitableObject hitObject)
             : base(hitObject)
         {
             HitObject = hitObject;

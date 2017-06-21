@@ -43,7 +43,7 @@ namespace osu.Game.Rulesets.RP.DifficultyCalculator
         {
             foreach (var h in Objects)
                 if (h.ObjectType == RpBaseObjectType.ObjectType.LongTail)
-                    ((RpSliderObject)h).Curve.Calculate();
+                    ((RpHoldObject)h).Curve.Calculate();
         }
 
         protected override double CalculateInternal(Dictionary<string, string> categoryDifficulty)
@@ -186,7 +186,7 @@ namespace osu.Game.Rulesets.RP.DifficultyCalculator
         protected override BeatmapConverter<BaseRpObject> CreateBeatmapConverter() => new BeatmapConvertor();
 
 
-        //ËΩâË≠ÅE
+        //ÁzÊñE
         //protected override BeatmapConverter<BaseRpObject> CreateBeatmapConverter() => new BeatmapConvertor();
 
         // Those values are used as array indices. Be careful when changing them!

@@ -11,7 +11,7 @@ namespace osu.Game.Rulesets.RP.Objects
     /// <summary>
     ///     all the hittable object will inherit it
     /// </summary>
-    public abstract class BaseRpHitObject : BaseRpObject , IHasPosition
+    public abstract class BaseRpHitableObject : BaseRpObject , IHasPosition
     {
         public override double EndTime => StartTime;
 
@@ -76,7 +76,7 @@ namespace osu.Game.Rulesets.RP.Objects
         /// </summary>
         public RpBaseHitObjectType.ApproachType ApproachType = RpBaseHitObjectType.ApproachType.ApproachCircle;
 
-        public BaseRpHitObject()
+        public BaseRpHitableObject()
         {
             Samples.Add(
                 new SampleInfo

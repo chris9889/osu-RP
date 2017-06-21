@@ -27,14 +27,14 @@ namespace osu.Game.Rulesets.RP.Parser
             var combo = type.HasFlag(RpBaseObjectType.ObjectType.NewCombo);
             type &= (RpBaseObjectType.ObjectType)0xF;
             type &= ~RpBaseObjectType.ObjectType.NewCombo;
-            BaseRpHitObject result;
+            BaseRpHitableObject result;
             switch (type)
             {
                 case RpBaseObjectType.ObjectType.Click:
                     result = new RpHitObject();
                     break;
                 case RpBaseObjectType.ObjectType.LongTail:
-                    var s = new RpSliderObject();
+                    var s = new RpHoldObject();
 
                     var curveType = RpBaseObjectType.CurveTypes.Catmull;
                     var repeatCount = 0;
@@ -97,7 +97,7 @@ namespace osu.Game.Rulesets.RP.Parser
                     result = s;
                     break;
                 case RpBaseObjectType.ObjectType.ContainerPress:
-                    result = new RpContainerPress();
+                    result = new RpContainerLineHoldObject();
                     break;
                 default:
                     //throw new InvalidOperationException($@"Unknown hit object type {type}");

@@ -1,4 +1,4 @@
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Scoreing;
@@ -10,11 +10,11 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     匁E��RP物件
     /// </summary>
-    internal class DrawableRpContainer : DrawableBaseRpObject
+    internal class DrawableRpContainerGroup : DrawableBaseRpObject
     {
         /// <summary>
         /// </summary>
-        public new RpContainer HitObject;
+        public new RpContainerLineGroup HitObject;
 
 
         /// <summary>
@@ -31,10 +31,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
-        public DrawableRpContainer(BaseRpObject hitObject)
+        public DrawableRpContainerGroup(BaseRpObject hitObject)
             : base(hitObject)
         {
-            HitObject = (RpContainer)hitObject;
+            HitObject = (RpContainerLineGroup)hitObject;
 
 
             Template = new ContainerTemplate(HitObject)

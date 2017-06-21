@@ -23,7 +23,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         private ContainerLayoutHeightCalculator _heightCalculator = new ContainerLayoutHeightCalculator();
 
-        public ContainerBeatLineComponent(Objects.RpContainer hitObject)
+        public ContainerBeatLineComponent(Objects.RpContainerLineGroup hitObject)
             : base(hitObject)
         {
         }
