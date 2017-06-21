@@ -3,7 +3,7 @@
     /// <summary>
     /// test container add layout
     /// </summary>
-    public class TestCaseContainerAddLayout : CategoryTestCase
+    public class TestCaseAddContainerLine : CategoryTestCase
     {
         public override string Category => TestCaseCategory.GamePlay_HitObject.ToString();
 

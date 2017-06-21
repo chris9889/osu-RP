@@ -197,7 +197,7 @@
     <Compile Include="TestsScript\Beatmaps\GetOsuFakeBeatmapScript.cs" />
     <Compile Include="TestsScript\Beatmaps\GetRpFakeBeatmapScript.cs" />
     <Compile Include="TestsScript\Beatmaps\HitObject\RpHitObjectCreatorScript.cs" />
-    <Compile Include="Tests\GamePlay_HitObject\TestCaseContainerUpdatePositionAndRotation.cs" />
+    <Compile Include="Tests\GamePlay_HitObject\TestCaseContainerLineGroupUpdatePositionAndRotation.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetailArea.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetails.cs" />
     <Compile Include="Tests\Editor\TestCaseEditorField.cs" />
@@ -231,7 +231,7 @@
     <Compile Include="Tests\Common\TestCaseTextAwesome.cs" />
     <Compile Include="Tests\HomePage\TestCaseUserPanel.cs" />
     <Compile Include="Tests\Common\TestCaseBackButton.cs" />
-    <Compile Include="Tests\GamePlay_HitObject\TestCaseContainerAddLayout.cs" />
+    <Compile Include="Tests\GamePlay_HitObject\TestCaseAddContainerLine.cs" />
     <Compile Include="Tests\GamePlay_HitObject\TestCaseLayoutAddHitObject.cs" />
     <Compile Include="Tests\GamePlay_PlayField\TestCaseBeatmapConvertor.cs" />
     <Compile Include="Tests\CategoryTestCase.cs" />

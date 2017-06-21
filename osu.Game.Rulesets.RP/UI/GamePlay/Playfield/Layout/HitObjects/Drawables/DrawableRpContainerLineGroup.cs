@@ -10,7 +10,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     匁E��RP物件
     /// </summary>
-    internal class DrawableRpContainerGroup : DrawableBaseRpObject
+    internal class DrawableRpContainerLineGroup : DrawableBaseContainableObject
     {
         /// <summary>
         /// </summary>
@@ -31,7 +31,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
-        public DrawableRpContainerGroup(BaseRpObject hitObject)
+        public DrawableRpContainerLineGroup(BaseRpObject hitObject)
             : base(hitObject)
         {
             HitObject = (RpContainerLineGroup)hitObject;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 {
-    public class TestCaseContainerUpdatePositionAndRotation : CategoryTestCase
+    public class TestCaseContainerLineGroupUpdatePositionAndRotation : CategoryTestCase
     {
         public override string Category => TestCaseCategory.GamePlay_HitObject.ToString();
 

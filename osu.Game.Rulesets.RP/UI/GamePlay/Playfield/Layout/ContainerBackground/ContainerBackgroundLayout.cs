@@ -13,7 +13,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
         /// <summary>
         ///     Container
         /// </summary>
-        public List<DrawableRpContainerGroup> _listContainer = new List<DrawableRpContainerGroup>();
+        public List<DrawableRpContainerLineGroup> _listContainer = new List<DrawableRpContainerLineGroup>();
 
         public ContainerBackgroundLayout()
         {
@@ -24,7 +24,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
         /// <summary>
         ///     ú‰ÁContainer
         /// </summary>
-        public void AddContainer(DrawableRpContainerGroup drawableContainer)
+        public void AddContainer(DrawableRpContainerLineGroup drawableContainer)
         {
             _listContainer.Add(drawableContainer);
             Add(drawableContainer);
@@ -34,7 +34,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
         ///     ªŸŠÔæ“¾ŠÔêyã“IContainer
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<DrawableRpContainerGroup> GetContainerByTime(double time)
+        public IEnumerable<DrawableRpContainerLineGroup> GetContainerByTime(double time)
         {
             foreach (var container in _listContainer)
                 if (container.HitObject.StartTime <= time && container.HitObject.EndTime >= time)

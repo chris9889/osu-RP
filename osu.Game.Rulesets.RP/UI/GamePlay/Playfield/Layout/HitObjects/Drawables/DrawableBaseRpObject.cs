@@ -7,7 +7,7 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
-    internal class DrawableBaseRpObject : DrawableHitObject<BaseRpObject, RpJudgement>
+    public class DrawableBaseRpObject : DrawableHitObject<BaseRpObject, RpJudgement>
     {
         //物件出現需要花的時間
         public readonly float TIME_FADEIN = 100;

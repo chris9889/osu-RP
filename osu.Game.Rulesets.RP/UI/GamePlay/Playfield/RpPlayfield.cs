@@ -128,10 +128,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
             //IDrawableHitObjectWithProxiedApproach c = hitObject as IDrawableHitObjectWithProxiedApproach;
 
 
-            if (hitObject is DrawableRpContainerGroup)
+            if (hitObject is DrawableRpContainerLineGroup)
             {
                 //˙ùâ¡îwåiï®åè
-                containerBackgroundLayout.AddContainer(hitObject as DrawableRpContainerGroup);
+                containerBackgroundLayout.AddContainer(hitObject as DrawableRpContainerLineGroup);
                 //
                 //keySoundLayout.Add(containerBackgroundLayout.CreateProxy());
             }

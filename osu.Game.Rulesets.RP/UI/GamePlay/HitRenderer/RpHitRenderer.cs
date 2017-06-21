@@ -83,7 +83,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
             if (h is RpContainerLineHoldObject)
                 return new DrawableRpContainerLineHoldObject((RpContainerLineHoldObject)h);
             if (h is RpContainerLineGroup)
-                return new DrawableRpContainerGroup((RpContainerLineGroup)h);
+                return new DrawableRpContainerLineGroup((RpContainerLineGroup)h);
             return null;
         }
     }

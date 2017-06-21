@@ -16,6 +16,8 @@ namespace osu.Game.Rulesets.RP.Objects
     /// </summary>
     public class BaseRpObject : HitObject 
     {
+        public bool Editable = false;
+
         public virtual double EndTime => StartTime;
 
         public virtual double Duration => EndTime - StartTime;

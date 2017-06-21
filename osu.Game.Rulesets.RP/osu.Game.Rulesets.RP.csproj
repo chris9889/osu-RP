@@ -76,6 +76,7 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\RpHitObject\StillPiece\Hold\BaseStillHold.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\RpHitObject\StillPiece\Slide\BaseStillSlide.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\Slider.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableRpContainerLine.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\CommonInterface\IBaseEditableTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\CommonInterface\IContainerEditableTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\CommonInterface\IRpHitObjectEditableTemplate.cs" />
@@ -108,7 +109,7 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectsConnector\ConnectionRenderer.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjectsConnector\RpHitMulitpleObjectConnectionLine.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableBaseRpObject.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableRpContainerGroup.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableRpContainerLineGroup.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Calculator\PathPrecentage\PathPrecentageCounter.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\HitExplosion\HitEffectTemplate\BaseHitEffectTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\Judgement\HitExplosion\HitEffectTemplate\CoolHitEffectTemplate.cs" />
