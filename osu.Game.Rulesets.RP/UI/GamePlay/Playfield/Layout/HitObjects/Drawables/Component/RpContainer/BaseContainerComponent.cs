@@ -3,7 +3,7 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.RpContainer
 {
-    internal class BaseContainerComponent : BaseComponent
+    public class BaseContainerComponent : BaseComponent
     {
         /// <summary>
         /// </summary>

@@ -5,7 +5,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     用來計算物件位置(時間點)
     /// </summary>
-    internal class ContainerLayoutPositionCounter
+    public class ContainerLayoutPositionCounter
     {
         /// <summary>
         ///     寬度

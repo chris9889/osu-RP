@@ -5,7 +5,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     ã‰»”wŒiˆÂšØ“I•¨Œ
     /// </summary>
-    internal class DrawableRpContainerLineHoldObject : DrawableBaseRpHitableObject
+    public class DrawableRpContainerLineHoldObject : DrawableBaseRpHitableObject
     {
         /// <summary>
         /// </summary>

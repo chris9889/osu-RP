@@ -8,7 +8,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
     /// <summary>
     /// </summary>
-    internal class ContainerTemplate : RpDrawBaseObjectTemplate
+    public class ContainerTemplate : RpDrawBaseObjectTemplate
     {
         /// <summary>
         ///     放置Layout物件皁E��方

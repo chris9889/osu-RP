@@ -10,7 +10,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
     /// <summary>
     /// </summary>
-    internal class ContainerLineTemplate : RpDrawBaseObjectTemplate
+    public class ContainerLineTemplate : RpDrawBaseObjectTemplate
     {
         /// <summary>
         ///     所有打擊物件

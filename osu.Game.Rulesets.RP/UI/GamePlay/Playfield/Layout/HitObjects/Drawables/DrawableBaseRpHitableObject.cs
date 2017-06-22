@@ -17,7 +17,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     郢ｪ陬ｽ蜿ｯ莉･謇捺投逧・・ｽ・ｽ莉ｶ
     /// </summary>
-    internal class DrawableBaseRpHitableObject : DrawableBaseRpObject
+    public class DrawableBaseRpHitableObject : DrawableBaseRpObject
     {
         /// <summary>
         ///     謇捺投迚ｩ莉ｶ・ｽE・ｽDrawableHitCircle 譛・・ｽ・ｽ謫壽遠謫顔黄莉ｶ謚・迚ｩ莉ｶ郢ｪ陬ｽ蜃ｺ萓・

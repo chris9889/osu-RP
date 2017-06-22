@@ -8,7 +8,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     ///     時間點後會把物件藏起侁E
     ///     這個功能朁E��到 5 月後才朁E��始實佁E
     /// </summary>
-    internal class ContainerLongPressDrawComponent : BaseContainerComponent, IChangeableContainerComponent
+    public class ContainerLongPressDrawComponent : BaseContainerComponent, IChangeableContainerComponent
     {
         /// <summary>
         ///     目前現有物件

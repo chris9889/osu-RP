@@ -12,7 +12,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece
     ///     用來顯示矩形元素
     ///     可以設定長寬，還有顏色
     /// </summary>
-    internal class RectanglePiece : Container
+    public class RectanglePiece : Container
     {
         /// <summary>
         ///     設定物件texture
