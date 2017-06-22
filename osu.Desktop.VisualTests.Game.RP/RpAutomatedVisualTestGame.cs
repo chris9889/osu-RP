@@ -1,9 +1,12 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-namespace osu.Desktop.VisualTests.Ruleset.RP
+using osu.Framework.Testing;
+using osu.Game;
+
+namespace osu.Desktop.VisualTests
 {
-    public class AutomatedVisualTestGame : OsuGameBase
+    public class RpAutomatedVisualTestGame : OsuGameBase
     {
         protected override void LoadComplete()
         {
