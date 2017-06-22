@@ -4,7 +4,7 @@
 using osu.Framework.Testing;
 using osu.Game;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP
+namespace osu.Desktop.VisualTests
 {
     public class RpAutomatedVisualTestGame : OsuGameBase
     {

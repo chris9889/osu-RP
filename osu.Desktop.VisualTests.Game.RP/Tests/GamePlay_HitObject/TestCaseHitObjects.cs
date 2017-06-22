@@ -15,7 +15,7 @@ using osu.Game.Rulesets.Osu.Objects.Drawables;
 using OpenTK;
 using OpenTK.Graphics;
 
-namespace osu.Desktop.VisualTests.Tests.GamePlay
+namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 {
     /// <summary>
     /// test all hitObject

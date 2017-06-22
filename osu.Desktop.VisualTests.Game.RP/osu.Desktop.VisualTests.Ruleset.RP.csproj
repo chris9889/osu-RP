@@ -189,7 +189,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutomatedVisualTestGame.cs" />
+    <Compile Include="RpAutomatedVisualTestGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="RpVisualTestGame.cs" />
     <Compile Include="Platform\RpTestStorage.cs" />
@@ -198,6 +198,7 @@
     <Compile Include="TestsScript\Beatmaps\GetRpFakeBeatmapScript.cs" />
     <Compile Include="TestsScript\Beatmaps\HitObject\RpHitObjectCreatorScript.cs" />
     <Compile Include="Tests\GamePlay_HitObject\TestCaseContainerLineGroupUpdatePositionAndRotation.cs" />
+    <Compile Include="Tests\GamePlay_HitObject\TestConnectionLine.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetailArea.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetails.cs" />
     <Compile Include="Tests\Editor\TestCaseEditorField.cs" />

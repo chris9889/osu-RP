@@ -42,7 +42,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// show adding space
         /// </summary>
         /// <param name="dragObject"></param>
-        public virtual void ShowAddSpace(DrawableBaseRpObject dragObject)
+        public virtual void ShowAddSpace(List<DrawableBaseRpObject> dragObject)
         {
 
         }
@@ -51,7 +51,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// Add Object on ContainableObject
         /// </summary>
         /// <param name="dragObject"></param>
-        public virtual void Add(DrawableBaseRpObject dragObject)
+        public virtual void Add(List<DrawableBaseRpObject> dragObject)
         {
 
         }
@@ -60,7 +60,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// show removing space
         /// </summary>
         /// <param name="dragObject"></param>
-        public virtual void ShowRemoveSpace(DrawableBaseRpObject dragObject)
+        public virtual void ShowRemoveSpace(List<DrawableBaseRpObject> dragObject)
         {
 
         }
@@ -69,7 +69,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// remove Object from ContainableObject
         /// </summary>
         /// <param name="dragObject"></param>
-        public virtual void Remove(DrawableBaseRpObject dragObject)
+        public virtual void Remove(List<DrawableBaseRpObject> dragObject)
         {
 
         }

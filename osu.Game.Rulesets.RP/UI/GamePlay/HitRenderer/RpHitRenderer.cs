@@ -23,11 +23,11 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
 {
     public class RpHitRenderer : HitRenderer<BaseRpObject, RpJudgement>
     {
-        private readonly EventProcessor.ModsProcessor _modProcessor;
+        private readonly ModsProcessor.ModsProcessor _modProcessor;
 
         public RpHitRenderer(WorkingBeatmap beatmap, bool isForCurrentRuleset): base(beatmap,isForCurrentRuleset)
         {
-            _modProcessor = new EventProcessor.ModsProcessor(beatmap.Mods.Value);
+            _modProcessor = new ModsProcessor.ModsProcessor(beatmap.Mods.Value);
             _modProcessor.ProcessGameField(Playfield);
         }
 
