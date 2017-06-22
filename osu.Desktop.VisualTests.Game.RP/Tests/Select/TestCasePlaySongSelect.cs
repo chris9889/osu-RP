@@ -2,9 +2,13 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System.Collections.Generic;
-using osu.Desktop.VisualTests.Ruleset.RP.Platform;
+using osu.Desktop.VisualTests.Platform;
+using osu.Framework.MathUtils;
+using osu.Game.Database;
+using osu.Game.Screens.Select;
+using osu.Game.Screens.Select.Filter;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Select
+namespace osu.Desktop.VisualTests.Tests.Select
 {
     /// <summary>
     /// select the songs and show the song's info
@@ -12,7 +16,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Select
     internal class TestCasePlaySongSelect : CategoryTestCase
     {
         private BeatmapDatabase db;
-        private TestStorage storage;
+        private RpTestStorage storage;
         private PlaySongSelect songSelect;
 
         public override string Description => @"with fake data";
@@ -28,7 +32,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Select
             base.Reset();
             if (db == null)
             {
-                storage = new TestStorage(@"TestCasePlaySongSelect");
+                storage = new RpTestStorage(@"TestCasePlaySongSelect");
 
                 var backingDatabase = storage.GetDatabase(@"client");
 

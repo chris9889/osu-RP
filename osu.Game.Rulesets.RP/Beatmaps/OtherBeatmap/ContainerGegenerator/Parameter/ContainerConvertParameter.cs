@@ -23,6 +23,6 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Parame
         /// <summary>
         ///     all of the container class
         /// </summary>
-        public List<RpContainer> ListObjectContainer = new List<RpContainer>();
+        public List<RpContainerLineGroup> ListObjectContainer = new List<RpContainerLineGroup>();
     }
 }

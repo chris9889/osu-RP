@@ -18,7 +18,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Genera
         {
             foreach (var singleHitObject in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             {
-                var singleHitObjects = new List<BaseRpHitObject>();
+                var singleHitObjects = new List<BaseRpHitableObject>();
                 for (var i = 0; i < singleHitObject.MultiNumber; i++)
                     singleHitObjects.Add(GenerateRpHitObject(singleHitObject));
                 singleHitObject.ListBaseHitObject = singleHitObjects;

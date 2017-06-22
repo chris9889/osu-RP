@@ -5,7 +5,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     元素區塊
     /// </summary>
-    internal class BaseComponent : Framework.Graphics.Containers.Container
+    public class BaseComponent : Framework.Graphics.Containers.Container
     {
         /// <summary>
         /// </summary>

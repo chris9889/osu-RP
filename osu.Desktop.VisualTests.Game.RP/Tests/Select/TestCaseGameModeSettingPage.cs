@@ -1,4 +1,9 @@
-﻿namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Select
+﻿using osu.Game.Graphics;
+using osu.Game.Screens.Select.Options;
+using OpenTK.Graphics;
+using OpenTK.Input;
+
+namespace osu.Desktop.VisualTests.Tests.Select
 {
     /// <summary>
     /// show the 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
-    <ProjectGuid>{69051C69-12AE-4E7D-A3E6-460D2E282312}</ProjectGuid>
+    <ProjectGuid>{EE864CEA-9BA7-4431-972C-DE213B6C2F54}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>WinExe</OutputType>
@@ -174,6 +174,10 @@
     <ProjectReference Include="..\osu.Game.Rulesets.Mania\osu.Game.Rulesets.Mania.csproj">
       <Project>{48f4582b-7687-4621-9cbe-5c24197cb536}</Project>
       <Name>osu.Game.Rulesets.Mania</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\osu.Game.Rulesets.RP\osu.Game.Rulesets.RP.csproj">
+      <Project>{07e65aa5-5a23-4089-9024-21046e882bed}</Project>
+      <Name>osu.Game.Rulesets.RP</Name>
     </ProjectReference>
     <ProjectReference Include="..\osu.Game.Rulesets.Taiko\osu.Game.Rulesets.Taiko.csproj">
       <Project>{f167e17a-7de6-4af5-b920-a5112296c695}</Project>

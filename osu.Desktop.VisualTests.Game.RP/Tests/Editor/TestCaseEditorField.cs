@@ -1,4 +1,4 @@
-﻿namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Editor
+﻿namespace osu.Desktop.VisualTests.Tests.Editor
 {
     /// <summary>
     /// show the edit field

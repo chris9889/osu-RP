@@ -8,15 +8,15 @@ using OpenTK.Graphics;
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.RpHitObject.Common.ShapePiece
 {
     /// <summary>
-    ///     é¡¯ç¤ºçµæŸç‰©ä»¶
-    ///     ç›®å‰åŒ…å«ç‰©é«” : çµæŸçš„ç©ºç‰©ä»¶
+    ///     èû¦Œ‹‘©•¨Œ
+    ///     –Ú‘O•ïŠÜ•¨é“ : Œ‹‘©“I‹ó•¨Œ
     /// </summary>
     internal class HitObjectRectanglePiece : BaseHitObjectShapePiece
     {
         public bool IsFirst = true;
 
         /// <summary>
-        ///     å¤–æ¡†
+        ///     ŠOy
         /// </summary>
         private readonly ImagePicec _borderImagePicec;
 
@@ -26,13 +26,13 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         private ImagePicec _maskImagePicec;
 
         /// <summary>
-        ///     Mask åº•ä¸‹çš„èƒŒæ™¯ç‰©ä»¶
+        ///     Mask ’ê‰º“I”wŒi•¨Œ
         /// </summary>
         private ImagePicec _startBackgroundImagePicec;
 
 
         /// <summary>
-        ///     å»ºæ§‹
+        ///     Œš\
         /// </summary>
         public HitObjectRectanglePiece(BaseRpObject h)
         {
@@ -43,7 +43,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
             Children = new Drawable[]
             {
-                //èƒŒæ™¯ï¼Œè‡ªå¸¶masking
+                //”wŒiC©›æmasking
                 _startBackgroundImagePicec = new ImagePicec("") //(RPSkinManager.GetStartObjectBackgroundByType(HitObject as BaseHitObject))
                 {
                     Colour = new Color4(100, 230, 17, 255),
@@ -52,7 +52,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
                     Masking = true
                 },
 
-                ////ç›®å‰é€™å±¤maskæ²’æœ‰ç”¨é€”
+                ////–Ú‘O”‡‘wmaskŸ“—L—p“r
                 _maskImagePicec = new ImagePicec("") //RPSkinManager.GetStartObjectMaskByType(HitObject as BaseHitObject))
                 {
                     //Colour = osuObject.Colour,
@@ -60,8 +60,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
                     Masking = true
                 },
 
-                //å¤–æ¡†ä½¿ç”¨
-                _borderImagePicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(HitObject as BaseRpHitObject))
+                //ŠOyg—p
+                _borderImagePicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(HitObject as BaseRpHitableObject))
                 {
                     //Colour = new Color4(170, 58, 58,255),
                     Scale = new Vector2(0.5f)
@@ -70,21 +70,21 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         }
 
         /// <summary>
-        ///     åˆå§‹åŒ–é¡¯ç¤º
+        ///     ‰n‰»èû¦
         /// </summary>
         public override void Initial()
         {
         }
 
         /// <summary>
-        ///     é–‹å§‹ç‰¹æ•ˆ
+        ///     ŠJn“ÁÁ
         /// </summary>
         public override void FadeIn(double time = 0)
         {
         }
 
         /// <summary>
-        ///     çµæŸ
+        ///     Œ‹‘©
         /// </summary>
         public override void FadeOut(double time = 0)
         {

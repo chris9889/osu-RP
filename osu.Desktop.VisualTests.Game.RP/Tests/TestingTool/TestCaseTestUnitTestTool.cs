@@ -1,11 +1,12 @@
-﻿using osu.Desktop.VisualTests.Ruleset.RP.Tools;
+﻿using osu.Desktop.VisualTests.Tools;
+using OpenTK;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.TestingTool
+namespace osu.Desktop.VisualTests.Tests.TestingTool
 {
     /// <summary>
     /// Test case's unit test
     /// </summary>
-    public class TestCaseTestUnitTestTool : CategoryTestCase
+    internal class TestCaseTestUnitTestTool : CategoryTestCase
     {
         public override string Description => @"Test UnitTest tool's test case(?";
         
@@ -23,6 +24,8 @@ namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.TestingTool
             // Have to construct this here, rather than in the constructor, because
             // we depend on some dependencies to be loaded within OsuGameBase.load().
             //Add testBrowser to view 
+            Scale=new Vector2(0.75f,0.75f);
+
             Add(new RpTestBrowser());
         }
 

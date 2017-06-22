@@ -1,4 +1,4 @@
-//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
+﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using osu.Framework.Graphics;
@@ -28,7 +28,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosi
 
         public HitExplosion(RpJudgement judgement, BaseRpObject h = null)
         {
-            if (h is BaseRpHitObject)
+            if (h is BaseRpHitableObject)
             {
                 this.judgement = judgement;
                 AutoSizeAxes = Axes.Both;

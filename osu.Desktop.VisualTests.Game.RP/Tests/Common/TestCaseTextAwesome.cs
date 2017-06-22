@@ -2,8 +2,14 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
+using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
+using osu.Framework.MathUtils;
+using osu.Game.Graphics;
+using OpenTK;
+using OpenTK.Graphics;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Common
+namespace osu.Desktop.VisualTests.Tests.Common
 {
     /// <summary>
     /// not sure will have custome textAwsome

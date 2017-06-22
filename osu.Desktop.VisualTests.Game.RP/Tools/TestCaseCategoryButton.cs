@@ -1,6 +1,13 @@
 ﻿using System;
+using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Sprites;
+using osu.Framework.Graphics.Shapes;
+using osu.Framework.Input;
+using OpenTK;
+using OpenTK.Graphics;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tools
+namespace osu.Desktop.VisualTests.Tools
 {
     /// <summary>
     /// the category of the unitTest

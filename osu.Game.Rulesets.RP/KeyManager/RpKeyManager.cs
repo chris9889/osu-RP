@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.type;
 using osu.Game.Rulesets.RP.Saving;
@@ -16,7 +16,7 @@ namespace osu.Game.Rulesets.RP.KeyManager
         /// </summary>
         /// <param name="baseHitObject"></param>
         /// <returns></returns>
-        public static List<Key> GetListKey(BaseRpHitObject baseHitObject)
+        public static List<Key> GetListKey(BaseRpHitableObject baseHitObject)
         {
             var output = new List<Key>();
             var divaKeyLayoutConfig = new RpKeyLayoutConfig();

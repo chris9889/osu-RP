@@ -5,7 +5,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     用來計算目前在曲線裡面的百分比
     /// </summary>
-    internal class PathPrecentageCounter
+    public class PathPrecentageCounter
     {
         public double SpeedMultiple = 1.5f;
         private readonly BaseRpObject _baseHitObject;

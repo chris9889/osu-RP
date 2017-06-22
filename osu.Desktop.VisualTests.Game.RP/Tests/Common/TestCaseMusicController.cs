@@ -1,7 +1,13 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Common
+
+using osu.Framework.Graphics.Containers;
+using osu.Framework.Timing;
+using osu.Game.Overlays;
+using osu.Framework.Graphics;
+
+namespace osu.Desktop.VisualTests.Tests.Common
 {
     /// <summary>
     /// show Music controller show in the right up

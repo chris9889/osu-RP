@@ -2,9 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using osu.Desktop.VisualTests.Ruleset.RP.Tests;
+using osu.Desktop.VisualTests.Tests;
+using osu.Framework.Allocation;
+using osu.Framework.Configuration;
+using osu.Framework.Extensions;
+using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
+using osu.Framework.Graphics.Shapes;
+using osu.Framework.Graphics.Sprites;
+using osu.Framework.Platform;
+using osu.Framework.Screens;
+using osu.Framework.Testing;
+using OpenTK;
+using OpenTK.Graphics;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tools
+namespace osu.Desktop.VisualTests.Tools
 {
     /// <summary>
     /// this test browser can sorted by class category
@@ -161,7 +173,7 @@ namespace osu.Desktop.VisualTests.Ruleset.RP.Tools
             };
 
             //update category
-            UpdateCategory();
+            updateCategory();
 
             //TODO : get first category's name
             UpdateCategoryItem("");
@@ -180,21 +192,21 @@ namespace osu.Desktop.VisualTests.Ruleset.RP.Tools
         /// <summary>
         /// Update Category
         /// </summary>
-        private void UpdateCategory()
+        private void updateCategory()
         {
             leftFlowContainer.Clear();
             //Add buttons for each TestCase.
 
-            List<string> ListCategory = new List<string>();
+            List<string> listCategory = new List<string>();
 
             foreach(CategoryTestCase single in Tests)
             {
-                if (!ListCategory.Contains(single.Category))
-                    ListCategory.Add(single.Category);
+                if (!listCategory.Contains(single.Category))
+                    listCategory.Add(single.Category);
             }
 
 
-            leftFlowContainer.Add(ListCategory.Select(t => new TestCaseCategoryButton(t) { Action = () => UpdateCategoryItem(t) }));
+            leftFlowContainer.Add(listCategory.Select(t => new TestCaseCategoryButton(t) { Action = () => UpdateCategoryItem(t) }));
         }
 
         /// <summary>

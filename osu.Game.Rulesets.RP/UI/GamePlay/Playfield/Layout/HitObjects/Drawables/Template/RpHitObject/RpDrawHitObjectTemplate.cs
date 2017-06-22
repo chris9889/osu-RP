@@ -1,4 +1,4 @@
-using osu.Framework.Graphics;
+﻿using osu.Framework.Graphics;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.RpHitObject.MovePiece;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.RpHitObject.StillPiece;
@@ -16,7 +16,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         ///     物件
         /// </summary>
-        protected new BaseRpHitObject _hitObject;
+        protected new BaseRpHitableObject _hitObject;
 
         private readonly GetMovePiece GetMovePiecen = new GetMovePiece();
         private readonly GetStillPiece GetStillPiece = new GetStillPiece();
@@ -38,7 +38,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         public RpDrawHitObjectTemplate(BaseRpObject hitObject)
             : base(hitObject)
         {
-            _hitObject = (BaseRpHitObject)hitObject;
+            _hitObject = (BaseRpHitableObject)hitObject;
             InitialApproachHitPicec();
             InitialChild();
         }

@@ -11,10 +11,10 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Genera
         /// <summary>
         ///     Generators the object by parameter.
         /// </summary>
-        internal List<RpContainer> GetListContainer(ConvertParameter single)
+        internal List<RpContainerLineGroup> GetListContainer(ConvertParameter single)
         {
-            var returnContainer = new List<RpContainer>();
-            var listLayout = new List<RpContainerLayout>();
+            var returnContainer = new List<RpContainerLineGroup>();
+            var listLayout = new List<RpContainerLine>();
 
             //container number
             for (var i = 0; i < single.ContainerConvertParameter.ContainerNumber; i++)
@@ -33,9 +33,9 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Genera
         }
 
 
-        private RpContainer GenerateSingleContainer(ConvertParameter single)
+        private RpContainerLineGroup GenerateSingleContainer(ConvertParameter single)
         {
-            var objectContainer = new RpContainer(single.SliceConvertParameter.StartTime);
+            var objectContainer = new RpContainerLineGroup(single.SliceConvertParameter.StartTime);
             objectContainer.StartTime = single.SliceConvertParameter.StartTime;
             objectContainer.ContainerEndTime = single.SliceConvertParameter.EndTime;
             objectContainer.BPM = single.SliceConvertParameter.BPM;
@@ -43,9 +43,9 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Genera
             return objectContainer;
         }
 
-        private RpContainerLayout GenerateSingleLayout(ConvertParameter single, RpContainer container)
+        private RpContainerLine GenerateSingleLayout(ConvertParameter single, RpContainerLineGroup container)
         {
-            var objectContainerLayer = new RpContainerLayout(container);
+            var objectContainerLayer = new RpContainerLine(container);
             objectContainerLayer.StartTime = single.SliceConvertParameter.StartTime;
             objectContainerLayer.EndTime = single.SliceConvertParameter.EndTime;
             return objectContainerLayer;

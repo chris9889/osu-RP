@@ -5,7 +5,7 @@ using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
 {
     /// <summary>
-    ///     è² è²¬æ”¾ç½®èƒŒæ™¯
+    ///     •‰Ó•ú’u”wŒi
     ///     DrawableContainer
     /// </summary>
     internal class ContainerBackgroundLayout : BaseGamePlayLayout
@@ -13,7 +13,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
         /// <summary>
         ///     Container
         /// </summary>
-        public List<DrawableRpContainer> _listContainer = new List<DrawableRpContainer>();
+        public List<DrawableRpContainerLineGroup> _listContainer = new List<DrawableRpContainerLineGroup>();
 
         public ContainerBackgroundLayout()
         {
@@ -22,19 +22,19 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
         }
 
         /// <summary>
-        ///     å¢åŠ Container
+        ///     ú‰ÁContainer
         /// </summary>
-        public void AddContainer(DrawableRpContainer drawableContainer)
+        public void AddContainer(DrawableRpContainerLineGroup drawableContainer)
         {
             _listContainer.Add(drawableContainer);
             Add(drawableContainer);
         }
 
         /// <summary>
-        ///     æ ¹æ“šæ™‚é–“å–å¾—æ™‚é–“é»ä¸Šçš„Container
+        ///     ªŸŠÔæ“¾ŠÔêyã“IContainer
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<DrawableRpContainer> GetContainerByTime(double time)
+        public IEnumerable<DrawableRpContainerLineGroup> GetContainerByTime(double time)
         {
             foreach (var container in _listContainer)
                 if (container.HitObject.StartTime <= time && container.HitObject.EndTime >= time)

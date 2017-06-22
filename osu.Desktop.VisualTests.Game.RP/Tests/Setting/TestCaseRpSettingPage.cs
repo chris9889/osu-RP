@@ -1,4 +1,4 @@
-﻿namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Setting
+﻿namespace osu.Desktop.VisualTests.Tests.Setting
 {
     /// <summary>
     /// Just show the setting page 

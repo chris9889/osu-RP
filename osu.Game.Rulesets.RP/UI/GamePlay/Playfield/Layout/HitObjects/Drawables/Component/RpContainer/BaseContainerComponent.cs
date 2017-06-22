@@ -3,18 +3,18 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.RpContainer
 {
-    internal class BaseContainerComponent : BaseComponent
+    public class BaseContainerComponent : BaseComponent
     {
         /// <summary>
         /// </summary>
-        public new Objects.RpContainer HitObject;
+        public new Objects.RpContainerLineGroup HitObject;
 
         /// <summary>
         ///     •‰ÓŒvZ•¨ŒİŠÔêyŠY—L“IˆÊ’u
         /// </summary>
         protected readonly ContainerLayoutPositionCounter _positionCounter = new ContainerLayoutPositionCounter();
 
-        public BaseContainerComponent(Objects.RpContainer hitObject)
+        public BaseContainerComponent(Objects.RpContainerLineGroup hitObject)
         {
             HitObject = hitObject;
             InitialObject();

@@ -1,4 +1,4 @@
-// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System;
@@ -40,7 +40,7 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
         ///     取得時間點上的所有打擊物件
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<BaseRpHitObject> GetListPressHitObjectByTime(List<BaseRpHitObject> listHitObjects, double time)
+        public IEnumerable<BaseRpHitableObject> GetListPressHitObjectByTime(List<BaseRpHitableObject> listHitObjects, double time)
         {
             foreach (var container in listHitObjects)
                 if (container.StartTime <= time && container.EndTime >= time)
@@ -83,13 +83,13 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
             // Already superhuman, but still somewhat realistic
             var reactionTime = (int)applyModsToRate(100);
 
-            var listHitObjects = new List<BaseRpHitObject>();
+            var listHitObjects = new List<BaseRpHitableObject>();
 
 
             //Get all the Objects that can be hit
             foreach (var single in beatmap.HitObjects)
-                if (single is BaseRpHitObject)
-                    listHitObjects.Add((BaseRpHitObject)single);
+                if (single is BaseRpHitableObject)
+                    listHitObjects.Add((BaseRpHitableObject)single);
 
             //OrderBy startTime
             listHitObjects.Sort((x, y) => x.StartTime.CompareTo(y.StartTime));
@@ -108,7 +108,7 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
                     listPointTime.Add(h.StartTime);
                     listPointTime.Add(h.EndTime + h.hit300);
                 }
-                else if (h is RpSliderObject)
+                else if (h is RpHoldObject)
                 {
                     //add start and endPoint
                     listPointTime.Add(h.StartTime);
@@ -138,7 +138,7 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
         ///     Get List Key
         /// </summary>
         /// <returns></returns>
-        private Key getKeyByHitObject(BaseRpHitObject hitObject)
+        private Key getKeyByHitObject(BaseRpHitableObject hitObject)
         {
             var listCompareKeys = RpKeyManager.GetListKey(hitObject);
 

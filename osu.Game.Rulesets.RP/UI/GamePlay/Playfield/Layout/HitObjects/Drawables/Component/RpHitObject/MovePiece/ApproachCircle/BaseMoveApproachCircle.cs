@@ -15,12 +15,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     internal class BaseMoveApproachCircle : BaseMovePicec, IComponentSliderProgress
     {
         /// <summary>
-        ///     åƒosu! approach circle é‚£æ¨£
+        ///     ‘œosu! approach circle “ßé
         /// </summary>
         public ImagePicec ApproachHitPicec;
 
 
-        public BaseMoveApproachCircle(BaseRpHitObject baseHitObject)
+        public BaseMoveApproachCircle(BaseRpHitableObject baseHitObject)
             : base(baseHitObject)
         {
             Children = new Drawable[]
@@ -30,7 +30,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         }
 
         /// <summary>
-        ///     åˆå§‹åŒ–é¡¯ç¤º
+        ///     ‰n‰»èû¦
         /// </summary>
         public override void Initial()
         {
@@ -39,7 +39,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         }
 
         /// <summary>
-        ///     é–‹å§‹ç‰¹æ•ˆ
+        ///     ŠJn“ÁÁ
         /// </summary>
         public override void FadeIn(double time = 0)
         {
@@ -50,7 +50,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         }
 
         /// <summary>
-        ///     çµæŸ
+        ///     Œ‹‘©
         /// </summary>
         public override void FadeOut(double time = 0)
         {

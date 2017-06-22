@@ -13,7 +13,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     ///     基本樣板
     ///     會控制物件要擺放位置
     /// </summary>
-    internal class RpDrawBaseObjectTemplate : Framework.Graphics.Containers.Container
+    public class RpDrawBaseObjectTemplate : Framework.Graphics.Containers.Container
     {
         /// <summary>
         ///     整體延遲時間

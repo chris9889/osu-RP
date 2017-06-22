@@ -16,7 +16,7 @@ namespace osu.Game.Rulesets.RP.Parser
     public class RpHitObjectParser : HitObjectParser
     {
         /// <summary>
-        ///     如果是RP專用譜面，就會用者這個轉換器
+        ///     如果是RP專用譜面�E�就朁E��老E��個轉換器
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
@@ -27,14 +27,14 @@ namespace osu.Game.Rulesets.RP.Parser
             var combo = type.HasFlag(RpBaseObjectType.ObjectType.NewCombo);
             type &= (RpBaseObjectType.ObjectType)0xF;
             type &= ~RpBaseObjectType.ObjectType.NewCombo;
-            BaseRpHitObject result;
+            BaseRpHitableObject result;
             switch (type)
             {
                 case RpBaseObjectType.ObjectType.Click:
                     result = new RpHitObject();
                     break;
                 case RpBaseObjectType.ObjectType.LongTail:
-                    var s = new RpSliderObject();
+                    var s = new RpHoldObject();
 
                     var curveType = RpBaseObjectType.CurveTypes.Catmull;
                     var repeatCount = 0;
@@ -84,7 +84,7 @@ namespace osu.Game.Rulesets.RP.Parser
 
                     //s.RepeatCount = repeatCount;
 
-                    //建立裡面的所有座標
+                    //建立裡面皁E��有座樁E
                     s.Curve = new SliderCurve
                     {
                         ControlPoints = points,
@@ -97,7 +97,7 @@ namespace osu.Game.Rulesets.RP.Parser
                     result = s;
                     break;
                 case RpBaseObjectType.ObjectType.ContainerPress:
-                    result = new RpContainerPress();
+                    result = new RpContainerLineHoldObject();
                     break;
                 default:
                     //throw new InvalidOperationException($@"Unknown hit object type {type}");

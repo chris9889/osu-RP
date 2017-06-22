@@ -1,4 +1,4 @@
-﻿namespace osu.Desktop.VisualTests.Ruleset.RP.Tests
+﻿namespace osu.Desktop.VisualTests.Tests
 {
     /// <summary>
     /// list category;
@@ -9,7 +9,8 @@
         Common,
         Direct,
         Editor,
-        GamePlay,
+        GamePlay_PlayField,
+        GamePlay_HitObject,
         HomePage,
         MultiPlay,
         Select,

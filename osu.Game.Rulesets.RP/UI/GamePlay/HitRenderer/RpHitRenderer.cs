@@ -1,8 +1,11 @@
 ﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
+using System.Collections.Generic;
+using osu.Framework.Configuration;
 using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Beatmaps;
+using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Replays;
 using osu.Game.Rulesets.RP.BeatmapReplay;
@@ -20,14 +23,18 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
 {
     public class RpHitRenderer : HitRenderer<BaseRpObject, RpJudgement>
     {
+        private readonly ModsProcessor.ModsProcessor _modProcessor;
+
         public RpHitRenderer(WorkingBeatmap beatmap, bool isForCurrentRuleset): base(beatmap,isForCurrentRuleset)
         {
+            _modProcessor = new ModsProcessor.ModsProcessor(beatmap.Mods.Value);
+            _modProcessor.ProcessGameField(Playfield);
         }
 
         /// <summary>
-        /// Creates the score processor.
+        /// Creates the score _modProcessor.
         /// </summary>
-        /// <returns>The score processor.</returns>
+        /// <returns>The score _modProcessor.</returns>
         public override osu.Game.Rulesets.Scoring.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor(this);
 
 
@@ -69,15 +76,21 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         /// <returns></returns>
         protected override DrawableHitObject<BaseRpObject, RpJudgement> GetVisualRepresentation(BaseRpObject h)
         {
+            DrawableHitObject<BaseRpObject, RpJudgement> returnObject = null;
+            
             if (h is RpHitObject)
-                return new DrawableRpHitObject((RpHitObject)h);
-            if (h is RpSliderObject)
-                return new DrawableRpSliderObject((RpSliderObject)h);
-            if (h is RpContainerPress)
-                return new DrawableRpLongPress((RpContainerPress)h);
-            if (h is RpContainer)
-                return new DrawableRpContainer((RpContainer)h);
-            return null;
+                returnObject= new DrawableRpHitObject((RpHitObject)h);
+            if (h is RpHoldObject)
+                returnObject= new DrawableRpHoldObject((RpHoldObject)h);
+            if (h is RpContainerLineHoldObject)
+                returnObject= new DrawableRpContainerLineHoldObject((RpContainerLineHoldObject)h);
+            if (h is RpContainerLineGroup)
+                returnObject= new DrawableRpContainerLineGroup((RpContainerLineGroup)h);
+
+            //adding Mods
+            _modProcessor.ProcessHitObject(returnObject);
+
+            return returnObject;
         }
     }
 }

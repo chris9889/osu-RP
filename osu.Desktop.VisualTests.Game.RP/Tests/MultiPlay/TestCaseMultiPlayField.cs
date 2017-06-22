@@ -1,5 +1,4 @@
-﻿using System;
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.MultiPlay
+﻿namespace osu.Desktop.VisualTests.Tests.MultiPlay
 {
     public class TestCaseMultiPlayField
     {

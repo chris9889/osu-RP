@@ -9,10 +9,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     internal class GetStillPiece
     {
         /// <summary>
-        ///     取得片段
+        ///     �擾�Вi
         /// </summary>
         /// <returns></returns>
-        public BaseStillPiece GetPicec(BaseRpHitObject hitObject)
+        public BaseStillPiece GetPicec(BaseRpHitableObject hitObject)
         {
             if (hitObject is Objects.RpHitObject) //Click
                 switch (hitObject.ApproachType)
@@ -22,7 +22,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
                     case RpBaseHitObjectType.ApproachType.flow:
                         return new BaseStillClick(hitObject);
                 }
-            else if (hitObject is RpSliderObject) //Slide
+            else if (hitObject is RpHoldObject) //Slide
                 switch (hitObject.ApproachType)
                 {
                     case RpBaseHitObjectType.ApproachType.ApproachCircle:

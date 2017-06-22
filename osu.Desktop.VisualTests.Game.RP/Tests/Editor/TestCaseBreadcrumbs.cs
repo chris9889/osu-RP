@@ -1,7 +1,10 @@
 ﻿﻿﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Editor
+using osu.Framework.Graphics;
+using osu.Game.Graphics.UserInterface;
+
+namespace osu.Desktop.VisualTests.Tests.Editor
 {
     /// <summary>
     /// looks like "Click >> The >> Circle"

@@ -12,16 +12,16 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     internal class ClickMoveFlow : BaseMoveFlow, IComponentSliderProgress
     {
         /// <summary>
-        ///     é–‹é ­å’Œçµå°¾ç‰©ä»¶
+        ///     ŠJ“ª˜aŒ‹”ö•¨Œ
         /// </summary>
         private readonly HitObjectAnyShapePiece hitObjectAnyShapePieceFirstObjectAny;
 
-        public ClickMoveFlow(BaseRpHitObject baseHitObject)
+        public ClickMoveFlow(BaseRpHitableObject baseHitObject)
             : base(baseHitObject)
         {
             Children = new Drawable[]
             {
-                //é–‹é ­ç‰©ä»¶
+                //ŠJ“ª•¨Œ
                 hitObjectAnyShapePieceFirstObjectAny = new HitObjectAnyShapePiece(BaseHitObject) //false
                 {
                     Position = new Vector2(0, 0),
@@ -32,7 +32,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         }
 
         /// <summary>
-        ///     åˆå§‹åŒ–é¡¯ç¤º
+        ///     ‰n‰»èû¦
         /// </summary>
         public override void Initial()
         {
@@ -40,7 +40,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         }
 
         /// <summary>
-        ///     é–‹å§‹ç‰¹æ•ˆ
+        ///     ŠJn“ÁÁ
         /// </summary>
         public override void FadeIn(double time = 0)
         {
@@ -48,7 +48,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         }
 
         /// <summary>
-        ///     çµæŸ
+        ///     Œ‹‘©
         /// </summary>
         public override void FadeOut(double time = 0)
         {

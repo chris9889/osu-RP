@@ -1,4 +1,5 @@
 ﻿using osu.Framework.Graphics;
+using osu.Framework.Input;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Scoreing;
@@ -7,7 +8,7 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
-    internal class DrawableBaseRpObject : DrawableHitObject<BaseRpObject, RpJudgement>
+    public class DrawableBaseRpObject : DrawableHitObject<BaseRpObject, RpJudgement>
     {
         //物件出現需要花的時間
         public readonly float TIME_FADEIN = 100;
@@ -28,7 +29,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         ///     樣板，把物件綁上去就對了
         /// </summary>
-        public RpDrawBaseObjectTemplate Template;
+        protected RpDrawBaseObjectTemplate Template;
 
         public DrawableBaseRpObject(BaseRpObject hitObject)
             : base(hitObject)
@@ -91,6 +92,39 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
             //更新物件位置
             Template.UpdateTemplate(Time.Current);
+        }
+
+
+        protected override bool OnDoubleClick(InputState state)
+        {
+            if (!HitObject.Editable)
+                return false;
+
+            return base.OnDoubleClick(state);
+        }
+
+        protected override bool OnDragStart(InputState state)
+        {
+            if (!HitObject.Editable)
+                return false;
+
+            return base.OnDragStart(state);
+        }
+
+        protected override bool OnDrag(InputState state)
+        {
+            if (!HitObject.Editable)
+                return false;
+
+            return base.OnDrag(state);
+        }
+
+        protected override bool OnDragEnd(InputState state)
+        {
+            if (!HitObject.Editable)
+                return false;
+
+            return base.OnDragEnd(state);
         }
 
         protected override RpJudgement CreateJudgement() => new RpJudgement { Score = RpScoreResult.Cool };

@@ -22,7 +22,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
-        public ContainerStartEndComponent(Objects.RpContainer hitObject)
+        public ContainerStartEndComponent(Objects.RpContainerLineGroup hitObject)
             : base(hitObject)
         {
         }

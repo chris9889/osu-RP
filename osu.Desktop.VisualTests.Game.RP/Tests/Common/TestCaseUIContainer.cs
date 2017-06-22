@@ -1,13 +1,18 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Common
+using osu.Framework.Graphics;
+using osu.Game.Graphics.UserInterface;
+using osu.Game.Screens.Play;
+using osu.Game.Screens.Play.ReplaySettings;
+
+namespace osu.Desktop.VisualTests.Tests.Common
 {
     /// <summary>
     /// show the verious UI item
     /// it can be add and sorted in the bottom
     /// </summary>
-    internal class TestCaseUIContainer : CategoryTestCase
+    internal class TestCaseUiContainer : CategoryTestCase
     {
         public override string Description => @"Settings visible in replay/auto";
 

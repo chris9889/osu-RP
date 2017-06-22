@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.RpContainer
@@ -8,12 +8,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     ///     時間點後會把物件藏起侁E
     ///     這個功能朁E��到 5 月後才朁E��始實佁E
     /// </summary>
-    internal class ContainerLongPressDrawComponent : BaseContainerComponent, IChangeableContainerComponent
+    public class ContainerLongPressDrawComponent : BaseContainerComponent, IChangeableContainerComponent
     {
         /// <summary>
         ///     目前現有物件
         /// </summary>
-        public List<DrawableRpLongPress> ListPressObject = new List<DrawableRpLongPress>();
+        public List<DrawableRpContainerLineHoldObject> ListPressObject = new List<DrawableRpContainerLineHoldObject>();
 
         /// <summary>
         ///     負責劁E�E矩形
@@ -23,7 +23,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
-        public ContainerLongPressDrawComponent(Objects.RpContainer hitObject)
+        public ContainerLongPressDrawComponent(Objects.RpContainerLineGroup hitObject)
             : base(hitObject)
         {
             Children = Rectangle;
@@ -32,7 +32,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         ///     增加物件
         /// </summary>
-        public void Add(DrawableRpLongPress drawableHitObject)
+        public void Add(DrawableRpContainerLineHoldObject drawableHitObject)
         {
             ListPressObject.Add(drawableHitObject);
         }

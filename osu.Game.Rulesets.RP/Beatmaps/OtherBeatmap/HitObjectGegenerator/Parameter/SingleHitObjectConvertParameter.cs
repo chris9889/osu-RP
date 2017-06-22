@@ -19,6 +19,6 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parame
         /// <summary>
         ///     all of the the hitObject in this moment
         /// </summary>
-        public List<BaseRpHitObject> ListBaseHitObject = new List<BaseRpHitObject>();
+        public List<BaseRpHitableObject> ListBaseHitObject = new List<BaseRpHitableObject>();
     }
 }

@@ -45,7 +45,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
         /// </summary>
         private void GenerateCoop(ConvertParameter single)
         {
-            var listLayout = new List<RpContainerLayout>();
+            var listLayout = new List<RpContainerLine>();
             foreach (var sligleContainer in single.ContainerConvertParameter.ListObjectContainer)
                 listLayout.AddRange(sligleContainer.ContainerLayerList);
 

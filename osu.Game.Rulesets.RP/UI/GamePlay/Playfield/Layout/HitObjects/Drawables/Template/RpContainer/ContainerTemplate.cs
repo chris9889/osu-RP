@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Calculator.Height;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Calculator.Position;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Component.RpContainer;
@@ -8,12 +8,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
     /// <summary>
     /// </summary>
-    internal class ContainerTemplate : RpDrawBaseObjectTemplate
+    public class ContainerTemplate : RpDrawBaseObjectTemplate
     {
         /// <summary>
         ///     放置Layout物件皁E��方
         /// </summary>
-        public List<ContainerLayoutTemplate> ListLayoutTemplate = new List<ContainerLayoutTemplate>();
+        public List<ContainerLineTemplate> ListLayoutTemplate = new List<ContainerLineTemplate>();
 
         /// <summary>
         ///     按壓的template
@@ -23,7 +23,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         ///     打擊物件(Container)
         /// </summary>
-        protected Objects.RpContainer HitObject;
+        protected Objects.RpContainerLineGroup HitObject;
+
 
         private readonly List<IChangeableContainerComponent> IChangeableContainerComponent = new List<IChangeableContainerComponent>();
 
@@ -57,7 +58,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         private ContainerBeatLineComponent _containerBeatLineComponent;
 
-        public ContainerTemplate(Objects.RpContainer hitObject)
+        public ContainerTemplate(Objects.RpContainerLineGroup hitObject)
             : base(hitObject)
         {
             HitObject = hitObject;
@@ -90,7 +91,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         ///     增加物件
         /// </summary>
         /// <param name="drawableHitObject"></param>
-        public void AddObject(DrawableRpLongPress drawableHitObject)
+        public void AddObject(DrawableRpContainerLineHoldObject drawableHitObject)
         {
             ContainerLongPressDrawComponent.Add(drawableHitObject);
         }
@@ -176,7 +177,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         private void InitialListLayoutTemplate()
         {
             foreach (var layout in HitObject.ContainerLayerList)
-                ListLayoutTemplate.Add(new ContainerLayoutTemplate(layout));
+                ListLayoutTemplate.Add(new ContainerLineTemplate(layout));
         }
 
         /// <summary>

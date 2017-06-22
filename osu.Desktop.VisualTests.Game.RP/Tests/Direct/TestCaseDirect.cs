@@ -2,8 +2,11 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System.Collections.Generic;
+using osu.Framework.Allocation;
+using osu.Game.Database;
+using osu.Game.Overlays;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Direct
+namespace osu.Desktop.VisualTests.Tests.Direct
 {
     /// <summary>
     /// Not sure will have RP beatmap into direct

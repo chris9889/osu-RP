@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>osu.Desktop.VisualTests.Ruleset.RP</RootNamespace>
+    <RootNamespace>osu.Desktop.VisualTests</RootNamespace>
     <AssemblyName>osu!</AssemblyName>
     <ManifestCertificateThumbprint>3CF060CD28877D0E3112948951A64B2A7CEEC909</ManifestCertificateThumbprint>
     <ManifestKeyFile>codesigning.pfx</ManifestKeyFile>
@@ -189,15 +189,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutomatedVisualTestGame.cs" />
+    <Compile Include="RpAutomatedVisualTestGame.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="VisualTestGame.cs" />
-    <Compile Include="Platform\TestStorage.cs" />
-    <Compile Include="Beatmaps\TestWorkingBeatmap.cs" />
+    <Compile Include="RpVisualTestGame.cs" />
+    <Compile Include="Platform\RpTestStorage.cs" />
+    <Compile Include="Beatmaps\RpTestWorkingBeatmap.cs" />
+    <Compile Include="TestsScript\Beatmaps\GetOsuFakeBeatmapScript.cs" />
+    <Compile Include="TestsScript\Beatmaps\GetRpFakeBeatmapScript.cs" />
+    <Compile Include="TestsScript\Beatmaps\HitObject\RpHitObjectCreatorScript.cs" />
+    <Compile Include="Tests\GamePlay_HitObject\TestCaseContainerLineGroupUpdatePositionAndRotation.cs" />
+    <Compile Include="Tests\GamePlay_HitObject\TestConnectionLine.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetailArea.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetails.cs" />
     <Compile Include="Tests\Editor\TestCaseEditorField.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseGamefield.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCaseGamefield.cs" />
     <Compile Include="Tests\Chatroom\TestCaseChatDisplay.cs" />
     <Compile Include="Tests\Editor\TestCaseContextMenu.cs" />
     <Compile Include="Tests\Common\TestCaseDialogOverlay.cs" />
@@ -205,31 +210,31 @@
     <Compile Include="Tests\Chatroom\TestCaseDrawableRoom.cs" />
     <Compile Include="Tests\MultiPlay\TestCaseDrawings.cs" />
     <Compile Include="Tests\Common\TestCaseGraph.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseHitObjects.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseKeyCounter.cs" />
+    <Compile Include="Tests\GamePlay_HitObject\TestCaseHitObjects.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCaseKeyCounter.cs" />
     <Compile Include="Tests\Select\TestCaseLeaderboard.cs" />
     <Compile Include="Tests\Common\TestCaseMenuOverlays.cs" />
     <Compile Include="Tests\Select\TestCaseMods.cs" />
     <Compile Include="Tests\Common\TestCaseMusicController.cs" />
     <Compile Include="Tests\Common\TestCaseNotificationManager.cs" />
     <Compile Include="Tests\Select\TestCasePlaySongSelect.cs" />
-    <Compile Include="Tests\GamePlay\TestCasePlayer.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseReplay.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCasePlayer.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCaseReplay.cs" />
     <Compile Include="Tests\Common\TestCaseUIContainer.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseResults.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseScoreCounter.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCaseResults.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCaseScoreCounter.cs" />
     <Compile Include="Tests\Setting\TestCaseSettings.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseSkipButton.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCaseSkipButton.cs" />
     <Compile Include="Tests\Chatroom\TestCaseSocial.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseSongProgress.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseTabControl.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseRpPlaying.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCaseSongProgress.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCaseTabControl.cs" />
+    <Compile Include="Tests\GamePlay_HitObject\TestCaseRpHitEffect.cs" />
     <Compile Include="Tests\Common\TestCaseTextAwesome.cs" />
     <Compile Include="Tests\HomePage\TestCaseUserPanel.cs" />
     <Compile Include="Tests\Common\TestCaseBackButton.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseContainerAddLayout.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseLayoutAddHitObject.cs" />
-    <Compile Include="Tests\GamePlay\TestCaseBeatmapConvertor.cs" />
+    <Compile Include="Tests\GamePlay_HitObject\TestCaseAddContainerLine.cs" />
+    <Compile Include="Tests\GamePlay_HitObject\TestCaseLayoutAddHitObject.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCaseBeatmapConvertor.cs" />
     <Compile Include="Tests\CategoryTestCase.cs" />
     <Compile Include="Tools\RpTestBrowser.cs" />
     <Compile Include="Tools\TestBrowserConfig.cs" />
@@ -239,29 +244,14 @@
     <Compile Include="Tests\Setting\TestCaseRpSettingPage.cs" />
     <Compile Include="Tests\Select\TestCaseGameModeSettingPage.cs" />
     <Compile Include="Tests\TestingTool\TestCaseTestUnitTestTool.cs" />
-    <Compile Include="TestsScript\Beatmaps\GetOsuBeatmapScript.cs" />
-    <Compile Include="TestsScript\Beatmaps\GetRpBeatmapScript.cs" />
+    <Compile Include="TestsScript\Beatmaps\GetWorkingBeatmapScript.cs" />
     <Compile Include="Tests\Editor\TestCaseBreadcrumbs.cs" />
     <Compile Include="Tests\MultiPlay\TestCaseMultiPlayField.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
   <ItemGroup />
-  <ItemGroup>
-    <Folder Include="Tests\Select\" />
-    <Folder Include="Tests\GamePlay\" />
-    <Folder Include="Tests\Editor\" />
-    <Folder Include="Tests\Setting\" />
-    <Folder Include="Tests\Chatroom\" />
-    <Folder Include="Tests\Common\" />
-    <Folder Include="Tests\Direct\" />
-    <Folder Include="Tests\MultiPlay\" />
-    <Folder Include="Tests\HomePage\" />
-    <Folder Include="Tools\" />
-    <Folder Include="Tests\TestingTool\" />
-    <Folder Include="TestsScript\" />
-    <Folder Include="TestsScript\Beatmaps\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

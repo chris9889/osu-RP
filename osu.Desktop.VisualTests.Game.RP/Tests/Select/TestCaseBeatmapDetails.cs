@@ -2,8 +2,11 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using System.Linq;
+using osu.Framework.Graphics;
+using osu.Game.Database;
+using osu.Game.Screens.Select;
 
-namespace osu.Desktop.VisualTests.Ruleset.RP.Tests.Select
+namespace osu.Desktop.VisualTests.Tests.Select
 {
     internal class TestCaseBeatmapDetails : CategoryTestCase
     {
