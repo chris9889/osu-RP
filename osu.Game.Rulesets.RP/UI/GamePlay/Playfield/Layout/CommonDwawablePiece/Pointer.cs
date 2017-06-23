@@ -30,9 +30,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece
         {
             _baseRPObject = baseRPObject;
 
-            TIME_FADEIN = _baseRPObject.TIME_FADEIN;
-            TIME_PREEMPT = _baseRPObject.TIME_PREEMPT;
-            TIME_FADEOUT = _baseRPObject.TIME_FADEOUT;
+            TIME_FADEIN = _baseRPObject.FadeInTime;
+            TIME_PREEMPT = _baseRPObject.PreemptTime;
+            TIME_FADEOUT = _baseRPObject.FadeOutTime;
 
             Anchor = Anchor.Centre;
             Origin = Anchor.Centre;

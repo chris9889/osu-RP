@@ -5,7 +5,7 @@ using System;
 using osu.Framework.Graphics;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects;
-using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpHitObject.Click;
+using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpHitObject.RpHitObject;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
@@ -23,7 +23,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         public DrawableRpHitObject(RpHitObject h)
             : base(h)
         {
-            Template = new ClickTemplate(HitObject)
+            Template = new RpHitObjectTemplate(HitObject)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1
@@ -89,11 +89,11 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             switch (state)
             {
                 case ArmedState.Idle:
-                    Delay(HitObject.Duration + TIME_PREEMPT);
-                    FadeOut(TIME_FADEOUT);
+                    Delay(HitObject.Duration + PreemptTime);
+                    FadeOut(FadeOutTime);
                     break;
                 case ArmedState.Miss:
-                    FadeOut(TIME_FADEOUT / 5);
+                    FadeOut(FadeOutTime / 5);
                     break;
                 case ArmedState.Hit:
                     const double flash_in = 40;
@@ -110,7 +110,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
                     //ring.FadeOut();
                     //_detectPress.FadeOut();
                     //number.FadeOut();
-                    FadeOut(TIME_FADEOUT);
+                    FadeOut(FadeOutTime);
                     //FadeOut(200);
                     //ScaleTo(Scale * 1.5f, 400, EasingTypes.OutQuad);
                     //播放打擊的聲音

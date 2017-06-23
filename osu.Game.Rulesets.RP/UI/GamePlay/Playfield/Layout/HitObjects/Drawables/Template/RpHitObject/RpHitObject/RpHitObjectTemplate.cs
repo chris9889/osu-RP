@@ -5,11 +5,11 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     打擊的模板
     /// </summary>
-    internal partial class ClickTemplate : RpDrawHitObjectTemplate
+    public class RpHitObjectTemplate : RpHitableObjectTemplate
     {
-        public ClickTemplate(BaseRpHitableObject hitObject)
-            : base(hitObject)
+        public RpHitObjectTemplate(BaseRpHitableObject hitObject): base(hitObject)
         {
+
         }
     }
 }

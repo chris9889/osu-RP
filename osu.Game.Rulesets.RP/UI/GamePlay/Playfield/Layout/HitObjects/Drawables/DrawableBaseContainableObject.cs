@@ -20,49 +20,13 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         }
 
-        //show the space that can 
-        protected override bool OnMouseMove(InputState state)
-        {
-            return base.OnMouseMove(state);
-        }
-
-        /// <summary>
-        /// Detect of anything Drag on the Mouse
-        /// Or open a space on the editor for detect
-        /// </summary>
-        /// <param name="state"></param>
-        /// <param name="args"></param>
-        /// <returns></returns>
-        protected override bool OnMouseUp(InputState state, MouseUpEventArgs args)
-        {
-            return base.OnMouseUp(state, args);
-        }
-
-        /// <summary>
-        /// show adding space
-        /// </summary>
-        /// <param name="dragObject"></param>
-        public virtual void ShowAddSpace(List<DrawableBaseRpObject> dragObject)
-        {
-
-        }
-
         /// <summary>
         /// Add Object on ContainableObject
         /// </summary>
         /// <param name="dragObject"></param>
         public virtual void Add(List<DrawableBaseRpObject> dragObject)
         {
-
-        }
-
-        /// <summary>
-        /// show removing space
-        /// </summary>
-        /// <param name="dragObject"></param>
-        public virtual void ShowRemoveSpace(List<DrawableBaseRpObject> dragObject)
-        {
-
+            //call the tesmplate add function
         }
 
         /// <summary>
@@ -71,7 +35,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <param name="dragObject"></param>
         public virtual void Remove(List<DrawableBaseRpObject> dragObject)
         {
-
+            //call the tesmplate remove function
         }
     }
 }

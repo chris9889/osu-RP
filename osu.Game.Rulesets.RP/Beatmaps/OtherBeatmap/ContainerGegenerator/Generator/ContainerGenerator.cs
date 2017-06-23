@@ -37,7 +37,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Genera
         {
             var objectContainer = new RpContainerLineGroup(single.SliceConvertParameter.StartTime);
             objectContainer.StartTime = single.SliceConvertParameter.StartTime;
-            objectContainer.ContainerEndTime = single.SliceConvertParameter.EndTime;
+            objectContainer.EndTime = single.SliceConvertParameter.EndTime;
             objectContainer.BPM = single.SliceConvertParameter.BPM;
             objectContainer.Velocity = single.SliceConvertParameter.Volocity;
             return objectContainer;

@@ -11,20 +11,16 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     public class DrawableBaseRpObject : DrawableHitObject<BaseRpObject, RpJudgement>
     {
         //物件出現需要花的時間
-        public readonly float TIME_FADEIN = 100;
+        public readonly float FadeInTime = 100;
         //物件在打擊多久前提早出現
-        public readonly float TIME_PREEMPT = 2000;
+        public readonly float PreemptTime = 2000;
         //打擊過後多久會消失
-        public readonly float TIME_FADEOUT = 100;
-
-        //物件出現需要花的時間
-        public static float TIME_FADEIN_Connector = 100;
+        public readonly float FadeOutTime = 100;
 
         /// <summary>
         ///     打擊物件，DrawableHitCircle 會根據打擊物件把 物件繪製出來
         /// </summary>
         public new BaseRpObject HitObject;
-
 
         /// <summary>
         ///     樣板，把物件綁上去就對了
@@ -34,9 +30,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         public DrawableBaseRpObject(BaseRpObject hitObject)
             : base(hitObject)
         {
-            TIME_FADEIN = hitObject.TIME_FADEIN;
-            TIME_PREEMPT = hitObject.TIME_PREEMPT;
-            TIME_FADEOUT = hitObject.TIME_FADEOUT;
+            FadeInTime = hitObject.FadeInTime;
+            PreemptTime = hitObject.PreemptTime;
+            FadeOutTime = hitObject.FadeOutTime;
 
             HitObject = hitObject;
 
@@ -59,11 +55,11 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
             UpdateInitialState();
 
-            Delay(HitObject.StartTime - Time.Current - TIME_PREEMPT + Judgement.TimeOffset, true);
+            Delay(HitObject.StartTime - Time.Current - PreemptTime + Judgement.TimeOffset, true);
 
             UpdatePreemptState();
 
-            Delay(TIME_PREEMPT, true);
+            Delay(PreemptTime, true);
         }
 
         /// <summary>
@@ -78,9 +74,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         protected virtual void UpdatePreemptState()
         {
-            FadeIn(TIME_FADEIN);
+            FadeIn(FadeInTime);
             //開始特效
-            Template.FadeIn(TIME_FADEIN);
+            Template.FadeIn(FadeInTime);
         }
 
         /// <summary>
@@ -128,10 +124,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             
         }
 
+        //if rotate , notified the template
         public new float Rotation
         {
             get { return base.Rotation; }
-
             set
             {
                 base.Rotation = value;

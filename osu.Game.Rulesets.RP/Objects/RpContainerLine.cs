@@ -16,14 +16,15 @@ namespace osu.Game.Rulesets.RP.Objects
         public RpContainerLineGroup ObjectContainer;
 
         /// <summary>
-        ///     結束時間�E�可以任意設宁E
-        /// </summary>
-        public double EndTime;
-
-        /// <summary>
         ///     物件長度
         /// </summary>
         public float Lenght = 512;
+
+        //Fade Out time after PreemptTime
+        public override float FadeInTime => 300 * FadeSpeedMultiple;
+
+        //Fade Out time after EndTime 
+        public override float FadeOutTime => 300 * FadeSpeedMultiple;
 
         public RpBaseHitObjectType.Coop Coop = RpBaseHitObjectType.Coop.Both;
 
@@ -34,23 +35,13 @@ namespace osu.Game.Rulesets.RP.Objects
             InitialDefaultValue();
         }
 
-        public void SetEndTime(Double time)
-        {
-
-            EndTime = time;
-        }
-
         /// <summary>
         ///     初始化物件叁E��
         /// </summary>
         public override void InitialDefaultValue()
         {
-            TIME_FADEIN = 300;
-
             //提早多乁E�E現�E�通常是延征E-皁E
-            TIME_PREEMPT = 0;
-            TIME_FADEOUT = 300;
-
+            PreemptTime = 0;
             //顏色
             Colour = new Color4(100, 100, 100, 255);
         }

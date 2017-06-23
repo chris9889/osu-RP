@@ -11,7 +11,7 @@ namespace osu.Game.Rulesets.RP.Objects
     /// <summary>
     ///     all the hittable object will inherit it
     /// </summary>
-    public abstract class BaseRpHitableObject : BaseRpObject , IHasPosition
+    public abstract class BaseRpHitableObject : BaseRpObject
     {
         public override double EndTime => StartTime;
 

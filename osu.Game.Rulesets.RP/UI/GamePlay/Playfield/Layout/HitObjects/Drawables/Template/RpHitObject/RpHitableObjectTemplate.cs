@@ -11,7 +11,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     ///     Approach Right
     ///     DrawLine (定點和飄移物件)
     /// </summary>
-    internal class RpDrawHitObjectTemplate : RpDrawBaseObjectTemplate
+    public class RpHitableObjectTemplate : RpDrawBaseObjectTemplate
     {
         /// <summary>
         ///     物件
@@ -35,7 +35,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
-        public RpDrawHitObjectTemplate(BaseRpObject hitObject)
+        public RpHitableObjectTemplate(BaseRpObject hitObject)
             : base(hitObject)
         {
             _hitObject = (BaseRpHitableObject)hitObject;

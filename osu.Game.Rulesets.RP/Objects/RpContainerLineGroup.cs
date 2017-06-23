@@ -8,15 +8,12 @@ namespace osu.Game.Rulesets.RP.Objects
     /// <summary>
     ///     包住RP物件的容器
     /// </summary>
-    public class RpContainerLineGroup : BaseRpObject, IHasPosition, IHasEndTime
+    public class RpContainerLineGroup : BaseRpObject, IHasEndTime
     {
         /// <summary>
         ///     結束時間，可以任意設定
         /// </summary>
-        public override double EndTime => ContainerEndTime;
-
-        public float X => Position.X;
-        public float Y => Position.Y;
+        public override double EndTime { get; set; }
 
         public new RpBaseObjectType.ObjectType ObjectType = RpBaseObjectType.ObjectType.Container;
 
@@ -29,10 +26,6 @@ namespace osu.Game.Rulesets.RP.Objects
         ///     物件長度
         /// </summary>
         public float Lenght = 512;
-
-        /// <summary>
-        /// </summary>
-        public double ContainerEndTime;
 
         /// <summary>
         ///     取得目前的BGM速度
@@ -54,6 +47,11 @@ namespace osu.Game.Rulesets.RP.Objects
         /// </summary>
         public bool UpdateBPMByBeatmapTime = true;
 
+        //Fade Out time after PreemptTime
+        public override float FadeInTime => 300 * FadeSpeedMultiple;
+
+        //Fade Out time after EndTime 
+        public override float FadeOutTime => 300 * FadeSpeedMultiple;
         /// <summary>
         ///     Layout
         /// </summary>
@@ -73,10 +71,6 @@ namespace osu.Game.Rulesets.RP.Objects
         /// </summary>
         public override void InitialDefaultValue()
         {
-            //時間
-            TIME_FADEIN = 300;
-            TIME_PREEMPT = 1500;
-            TIME_FADEOUT = 300;
             //顏色
             Colour = new Color4(0, 0, 0, 255);
             //初始化layout
@@ -86,17 +80,17 @@ namespace osu.Game.Rulesets.RP.Objects
             //速度
             Velocity = 1f;
             //預設試3秒後結束
-            ContainerEndTime = StartTime + 3000;
+            EndTime = StartTime + 3000;
         }
 
         /// <summary>
         ///     把容器切斷
         /// </summary>
-        /// <param name="SplitTime"></param>
+        /// <param name="splitTime"></param>
         /// <returns></returns>
-        public RpContainerLineGroup Split(double SplitTime)
+        public RpContainerLineGroup Split(double splitTime)
         {
-            return new RpContainerLineGroup(SplitTime);
+            return new RpContainerLineGroup(splitTime);
         }
 
         /// <summary>

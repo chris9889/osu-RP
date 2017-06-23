@@ -57,8 +57,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
             Delay(StartTime);
             FadeIn(TIME_FADEIN);
             //ScaleTo(1.5f);
-            //ScaleTo(1,TIME_FADEIN, EasingTypes.Out);
-            //MoveTo(EndPosition, DrawableOsuHitObject.TIME_FADEIN, EasingTypes.Out);
+            //ScaleTo(1,FadeInTime, EasingTypes.Out);
+            //MoveTo(EndPosition, DrawableOsuHitObject.FadeInTime, EasingTypes.Out);
             Delay(EndTime - StartTime);
             FadeOut(TIME_FADEIN);
 

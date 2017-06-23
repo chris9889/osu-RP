@@ -3,6 +3,7 @@ using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Scoreing;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer;
+using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer.RpContainerLineGroup;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
@@ -87,8 +88,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             if (HitObject.EndTime < Time.Current && !_startFadeont)
             {
                 _startFadeont = true;
-                FadeOut(TIME_FADEOUT);
-                Template.FadeOut(TIME_FADEOUT);
+                FadeOut(FadeOutTime);
+                Template.FadeOut(FadeOutTime);
             }
         }
 
@@ -115,7 +116,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         protected override void UpdateState(ArmedState state)
         {
             base.UpdateState(state);
-            Delay(HitObject.Duration + TIME_PREEMPT + TIME_FADEOUT);
+            Delay(HitObject.Duration + PreemptTime + FadeOutTime);
 
             if (state == ArmedState.Hit)
             {

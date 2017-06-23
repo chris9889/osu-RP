@@ -43,10 +43,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         public override void FadeIn(double time = 0)
         {
-            ApproachHitPicec.Delay(BaseHitObject.TIME_PREEMPT / 5 * 4);
-            ApproachHitPicec.FadeTo(1, BaseHitObject.TIME_PREEMPT / 5 * 4);
-            //ApproachHitPicec.FadeIn(Math.Min(BaseHitObject.TIME_FADEIN * 2, BaseHitObject.TIME_PREEMPT));
-            ApproachHitPicec.ScaleTo(0.5f, BaseHitObject.TIME_PREEMPT / 5 * 1);
+            ApproachHitPicec.Delay(BaseHitObject.PreemptTime / 5 * 4);
+            ApproachHitPicec.FadeTo(1, BaseHitObject.PreemptTime / 5 * 4);
+            //ApproachHitPicec.FadeIn(Math.Min(BaseHitObject.FadeInTime * 2, BaseHitObject.PreemptTime));
+            ApproachHitPicec.ScaleTo(0.5f, BaseHitObject.PreemptTime / 5 * 1);
         }
 
         /// <summary>

@@ -5,7 +5,7 @@ using System;
 using osu.Framework.Graphics;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects;
-using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpHitObject.Slide;
+using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpHitObject.RpHoldObject;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
@@ -18,7 +18,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         public DrawableRpHoldObject(RpHoldObject h)
             : base(h)
         {
-            Template = new SlideTemplate(HitObject)
+            Template = new RpHoldObjectTemplate(HitObject)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1
@@ -119,11 +119,11 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             switch (state)
             {
                 case ArmedState.Idle:
-                    Delay(HitObject.Duration + TIME_PREEMPT);
-                    FadeOut(TIME_FADEOUT);
+                    Delay(HitObject.Duration + PreemptTime);
+                    FadeOut(FadeOutTime);
                     break;
                 case ArmedState.Miss:
-                    FadeOut(TIME_FADEOUT / 5);
+                    FadeOut(FadeOutTime / 5);
                     break;
                 case ArmedState.Hit:
                     const double flash_in = 40;

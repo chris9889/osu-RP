@@ -106,7 +106,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
                 var listPosition = new List<Vector2>();
                 for (var j = 0; j < ListTuple[i].Count; j++)
                     listPosition.Add(ListTuple[i][j].Position);
-                var startTime = ListTuple[i][0].HitObject.StartTime - ListTuple[i][0].TIME_PREEMPT;
+                var startTime = ListTuple[i][0].HitObject.StartTime - ListTuple[i][0].PreemptTime;
                 var endTime = ListTuple[i][0].HitObject.StartTime;
                 AddLine(listPosition, startTime, endTime);
             }

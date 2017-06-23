@@ -6,11 +6,11 @@ using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Cal
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Calculator.Position;
 using OpenTK;
 
-namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer
+namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer.RpContainerLine
 {
     /// <summary>
     /// </summary>
-    public class ContainerLineTemplate : RpDrawBaseObjectTemplate
+    public class ContainerLineTemplate : RpContainableTemplate
     {
         /// <summary>
         ///     所有打擊物件
@@ -28,7 +28,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         private readonly ContainerLayoutPositionCounter _positionCounter = new ContainerLayoutPositionCounter();
 
         /// <summary>
-        ///     計算物件皁E��關高度和Height位置
+        ///     計算物件皁E��關高度和Height位置
         /// </summary>
         private readonly ContainerLayoutHeightCalculator _heightCalculator = new ContainerLayoutHeightCalculator();
 
