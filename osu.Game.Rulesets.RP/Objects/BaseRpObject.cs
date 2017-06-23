@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using osu.Framework.Graphics;
 using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Objects.Types;
+using osu.Game.Rulesets.RP.Objects.Attribute;
 using osu.Game.Rulesets.RP.Objects.type;
 using OpenTK;
 using OpenTK.Graphics;
@@ -16,7 +18,11 @@ namespace osu.Game.Rulesets.RP.Objects
     /// </summary>
     public class BaseRpObject : HitObject 
     {
+        //this Object is Editable
         public bool Editable = false;
+
+        //List attributer
+        public BindingList<BaseRpObjectAttribute> ListAttrobutes=new BindingList<BaseRpObjectAttribute>();
 
         public virtual double EndTime => StartTime;
 

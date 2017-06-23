@@ -9,9 +9,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
     public class DrawableRpContainerLine : DrawableBaseContainableObject
     {
+
         public DrawableRpContainerLine(BaseRpObject hitObject)
             : base(hitObject)
         {
+            
         }
+        
     }
 }

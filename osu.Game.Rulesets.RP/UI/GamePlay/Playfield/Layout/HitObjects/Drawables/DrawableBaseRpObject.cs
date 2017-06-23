@@ -125,7 +125,26 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
                 return false;
 
             return base.OnDragEnd(state);
+            
         }
+
+        public new float Rotation
+        {
+            get { return base.Rotation; }
+
+            set
+            {
+                base.Rotation = value;
+                ChangeRotationValue(base.Rotation);
+            }
+        }
+
+        //update rotation value
+        public virtual void ChangeRotationValue(float rotation)
+        {
+
+        }
+
 
         protected override RpJudgement CreateJudgement() => new RpJudgement { Score = RpScoreResult.Cool };
     }
