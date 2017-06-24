@@ -82,6 +82,7 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\Slider.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableBaseContainableObject.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\DrawableRpContainerLine.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\IHasTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\CommonInterface\IBaseEditableTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\CommonInterface\IContainerEditableTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\CommonInterface\IRpHitObjectEditableTemplate.cs" />
@@ -126,8 +127,8 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\BarPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\ImagePicec.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpHitObject\RpHitObject\RpHitObjectTemplate.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpContainer\RpContainerLine\ContainerLineTemplate.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpContainer\RpContainerLineGroup\ContainerTemplate.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpContainer\RpContainerLine\RpContainerLineTemplate.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpContainer\RpContainerLineGroup\RpContainerLineGroupTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpDrawBaseObjectTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpHitObject\RpContainerLineHoldObject\RpContainerLineHoldObjectTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpHitObject\RpHoldObject\RpHoldObjectTemplate.cs" />
@@ -196,8 +197,8 @@
     <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\ContainerPosition\LinePositionDefinition.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\PreAnalyse\AnaylseCombo.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\Generator\ContainerGenerator.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpContainer\RpContainerLine\EditableContainerLayoutTemplate.cs" />
-    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpContainer\RpContainerLineGroup\EditableContainerTemplate.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpContainer\RpContainerLine\EditableRpContainerLineTemplate.cs" />
+    <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Template\RpContainer\RpContainerLineGroup\EditableRpContainerLineGroupTemplate.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\Common\IComponentSliderProgress.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\Common\IComponentWavable.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\HitObjects\Drawables\Component\Common\IComponentHasStartTime.cs" />

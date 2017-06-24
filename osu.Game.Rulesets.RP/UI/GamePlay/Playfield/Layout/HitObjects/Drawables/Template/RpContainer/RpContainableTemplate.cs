@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,17 +8,34 @@ using osu.Game.Rulesets.RP.Objects;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer
 {
-    public class RpContainableTemplate : RpDrawBaseObjectTemplate
+    public class RpContainableTemplate<T> : RpDrawBaseObjectTemplate where T : DrawableBaseRpObject
     {
+
+        /// <summary>
+        ///     放置Layout物件皁E��方
+        /// </summary>
+        public BindingList<T> ListContainObject = new BindingList<T>();
+
         public RpContainableTemplate(BaseRpObject hitObject): base(hitObject)
         {
+
         }
 
         /// <summary>
         /// show adding space
         /// </summary>
         /// <param name="dragObject"></param>
-        public virtual void ShowAddSpace(List<DrawableBaseRpObject> dragObject)
+        public virtual void ShowAddSpace(List<T> dragObject)
+        {
+
+        }
+
+
+        /// <summary>
+        /// show removing space
+        /// </summary>
+        /// <param name="dragObject"></param>
+        public virtual void ShowRemoveSpace(List<T> dragObject)
         {
 
         }
@@ -26,27 +44,35 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// Add Object on ContainableObject
         /// </summary>
         /// <param name="dragObject"></param>
-        public virtual void Add(List<DrawableBaseRpObject> dragObject)
+        public virtual void AddObject(List<T> dragObject)
         {
-
+            foreach (T single in dragObject)
+            {
+                AddObject(single);
+            }
         }
 
-        /// <summary>
-        /// show removing space
-        /// </summary>
-        /// <param name="dragObject"></param>
-        public virtual void ShowRemoveSpace(List<DrawableBaseRpObject> dragObject)
-        {
 
+        public virtual void AddObject(T dragObject)
+        {
+            ListContainObject.Add(dragObject);
         }
 
         /// <summary>
         /// remove Object from ContainableObject
         /// </summary>
         /// <param name="dragObject"></param>
-        public virtual void Remove(List<DrawableBaseRpObject> dragObject)
+        public virtual void RemoveObject(List<T> dragObject)
         {
+            foreach (T single in dragObject)
+            {
+                RemoveObject(single);
+            }
+        }
 
+        public virtual void RemoveObject(T dragObject)
+        {
+            ListContainObject.Remove(dragObject);
         }
     }
 }

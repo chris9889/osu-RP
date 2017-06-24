@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Game.Rulesets.RP.SkinManager;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
@@ -10,12 +10,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
     /// <summary>
     /// </summary>
-    public class ContainerLineTemplate : RpContainableTemplate
+    public class RpContainerLineTemplate : RpContainableTemplate<DrawableBaseRpHitableObject>
     {
-        /// <summary>
-        ///     所有打擊物件
-        /// </summary>
-        public List<DrawableBaseRpHitableObject> ListHitObject = new List<DrawableBaseRpHitableObject>();
 
         /// <summary>
         ///     物件
@@ -42,7 +38,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         private RectanglePiece _linePiece;
 
-        public ContainerLineTemplate(Objects.RpContainerLine hitObject)
+        public RpContainerLineTemplate(Objects.RpContainerLine hitObject)
             : base(hitObject)
         {
             HitObject = hitObject;
@@ -62,10 +58,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         ///     增加物件
         /// </summary>
         /// <param name="drawableHitObject"></param>
-        public void AddObject(DrawableBaseRpHitableObject drawableHitObject)
+        public override void AddObject(DrawableBaseRpHitableObject drawableHitObject)
         {
             drawableHitObject.Position = CalculatePosition(drawableHitObject.HitObject.StartTime) + GetRowPosition();
-            ListHitObject.Add(drawableHitObject);
+            ListContainObject.Add(drawableHitObject);
             //Add(drawableHitObject);
         }
 
@@ -147,7 +143,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         private void UpdateHitObject()
         {
-            foreach (var hitObject in ListHitObject)
+            foreach (var hitObject in ListContainObject)
                 hitObject.Position = new Vector2(0, 20);
         }
 
@@ -158,7 +154,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             list.Add(_rpRectanglePiece);
             list.Add(_linePiece);
             //打擊物件
-            //list.AddRange(ListHitObject);
+            //list.AddRange(ListContainObject);
             //加入子物件
             Children = list;
         }

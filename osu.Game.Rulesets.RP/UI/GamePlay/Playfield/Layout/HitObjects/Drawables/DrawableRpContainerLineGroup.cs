@@ -2,6 +2,7 @@
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Scoreing;
+using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer.RpContainerLineGroup;
 using OpenTK;
@@ -11,19 +12,23 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     匁E��RP物件
     /// </summary>
-    public class DrawableRpContainerLineGroup : DrawableBaseContainableObject
+    public class DrawableRpContainerLineGroup : DrawableBaseContainableObject<DrawableRpContainerLine> 
     {
         /// <summary>
         /// </summary>
         public new RpContainerLineGroup HitObject;
 
+        /// <summary>
+        ///     樣板，把物件綁上去就對了
+        /// </summary>
+        //public new RpContainerLineGroupTemplate Template { get; set; }
 
         /// <summary>
         ///     樣板�E�把物件綁上去就對亁E
         /// </summary>
-        public ContainerTemplate ContainerTemplate
+        public RpContainerLineGroupTemplate RpContainerLineGroupTemplate
         {
-            get { return (ContainerTemplate)Template; }
+            get { return (RpContainerLineGroupTemplate)Template; }
             set { Template = value; }
         }
 
@@ -32,13 +37,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
-        public DrawableRpContainerLineGroup(BaseRpObject hitObject)
-            : base(hitObject)
+        public DrawableRpContainerLineGroup(BaseRpObject hitObject) : base(hitObject)
         {
             HitObject = (RpContainerLineGroup)hitObject;
-
-
-            Template = new ContainerTemplate(HitObject)
+            Template = new RpContainerLineGroupTemplate(HitObject)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1
@@ -74,6 +76,11 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         protected override void UpdatePreemptState()
         {
+            //RpDrawBaseObjectTemplate single = (RpDrawBaseObjectTemplate)Template;
+            //FadeIn(FadeInTime);
+            //開始特效
+            //Template.FadeIn(FadeInTime);
+
             base.UpdatePreemptState();
         }
 

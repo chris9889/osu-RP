@@ -25,10 +25,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         ///     樣板，把物件綁上去就對了
         /// </summary>
-        protected RpDrawBaseObjectTemplate Template;
+        public RpDrawBaseObjectTemplate Template;
 
-        public DrawableBaseRpObject(BaseRpObject hitObject)
-            : base(hitObject)
+        public DrawableBaseRpObject(BaseRpObject hitObject) : base(hitObject)
         {
             FadeInTime = hitObject.FadeInTime;
             PreemptTime = hitObject.PreemptTime;
@@ -143,5 +142,6 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
 
         protected override RpJudgement CreateJudgement() => new RpJudgement { Score = RpScoreResult.Cool };
+        
     }
 }

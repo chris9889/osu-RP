@@ -28,6 +28,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
         {
             _listContainer.Add(drawableContainer);
             Add(drawableContainer);
+            //foreach (var layout in drawableContainer.HitObject.ContainerLayerList)
+            //{
+            //   // Add(new DrawableRpContainerLine(layout));
+            //}
         }
 
         /// <summary>

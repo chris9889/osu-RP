@@ -52,6 +52,7 @@ namespace osu.Game.Rulesets.RP.Objects
 
         //Fade Out time after EndTime 
         public override float FadeOutTime => 300 * FadeSpeedMultiple;
+
         /// <summary>
         ///     Layout
         /// </summary>
