@@ -1,11 +1,18 @@
 ﻿﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
+using System.Linq;
 using osu.Desktop.VisualTests.TestsScript.Beatmaps;
 using osu.Framework.Allocation;
+using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
+using osu.Framework.Timing;
 using osu.Game.Beatmaps;
 using osu.Game.Database;
+using osu.Game.Rulesets.RP;
+using osu.Game.Rulesets.RP.UI.GamePlay.Playfield;
+using osu.Game.Rulesets.Taiko.UI;
 using osu.Game.Screens.Play;
 using OpenTK.Graphics;
 
@@ -16,7 +23,6 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
     /// </summary>
     internal class TestCasePlayer : CategoryTestCase
     {
-        protected Player Player;
 
         public override string Description => @"Showing everything to play the game.";
 
@@ -24,11 +30,20 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 
         public override string TestName => @"Test Case Player";
 
+        private Container playfieldContainer;
+
+        private RpPlayfield playfield;
+
+        protected Player Player;
+
         GetWorkingBeatmapScript _getOsuBeatmapScript;
+
+        private RulesetDatabase _rulesets;
 
         [BackgroundDependencyLoader]
         private void load(BeatmapDatabase db, RulesetDatabase rulesets)
         {
+            _rulesets = rulesets;
             _getOsuBeatmapScript = new GetWorkingBeatmapScript(db, rulesets);
         }
 
@@ -46,14 +61,16 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
             });
 
             Add(Player = CreatePlayer(beatmap));
-
         }
 
         protected virtual Player CreatePlayer(WorkingBeatmap beatmap)
         {
+            //change to RP mode
+            beatmap.BeatmapInfo.Ruleset = _rulesets.Query<RulesetInfo>().FirstOrDefault(info => info.ID == 1111);
             return new Player
             {
-                Beatmap = beatmap
+                Beatmap = beatmap,
+                
             };
         }
     }

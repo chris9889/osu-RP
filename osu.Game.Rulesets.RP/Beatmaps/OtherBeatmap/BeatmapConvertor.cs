@@ -30,9 +30,8 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap
         private readonly PostConvertor postConvertor = new PostConvertor();
 
 
-        protected override IEnumerable<Type> ValidConversionTypes { get; } = new[] { typeof(IHasEndTime) };
+        protected override IEnumerable<Type> ValidConversionTypes { get; } = new[] { typeof(IHasPosition)};
 
-        
         /// <summary>
         /// this method does not in use
         /// </summary>

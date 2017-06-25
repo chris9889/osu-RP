@@ -32,6 +32,8 @@ namespace osu.Desktop.VisualTests.Tools
         private Container testContentContainer;
         private Container compilingNotice;
 
+        //List category
+        List<string> ListCategoryName = new List<string>();
         //change it into dictionary
         public readonly List<CategoryTestCase> Tests = new List<CategoryTestCase>();
 
@@ -53,9 +55,7 @@ namespace osu.Desktop.VisualTests.Tools
                     //Category it
                     Tests.Add(singleTestCase);
                 }
-                   
             }
-
             //Tests.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
         }
 
@@ -173,10 +173,10 @@ namespace osu.Desktop.VisualTests.Tools
             };
 
             //update category
-            updateCategory();
+            initialCategory();
 
             //TODO : get first category's name
-            UpdateCategoryItem("");
+            updateCategoryItem(ListCategoryName.FirstOrDefault());
 
 
             try
@@ -192,28 +192,27 @@ namespace osu.Desktop.VisualTests.Tools
         /// <summary>
         /// Update Category
         /// </summary>
-        private void updateCategory()
+        private void initialCategory()
         {
             leftFlowContainer.Clear();
             //Add buttons for each TestCase.
 
-            List<string> listCategory = new List<string>();
+            ListCategoryName.Clear();
 
             foreach(CategoryTestCase single in Tests)
             {
-                if (!listCategory.Contains(single.Category))
-                    listCategory.Add(single.Category);
+                if (!ListCategoryName.Contains(single.Category))
+                    ListCategoryName.Add(single.Category);
             }
 
-
-            leftFlowContainer.Add(listCategory.Select(t => new TestCaseCategoryButton(t) { Action = () => UpdateCategoryItem(t) }));
+            leftFlowContainer.Add(ListCategoryName.Select(t => new TestCaseCategoryButton(t) { Action = () => updateCategoryItem(t) }));
         }
 
         /// <summary>
         /// if change to another category ,update this view
         /// </summary>
         /// <param name="selectedCategory">Selected category.</param>
-        private void UpdateCategoryItem(string selectedCategory)
+        private void updateCategoryItem(string selectedCategory)
         {
             //TODO : impliment switch category
             secondaryFlowContainer.Clear();

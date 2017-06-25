@@ -16,6 +16,7 @@ using osu.Game.Rulesets.Mania.UI;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Rulesets.Osu.UI;
+using osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer;
 using osu.Game.Rulesets.Taiko.UI;
 using OpenTK;
 
@@ -104,7 +105,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
                             Anchor = Anchor.TopRight,
                             Origin = Anchor.TopRight
                         },
-                        new CatchHitRenderer(beatmap, false)
+                        new RpHitRenderer(beatmap, false)
                         {
                             Scale = new Vector2(0.5f),
                             Anchor = Anchor.BottomLeft,

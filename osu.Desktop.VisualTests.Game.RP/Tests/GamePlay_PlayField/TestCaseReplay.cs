@@ -4,6 +4,7 @@
 using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Osu.Mods;
+using osu.Game.Rulesets.RP.Mods;
 using osu.Game.Screens.Play;
 
 namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
@@ -23,7 +24,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
         //testing reply
         protected override Player CreatePlayer(WorkingBeatmap beatmap)
         {
-            beatmap.Mods.Value = new Mod[] { new OsuModAutoplay() };
+            beatmap.Mods.Value = new Mod[] { new RpModAutoplay() };
             return base.CreatePlayer(beatmap);
         }
     }
