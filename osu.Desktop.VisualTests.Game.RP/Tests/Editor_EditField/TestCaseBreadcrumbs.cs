@@ -8,14 +8,14 @@ namespace osu.Desktop.VisualTests.Tests.Editor
 {
     /// <summary>
     /// looks like "Click >> The >> Circle"
-    /// It might be use in the Editor
+    /// It might be use in the Editor_EditField
     /// Maybe
     /// </summary>
     internal class TestCaseBreadcrumbs : CategoryTestCase
     {
         public override string Description => @"breadcrumb > control";
 
-        public override string Category => TestCaseCategory.Editor.ToString();
+        public override string Category => TestCaseCategory.Editor_EditField.ToString();
 
         public override string TestName => @"Breadcrumbs";
 

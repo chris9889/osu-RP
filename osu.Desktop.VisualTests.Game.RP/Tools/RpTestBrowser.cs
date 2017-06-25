@@ -175,7 +175,7 @@ namespace osu.Desktop.VisualTests.Tools
             //update category
             initialCategory();
 
-            //TODO : get first category's name
+            //get first category's name and update TestCase
             updateCategoryItem(ListCategoryName.FirstOrDefault());
 
 
@@ -238,10 +238,9 @@ namespace osu.Desktop.VisualTests.Tools
 
                 //TODO : finish it
                 //get the test that has
-                //int i = Tests(t => t.GetType().Name == newVersion.GetType().Name);
-                //Tests[i] = newVersion;
-                //LoadTest(i);
-
+                int i = Tests.FindIndex(t => t.GetType().Name == newVersion.GetType().Name);
+                Tests[i] = newVersion;
+                LoadTest(Tests[i]);
 
             });
         }
@@ -249,27 +248,16 @@ namespace osu.Desktop.VisualTests.Tools
         protected override void LoadComplete()
         {
             base.LoadComplete();
-
-            //get last record
             try
             {
-                //LoadTest(Tests.(t => t.Name == config.Get<string>(TestBrowserSetting.LastTest)));
+                //get last record
                 if (CurrentTest == null)
-                    foreach (CategoryTestCase item in Tests)
-                    {
-                        if (item.TestName == config.Get<string>(TestBrowserSetting.LastTest)) ;
-                        LoadTest(item);
-                    }
-                    
+                    LoadTest(Tests.Find(t => t.Name == config.Get<string>(TestBrowserSetting.LastTest)));
             }
             catch
             {
-                
-            }
-
-            //if null ,use first testCase
-            if (CurrentTest == null)
                 LoadTest(Tests.First());
+            }
         }
 
         protected override bool OnExiting(Screen next)

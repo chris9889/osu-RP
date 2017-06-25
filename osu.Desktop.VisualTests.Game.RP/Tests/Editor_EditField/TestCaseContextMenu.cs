@@ -20,7 +20,7 @@ namespace osu.Desktop.VisualTests.Tests.Editor
     {
         public override string Description => @"Menu visible on right click";
 
-        public override string Category => TestCaseCategory.Editor.ToString();
+        public override string Category => TestCaseCategory.Editor_EditField.ToString();
 
         public override string TestName => @"ContextMenu";
 

@@ -197,14 +197,15 @@
     <Compile Include="TestsScript\Beatmaps\GetOsuFakeBeatmapScript.cs" />
     <Compile Include="TestsScript\Beatmaps\GetRpFakeBeatmapScript.cs" />
     <Compile Include="TestsScript\Beatmaps\HitObject\RpHitObjectCreatorScript.cs" />
+    <Compile Include="Tests\Editor_HitObject\TestCaseDragRpObject.cs" />
     <Compile Include="Tests\GamePlay_HitObject\TestCaseContainerLineGroupUpdatePositionAndRotation.cs" />
     <Compile Include="Tests\GamePlay_HitObject\TestConnectionLine.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetailArea.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetails.cs" />
-    <Compile Include="Tests\Editor\TestCaseEditorField.cs" />
+    <Compile Include="Tests\Editor_EditField\TestCaseEditorField.cs" />
     <Compile Include="Tests\GamePlay_PlayField\TestCaseGamefield.cs" />
     <Compile Include="Tests\Chatroom\TestCaseChatDisplay.cs" />
-    <Compile Include="Tests\Editor\TestCaseContextMenu.cs" />
+    <Compile Include="Tests\Editor_EditField\TestCaseContextMenu.cs" />
     <Compile Include="Tests\Common\TestCaseDialogOverlay.cs" />
     <Compile Include="Tests\Direct\TestCaseDirect.cs" />
     <Compile Include="Tests\Chatroom\TestCaseDrawableRoom.cs" />
@@ -245,7 +246,7 @@
     <Compile Include="Tests\Select\TestCaseGameModeSettingPage.cs" />
     <Compile Include="Tests\TestingTool\TestCaseTestUnitTestTool.cs" />
     <Compile Include="TestsScript\Beatmaps\GetWorkingBeatmapScript.cs" />
-    <Compile Include="Tests\Editor\TestCaseBreadcrumbs.cs" />
+    <Compile Include="Tests\Editor_EditField\TestCaseBreadcrumbs.cs" />
     <Compile Include="Tests\MultiPlay\TestCaseMultiPlayField.cs" />
   </ItemGroup>
   <ItemGroup />

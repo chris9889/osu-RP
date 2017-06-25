@@ -5,9 +5,9 @@
     /// </summary>
     public class TestCaseEditorField : CategoryTestCase
     {
-        public override string Description => @"Test Editor Field";
+        public override string Description => @"Test Editor_EditField Field";
         
-        public override string Category => TestCaseCategory.Editor.ToString();
+        public override string Category => TestCaseCategory.Editor_EditField.ToString();
 
         public override string TestName => @"Breadcrumbs";
 
