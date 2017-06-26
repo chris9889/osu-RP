@@ -59,8 +59,9 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
                 RelativeSizeAxes = Framework.Graphics.Axes.Both,
                 Colour = Color4.Black,
             });
-
-            Add(Player = CreatePlayer(beatmap));
+            Player = CreatePlayer(beatmap);
+            //Player.Clock = new FramedClock(new StopwatchClock(true) { Rate = 0.1 }); 
+            Add(Player);
         }
 
         protected virtual Player CreatePlayer(WorkingBeatmap beatmap)

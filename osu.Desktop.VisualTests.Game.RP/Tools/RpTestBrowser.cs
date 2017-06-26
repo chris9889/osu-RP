@@ -56,7 +56,6 @@ namespace osu.Desktop.VisualTests.Tools
                     Tests.Add(singleTestCase);
                 }
             }
-            //Tests.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
         }
 
         [BackgroundDependencyLoader]
@@ -204,7 +203,8 @@ namespace osu.Desktop.VisualTests.Tools
                 if (!ListCategoryName.Contains(single.Category))
                     ListCategoryName.Add(single.Category);
             }
-
+            //Sort by string name
+            ListCategoryName.Sort();
             leftFlowContainer.Add(ListCategoryName.Select(t => new TestCaseCategoryButton(t) { Action = () => updateCategoryItem(t) }));
         }
 
@@ -216,7 +216,7 @@ namespace osu.Desktop.VisualTests.Tools
         {
             //TODO : impliment switch category
             secondaryFlowContainer.Clear();
-            secondaryFlowContainer.Add(Tests.Where(t=>t.Category==selectedCategory).Select(t => new TestCaseButton(t) { Action = () => LoadTest(t) }));
+            secondaryFlowContainer.Add(Tests.Where(t=>t.Category==selectedCategory).OrderBy(t=>t.Name).Select(t => new TestCaseButton(t) { Action = () => LoadTest(t) }));
         }
 
 

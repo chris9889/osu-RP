@@ -14,7 +14,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
         public override string Category => TestCaseCategory.GamePlay_HitObject.ToString();
 
         public override string TestName => @"ContainerAddLayer";
-
+        
         public override string Description => @"ContainerAddLayer";
 
         private RpHitObjectCreatorScript hitObjectCreatorScript;

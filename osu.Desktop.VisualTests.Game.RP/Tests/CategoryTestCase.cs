@@ -14,7 +14,7 @@ namespace osu.Desktop.VisualTests.Tests
         public abstract string TestName { get; }//test001
 
         //if you want to add this test or not
-        public virtual bool AddToTest => true;
+        public virtual bool AddToTest => true;// default this test is need to be test
 
         public CategoryTestCase()
         {
