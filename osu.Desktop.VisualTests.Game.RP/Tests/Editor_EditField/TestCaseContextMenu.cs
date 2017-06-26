@@ -22,7 +22,7 @@ namespace osu.Desktop.VisualTests.Tests.Editor
 
         public override string Category => TestCaseCategory.Editor_EditField.ToString();
 
-        public override string TestName => @"ContextMenu";
+        public override string TestName => @"Right-Click ContextMenu";
 
         private const int start_time = 0;
         private const int duration = 1000;
@@ -33,6 +33,7 @@ namespace osu.Desktop.VisualTests.Tests.Editor
         {
             base.Reset();
 
+            //(green regtangle)
             Add(container = new MyContextMenuContainer
             {
                 Size = new Vector2(200),
@@ -48,6 +49,7 @@ namespace osu.Desktop.VisualTests.Tests.Editor
                 }
             });
 
+            //(red one regtangle)
             Add(new AnotherContextMenuContainer
             {
                 Size = new Vector2(200),
@@ -63,6 +65,7 @@ namespace osu.Desktop.VisualTests.Tests.Editor
                 }
             });
 
+            //adding moving transform (for green regtangle)
             container.Transforms.Add(new TransformPosition
             {
                 StartValue = Vector2.Zero,
@@ -115,6 +118,9 @@ namespace osu.Desktop.VisualTests.Tests.Editor
             };
         }
 
+        /// <summary>
+        /// add right-click ContextMenu
+        /// </summary>
         private class AnotherContextMenuContainer : Container, IHasContextMenu
         {
             public ContextMenuItem[] ContextMenuItems => new ContextMenuItem[]

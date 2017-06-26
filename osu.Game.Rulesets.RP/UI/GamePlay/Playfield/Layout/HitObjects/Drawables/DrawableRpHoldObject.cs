@@ -13,7 +13,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     Slider
     /// </summary>
-    internal class DrawableRpHoldObject : DrawableBaseRpHitableObject
+    public class DrawableRpHoldObject : DrawableBaseRpHitableObject
     {
         public DrawableRpHoldObject(RpHoldObject h)
             : base(h)

@@ -13,7 +13,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     繪製 RP HitCircle
     /// </summary>
-    internal class DrawableRpHitObject : DrawableBaseRpHitableObject, IDrawableHitObjectWithProxiedApproach
+    public class DrawableRpHitObject : DrawableBaseRpHitableObject, IDrawableHitObjectWithProxiedApproach
     {
         public Drawable ProxiedLayer
         {

@@ -12,6 +12,7 @@ namespace osu.Desktop.VisualTests.TestsScript.Beatmaps.HitObject
     {
 
         private bool _editable = false;
+
         public void SetObjectEditable(bool editable)
         {
             _editable = editable;
@@ -37,7 +38,7 @@ namespace osu.Desktop.VisualTests.TestsScript.Beatmaps.HitObject
             return null;
         }
 
-        public RpHoldObject CreateRpHoldObject(Vector2 position, Double startTime)
+        public RpHoldObject CreateRpHoldObject(Vector2 position, Double startTime, Double endTime)
         {
             return null;
         }

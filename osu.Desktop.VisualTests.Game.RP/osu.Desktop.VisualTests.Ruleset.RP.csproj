@@ -194,6 +194,7 @@
     <Compile Include="RpVisualTestGame.cs" />
     <Compile Include="Platform\RpTestStorage.cs" />
     <Compile Include="Beatmaps\RpTestWorkingBeatmap.cs" />
+    <Compile Include="TestsScript\Beatmaps\DrawableHitObject\RpDrawableHitObjectCreatorScript.cs" />
     <Compile Include="TestsScript\Beatmaps\GetOsuFakeBeatmapScript.cs" />
     <Compile Include="TestsScript\Beatmaps\GetRpFakeBeatmapScript.cs" />
     <Compile Include="TestsScript\Beatmaps\HitObject\RpHitObjectCreatorScript.cs" />
