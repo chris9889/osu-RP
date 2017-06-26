@@ -7,7 +7,10 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.MathUtils;
 using osu.Framework.Timing;
 using osu.Game.Rulesets.Objects.Drawables;
-using osu.Game.Rulesets.Taiko.Judgements;
+using osu.Game.Rulesets.RP.Objects;
+using osu.Game.Rulesets.RP.Scoreing;
+using osu.Game.Rulesets.RP.UI.GamePlay.Playfield;
+using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 using osu.Game.Rulesets.Taiko.Objects;
 using osu.Game.Rulesets.Taiko.Objects.Drawables;
 using osu.Game.Rulesets.Taiko.UI;
@@ -18,14 +21,14 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
     /// <summary>
     /// will be modified for RP for testing hit
     /// </summary>
-    internal class TestCaseRpPlaying : CategoryTestCase
+    internal class TestCaseRpPlayField : CategoryTestCase
     {
         private const double default_duration = 300;
         private const float scroll_time = 1000;
 
-        public override string Description => "Taiko playfield";
+        public override string Description => "Rp Playfield";
 
-        public override string Category => TestCaseCategory.GamePlay_HitObject.ToString();
+        public override string Category => TestCaseCategory.GamePlay_PlayField.ToString();
 
         public override string TestName => @"Test RP Playing";
 
@@ -33,7 +36,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
         protected override double TimePerAction => default_duration * 2;
 
         private readonly Random rng = new Random(1337);
-        private TaikoPlayfield playfield;
+        private RpPlayfield playfield;
         private Container playfieldContainer;
 
         public override void Reset()
@@ -69,7 +72,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
                 Clock = new FramedClock(rateAdjustClock),
                 Children = new[]
                 {
-                    playfield = new TaikoPlayfield()
+                    playfield = new RpPlayfield()
                 }
             });
         }
@@ -111,15 +114,15 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 
         private void addHitJudgement()
         {
-            TaikoHitResult hitResult = RNG.Next(2) == 0 ? TaikoHitResult.Good : TaikoHitResult.Great;
+            RpScoreResult hitResult = RNG.Next(2) == 0 ? RpScoreResult.Cool : RpScoreResult.Fine;
 
-            var h = new DrawableTestHit(new Hit())
+            var h = new DrawableTestHit(new RpHitObject())
             {
-                X = RNG.NextSingle(hitResult == TaikoHitResult.Good ? -0.1f : -0.05f, hitResult == TaikoHitResult.Good ? 0.1f : 0.05f),
-                Judgement = new TaikoJudgement
+                X = RNG.NextSingle(hitResult == RpScoreResult.Cool ? -0.1f : -0.05f, hitResult == RpScoreResult.Cool ? 0.1f : 0.05f),
+                Judgement = new RpJudgement
                 {
                     Result = HitResult.Hit,
-                    TaikoResult = hitResult,
+                    Score = hitResult,
                     TimeOffset = 0
                 }
             };
@@ -128,16 +131,16 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 
             if (RNG.Next(10) == 0)
             {
-                h.Judgement.SecondHit = true;
+                //h.Judgement.SecondHit = true;
                 playfield.OnJudgement(h);
             }
         }
 
         private void addMissJudgement()
         {
-            playfield.OnJudgement(new DrawableTestHit(new Hit())
+            playfield.OnJudgement(new DrawableTestHit(new RpHitObject())
             {
-                Judgement = new TaikoJudgement
+                Judgement = new RpJudgement
                 {
                     Result = HitResult.Miss,
                     TimeOffset = 0
@@ -153,7 +156,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
                 ScrollTime = scroll_time
             };
 
-            playfield.AddBarLine(major ? new DrawableBarLineMajor(bl) : new DrawableBarLine(bl));
+            //playfield.AddBarLine(major ? new DrawableBarLineMajor(bl) : new DrawableBarLine(bl));
         }
 
         private void addSwell(double duration = default_duration)
@@ -210,14 +213,13 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
                 playfield.Add(new DrawableRimHit(h));
         }
 
-        private class DrawableTestHit : DrawableHitObject<TaikoHitObject, TaikoJudgement>
+        private class DrawableTestHit : DrawableHitObject<BaseRpObject, RpJudgement>
         {
-            public DrawableTestHit(TaikoHitObject hitObject)
-                : base(hitObject)
+            public DrawableTestHit(BaseRpObject hitObject): base(hitObject)
             {
             }
 
-            protected override TaikoJudgement CreateJudgement() => new TaikoJudgement();
+            protected override RpJudgement CreateJudgement() => new RpJudgement();
 
             protected override void UpdateState(ArmedState state)
             {

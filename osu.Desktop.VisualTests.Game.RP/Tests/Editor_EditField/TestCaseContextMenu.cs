@@ -11,7 +11,7 @@ using osu.Game.Graphics.UserInterface;
 using OpenTK;
 using OpenTK.Graphics;
 
-namespace osu.Desktop.VisualTests.Tests.Editor
+namespace osu.Desktop.VisualTests.Tests.Editor_EditField
 {
     /// <summary>
     /// right click and show the menu item

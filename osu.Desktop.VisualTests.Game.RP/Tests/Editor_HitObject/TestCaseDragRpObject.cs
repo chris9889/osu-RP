@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using osu.Desktop.VisualTests.TestsScript.Beatmaps.DrawableHitObject;
-using osu.Framework.Lists;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 using OpenTK;
 

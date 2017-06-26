@@ -4,7 +4,7 @@
 using osu.Framework.Graphics;
 using osu.Game.Graphics.UserInterface;
 
-namespace osu.Desktop.VisualTests.Tests.Editor
+namespace osu.Desktop.VisualTests.Tests.Editor_EditField
 {
     /// <summary>
     /// looks like "Click >> The >> Circle"

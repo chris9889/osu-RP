@@ -1,4 +1,4 @@
-﻿namespace osu.Desktop.VisualTests.Tests.Editor
+﻿namespace osu.Desktop.VisualTests.Tests.Editor_EditField
 {
     /// <summary>
     /// show the edit field

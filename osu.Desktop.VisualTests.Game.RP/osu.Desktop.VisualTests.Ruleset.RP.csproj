@@ -230,7 +230,7 @@
     <Compile Include="Tests\Chatroom\TestCaseSocial.cs" />
     <Compile Include="Tests\GamePlay_PlayField\TestCaseSongProgress.cs" />
     <Compile Include="Tests\GamePlay_PlayField\TestCaseTabControl.cs" />
-    <Compile Include="Tests\GamePlay_HitObject\TestCaseRpHitEffect.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCaseRpPlayField.cs" />
     <Compile Include="Tests\Common\TestCaseTextAwesome.cs" />
     <Compile Include="Tests\HomePage\TestCaseUserPanel.cs" />
     <Compile Include="Tests\Common\TestCaseBackButton.cs" />
