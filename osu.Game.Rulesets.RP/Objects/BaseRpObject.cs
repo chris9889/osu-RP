@@ -14,7 +14,7 @@ namespace osu.Game.Rulesets.RP.Objects
     ///     目前所有RP物件共通都會出現的
     ///     包括打擊物件和Container(乘載RP物件的地方)
     /// </summary>
-    public class BaseRpObject : HitObject, IHasPosition
+    public abstract class BaseRpObject : HitObject, IHasPosition
     {
         //this Object is Editable
         public bool Editable = false;

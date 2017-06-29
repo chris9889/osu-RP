@@ -60,7 +60,7 @@ namespace osu.Game.Rulesets.RP.UI.Select.RpMod
                             new RpKeyMod4K(),
                         }
                     };
-                    yield return new RpModContainerHitObjectPressOut();
+                    yield return new RpModAutoContainerLineHoldObject();
                     yield return new RpModShapeHitObjectCoco();
                     yield return new RpModContainerHitObjectCoco();
                     yield return new MultiMod

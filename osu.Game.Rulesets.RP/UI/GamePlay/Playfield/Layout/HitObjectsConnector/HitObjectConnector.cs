@@ -50,7 +50,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
 
         /// <summary>
         ///     will scan when the beatmap converted Finish
-        ///     add all the same time's HitObject's Tuple will place in there
+        ///     add all the same time's RpHitObject's Tuple will place in there
         /// </summary>
         private readonly List<List<DrawableBaseRpHitableObject>> ListTuple = new List<List<DrawableBaseRpHitableObject>>();
 
@@ -63,7 +63,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
         private IEnumerable<DrawableBaseRpHitableObject> hitObjects;
 
         /// <summary>
-        ///     Add all the same time's HitObject's Tuple will place in there
+        ///     Add all the same time's RpHitObject's Tuple will place in there
         /// </summary>
         public override void ScanSameTuple()
         {
@@ -72,8 +72,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
 
             foreach (var currHitObject in hitObjects)
             {
-                if (lastObjectTime != null && currHitObject.HitObject.StartTime == lastObjectTime.HitObject.StartTime)
-                    if (ListTuple.Count > 0 && ListTuple[ListTuple.Count - 1][0].HitObject.StartTime == lastObjectTime.HitObject.StartTime) //exist tuple
+                if (lastObjectTime != null && ((DrawableBaseRpObject)currHitObject).HitObject.StartTime == ((DrawableBaseRpObject)lastObjectTime).HitObject.StartTime)
+                    if (ListTuple.Count > 0 && ((DrawableBaseRpObject)ListTuple[ListTuple.Count - 1][0]).HitObject.StartTime == ((DrawableBaseRpObject)lastObjectTime).HitObject.StartTime) //exist tuple
                     {
                         ListTuple[ListTuple.Count - 1].Add(currHitObject);
                     }
@@ -92,7 +92,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
 
 
         /// <summary>
-        ///     Find the same time HitObject
+        ///     Find the same time RpHitObject
         ///     ///
         /// </summary>
         private void update()
@@ -106,8 +106,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
                 var listPosition = new List<Vector2>();
                 for (var j = 0; j < ListTuple[i].Count; j++)
                     listPosition.Add(ListTuple[i][j].Position);
-                var startTime = ListTuple[i][0].HitObject.StartTime - ListTuple[i][0].PreemptTime;
-                var endTime = ListTuple[i][0].HitObject.StartTime;
+                var startTime = ((DrawableBaseRpObject)ListTuple[i][0]).HitObject.StartTime - ListTuple[i][0].PreemptTime;
+                var endTime = ((DrawableBaseRpObject)ListTuple[i][0]).HitObject.StartTime;
                 AddLine(listPosition, startTime, endTime);
             }
         }

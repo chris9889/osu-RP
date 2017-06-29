@@ -43,7 +43,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             Children = new Drawable[]
             {
                 //�w�i�C����masking
-                _startBackgroundImagePicec = new ImagePicec("") //(RPSkinManager.GetStartObjectBackgroundByType(HitObject as BaseHitObject))
+                _startBackgroundImagePicec = new ImagePicec("") //(RPSkinManager.GetStartObjectBackgroundByType(RpHitObject as BaseHitObject))
                 {
                     Colour = RpTextureColorManager.GetKeyLayoutButtonShage(((BaseRpHitableObject)HitObject).Shape),
                     Scale = new Vector2(0.5f),
@@ -52,7 +52,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
                 },
 
                 ////�ڑO���wmask���L�p�r
-                _maskImagePicec = new ImagePicec("") //RPSkinManager.GetStartObjectMaskByType(HitObject as BaseHitObject))
+                _maskImagePicec = new ImagePicec("") //RPSkinManager.GetStartObjectMaskByType(RpHitObject as BaseHitObject))
                 {
                     //Colour = osuObject.Colour,
                     Scale = new Vector2(0.5f),

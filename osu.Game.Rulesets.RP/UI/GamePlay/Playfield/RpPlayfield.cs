@@ -147,7 +147,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
         public override void PostProcess()
         {
             //order by time
-            _hitObjectConnector.HitObjects = HitObjects.Children.Select(d => (DrawableBaseRpHitableObject)d).OrderBy(h => h.HitObject.StartTime);
+            _hitObjectConnector.HitObjects = HitObjects.Children.Select(d => (DrawableBaseRpHitableObject)d).OrderBy(h => ((DrawableBaseRpObject)h).HitObject.StartTime);
             _hitObjectConnector.ScanSameTuple();
         }
 

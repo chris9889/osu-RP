@@ -53,7 +53,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
                 },
 
                 ////–Ú‘O”‡‘wmaskŸ“—L—p“r
-                _maskImagePicec = new ImagePicec("") //RPSkinManager.GetStartObjectMaskByType(HitObject as BaseHitObject))
+                _maskImagePicec = new ImagePicec("") //RPSkinManager.GetStartObjectMaskByType(RpHitObject as BaseHitObject))
                 {
                     //Colour = osuObject.Colour,
                     Scale = new Vector2(0.5f),

@@ -26,7 +26,7 @@ namespace osu.Desktop.VisualTests.Tools
         
         public CategoryTestCase CurrentTest { get; private set; }
 
-        private FillFlowContainer<TestCaseCategoryButton> leftFlowContainer;
+        private FillFlowContainer<TestCaseCategoryButton> categoryFlowContainer;
         private FillFlowContainer<TestCaseButton> secondaryFlowContainer;
 
         private Container testContentContainer;
@@ -84,7 +84,7 @@ namespace osu.Desktop.VisualTests.Tools
                             Children = new[]
                             {
                                 //main category
-                                leftFlowContainer = new FillFlowContainer<TestCaseCategoryButton>
+                                categoryFlowContainer = new FillFlowContainer<TestCaseCategoryButton>
                                 {
                                     Padding = new MarginPadding(3),
                                     Direction = FillDirection.Vertical,
@@ -193,7 +193,7 @@ namespace osu.Desktop.VisualTests.Tools
         /// </summary>
         private void initialCategory()
         {
-            leftFlowContainer.Clear();
+            categoryFlowContainer.Clear();
             //Add buttons for each TestCase.
 
             ListCategoryName.Clear();
@@ -205,7 +205,7 @@ namespace osu.Desktop.VisualTests.Tools
             }
             //Sort by string name
             ListCategoryName.Sort();
-            leftFlowContainer.Add(ListCategoryName.Select(t => new TestCaseCategoryButton(t) { Action = () => updateCategoryItem(t) }));
+            categoryFlowContainer.Add(ListCategoryName.Select(t => new TestCaseCategoryButton(t) { Action = () => updateCategoryItem(t) }));
         }
 
         /// <summary>
@@ -214,7 +214,7 @@ namespace osu.Desktop.VisualTests.Tools
         /// <param name="selectedCategory">Selected category.</param>
         private void updateCategoryItem(string selectedCategory)
         {
-            //TODO : impliment switch category
+            //update selected category color
             secondaryFlowContainer.Clear();
             secondaryFlowContainer.Add(Tests.Where(t=>t.Category==selectedCategory).OrderBy(t=>t.Name).Select(t => new TestCaseButton(t) { Action = () => LoadTest(t) }));
         }

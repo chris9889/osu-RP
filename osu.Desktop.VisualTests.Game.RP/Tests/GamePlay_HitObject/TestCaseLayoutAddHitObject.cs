@@ -7,9 +7,9 @@
     {
         public override string Category => TestCaseCategory.GamePlay_HitObject.ToString();
 
-        public override string TestName => @"Layout Add HitObject";
+        public override string TestName => @"Layout Add RpHitObject";
 
-        public override string Description => @"Testing Layout Add HitObject";
+        public override string Description => @"Testing Layout Add RpHitObject";
 
         public TestCaseLayoutAddHitObject()
         {

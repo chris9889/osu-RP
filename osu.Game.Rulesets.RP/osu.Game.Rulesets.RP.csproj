@@ -61,6 +61,7 @@
     <Compile Include="Beatmaps\OtherBeatmap\Slicing\VolocityCalculator\ContainerVolocityCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
+    <Compile Include="Mods\RpMod2017.cs" />
     <Compile Include="Mods\ModsElement\RPAutoReplay.cs" />
     <Compile Include="Objects\Attribute\BaseRpObjectAttribute.cs" />
     <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\GameField\GameFieldModsProcessor.cs" />

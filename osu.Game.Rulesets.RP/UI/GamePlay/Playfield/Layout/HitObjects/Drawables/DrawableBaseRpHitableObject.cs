@@ -38,12 +38,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         public DrawableBaseRpHitableObject(BaseRpHitableObject hitObject)
             : base(hitObject)
         {
-            HitObject = hitObject;
+            base.HitObject = hitObject;
             //載�E判斷黁E
             if (Judgement == null)
                 Judgement = CreateJudgement();
 
-            Template = new RpDrawBaseObjectTemplate(HitObject)
+            Template = new RpDrawBaseObjectTemplate(base.HitObject)
             {
                 //Position = this.Position,
                 Alpha = 1
@@ -68,7 +68,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         {
             //((PositionalJudgementInfo)Judgement).PositionOffset = Vector2.Zero; //todo: set to correct value
             UpdateJudgement(true);
-            //Debug.Print(Judgement.Result + " " + HitObject.StartTime + " " + Position.X + "," + Position.Y);
+            //Debug.Print(Judgement.Result + " " + RpHitObject.StartTime + " " + Position.X + "," + Position.Y);
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         {
             if (!userTriggered)
             {
-                if (Judgement.TimeOffset > HitObject.hit50)
+                if (Judgement.TimeOffset > this.HitObject.hit50)
                     Judgement.Result = HitResult.Miss;
 
                 return;
@@ -118,10 +118,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             var rpInfo = Judgement;
             rpInfo.HitExplosionPosition.Add(Position);
 
-            if (hitOffset < HitObject.hit50)
+            if (hitOffset < this.HitObject.hit50)
             {
                 Judgement.Result = HitResult.Hit;
-                rpInfo.Score = HitObject.ScoreResultForOffset(hitOffset);
+                rpInfo.Score = this.HitObject.ScoreResultForOffset(hitOffset);
             }
             else
             {
@@ -133,11 +133,11 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         //[BackgroundDependencyLoader]
         //private void load(AudioManager audio)
         //{
-        //    SampleType type = HitObject.Sample?.Type ?? SampleType.Whistle;
+        //    SampleType type = RpHitObject.Sample?.Type ?? SampleType.Whistle;
         //    if (type == SampleType.None)
         //        type = SampleType.Normal;
 
-        //    SampleSet sampleSet = HitObject.Sample?.Set ?? SampleSet.Soft;
+        //    SampleSet sampleSet = RpHitObject.Sample?.Set ?? SampleSet.Soft;
 
         //    Sample = audio.Sample.Get($@"Gameplay/{sampleSet.ToString().ToLower()}-hit{type.ToString().ToLower()}");
         //}
@@ -145,7 +145,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         private void InitialDetectPressEvent()
         {
             //抓取按下的事件
-            _rpDetectPress = new DetectPress(HitObject, Judgement)
+            _rpDetectPress = new DetectPress(this.HitObject, Judgement)
             {
                 Hit = () =>
                 {

@@ -15,10 +15,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// </summary>
     public class DrawableRpHoldObject : DrawableBaseRpHitableObject
     {
-        public DrawableRpHoldObject(RpHoldObject h)
-            : base(h)
+        public DrawableRpHoldObject(RpHoldObject h) : base(h)
         {
-            Template = new RpHoldObjectTemplate(HitObject)
+            Template = new RpHoldObjectTemplate(this.HitObject)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1
@@ -32,7 +31,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
             //may not be so correct
             //Size = _rpDetectPress.DrawSize;
-            Scale = new Vector2(HitObject.Scale);
+            Scale = new Vector2(((DrawableBaseRpObject)this).HitObject.Scale);
         }
 
         // Since the DrawableSlider itself is just a container without a size we need to
@@ -46,27 +45,27 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         {
             if (!userTriggered)
             {
-                if (Judgement.TimeOffset > HitObject.hit50)
+                if (Judgement.TimeOffset > (this.HitObject.hit50))
                     Judgement.Result = HitResult.Miss;
                 return;
             }
 
             var hitOffset = Math.Abs(Judgement.TimeOffset);
 
-            var divaInfo = Judgement;
-            divaInfo.HitExplosionPosition.Add(Position);
+            var rpJudgement = Judgement;
+            rpJudgement.HitExplosionPosition.Add(Position);
 
-            if (hitOffset < HitObject.hit50)
+            if (hitOffset < (this.HitObject.hit50))
             {
                 Judgement.Result = HitResult.Hit;
 
 
-                if (hitOffset < HitObject.hit300)
-                    divaInfo.Score = RpScoreResult.Cool;
-                else if (hitOffset < HitObject.hit100)
-                    divaInfo.Score = RpScoreResult.Fine;
-                else if (hitOffset < HitObject.hit50)
-                    divaInfo.Score = RpScoreResult.Safe;
+                if (hitOffset < (this.HitObject.hit300))
+                    rpJudgement.Score = RpScoreResult.Cool;
+                else if (hitOffset < (this.HitObject.hit100))
+                    rpJudgement.Score = RpScoreResult.Fine;
+                else if (hitOffset < (this.HitObject.hit50))
+                    rpJudgement.Score = RpScoreResult.Safe;
             }
             else
             {
@@ -119,7 +118,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             switch (state)
             {
                 case ArmedState.Idle:
-                    Delay(HitObject.Duration + PreemptTime);
+                    Delay(((DrawableBaseRpObject)this).HitObject.Duration + PreemptTime);
                     FadeOut(FadeOutTime);
                     break;
                 case ArmedState.Miss:

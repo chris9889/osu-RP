@@ -23,7 +23,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         public DrawableRpHitObject(RpHitObject h)
             : base(h)
         {
-            Template = new RpHitObjectTemplate(HitObject)
+            Template = new RpHitObjectTemplate(this.HitObject)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1
@@ -37,7 +37,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
             //may not be so correct
             //Size = _rpDetectPress.DrawSize;
-            Scale = new Vector2(HitObject.Scale);
+            Scale = new Vector2(((DrawableBaseRpObject)this).HitObject.Scale);
         }
 
         // Since the DrawableSlider itself is just a container without a size we need to
@@ -89,7 +89,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             switch (state)
             {
                 case ArmedState.Idle:
-                    Delay(HitObject.Duration + PreemptTime);
+                    Delay(((DrawableBaseRpObject)this).HitObject.Duration + PreemptTime);
                     FadeOut(FadeOutTime);
                     break;
                 case ArmedState.Miss:
