@@ -35,9 +35,16 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 
         protected override double TimePerAction => default_duration * 2;
 
-        private readonly Random rng = new Random(1337);
-        private RpPlayfield playfield;
-        private Container playfieldContainer;
+
+        protected readonly Random RNG = new Random(1337);
+
+        protected RpPlayfield Playfield;
+
+        protected Container PlayfieldContainer;
+
+
+
+        protected virtual StopwatchClock RateAdjustClock => new StopwatchClock(true) { Rate = 1 };
 
         public override void Reset()
         {
@@ -61,18 +68,23 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
             AddStep("Height test 5", () => changePlayfieldSize(5));
             AddStep("Reset height", () => changePlayfieldSize(6));
 
-            var rateAdjustClock = new StopwatchClock(true) { Rate = 1 };
 
-            Add(playfieldContainer = new Container
+
+            CreatePlayField();
+        }
+
+        protected void CreatePlayField()
+        {
+            Add(PlayfieldContainer = new Container
             {
                 Anchor = Anchor.Centre,
                 Origin = Anchor.Centre,
                 RelativeSizeAxes = Axes.X,
                 Height = TaikoPlayfield.DEFAULT_PLAYFIELD_HEIGHT,
-                Clock = new FramedClock(rateAdjustClock),
+                Clock = new FramedClock(RateAdjustClock),
                 Children = new[]
                 {
-                    playfield = new RpPlayfield()
+                    Playfield = new RpPlayfield()
                 }
             });
         }
@@ -96,7 +108,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
                     break;
                 case 5:
                     addSwell(1000);
-                    playfieldContainer.Delay(scroll_time - 100);
+                    PlayfieldContainer.Delay(scroll_time - 100);
                     break;
             }
 
@@ -104,21 +116,21 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
             switch (step)
             {
                 default:
-                    playfieldContainer.ResizeTo(new Vector2(1, rng.Next(25, 400)), 500);
+                    PlayfieldContainer.ResizeTo(new Vector2(1, RNG.Next(25, 400)), 500);
                     break;
                 case 6:
-                    playfieldContainer.ResizeTo(new Vector2(1, TaikoPlayfield.DEFAULT_PLAYFIELD_HEIGHT), 500);
+                    PlayfieldContainer.ResizeTo(new Vector2(1, TaikoPlayfield.DEFAULT_PLAYFIELD_HEIGHT), 500);
                     break;
             }
         }
 
         private void addHitJudgement()
         {
-            RpScoreResult hitResult = RNG.Next(2) == 0 ? RpScoreResult.Cool : RpScoreResult.Fine;
+            RpScoreResult hitResult = Framework.MathUtils.RNG.Next(2) == 0 ? RpScoreResult.Cool : RpScoreResult.Fine;
 
             var h = new DrawableTestHit(new RpHitObject())
             {
-                X = RNG.NextSingle(hitResult == RpScoreResult.Cool ? -0.1f : -0.05f, hitResult == RpScoreResult.Cool ? 0.1f : 0.05f),
+                X = Framework.MathUtils.RNG.NextSingle(hitResult == RpScoreResult.Cool ? -0.1f : -0.05f, hitResult == RpScoreResult.Cool ? 0.1f : 0.05f),
                 Judgement = new RpJudgement
                 {
                     Result = HitResult.Hit,
@@ -127,18 +139,18 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
                 }
             };
 
-            playfield.OnJudgement(h);
+            Playfield.OnJudgement(h);
 
-            if (RNG.Next(10) == 0)
+            if (Framework.MathUtils.RNG.Next(10) == 0)
             {
                 //h.Judgement.SecondHit = true;
-                playfield.OnJudgement(h);
+                Playfield.OnJudgement(h);
             }
         }
 
         private void addMissJudgement()
         {
-            playfield.OnJudgement(new DrawableTestHit(new RpHitObject())
+            Playfield.OnJudgement(new DrawableTestHit(new RpHitObject())
             {
                 Judgement = new RpJudgement
                 {
@@ -152,7 +164,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
         {
             BarLine bl = new BarLine
             {
-                StartTime = playfield.Time.Current + delay,
+                StartTime = Playfield.Time.Current + delay,
                 ScrollTime = scroll_time
             };
 
@@ -161,9 +173,9 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 
         private void addSwell(double duration = default_duration)
         {
-            playfield.Add(new DrawableSwell(new Swell
+            Playfield.Add(new DrawableSwell(new Swell
             {
-                StartTime = playfield.Time.Current + scroll_time,
+                StartTime = Playfield.Time.Current + scroll_time,
                 Duration = duration,
                 ScrollTime = scroll_time
             }));
@@ -176,41 +188,41 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 
             var d = new DrumRoll
             {
-                StartTime = playfield.Time.Current + scroll_time,
+                StartTime = Playfield.Time.Current + scroll_time,
                 IsStrong = strong,
                 Duration = duration,
                 ScrollTime = scroll_time,
             };
 
-            playfield.Add(new DrawableDrumRoll(d));
+            Playfield.Add(new DrawableDrumRoll(d));
         }
 
         private void addCentreHit(bool strong)
         {
             Hit h = new Hit
             {
-                StartTime = playfield.Time.Current + scroll_time,
+                StartTime = Playfield.Time.Current + scroll_time,
                 ScrollTime = scroll_time
             };
 
             if (strong)
-                playfield.Add(new DrawableCentreHitStrong(h));
+                Playfield.Add(new DrawableCentreHitStrong(h));
             else
-                playfield.Add(new DrawableCentreHit(h));
+                Playfield.Add(new DrawableCentreHit(h));
         }
 
         private void addRimHit(bool strong)
         {
             Hit h = new Hit
             {
-                StartTime = playfield.Time.Current + scroll_time,
+                StartTime = Playfield.Time.Current + scroll_time,
                 ScrollTime = scroll_time
             };
 
             if (strong)
-                playfield.Add(new DrawableRimHitStrong(h));
+                Playfield.Add(new DrawableRimHitStrong(h));
             else
-                playfield.Add(new DrawableRimHit(h));
+                Playfield.Add(new DrawableRimHit(h));
         }
 
         private class DrawableTestHit : DrawableHitObject<BaseRpObject, RpJudgement>

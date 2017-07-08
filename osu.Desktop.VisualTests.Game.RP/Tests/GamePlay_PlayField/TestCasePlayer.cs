@@ -32,8 +32,6 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 
         private Container playfieldContainer;
 
-        private RpPlayfield playfield;
-
         protected Player Player;
 
         GetWorkingBeatmapScript _getOsuBeatmapScript;

@@ -1,7 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using osu.Desktop.VisualTests.TestsScript.Beatmaps.DrawableHitObject;
+using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
+using osu.Framework.Timing;
+using osu.Game.Rulesets.RP.UI.GamePlay.Playfield;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
+using osu.Game.Rulesets.Taiko.UI;
 using OpenTK;
 
 namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
@@ -19,8 +24,11 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 
         //create object script
         protected RpDrawableHitObjectCreatorScript RpHitObjectCreator = new RpDrawableHitObjectCreatorScript();
-        
-        //listObject
+
+        //clovk speed
+        protected StopwatchClock RateAdjustClock => new StopwatchClock(true) { Rate = 0 };
+
+        protected Container PlayfieldContainer;
 
         protected DrawableRpContainerLine ContainerLine;
 
@@ -35,6 +43,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
         /// </summary>
         public override void Reset()
         {
+            base.Reset();
+
             //Create DrawableRpContainerLine
             createDrawableRpContainerLine();
             //Create DrawableRpHitObject step button
@@ -46,8 +56,19 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 
         void createDrawableRpContainerLine()
         {
+            //create containerline
             ContainerLine = RpHitObjectCreator.CreateDrawableRpContainerLine(new Vector2(0, 300.0f), 0, 2000);
-            Add(ContainerLine);
+            //InitialPlayField
+            PlayfieldContainer = new Container
+            {
+                Anchor = Anchor.Centre,
+                Origin = Anchor.Centre,
+                RelativeSizeAxes = Axes.X,
+                Height = 1000,
+                Clock = new FramedClock(RateAdjustClock),
+            };
+            //AddObject
+            PlayfieldContainer.Add(ContainerLine);
         }
 
         void addNewDrawableRpHitObject()

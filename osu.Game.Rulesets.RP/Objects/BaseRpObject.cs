@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using osu.Framework.Graphics;
 using osu.Game.Rulesets.Objects;
@@ -83,6 +84,13 @@ namespace osu.Game.Rulesets.RP.Objects
         //Construct
         public BaseRpObject()
         {
+            InitialDefaultValue();
+        }
+
+        public BaseRpObject(Vector2 position, Double startTime)
+        {
+            Position = position;
+            StartTime = startTime;
             InitialDefaultValue();
         }
 

@@ -20,27 +20,44 @@ namespace osu.Desktop.VisualTests.TestsScript.Beatmaps.HitObject
 
         public RpContainerLine CreateRpContainerLine(Vector2 position,Double startTime,Double endTime)
         {
-            return null;
+
+            RpContainerLine Object = new RpContainerLine(CreateRpContainerLineGroup(position, startTime, endTime));
+            return Object;
         }
 
         public RpContainerLineGroup CreateRpContainerLineGroup(Vector2 position, Double startTime, Double endTime)
         {
-            return null;
+            RpContainerLineGroup rpContainerLineGroup = new RpContainerLineGroup(startTime);
+            rpContainerLineGroup.Position = position;
+            rpContainerLineGroup.EndTime = endTime;
+            return rpContainerLineGroup;
         }
 
         public RpContainerLineHoldObject CreateRpContainerLineHoldObject(Vector2 position, Double startTime, Double endTime)
         {
-            return null;
+            RpContainerLineHoldObject rpContainerLineHoldObject = new RpContainerLineHoldObject();
+            rpContainerLineHoldObject.Position = position;
+            rpContainerLineHoldObject.StartTime = startTime;
+            rpContainerLineHoldObject.EndTime = endTime;
+            return rpContainerLineHoldObject;
         }
 
         public RpHitObject CreateRpHitObject(Vector2 position, Double startTime)
         {
-            return null;
+            RpHitObject rpHitObject = new RpHitObject();
+            rpHitObject.Position = position;
+            rpHitObject.StartTime = startTime;
+            return rpHitObject;
         }
 
         public RpHoldObject CreateRpHoldObject(Vector2 position, Double startTime, Double endTime)
         {
-            return null;
+            RpHoldObject rpHoldObject = new RpHoldObject();
+            rpHoldObject.Position = position;
+            rpHoldObject.StartTime = startTime;
+            //RpHoldObject.EndTime = endTime;
+
+            return rpHoldObject;
         }
     }
 }
