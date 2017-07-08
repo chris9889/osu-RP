@@ -12,21 +12,18 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         /// <summary>
         /// </summary>
-        public new RpContainerLine HitObject;
-
-        /// <summary>
-        ///     樣板，把物件綁上去就對了
-        /// </summary>
-        //protected new RpContainerLineTemplate Template { get;set; }
-
-
-        /// <summary>
-        ///     樣板�E�把物件綁上去就對亁E
-        /// </summary>
-        public RpContainerLineTemplate RpContainerLineTemplate
+        public new RpContainerLine HitObject
         {
-            get { return (RpContainerLineTemplate)Template; }
-            set { Template = value; }
+            get { return (RpContainerLine)base.HitObject; }
+        }
+
+        /// <summary>
+        ///     template
+        /// </summary>
+        public new RpContainerLineTemplate Template
+        {
+            get { return (RpContainerLineTemplate)base.Template; }
+            set { base.Template = value; }
         }
 
         private bool _startFadeont;
@@ -36,8 +33,6 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <param name="hitObject"></param>
         public DrawableRpContainerLine(BaseRpObject hitObject): base(hitObject)
         {
-            HitObject = (RpContainerLine)hitObject;
-
             Template = new RpContainerLineTemplate(HitObject)
             {
                 Position = new Vector2(0, 0),

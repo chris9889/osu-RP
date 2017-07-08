@@ -34,6 +34,8 @@ namespace osu.Desktop.VisualTests.Tests.Common
 
             Add(container = new ExampleContainer());
 
+            container.Width = 500;
+
             AddStep(@"Add button", () => container.Add(new OsuButton
             {
                 RelativeSizeAxes = Axes.X,
@@ -45,13 +47,18 @@ namespace osu.Desktop.VisualTests.Tests.Common
                 LabelText = "Checkbox",
             }));
 
-            AddStep(@"Add textbox", () => container.Add(new FocusedTextBox
+            AddStep(@"Add textbox", AddTextbox);
+        }
+
+        void AddTextbox()
+        {
+            container.Add(new FocusedTextBox
             {
                 RelativeSizeAxes = Axes.X,
                 Height = 30,
                 PlaceholderText = "Textbox",
                 HoldFocus = false,
-            }));
+            });
         }
 
         private class ExampleContainer : ReplayGroup

@@ -42,9 +42,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
 
                 //如果是背景按壓物件
                 if (drawableHitObject is DrawableRpContainerLineHoldObject)
-                    ContainerBackgroundLayout.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).RpContainerLineGroupTemplate.AddObject(drawableHitObject as DrawableRpContainerLineHoldObject);
+                    ContainerBackgroundLayout.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).Template.AddObject(drawableHitObject as DrawableRpContainerLineHoldObject);
                 else
-                    ContainerBackgroundLayout.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).RpContainerLineGroupTemplate.ListContainObject[layoutIndex].AddObject(drawableHitObject);
+                    ContainerBackgroundLayout.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).Template.ListContainObject[layoutIndex].AddObject(drawableHitObject);
             }
             catch
             {
@@ -59,16 +59,16 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
         public IEnumerable<DrawableBaseRpObject> GetHitObjectByTime(double time)
         {
             var listContainer = ContainerBackgroundLayout.GetContainerByTime(time);
-            if (listContainer.Count() > 0)
+            if (listContainer.Any())
                 foreach (var container in listContainer)
                 {
                     //Hold
-                    foreach (var singleHold in container.RpContainerLineGroupTemplate.ContainerLongPressDrawComponent.ListPressObject)
+                    foreach (var singleHold in container.Template.ContainerLongPressDrawComponent.ListPressObject)
                         if (((DrawableBaseRpObject)singleHold).HitObject.StartTime <= time && ((DrawableBaseRpObject)singleHold).HitObject.EndTime >= time)
                             yield return container;
                     //RpHitObject
-                    foreach (var layoutTemplate in container.RpContainerLineGroupTemplate.ListContainObject)
-                    foreach (DrawableRpContainerLineHoldObject hitObject in layoutTemplate.RpContainerLineTemplate.ListContainObject)
+                    foreach (var layoutTemplate in container.Template.ListContainObject)
+                    foreach (DrawableRpContainerLineHoldObject hitObject in layoutTemplate.Template.ListContainObject)
                         if (((DrawableBaseRpObject)hitObject).HitObject.StartTime <= time && ((DrawableBaseRpObject)hitObject).HitObject.EndTime >= time)
                             yield return container;
                 }

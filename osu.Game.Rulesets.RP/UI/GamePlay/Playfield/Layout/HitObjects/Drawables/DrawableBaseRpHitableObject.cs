@@ -22,7 +22,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         ///     謇捺投迚ｩ莉ｶ・ｽE・ｽDrawableHitCircle 譛・・ｽ・ｽ謫壽遠謫顔黄莉ｶ謚・迚ｩ莉ｶ郢ｪ陬ｽ蜃ｺ萓・
         /// </summary>
-        public new BaseRpHitableObject HitObject;
+        public new BaseRpHitableObject HitObject
+        {
+            get { return (BaseRpHitableObject)base.HitObject; }
+        }
 
         /// <summary>
         ///     逶ｮ蜑肴弍逡ｶ菴彝P迚ｩ莉ｶ逧・・ｽ・ｽ蟆ｾ
@@ -35,15 +38,13 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         ///     蟒ｺ讒具ｼ梧園譛臥噪RP迚ｩ莉ｶ荳螳夊ｦ∝ｻｺ讒句芦騾咎ｊ
         /// </summary>
         /// <param name="hitObject"></param>
-        public DrawableBaseRpHitableObject(BaseRpHitableObject hitObject)
-            : base(hitObject)
+        public DrawableBaseRpHitableObject(BaseRpHitableObject hitObject) : base(hitObject)
         {
-            base.HitObject = hitObject;
             //霈会ｿｽE蛻､譁ｷ鮟・
             if (Judgement == null)
                 Judgement = CreateJudgement();
 
-            Template = new RpDrawBaseObjectTemplate(base.HitObject)
+            Template = new RpDrawBaseObjectTemplate(HitObject)
             {
                 //Position = this.Position,
                 Alpha = 1

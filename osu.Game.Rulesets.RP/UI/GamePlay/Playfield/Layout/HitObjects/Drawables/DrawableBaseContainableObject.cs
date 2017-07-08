@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using osu.Framework.Input;
 using osu.Game.Rulesets.RP.Objects;
-using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
@@ -15,13 +11,16 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// </summary>
     public class DrawableBaseContainableObject<T> : DrawableBaseRpObject where T : DrawableBaseRpObject
     {
-
+        public new RpContainableTemplate<T> Template
+        {
+            get { return (RpContainableTemplate<T>)base.Template; }
+            set { base.Template = value; }
+        }
 
         public DrawableBaseContainableObject(BaseRpObject hitObject): base(hitObject)
         {
 
         }
-
         
         /// <summary>
         /// Add Object on ContainableObject
@@ -29,7 +28,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <param name="dragObject"></param>
         public virtual void AddObject(T dragObject)
         {
-            
+            Template.AddObject(dragObject);
         }
 
         /// <summary>
@@ -39,6 +38,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         public virtual void AddObject(List<T> dragObject)
         {
             //call the tesmplate add function
+            Template.AddObject(dragObject);
         }
 
         /// <summary>
@@ -48,6 +48,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         public virtual void RemoveObject(T dragObject)
         {
             //call the tesmplate remove function
+            Template.RemoveObject(dragObject);
         }
 
         /// <summary>
@@ -57,6 +58,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         public virtual void RemoveObject(List<T> dragObject)
         {
             //call the tesmplate remove function
+            Template.RemoveObject(dragObject);
         }
         
     }

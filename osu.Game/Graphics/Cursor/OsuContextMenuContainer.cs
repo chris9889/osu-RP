@@ -11,7 +11,7 @@ namespace osu.Game.Graphics.Cursor
     {
         protected override ContextMenu<ContextMenuItem> CreateContextMenu() => new OsuContextMenu<ContextMenuItem>();
 
-        public OsuContextMenuContainer(CursorContainer cursor) : base(cursor)
+        public OsuContextMenuContainer(CursorContainer cursor) //: base(cursor)
         {
         }
     }

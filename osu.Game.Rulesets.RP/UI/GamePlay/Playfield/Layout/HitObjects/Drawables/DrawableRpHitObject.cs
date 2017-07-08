@@ -15,6 +15,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// </summary>
     public class DrawableRpHitObject : DrawableBaseRpHitableObject, IDrawableHitObjectWithProxiedApproach
     {
+
+
+
         public Drawable ProxiedLayer
         {
             get { throw new NotImplementedException(); }

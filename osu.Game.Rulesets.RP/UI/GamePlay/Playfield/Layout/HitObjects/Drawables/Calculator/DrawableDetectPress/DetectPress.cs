@@ -11,8 +11,7 @@ using OpenTK.Input;
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Calculator.DrawableDetectPress
 {
     /// <summary>
-    ///     用侁E�E測有沒有按下去�E�還有放閁E
-    ///     用在所有RP物件上面
+    ///     it use to report press and release event
     /// </summary>
     public class DetectPress : Container
     {
