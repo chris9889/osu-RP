@@ -13,5 +13,19 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
         public override string Category => TestCaseCategory.GamePlay_HitObject.ToString();
 
         public override string TestName => @"TestConnectionLine";
+
+
+        
+        public override void Reset()
+        {
+            //Create PlayField
+
+            //create HitableObject ,time is at 0,Object is dragable
+
+        }
+
+        
     }
+
+    
 }
