@@ -2,8 +2,6 @@
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Scoreing;
-using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template;
-using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer.RpContainerLineGroup;
 using OpenTK;
 
@@ -111,6 +109,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <param name="userTriggered"></param>
         protected override void CheckJudgement(bool userTriggered)
         {
+
         }
 
         /// <summary>

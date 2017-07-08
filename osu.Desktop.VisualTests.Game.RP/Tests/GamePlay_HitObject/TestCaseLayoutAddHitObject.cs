@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using osu.Desktop.VisualTests.TestsScript.Beatmaps.DrawableHitObject;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 using OpenTK;
@@ -20,14 +21,13 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
         protected RpDrawableHitObjectCreatorScript RpHitObjectCreator = new RpDrawableHitObjectCreatorScript();
         
         //listObject
-        protected List<DrawableRpHitObject> ListHitObject=new List<DrawableRpHitObject>();
 
         protected DrawableRpContainerLine ContainerLine;
 
         public double GetNowTime()
         {
             //根據list數量去算出下一個物件指定時間
-            return ListHitObject.Count * 0.5;
+            return ContainerLine.Template.ListContainObject.Count * 0.5;
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
         /// </summary>
         public override void Reset()
         {
-            //TODO : Create DrawableRpContainerLine
+            //Create DrawableRpContainerLine
             createDrawableRpContainerLine();
             //Create DrawableRpHitObject step button
             AddStep("AddHitObject", addNewDrawableRpHitObject);
@@ -52,13 +52,22 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 
         void addNewDrawableRpHitObject()
         {
+            if(GetNowTime() > ContainerLine.HitObject.EndTime)
+                return;
+
             DrawableRpHitObject hitObject = RpHitObjectCreator.CreateDrawableRpHitObject(new Vector2(), GetNowTime());
-            ListHitObject.Add(hitObject);
+            ContainerLine.AddObject(hitObject);
         }
 
         void deleteDrawableRpHitObject()
         {
-            DrawableRpHitObject targetRemoveObject = ContainerLine.Template
+            int number = ContainerLine.Template.ListContainObject.Count;
+            if(number<=0)
+                return;
+
+            DrawableBaseRpHitableObject targetRemoveObject = ContainerLine.Template.ListContainObject[number - 1];
+            ContainerLine.Template.ListContainObject.Remove(targetRemoveObject);
+
         }
     }
 }
