@@ -23,10 +23,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
         public override string TestName => @"Score Counter";
 
 
-        public override void Reset()
+        public TestCaseScoreCounter()
         {
-            base.Reset();
-
             int numerator = 0, denominator = 0;
 
             ScoreCounter score = new ScoreCounter(7)

@@ -25,11 +25,6 @@ namespace osu.Desktop.VisualTests.Tests.Common
         public TestCaseMusicController()
         {
             Clock = new FramedClock();
-        }
-
-        public override void Reset()
-        {
-            base.Reset();
             Clock.ProcessFrame();
             mc = new MusicController
             {

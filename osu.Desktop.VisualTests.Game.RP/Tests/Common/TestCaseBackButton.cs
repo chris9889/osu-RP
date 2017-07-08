@@ -16,10 +16,8 @@ namespace osu.Desktop.VisualTests.Tests.Common
 
         public override string TestName => @"BackButton";
 
-        public override void Reset()
+        public TestCaseBackButton()
         {
-            base.Reset();
-
             Add(new BackButton());
         }
     }

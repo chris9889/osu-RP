@@ -3,27 +3,20 @@
 
 using OpenTK;
 using osu.Framework.Graphics;
+using osu.Framework.Testing;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Osu.Mods;
 using osu.Game.Rulesets.Scoring;
 using osu.Game.Screens.Select.Leaderboards;
 using osu.Game.Users;
 
-namespace osu.Desktop.VisualTests.Tests.Select
+namespace osu.Desktop.VisualTests.Tests
 {
-    /// <summary>
-    /// show list result
-    /// not sure will show the RP gamePlay result
-    /// </summary>
-    internal class TestCaseLeaderboard : CategoryTestCase
+    internal class TestCaseLeaderboard : TestCase
     {
         public override string Description => @"From song select";
 
-        public override string Category => TestCaseCategory.Select.ToString();
-
-        public override string TestName => @"Leader board";
-
-        private readonly Leaderboard leaderboard;
+        private Leaderboard leaderboard;
 
         private void newScores()
         {

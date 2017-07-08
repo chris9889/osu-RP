@@ -17,10 +17,8 @@ namespace osu.Desktop.VisualTests.Tests.Chatroom
 
         public override string TestName => @"ChatDisplay";
       
-        public override void Reset()
+        public TestCaseChatDisplay()
         {
-            base.Reset();
-
             Add(new ChatOverlay
             {
                 State = Visibility.Visible

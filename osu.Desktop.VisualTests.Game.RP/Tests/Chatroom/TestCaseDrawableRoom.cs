@@ -21,9 +21,9 @@ namespace osu.Desktop.VisualTests.Tests.Chatroom
 
         public override string TestName => @"DrawableRoom";
 
-        public override void Reset()
+        protected override void LoadComplete()
         {
-            base.Reset();
+           
 
             DrawableRoom first;
             DrawableRoom second;

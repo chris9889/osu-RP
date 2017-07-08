@@ -46,10 +46,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 
         protected virtual StopwatchClock RateAdjustClock => new StopwatchClock(true) { Rate = 1 };
 
-        public override void Reset()
+        public TestCaseRpPlayField()
         {
-            base.Reset();
-
             AddStep("Hit!", addHitJudgement);
             AddStep("Miss :(", addMissJudgement);
             AddStep("DrumRoll", () => addDrumRoll(false));

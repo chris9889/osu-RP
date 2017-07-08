@@ -23,7 +23,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
             _getOsuBeatmapScript = new GetWorkingBeatmapScript(db, rulesets);
         }
 
-        public override void Reset()
+        protected override void LoadComplete()
         {
             WorkingBeatmap beatmap = _getOsuBeatmapScript.GetWorkingBeatmap();
             //TODO : get beatmap info of someing that can be test

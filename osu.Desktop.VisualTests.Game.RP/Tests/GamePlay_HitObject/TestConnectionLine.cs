@@ -19,7 +19,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
         //時間是暫停的
         protected override StopwatchClock RateAdjustClock => new StopwatchClock(true) { Rate = 0 };
 
-        public override void Reset()
+        public TestConnectionLine()
         {
             //Create PlayField
             CreatePlayField();

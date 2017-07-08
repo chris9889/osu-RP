@@ -22,10 +22,8 @@ namespace osu.Desktop.VisualTests.Tests.Direct
         private DirectOverlay direct;
         private RulesetDatabase rulesets;
 
-        public override void Reset()
+        protected override void LoadComplete()
         {
-            base.Reset();
-
             Add(direct = new DirectOverlay());
             newBeatmaps();
 

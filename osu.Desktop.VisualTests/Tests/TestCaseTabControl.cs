@@ -2,25 +2,17 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using osu.Framework.Graphics;
+using OpenTK;
+using osu.Framework.Testing;
 using osu.Game.Graphics.Sprites;
 using osu.Game.Graphics.UserInterface;
 using osu.Game.Screens.Select.Filter;
-using OpenTK;
 
-namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
+namespace osu.Desktop.VisualTests.Tests
 {
-    /// <summary>
-    /// may be use in the editor 
-    /// or not,i'm not sure
-    /// </summary>
-    public class TestCaseTabControl : CategoryTestCase
+    public class TestCaseTabControl : TestCase
     {
         public override string Description => @"Filter for song select";
-
-        public override string Category => TestCaseCategory.GamePlay_PlayField.ToString();
-
-        public override string TestName => @"Tab Control";
-
 
         public TestCaseTabControl()
         {

@@ -27,9 +27,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 
         private StopwatchClock clock;
 
-        public override void Reset()
+        public TestCaseSongProgress()
         {
-            base.Reset();
 
             clock = new StopwatchClock(true);
 

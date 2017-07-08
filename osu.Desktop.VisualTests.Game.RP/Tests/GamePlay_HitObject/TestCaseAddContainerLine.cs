@@ -22,7 +22,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 
         private List<DrawableRpContainerLine> listDrawableRpContainerLine=new List<DrawableRpContainerLine>();
 
-        public override void Reset()
+        public TestCaseAddContainerLine()
         {
             hitObjectCreatorScript = new RpHitObjectCreatorScript();
             containerLineGroup=new DrawableRpContainerLineGroup(hitObjectCreatorScript.CreateRpContainerLineGroup(new Vector2(),0,10000));

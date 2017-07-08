@@ -1,21 +1,15 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
+using osu.Framework.Testing;
 using osu.Game.Overlays;
 using osu.Game.Users;
 
-namespace osu.Desktop.VisualTests.Tests.Chatroom
+namespace osu.Desktop.VisualTests.Tests
 {
-    /// <summary>
-    /// list of player
-    /// </summary>
-    public class TestCaseSocial : CategoryTestCase
+    public class TestCaseSocial : TestCase
     {
         public override string Description => @"social browser overlay";
-
-        public override string Category => TestCaseCategory.Chatroom.ToString();
-
-        public override string TestName => @"ChatDisplay";
 
         public TestCaseSocial()
         {

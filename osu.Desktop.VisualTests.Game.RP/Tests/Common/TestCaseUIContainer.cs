@@ -22,9 +22,8 @@ namespace osu.Desktop.VisualTests.Tests.Common
 
         private ExampleContainer container;
 
-        public override void Reset()
+        public TestCaseUiContainer()
         {
-            base.Reset();
 
             Add(new ReplaySettingsOverlay()
             {

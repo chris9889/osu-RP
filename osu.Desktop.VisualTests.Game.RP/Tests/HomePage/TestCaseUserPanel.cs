@@ -17,10 +17,8 @@ namespace osu.Desktop.VisualTests.Tests.HomePage
         public override string TestName => @"User Panel";
 
 
-        public override void Reset()
+        public TestCaseUserPanel()
         {
-            base.Reset();
-
             UserPanel flyte;
             UserPanel peppy;
             Add(new FillFlowContainer

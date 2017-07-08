@@ -41,9 +41,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
             this.rulesets = rulesets;
         }
 
-        public override void Reset()
+        protected override void LoadComplete()
         {
-            base.Reset();
 
             List<HitObject> objects = new List<HitObject>();
 

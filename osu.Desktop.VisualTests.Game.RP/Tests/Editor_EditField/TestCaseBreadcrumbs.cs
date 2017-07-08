@@ -19,10 +19,8 @@ namespace osu.Desktop.VisualTests.Tests.Editor_EditField
 
         public override string TestName => @"Breadcrumbs";
 
-        public override void Reset()
+        public TestCaseBreadcrumbs()
         {
-            base.Reset();
-
             BreadcrumbControl<BreadcrumbTab> c;
             Add(c = new BreadcrumbControl<BreadcrumbTab>
             {

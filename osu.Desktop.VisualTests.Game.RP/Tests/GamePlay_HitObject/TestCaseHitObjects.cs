@@ -33,13 +33,6 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
 
         private bool auto;
 
-        public TestCaseHitObjects()
-        {
-            var rateAdjustClock = new StopwatchClock(true);
-            framedClock = new FramedClock(rateAdjustClock);
-            playbackSpeed.ValueChanged += delegate { rateAdjustClock.Rate = playbackSpeed.Value; };
-        }
-
         private HitObjectType mode = HitObjectType.Slider;
 
         private readonly BindableNumber<double> playbackSpeed = new BindableDouble(0.5) { MinValue = 0, MaxValue = 1 };
@@ -92,9 +85,11 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
             }
         }
 
-        public override void Reset()
+        public TestCaseHitObjects()
         {
-            base.Reset();
+            var rateAdjustClock = new StopwatchClock(true);
+            framedClock = new FramedClock(rateAdjustClock);
+            playbackSpeed.ValueChanged += delegate { rateAdjustClock.Rate = playbackSpeed.Value; };
 
             playbackSpeed.TriggerChange();
 

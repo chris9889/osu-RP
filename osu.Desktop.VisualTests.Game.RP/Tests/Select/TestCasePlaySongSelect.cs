@@ -27,9 +27,8 @@ namespace osu.Desktop.VisualTests.Tests.Select
 
         private RulesetDatabase rulesets;
 
-        public override void Reset()
+        public TestCasePlaySongSelect()
         {
-            base.Reset();
             if (db == null)
             {
                 storage = new RpTestStorage(@"TestCasePlaySongSelect");

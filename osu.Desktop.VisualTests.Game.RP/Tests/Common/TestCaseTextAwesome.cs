@@ -22,10 +22,8 @@ namespace osu.Desktop.VisualTests.Tests.Common
 
         public override string TestName => @"TextAwsome";
 
-        public override void Reset()
+        public TestCaseTextAwesome()
         {
-            base.Reset();
-
             FillFlowContainer flow;
 
             Add(flow = new FillFlowContainer

@@ -41,10 +41,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
         /// <summary>
         /// 
         /// </summary>
-        public override void Reset()
+        public TestCaseLayoutAddHitObject()
         {
-            base.Reset();
-
             //Create DrawableRpContainerLine
             createDrawableRpContainerLine();
             //Create DrawableRpHitObject step button

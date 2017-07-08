@@ -29,10 +29,8 @@ namespace osu.Desktop.VisualTests.Tests.Editor_EditField
 
         private MyContextMenuContainer container;
 
-        public override void Reset()
+        public TestCaseContextMenu()
         {
-            base.Reset();
-
             //(green regtangle)
             Add(container = new MyContextMenuContainer
             {

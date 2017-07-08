@@ -35,18 +35,14 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 
         private WorkingBeatmap beatmap;
 
-        public override void Reset()
+        protected override void LoadComplete()
         {
-            base.Reset();
-
             if (beatmap == null)
             {
                 var beatmapInfo = db.Query<BeatmapInfo>().FirstOrDefault(b => b.RulesetID == 0);
                 if (beatmapInfo != null)
                     beatmap = db.GetWorkingBeatmap(beatmapInfo);
             }
-
-            base.Reset();
 
             Add(new Results(new Score
             {

@@ -17,10 +17,8 @@ namespace osu.Desktop.VisualTests.Tests.Select
         public override string TestName => @"Beatmap Detail Area";
 
 
-        public override void Reset()
+        public TestCaseBeatmapDetailArea()
         {
-            base.Reset();
-
             Add(new BeatmapDetailArea
             {
                 Anchor = Anchor.Centre,

@@ -16,10 +16,8 @@ namespace osu.Desktop.VisualTests.Tests.MultiPlay
         public override string TestName => @"Drawings";
 
 
-        public override void Reset()
+        public TestCaseDrawings()
         {
-            base.Reset();
-
             Add(new Drawings
             {
                 TeamList = new TestTeamList(),

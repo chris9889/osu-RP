@@ -45,11 +45,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
             _getOsuBeatmapScript = new GetWorkingBeatmapScript(db, rulesets);
         }
 
-
-        public override void Reset()
+        protected override void LoadComplete()
         {
-            base.Reset();
-
             WorkingBeatmap beatmap = _getOsuBeatmapScript.GetWorkingBeatmap();
 
             Add(new Box

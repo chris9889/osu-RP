@@ -22,7 +22,7 @@ namespace osu.Desktop.VisualTests.Tests.Editor_HitObject
         private double _defaultStartTime = 0;
         private double _defaultEndTime = 1000;
 
-        public override void Reset()
+        public TestCaseDragRpObject()
         {
             _drawableHitObjectCreatorScript.SetObjectEditable(true);
 
