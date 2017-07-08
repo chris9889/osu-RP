@@ -13,14 +13,16 @@ namespace osu.Desktop.VisualTests.Tests.Chatroom
     {
         public override string Description => @"social browser overlay";
 
+<<<<<<< HEAD:osu.Desktop.VisualTests.Game.RP/Tests/Chatroom/TestCaseSocial.cs
         public override string Category => TestCaseCategory.Chatroom.ToString();
 
         public override string TestName => @"ChatDisplay";
 
         public override void Reset()
+=======
+        public TestCaseSocial()
+>>>>>>> 9928d9225a9c2842f37670181649310108423b09:osu.Desktop.VisualTests/Tests/TestCaseSocial.cs
         {
-            base.Reset();
-
             SocialOverlay s = new SocialOverlay
             {
                 Users = new[]

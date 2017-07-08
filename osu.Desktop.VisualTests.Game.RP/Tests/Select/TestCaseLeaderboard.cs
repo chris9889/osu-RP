@@ -19,11 +19,15 @@ namespace osu.Desktop.VisualTests.Tests.Select
     {
         public override string Description => @"From song select";
 
+<<<<<<< HEAD:osu.Desktop.VisualTests.Game.RP/Tests/Select/TestCaseLeaderboard.cs
         public override string Category => TestCaseCategory.Select.ToString();
 
         public override string TestName => @"Leader board";
 
         private Leaderboard leaderboard;
+=======
+        private readonly Leaderboard leaderboard;
+>>>>>>> 9928d9225a9c2842f37670181649310108423b09:osu.Desktop.VisualTests/Tests/TestCaseLeaderboard.cs
 
         private void newScores()
         {
@@ -214,10 +218,8 @@ namespace osu.Desktop.VisualTests.Tests.Select
             leaderboard.Scores = scores;
         }
 
-        public override void Reset()
+        public TestCaseLeaderboard()
         {
-            base.Reset();
-
             Add(leaderboard = new Leaderboard
             {
                 Origin = Anchor.Centre,
