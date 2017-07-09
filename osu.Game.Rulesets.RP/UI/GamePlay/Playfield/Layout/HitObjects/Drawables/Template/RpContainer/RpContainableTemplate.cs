@@ -55,7 +55,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         public virtual void AddObject(T dragObject)
         {
-            ListContainObject.Add(dragObject);
+            //if(!ListContainObject.Contains(dragObject))
+                ListContainObject.Add(dragObject);
         }
 
         /// <summary>

@@ -26,12 +26,17 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
         /// </summary>
         public void AddContainer(DrawableRpContainerLineGroup drawableContainer)
         {
+            //ContainerGroup
             _listContainer.Add(drawableContainer);
             Add(drawableContainer);
-            //foreach (var layout in drawableContainer.RpHitObject.ContainerLayerList)
-            //{
-            //   // Add(new DrawableRpContainerLine(layout));
-            //}
+            
+            //ContainerLine
+            foreach (var layout in drawableContainer.HitObject.ContainerLayerList)
+            {
+                DrawableRpContainerLine layoutLine = new DrawableRpContainerLine(layout);
+                drawableContainer.Template.AddObject(layoutLine);
+                Add(layoutLine);
+            }
         }
 
         /// <summary>

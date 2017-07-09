@@ -60,9 +60,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <param name="drawableHitObject"></param>
         public override void AddObject(DrawableBaseRpHitableObject drawableHitObject)
         {
-            drawableHitObject.Position = CalculatePosition(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime) + GetRowPosition();
-            ListContainObject.Add(drawableHitObject);
-            //Add(drawableHitObject);
+            drawableHitObject.Position = CalculatePosition(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime)+ GetRowPosition();
+            
+            base.AddObject(drawableHitObject);
         }
 
         /// <summary>

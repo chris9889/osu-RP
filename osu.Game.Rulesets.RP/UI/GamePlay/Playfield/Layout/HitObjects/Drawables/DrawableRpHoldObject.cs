@@ -17,21 +17,25 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     {
         public DrawableRpHoldObject(RpHoldObject h) : base(h)
         {
+           
+        }
+
+        public override void InitialTemplate()
+        {
             Template = new RpHoldObjectTemplate(this.HitObject)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1
             };
+        }
 
+        public override void InitialChild()
+        {
             Children = new Drawable[]
             {
                 Template,
                 _rpDetectPress
             };
-
-            //may not be so correct
-            //Size = _rpDetectPress.DrawSize;
-            Scale = new Vector2(((DrawableBaseRpObject)this).HitObject.Scale);
         }
 
         // Since the DrawableSlider itself is just a container without a size we need to

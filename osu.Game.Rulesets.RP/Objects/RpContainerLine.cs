@@ -10,6 +10,8 @@ namespace osu.Game.Rulesets.RP.Objects
     /// </summary>
     public class RpContainerLine : BaseRpObject, IHasEndTime
     {
+        public override double EndTime { get; set; }
+
         /// <summary>
         ///     用侁E��原本的Container裡面取得一些賁E��E
         /// </summary>

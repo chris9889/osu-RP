@@ -35,16 +35,24 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
         /// <param name="drawableHitObject"></param>
         public void AddDrawableBaseHitObject(DrawableBaseRpHitableObject drawableHitObject)
         {
+
+            var containerIndex = drawableHitObject.HitObject.ContainerIndex;
+            var layoutIndex = drawableHitObject.HitObject.LayoutIndex;
+
+            //如果是背景按壓物件
+            //if (drawableHitObject is DrawableRpContainerLineHoldObject)
+            //     ContainerBackgroundLayout.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).Template.AddObject(drawableHitObject as DrawableRpContainerLineHoldObject);
+            //else
+            //    ContainerBackgroundLayout.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).Template.ListContainObject[layoutIndex].AddObject(drawableHitObject);
+
+            double time = ((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime;
+            DrawableRpContainerLineGroup lineGroup = ContainerBackgroundLayout.GetContainerByTime(time).ElementAt(containerIndex);
+            DrawableRpContainerLine line = lineGroup.Template.ListContainObject[layoutIndex];
+            line.AddObject(drawableHitObject);
+
             try
             {
-                var containerIndex = drawableHitObject.HitObject.ContainerIndex;
-                var layoutIndex = drawableHitObject.HitObject.LayoutIndex;
-
-                //如果是背景按壓物件
-                if (drawableHitObject is DrawableRpContainerLineHoldObject)
-                    ContainerBackgroundLayout.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).Template.AddObject(drawableHitObject as DrawableRpContainerLineHoldObject);
-                else
-                    ContainerBackgroundLayout.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).Template.ListContainObject[layoutIndex].AddObject(drawableHitObject);
+              
             }
             catch
             {

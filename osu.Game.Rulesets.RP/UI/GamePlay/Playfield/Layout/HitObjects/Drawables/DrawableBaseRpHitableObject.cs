@@ -44,20 +44,27 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             if (Judgement == null)
                 Judgement = CreateJudgement();
 
+           
+        }
+
+        public override void InitialTemplate()
+        {
             Template = new RpDrawBaseObjectTemplate(HitObject)
             {
-                //Position = this.Position,
+                Position = this.Position,
                 Alpha = 1
             };
+        }
 
+        public override void InitialChild()
+        {
             //初始化
             InitialDetectPressEvent();
-
-
+            //
             Children = new Drawable[]
             {
-                Template
-                //_rpDetectPress
+                Template,
+                _rpDetectPress
             };
         }
 
@@ -143,7 +150,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         //    Sample = audio.Sample.Get($@"Gameplay/{sampleSet.ToString().ToLower()}-hit{type.ToString().ToLower()}");
         //}
 
-        private void InitialDetectPressEvent()
+        protected void InitialDetectPressEvent()
         {
             //抓取按下的事件
             _rpDetectPress = new DetectPress(this.HitObject, Judgement)

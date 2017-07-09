@@ -35,20 +35,24 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <param name="hitObject"></param>
         public DrawableRpContainerLineGroup(BaseRpObject hitObject) : base(hitObject)
         {
+
+        }
+
+        public override void InitialTemplate()
+        {
             Template = new RpContainerLineGroupTemplate(HitObject)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1
             };
+        }
 
+        public override void InitialChild()
+        {
             Children = new Drawable[]
             {
                 Template
             };
-
-            //may not be so correct
-            //Size = _rpDetectPress.DrawSize;
-            Scale = new Vector2(HitObject.Scale);
         }
 
 

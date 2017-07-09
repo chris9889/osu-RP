@@ -23,25 +23,32 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             get { throw new NotImplementedException(); }
         }
 
-        public DrawableRpHitObject(RpHitObject h)
-            : base(h)
+        public DrawableRpHitObject(RpHitObject h) : base(h)
+        {
+
+        }
+
+        public override void InitialTemplate()
         {
             Template = new RpHitObjectTemplate(this.HitObject)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1
             };
-
-            Children = new Drawable[]
-            {
-                Template,
-                _rpDetectPress
-            };
-
-            //may not be so correct
-            //Size = _rpDetectPress.DrawSize;
-            Scale = new Vector2(((DrawableBaseRpObject)this).HitObject.Scale);
         }
+
+        ////TODO Testing
+        //public override void InitialChild()
+        //{
+        //    //蛻晏ｧ句喧
+        //    InitialDetectPressEvent();
+        //    //
+        //    Children = new Drawable[]
+        //    {
+        //        _rpDetectPress
+        //    };
+        //}
+
 
         // Since the DrawableSlider itself is just a container without a size we need to
         // pass all input through.

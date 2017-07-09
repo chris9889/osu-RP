@@ -31,6 +31,21 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             Origin = Anchor.Centre;
             Position = HitObject.Position;
             Scale = new Vector2(HitObject.Scale);
+
+            InitialTemplate();
+            InitialChild();
+        }
+
+     
+
+        public virtual void InitialTemplate()
+        {
+
+        }
+
+        public virtual void InitialChild()
+        {
+
         }
 
         /// <summary>

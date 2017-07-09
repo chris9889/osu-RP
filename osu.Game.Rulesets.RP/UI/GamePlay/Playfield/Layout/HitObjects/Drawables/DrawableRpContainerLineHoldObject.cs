@@ -10,9 +10,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
-        public DrawableRpContainerLineHoldObject(BaseRpHitableObject hitObject)
-            : base(hitObject)
+        public DrawableRpContainerLineHoldObject(BaseRpHitableObject hitObject) : base(hitObject)
         {
+
         }
     }
 }

@@ -165,14 +165,20 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         private void InitialListLayoutTemplate()
         {
-            //TODO : do it at ContainerBackgroundLayout
-            foreach (var layout in HitObject.ContainerLayerList)
-                AddObject(new DrawableRpContainerLine(layout));
+          
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dragObject"></param>
         public override void AddObject(DrawableRpContainerLine dragObject)
         {
+            dragObject.Position = GetRowPosition();
+            
             base.AddObject(dragObject);
+            //update Height
+            UpdateContainerHeight();
         }
 
         /// <summary>
