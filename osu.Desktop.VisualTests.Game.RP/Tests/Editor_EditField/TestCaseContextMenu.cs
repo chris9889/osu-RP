@@ -5,7 +5,6 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Cursor;
 using osu.Framework.Graphics.Shapes;
-using osu.Framework.Graphics.Transforms;
 using osu.Framework.Graphics.UserInterface;
 using osu.Game.Graphics.UserInterface;
 using OpenTK;
@@ -28,10 +27,8 @@ namespace osu.Desktop.VisualTests.Tests.Editor_EditField
         private const int duration = 1000;
 
         private MyContextMenuContainer container;
-
         public TestCaseContextMenu()
         {
-            //(green regtangle)
             Add(container = new MyContextMenuContainer
             {
                 Size = new Vector2(200),
@@ -47,7 +44,6 @@ namespace osu.Desktop.VisualTests.Tests.Editor_EditField
                 }
             });
 
-            //(red one regtangle)
             Add(new AnotherContextMenuContainer
             {
                 Size = new Vector2(200),
@@ -62,44 +58,26 @@ namespace osu.Desktop.VisualTests.Tests.Editor_EditField
                     }
                 }
             });
+        }
 
-            //adding moving transform (for green regtangle)
-            container.Transforms.Add(new TransformPosition
+        protected override void LoadComplete()
+        {
+            base.LoadComplete();
+
+            using (container.BeginLoopedSequence())
             {
-                StartValue = Vector2.Zero,
-                EndValue = new Vector2(0, 100),
-                StartTime = start_time,
-                EndTime = start_time + duration,
-                LoopCount = -1,
-                LoopDelay = duration * 3
-            });
-            container.Transforms.Add(new TransformPosition
-            {
-                StartValue = new Vector2(0, 100),
-                EndValue = new Vector2(100, 100),
-                StartTime = start_time + duration,
-                EndTime = start_time + duration * 2,
-                LoopCount = -1,
-                LoopDelay = duration * 3
-            });
-            container.Transforms.Add(new TransformPosition
-            {
-                StartValue = new Vector2(100, 100),
-                EndValue = new Vector2(100, 0),
-                StartTime = start_time + duration * 2,
-                EndTime = start_time + duration * 3,
-                LoopCount = -1,
-                LoopDelay = duration * 3
-            });
-            container.Transforms.Add(new TransformPosition
-            {
-                StartValue = new Vector2(100, 0),
-                EndValue = Vector2.Zero,
-                StartTime = start_time + duration * 3,
-                EndTime = start_time + duration * 4,
-                LoopCount = -1,
-                LoopDelay = duration * 3
-            });
+                container.MoveTo(new Vector2(0, 100), duration);
+                using (container.BeginDelayedSequence(duration))
+                {
+                    container.MoveTo(new Vector2(100, 100), duration);
+                    using (container.BeginDelayedSequence(duration))
+                    {
+                        container.MoveTo(new Vector2(100, 0), duration);
+                        using (container.BeginDelayedSequence(duration))
+                            container.MoveTo(Vector2.Zero, duration);
+                    }
+                }
+            }
         }
 
         private class MyContextMenuContainer : Container, IHasContextMenu
@@ -116,9 +94,6 @@ namespace osu.Desktop.VisualTests.Tests.Editor_EditField
             };
         }
 
-        /// <summary>
-        /// add right-click ContextMenu
-        /// </summary>
         private class AnotherContextMenuContainer : Container, IHasContextMenu
         {
             public ContextMenuItem[] ContextMenuItems => new ContextMenuItem[]

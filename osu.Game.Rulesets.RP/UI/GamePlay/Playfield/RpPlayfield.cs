@@ -78,7 +78,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
             Anchor = Anchor.Centre;
             Origin = Anchor.Centre;
 
-            Add(new Drawable[]
+            AddRange(new Drawable[]
             {
                 _coopHintLayout = new CoopHintLayout
                 {

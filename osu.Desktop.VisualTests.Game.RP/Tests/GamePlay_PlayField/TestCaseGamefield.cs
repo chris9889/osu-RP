@@ -82,7 +82,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
                 ControlPointInfo = controlPointInfo
             });
 
-            Add(new Drawable[]
+            AddRange(new Drawable[]
             {
                 new Container
                 {

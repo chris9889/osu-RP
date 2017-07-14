@@ -55,7 +55,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         public virtual void AddObject(T dragObject)
         {
-            //if(!ListContainObject.Contains(dragObject))
+            if(!ListContainObject.Contains(dragObject))
                 ListContainObject.Add(dragObject);
         }
 
@@ -73,7 +73,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         public virtual void RemoveObject(T dragObject)
         {
-            ListContainObject.Remove(dragObject);
+            if (ListContainObject.Contains(dragObject))
+                ListContainObject.Remove(dragObject);
         }
     }
 }

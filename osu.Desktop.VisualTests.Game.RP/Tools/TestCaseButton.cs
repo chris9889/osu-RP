@@ -49,7 +49,7 @@ namespace osu.Desktop.VisualTests.Tools
 
             TestCase tempTestCase = (TestCase)Activator.CreateInstance(test);
 
-            Add(new Drawable[]
+            AddRange(new Drawable[]
             {
                 box = new Box
                 {

@@ -199,8 +199,10 @@
     <Compile Include="TestsScript\Beatmaps\GetRpFakeBeatmapScript.cs" />
     <Compile Include="TestsScript\Beatmaps\HitObject\RpHitObjectCreatorScript.cs" />
     <Compile Include="Tests\Editor_HitObject\TestCaseDragRpObject.cs" />
+    <Compile Include="Tests\GamePlay_HitObject\TestCaseBeatSyncedContainer.cs" />
     <Compile Include="Tests\GamePlay_HitObject\TestCaseContainerLineGroupUpdatePositionAndRotation.cs" />
     <Compile Include="Tests\GamePlay_HitObject\TestConnectionLine.cs" />
+    <Compile Include="Tests\GamePlay_PlayField\TestCaseMedalOverlay.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetailArea.cs" />
     <Compile Include="Tests\Select\TestCaseBeatmapDetails.cs" />
     <Compile Include="Tests\Editor_EditField\TestCaseEditorField.cs" />

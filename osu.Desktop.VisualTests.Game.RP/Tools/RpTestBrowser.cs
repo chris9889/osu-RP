@@ -209,7 +209,7 @@ namespace osu.Desktop.VisualTests.Tools
             }
             //Sort by string name
             ListCategoryName.Sort();
-            categoryFlowContainer.Add(ListCategoryName.Select(t => new TestCaseCategoryButton(t) { Action = () => updateCategoryItem(t) }));
+            categoryFlowContainer.AddRange(ListCategoryName.Select(t => new TestCaseCategoryButton(t) { Action = () => updateCategoryItem(t) }));
         }
 
         /// <summary>
@@ -220,7 +220,7 @@ namespace osu.Desktop.VisualTests.Tools
         {
             //update selected category color
             secondaryFlowContainer.Clear();
-            secondaryFlowContainer.Add(Tests.Where(t=>((CategoryTestCase)Activator.CreateInstance(t)).Category==selectedCategory).OrderBy(t=>t.Name).Select(t => new TestCaseButton(t) { Action = () => LoadTest(t) }));
+            secondaryFlowContainer.AddRange(Tests.Where(t=>((CategoryTestCase)Activator.CreateInstance(t)).Category==selectedCategory).OrderBy(t=>t.Name).Select(t => new TestCaseButton(t) { Action = () => LoadTest(t) }));
         }
 
 

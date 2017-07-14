@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using osu.Desktop.VisualTests.TestsScript.Beatmaps.HitObject;
-using osu.Framework.Lists;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 using OpenTK;
 
@@ -37,9 +36,9 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
             DrawableRpContainerLine newContainerLine= new DrawableRpContainerLine(hitObjectCreatorScript.CreateRpContainerLine(new Vector2(), 0, 10000));
             listDrawableRpContainerLine.Add(newContainerLine);
 
-            List<DrawableRpContainerLine> listAdd=new List<DrawableRpContainerLine>();
-            listAdd.Add(newContainerLine);
-            containerLineGroup.Add(listAdd);
+            //List<Drawable> listAdd=new List<Drawable>();
+            //listAdd.Add(newContainerLine);
+            containerLineGroup.Add(newContainerLine);
         }
 
         private void deleteLine()
