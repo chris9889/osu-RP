@@ -4,7 +4,7 @@ using osu.Game.Rulesets.RP.Scoreing;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement
 {
-    internal class JudgementLayout : BaseGamePlayLayout
+    internal class JudgementLayer : BaseGamePlayLayer
     {
         public void AddHitEffect(DrawableHitObject<BaseRpObject, RpJudgement> drawableHitObject)
         {

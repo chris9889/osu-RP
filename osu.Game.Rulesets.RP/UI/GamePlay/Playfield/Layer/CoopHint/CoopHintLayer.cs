@@ -4,12 +4,12 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CoopHint
 {
-    internal class CoopHintLayout : BaseGamePlayLayout
+    internal class CoopHintLayer : BaseGamePlayLayer
     {
         private readonly Component.CoopHint leftCoopHint;
         private readonly Component.CoopHint rightCoopHint;
 
-        public CoopHintLayout()
+        public CoopHintLayer()
         {
             //initial left
             leftCoopHint = new Component.CoopHint(RpBaseHitObjectType.Coop.LeftOnly)

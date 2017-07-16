@@ -104,6 +104,14 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             return HitObject.Position;
         }
 
+        public override void Initial()
+        {
+            foreach (var single in ListContainObject)
+            {
+                single.Template.Initial();
+            }
+        }
+
         /// <summary>
         ///     淡入
         /// </summary>
@@ -113,8 +121,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             base.FadeIn(time);
 
             // 通知所有 TODO : cancel
-            //foreach (var layout in ListContainObject)
-            //    layout.FadeIn(time);
+            foreach (var single in ListContainObject)
+            {
+                single.Template.FadeIn();
+            }
             _containerBackgroundComponent.FadeIn(time);
         }
 
@@ -127,8 +137,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             base.FadeOut(time);
 
             // 通知所有 TODO : cancel
-            //foreach (var layout in ListContainObject)
-            //    layout.FadeOut(time);
+            foreach (var single in ListContainObject)
+            {
+                single.Template.FadeOut();
+            }
 
             _containerBackgroundComponent.FadeOut(time);
         }

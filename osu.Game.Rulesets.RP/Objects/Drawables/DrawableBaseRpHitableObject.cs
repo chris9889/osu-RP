@@ -184,7 +184,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     }
 
     /// <summary>
-    ///     一般打擊
+    ///     score of osu!Rp
     /// </summary>
     public enum RpScoreResult
     {

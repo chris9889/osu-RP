@@ -15,6 +15,9 @@ namespace osu.Game.Rulesets.RP.Objects
         /// </summary>
         public override double EndTime { get; set; }
 
+        //will be use
+        public int ID { get; set; }
+
         public new RpBaseObjectType.ObjectType ObjectType = RpBaseObjectType.ObjectType.Container;
 
         /// <summary>

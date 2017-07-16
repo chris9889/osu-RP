@@ -104,26 +104,23 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             var startProgress = PathPrecentageCounter.CalculatePrecentage(_hitObject.StartTime - currentTime + DelayTime);
             var endProgress = PathPrecentageCounter.CalculatePrecentage(_hitObject.EndTime - currentTime + DelayTime);
             //影響程度
-            var CurveEasingTypesPrecentage = _hitObject.CurveEasingTypesPrecentage;
+            var curveEasingTypesPrecentage = _hitObject.CurveEasingTypesPrecentage;
 
             //修正
             startProgress = MathHelper.Clamp(startProgress, 0, 1);
             endProgress = MathHelper.Clamp(endProgress, 0, 1);
             //根據設定曲線去改變百分比
-            startProgress = Interpolation.ApplyEasing(_hitObject.CurveEasingTypes, startProgress, 0, 1, 1) * CurveEasingTypesPrecentage + startProgress * (1 - CurveEasingTypesPrecentage);
-            endProgress = Interpolation.ApplyEasing(_hitObject.CurveEasingTypes, endProgress, 0, 1, 1) * CurveEasingTypesPrecentage + endProgress * (1 - CurveEasingTypesPrecentage);
+            startProgress = Interpolation.ApplyEasing(_hitObject.CurveEasingTypes, startProgress, 0, 1, 1) * curveEasingTypesPrecentage + startProgress * (1 - curveEasingTypesPrecentage);
+            endProgress = Interpolation.ApplyEasing(_hitObject.CurveEasingTypes, endProgress, 0, 1, 1) * curveEasingTypesPrecentage + endProgress * (1 - curveEasingTypesPrecentage);
 
 
             //更新開始打擊和放開打擊的位置定義
             Components.ForEach(c => c.UpdateProgress(startProgress, endProgress));
         }
 
-        /// <summary>
-        ///     更新
-        /// </summary>
         protected override void Update()
         {
-            DrawConnectionLine();
+            base.Update();  
         }
 
         /// <summary>
@@ -137,12 +134,6 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             StartObjectContainer.Alpha = 0;
             StartObjectContainer.FadeTo(0.7f, 50);
             StartObjectContainer.FadeTo(1.0f, 100);
-        }
-
-        private void DrawConnectionLine()
-        {
-            var startposition = Position;
-            var endposition = Position;
         }
     }
 }

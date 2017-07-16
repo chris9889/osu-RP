@@ -19,9 +19,9 @@ using OpenTK;
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
 {
     /// <summary>
-    ///     遊戲物件顯示
+    ///    Playfield 
     /// </summary>
-    public class RpPlayfield : Playfield<BaseRpObject, RpJudgement>
+    internal class RpPlayfield : Playfield<BaseRpObject, RpJudgement>
     {
         /// <summary>
         ///     set the size
@@ -41,79 +41,91 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
         /// <summary>
         /// Show the co-op backgrounf
         /// </summary>
-        private readonly CoopHintLayout _coopHintLayout;
+        protected readonly CoopHintLayer CoopHintLayer;
 
         /// <summary>
         ///     RpContainer Object's layout
         /// </summary>
-        private readonly ContainerBackgroundLayout containerBackgroundLayout;
+        protected readonly ContainerBackgroundLayer ContainerBackgroundLayer;
 
         /// <summary>
         ///     RpHitObject's Layout
         ///     It only store on the list, not added to the Drawable Child
         /// </summary>
-        private readonly HitObjectLayout _rpObjectLayout;
+        protected readonly HitObjectLayer RpObjectLayer;
 
         /// <summary>
         ///     Draw the line connected to mulit Hit Object
         /// </summary>
-        private readonly ConnectionRenderer<DrawableBaseRpHitableObject> _hitObjectConnector;
+        protected readonly ConnectionRendererLayer<DrawableBaseRpHitableObject> HitObjectConnectorLayer;
 
         /// <summary>
         ///     Hit Effect Layer
         /// </summary>
-        private readonly JudgementLayout _judgementLayer;
+        protected readonly JudgementLayer JudgementLayer;
 
         /// <summary>
         ///     HitSound Layer
         /// </summary>
-        private KeySoundLayout keySoundLayout;
+        protected KeySoundLayer KeySoundLayer;
 
         /// <summary>
         ///     Initial Play Field
         /// </summary>
-        public RpPlayfield()
-            : base(512)
+        public RpPlayfield() : base(512)
         {
             Anchor = Anchor.Centre;
             Origin = Anchor.Centre;
 
+            CoopHintLayer = new CoopHintLayer
+            {
+                RelativeSizeAxes = Axes.Both,
+                Depth = 3
+            };
+            ContainerBackgroundLayer = new ContainerBackgroundLayer
+            {
+                RelativeSizeAxes = Axes.Both,
+                Depth = 2
+            };
+            RpObjectLayer = new HitObjectLayer
+            {
+                RelativeSizeAxes = Axes.Both,
+                Depth = 1,
+                ContainerBackgroundLayer = ContainerBackgroundLayer
+            };
+            HitObjectConnectorLayer = new HitObjectConnectorLayer
+            {
+                RelativeSizeAxes = Axes.Both,
+                Depth = 1
+                //HitObjectLayer=_rpObjectLayout,
+            };
+            KeySoundLayer = new KeySoundLayer
+            {
+                RelativeSizeAxes = Axes.Both,
+                Depth = -1
+            };
+            JudgementLayer = new JudgementLayer
+            {
+                RelativeSizeAxes = Axes.Both,
+                Depth = -2
+            };
+
+            InitialPlayFieldLayer();
+
+            Depth = 1;
+        }
+
+        public virtual void InitialPlayFieldLayer()
+        {
             AddRange(new Drawable[]
             {
-                _coopHintLayout = new CoopHintLayout
-                {
-                    RelativeSizeAxes = Axes.Both,
-                    Depth = 3
-                },
-                containerBackgroundLayout = new ContainerBackgroundLayout 
-                {
-                    RelativeSizeAxes = Axes.Both,
-                    Depth = 2
-                },
-                _rpObjectLayout = new HitObjectLayout 
-                {
-                    RelativeSizeAxes = Axes.Both,
-                    Depth = 1,
-                    ContainerBackgroundLayout = containerBackgroundLayout
-                },
-                _hitObjectConnector = new HitObjectConnector
-                {
-                    RelativeSizeAxes = Axes.Both,
-                    Depth = 1
-                    //HitObjectLayout=_rpObjectLayout,
-                },
-                keySoundLayout = new KeySoundLayout 
-                {
-                    RelativeSizeAxes = Axes.Both,
-                    Depth = -1
-                },
-                _judgementLayer = new JudgementLayout 
-                {
-                    RelativeSizeAxes = Axes.Both,
-                    Depth = -2
-                }
+                CoopHintLayer,
+                ContainerBackgroundLayer,
+                RpObjectLayer,
+                HitObjectConnectorLayer,
+                KeySoundLayer,
+                JudgementLayer,
             });
-            Depth = 1;
         }
 
 
@@ -130,16 +142,16 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
 
             if (hitObject is DrawableRpContainerLineGroup)
             {
-                //增加背景物件
-                containerBackgroundLayout.AddContainer(hitObject as DrawableRpContainerLineGroup);
+                //繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽw繝ｻ・ｽi繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ
+                ContainerBackgroundLayer.AddContainerLineGroup(hitObject as DrawableRpContainerLineGroup);
                 //
                 //keySoundLayout.Add(containerBackgroundLayout.CreateProxy());
             }
             else
             {
                 base.Add(hitObject);
-                //增加物件
-                _rpObjectLayout.AddDrawObject(hitObject as DrawableBaseRpHitableObject);
+                //繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ
+                RpObjectLayer.AddDrawObject(hitObject as DrawableBaseRpHitableObject);
             }
         }
 
@@ -147,8 +159,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
         public override void PostProcess()
         {
             //order by time
-            _hitObjectConnector.HitObjects = HitObjects.Children.Select(d => (DrawableBaseRpHitableObject)d).OrderBy(h => ((DrawableBaseRpObject)h).HitObject.StartTime);
-            _hitObjectConnector.ScanSameTuple();
+            HitObjectConnectorLayer.HitObjects = HitObjects.Children.Select(d => (DrawableBaseRpHitableObject)d).OrderBy(h => ((DrawableBaseRpObject)h).HitObject.StartTime);
+            //
+            HitObjectConnectorLayer.ScanSameTuple();
         }
 
         /// <summary>
@@ -158,7 +171,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
         /// <param name="j"></param>
         public override void OnJudgement(DrawableHitObject<BaseRpObject, RpJudgement> drawableHitObject)
         {
-            _judgementLayer.AddHitEffect(drawableHitObject);
+            JudgementLayer.AddHitEffect(drawableHitObject);
         }
     }
 }

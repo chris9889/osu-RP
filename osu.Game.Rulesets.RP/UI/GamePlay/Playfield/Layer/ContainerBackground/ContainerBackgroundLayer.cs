@@ -8,14 +8,22 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
     ///     ïâê”ï˙íuîwåi
     ///     DrawableContainer
     /// </summary>
-    internal class ContainerBackgroundLayout : BaseGamePlayLayout
+    internal class ContainerBackgroundLayer : BaseGamePlayLayer
     {
         /// <summary>
         ///     Container
         /// </summary>
-        public List<DrawableRpContainerLineGroup> _listContainer = new List<DrawableRpContainerLineGroup>();
+        private List<DrawableRpContainerLineGroup> _listContainer = new List<DrawableRpContainerLineGroup>();
 
-        public ContainerBackgroundLayout()
+        public List<DrawableRpContainerLineGroup> ContainerGroupList
+        {
+            get
+            {
+                return _listContainer;
+            }
+        }
+
+        public ContainerBackgroundLayer()
         {
             Anchor = Anchor.Centre;
             Origin = Anchor.Centre;
@@ -24,17 +32,17 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
         /// <summary>
         ///     ˙ùâ¡Container
         /// </summary>
-        public void AddContainer(DrawableRpContainerLineGroup drawableContainer)
+        public void AddContainerLineGroup(DrawableRpContainerLineGroup drawableContainerGroup)
         {
             //ContainerGroup
-            _listContainer.Add(drawableContainer);
-            Add(drawableContainer);
+            _listContainer.Add(drawableContainerGroup);
+            Add(drawableContainerGroup);
             
             //ContainerLine
-            foreach (var layout in drawableContainer.HitObject.ContainerLayerList)
+            foreach (var layout in drawableContainerGroup.HitObject.ContainerLayerList)
             {
                 DrawableRpContainerLine layoutLine = new DrawableRpContainerLine(layout);
-                drawableContainer.Template.AddObject(layoutLine);
+                drawableContainerGroup.Template.AddObject(layoutLine);
                 //Add(layoutLine);
             }
         }
@@ -48,6 +56,16 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
             foreach (var container in _listContainer)
                 if (container.HitObject.StartTime <= time && container.HitObject.EndTime >= time)
                     yield return container;
+        }
+
+        public IEnumerable<DrawableRpContainerLineGroup> GetContainerByContainerID(int groupID)
+        {
+            foreach (var container in _listContainer)
+                if (container.HitObject.ID == groupID)
+                {
+                    yield return container;
+                    break;
+                }
         }
     }
 }

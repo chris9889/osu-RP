@@ -8,7 +8,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
     /// <summary>
     ///     —p˜Ò˜AÚ•¨Œ“Iü
     /// </summary>
-    internal class HitObjectConnector : ConnectionRenderer<DrawableBaseRpHitableObject>
+    internal class HitObjectConnectorLayer : ConnectionRendererLayer<DrawableBaseRpHitableObject>
     {
         /// <summary>
         ///     Determines how much space there is between points.

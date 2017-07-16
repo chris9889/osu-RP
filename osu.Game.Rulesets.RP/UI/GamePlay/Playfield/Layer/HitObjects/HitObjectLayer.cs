@@ -6,13 +6,13 @@ using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
 {
     /// <summary>
-    ///     放置打擊物件的layout
+    ///     
     /// </summary>
-    internal class HitObjectLayout : BaseGamePlayLayout
+    internal class HitObjectLayer : BaseGamePlayLayer
     {
         /// <summary>
         /// </summary>
-        public ContainerBackgroundLayout ContainerBackgroundLayout;
+        public ContainerBackgroundLayer ContainerBackgroundLayer;
 
         /// <summary>
         ///     那些找不到Container 的物件
@@ -41,12 +41,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
 
             //如果是背景按壓物件
             //if (drawableHitObject is DrawableRpContainerLineHoldObject)
-            //     ContainerBackgroundLayout.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).Template.AddObject(drawableHitObject as DrawableRpContainerLineHoldObject);
+            //     ContainerBackgroundLayer.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).Template.AddObject(drawableHitObject as DrawableRpContainerLineHoldObject);
             //else
-            //    ContainerBackgroundLayout.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).Template.ListContainObject[layoutIndex].AddObject(drawableHitObject);
+            //    ContainerBackgroundLayer.GetContainerByTime(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime).ElementAt(containerIndex).Template.ListContainObject[layoutIndex].AddObject(drawableHitObject);
 
             double time = ((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime;
-            DrawableRpContainerLineGroup lineGroup = ContainerBackgroundLayout.GetContainerByTime(time).ElementAt(containerIndex);
+            DrawableRpContainerLineGroup lineGroup = ContainerBackgroundLayer.GetContainerByTime(time).ElementAt(containerIndex);
             DrawableRpContainerLine line = lineGroup.Template.ListContainObject[layoutIndex];
             line.AddObject(drawableHitObject);
 
@@ -66,7 +66,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
         /// <returns></returns>
         public IEnumerable<DrawableBaseRpObject> GetHitObjectByTime(double time)
         {
-            var listContainer = ContainerBackgroundLayout.GetContainerByTime(time);
+            var listContainer = ContainerBackgroundLayer.GetContainerByTime(time);
             if (listContainer.Any())
                 foreach (var container in listContainer)
                 {
