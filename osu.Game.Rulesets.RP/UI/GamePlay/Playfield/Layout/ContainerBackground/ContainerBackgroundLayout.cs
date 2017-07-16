@@ -35,7 +35,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
             {
                 DrawableRpContainerLine layoutLine = new DrawableRpContainerLine(layout);
                 drawableContainer.Template.AddObject(layoutLine);
-                Add(layoutLine);
+                //Add(layoutLine);
             }
         }
 

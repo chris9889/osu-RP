@@ -55,10 +55,11 @@ namespace osu.Game.Rulesets.RP.Objects
         public void UpdateContainerLayout(RpContainerLineGroup objectContainer)
         {
             ObjectContainer = objectContainer;
-            StartTime = ObjectContainer.StartTime;
+            StartTime = 0;//ObjectContainer.StartTime;
             Velocity = ObjectContainer.Velocity;
-            EndTime = ObjectContainer.EndTime;
+            EndTime = ObjectContainer.EndTime - ObjectContainer.StartTime;
             Lenght = ObjectContainer.Lenght;
+            PreemptTime = objectContainer.PreemptTime;
         }
     }
 }

@@ -20,10 +20,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             get { return _nowPressMatchKey != Key.Unknown; }
         }
 
-        //按下去皁E��件
+        //Hit event
         public Func<bool> Hit;
 
-        //放開的事件
+        //release event
         public Func<bool> Release;
 
         public double PressDownDelayTime;
@@ -31,14 +31,14 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         public double PressUpDelayTime;
 
         /// <summary>
-        ///     可以配對的按鍵
+        ///     list compare ksy
         /// </summary>
         protected List<Key> _compareKey;
 
-        //RP物件
+        //RP HitableObject
         private readonly BaseRpHitableObject _baseRPObject;
 
-        //目前按下�E對的按鍵
+        //now Press Key
         private Key _nowPressMatchKey = Key.Unknown;
 
         //目前按下去皁E��鍵是不是有效皁E

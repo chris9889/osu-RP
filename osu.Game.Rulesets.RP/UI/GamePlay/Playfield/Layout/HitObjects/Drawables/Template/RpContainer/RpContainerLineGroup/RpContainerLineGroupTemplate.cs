@@ -174,11 +174,13 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <param name="dragObject"></param>
         public override void AddObject(DrawableRpContainerLine dragObject)
         {
-            dragObject.Position = GetRowPosition();
+            dragObject.Position = new Vector2();//;GetRowPosition();
             
             base.AddObject(dragObject);
             //update Height
             UpdateContainerHeight();
+            //add DrawableRpContainerLine
+            Add(dragObject);
         }
 
         /// <summary>
