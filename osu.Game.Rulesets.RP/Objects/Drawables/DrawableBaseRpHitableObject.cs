@@ -8,6 +8,7 @@ using osu.Framework.Graphics;
 using osu.Framework.Input;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects;
+using osu.Game.Rulesets.RP.Objects.Drawables;
 using osu.Game.Rulesets.RP.Scoreing;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Calculator.DrawableDetectPress;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template;
@@ -17,8 +18,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// <summary>
     ///     郢ｪ陬ｽ蜿ｯ莉･謇捺投逧・・ｽ・ｽ莉ｶ
     /// </summary>
-    public class DrawableBaseRpHitableObject : DrawableBaseRpObject
+    public class DrawableBaseRpHitableObject : DrawableBaseRpObject , IContainedDrawableObject<DrawableRpContainerLine>
     {
+        public DrawableRpContainerLine ContainedObject { get; set; }
+
         /// <summary>
         ///     謇捺投迚ｩ莉ｶ・ｽE・ｽDrawableHitCircle 譛・・ｽ・ｽ謫壽遠謫顔黄莉ｶ謚・迚ｩ莉ｶ郢ｪ陬ｽ蜃ｺ萓・
         /// </summary>
@@ -49,7 +52,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         public override void InitialTemplate()
         {
-            Template = new RpDrawBaseObjectTemplate(HitObject)
+            Template = new RpDrawBaseObjectTemplate(this)
             {
                 Position = this.Position,
                 Alpha = 1
@@ -169,7 +172,6 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
                 }
             };
         }
-
     }
 
     /// <summary>

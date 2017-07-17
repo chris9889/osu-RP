@@ -12,16 +12,20 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// </summary>
     public class RpContainerLineGroupTemplate : RpContainableTemplate<DrawableRpContainerLine>
     {
+        public new DrawableRpContainerLineGroup DrawablehitObject
+        {
+            get { return (DrawableRpContainerLineGroup)base.DrawablehitObject; }
+        }
+
+        public new Objects.RpContainerLineGroup HitObject
+        {
+            get { return (Objects.RpContainerLineGroup)base.HitObject; }
+        }
 
         /// <summary>
         ///     按壓的template
         /// </summary>
         public ContainerLongPressDrawComponent ContainerLongPressDrawComponent;
-
-        /// <summary>
-        ///     打擊物件(Container)
-        /// </summary>
-        protected Objects.RpContainerLineGroup HitObject;
 
 
         private readonly List<IChangeableContainerComponent> IChangeableContainerComponent = new List<IChangeableContainerComponent>();
@@ -56,10 +60,9 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         private ContainerBeatLineComponent _containerBeatLineComponent;
 
-        public RpContainerLineGroupTemplate(Objects.RpContainerLineGroup hitObject)
-            : base(hitObject)
+        public RpContainerLineGroupTemplate(DrawableRpContainerLineGroup drawablehitObject)
+            : base(drawablehitObject)
         {
-            HitObject = hitObject;
             //設定目前物件
             InitialTemplate();
             //Layout
@@ -101,7 +104,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <returns></returns>
         public Vector2 GetRowPosition()
         {
-            return HitObject.Position;
+            return DrawablehitObject.Position;
         }
 
         public override void Initial()
@@ -186,7 +189,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <param name="dragObject"></param>
         public override void AddObject(DrawableRpContainerLine dragObject)
         {
-            dragObject.Position = new Vector2();//;GetRowPosition();
+            dragObject.Position = GetTargetObjectPosition(dragObject);
             
             base.AddObject(dragObject);
             //update Height
@@ -202,6 +205,19 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         public void AddObject(DrawableRpContainerLineHoldObject drawableHitObject)
         {
             ContainerLongPressDrawComponent.Add(drawableHitObject);
+        }
+
+
+        public override Vector2 GetTargetObjectPosition(DrawableRpContainerLine dragObject)
+        {
+            //TODO : :impliment
+            return new Vector2();//;GetRowPosition();
+        }
+
+        public override float GetTargetObjectScale(DrawableRpContainerLine dragObject)
+        {
+            //return 1;
+            return 1;
         }
 
         /// <summary>
@@ -236,7 +252,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             _containerBeatLineComponent = new ContainerBeatLineComponent(HitObject);
 
             //旋轉角度
-            Rotation = HitObject.Rotation;
+            Rotation = DrawablehitObject.Rotation;
         }
 
         /// <summary>

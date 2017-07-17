@@ -64,6 +64,7 @@
     <Compile Include="Mods\RpMod2017.cs" />
     <Compile Include="Mods\ModsElement\RPAutoReplay.cs" />
     <Compile Include="Objects\Attribute\BaseRpObjectAttribute.cs" />
+    <Compile Include="Objects\Drawables\IContainedObject.cs" />
     <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\GameField\GameFieldModsProcessor.cs" />
     <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\HitObject\HitObjectModsProcessor.cs" />
     <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\ModsProcessor.cs" />
@@ -83,7 +84,6 @@
     <Compile Include="UI\GamePlay\Playfield\Layer\CommonDwawablePiece\Slider.cs" />
     <Compile Include="Objects\Drawables\DrawableBaseContainableObject.cs" />
     <Compile Include="Objects\Drawables\DrawableRpContainerLine.cs" />
-    <Compile Include="Objects\Drawables\IHasTemplate.cs" />
     <Compile Include="Objects\Drawables\Template\CommonInterface\IBaseEditableTemplate.cs" />
     <Compile Include="Objects\Drawables\Template\CommonInterface\IContainerEditableTemplate.cs" />
     <Compile Include="Objects\Drawables\Template\CommonInterface\IRpHitObjectEditableTemplate.cs" />

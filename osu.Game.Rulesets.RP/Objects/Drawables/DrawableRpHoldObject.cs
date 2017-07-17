@@ -22,7 +22,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         public override void InitialTemplate()
         {
-            Template = new RpHoldObjectTemplate(this.HitObject)
+            Template = new RpHoldObjectTemplate(this)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1

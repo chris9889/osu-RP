@@ -4,7 +4,7 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CoopHint
 {
-    internal class CoopHintLayer : BaseGamePlayLayer
+    public class CoopHintLayer : BaseGamePlayLayer
     {
         private readonly Component.CoopHint leftCoopHint;
         private readonly Component.CoopHint rightCoopHint;

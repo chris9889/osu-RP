@@ -1,14 +1,16 @@
 ﻿using osu.Framework.Graphics;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects;
+using osu.Game.Rulesets.RP.Objects.Drawables;
 using osu.Game.Rulesets.RP.Scoreing;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer.RpContainerLine;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
-    public class DrawableRpContainerLine : DrawableBaseContainableObject<DrawableBaseRpHitableObject>
+    public class DrawableRpContainerLine : DrawableBaseContainableObject<DrawableBaseRpHitableObject>, IContainedDrawableObject<DrawableRpContainerLineGroup>
     {
+        public DrawableRpContainerLineGroup ContainedObject { get; set; }
 
         /// <summary>
         /// </summary>
@@ -38,7 +40,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         public override void InitialTemplate()
         {
-            Template = new RpContainerLineTemplate(HitObject)
+            Template = new RpContainerLineTemplate(this)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1
@@ -130,6 +132,5 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             {
             }
         }
-
     }
 }

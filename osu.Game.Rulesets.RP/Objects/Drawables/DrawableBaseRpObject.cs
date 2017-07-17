@@ -148,7 +148,6 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         }
 
-
         protected override RpJudgement CreateJudgement() => new RpJudgement { Score = RpScoreResult.Cool };
         
     }

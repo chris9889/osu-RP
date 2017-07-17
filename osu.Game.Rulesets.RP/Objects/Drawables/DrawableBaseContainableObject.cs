@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer;
+using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
@@ -60,6 +61,16 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             //call the tesmplate remove function
             Template.RemoveObject(dragObject);
         }
-        
+
+        public virtual Vector2 GetTargetObjectPosition(T dragObject)
+        {
+            return Template.GetTargetObjectPosition(dragObject);
+        }
+
+        public virtual float GetTargetObjectScale(T dragObject)
+        {
+            return Template.GetTargetObjectScale(dragObject);
+        }
+
     }
 }

@@ -13,7 +13,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.KeySound
     ///     放置顯示在打擊物件之前的東西
     ///     例如DecisionLine
     /// </summary>
-    internal class KeySoundLayer : BaseGamePlayLayer
+    public class KeySoundLayer : BaseGamePlayLayer
     {
         protected List<SampleChannel> ShapeSample = new List<SampleChannel>();
         protected List<SampleChannel> ContainerPressSample = new List<SampleChannel>();

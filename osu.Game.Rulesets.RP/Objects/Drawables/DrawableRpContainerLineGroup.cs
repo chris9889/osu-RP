@@ -40,7 +40,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         public override void InitialTemplate()
         {
-            Template = new RpContainerLineGroupTemplate(HitObject)
+            Template = new RpContainerLineGroupTemplate(this)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1

@@ -8,7 +8,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground
     ///     •‰Ó•ú’u”wŒi
     ///     DrawableContainer
     /// </summary>
-    internal class ContainerBackgroundLayer : BaseGamePlayLayer
+    public class ContainerBackgroundLayer : BaseGamePlayLayer
     {
         /// <summary>
         ///     Container

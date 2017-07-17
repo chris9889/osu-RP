@@ -13,10 +13,15 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// </summary>
     public class RpHitableObjectTemplate : RpDrawBaseObjectTemplate
     {
-        /// <summary>
-        ///     物件
-        /// </summary>
-        protected new BaseRpHitableObject _hitObject;
+        public new DrawableBaseRpHitableObject DrawablehitObject
+        {
+            get { return (DrawableBaseRpHitableObject)base.DrawablehitObject; }
+        }
+
+        public new Objects.BaseRpHitableObject HitObject
+        {
+            get { return (Objects.BaseRpHitableObject)base.HitObject; }
+        }
 
         private readonly GetMovePiece GetMovePiecen = new GetMovePiece();
         private readonly GetStillPiece GetStillPiece = new GetStillPiece();
@@ -34,11 +39,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         /// <summary>
         /// </summary>
-        /// <param name="hitObject"></param>
-        public RpHitableObjectTemplate(BaseRpObject hitObject)
-            : base(hitObject)
+        /// <param name="drawablehitObjectm>
+        public RpHitableObjectTemplate(DrawableBaseRpHitableObject drawablehitObject)
+            : base(drawablehitObject)
         {
-            _hitObject = (BaseRpHitableObject)hitObject;
             InitialApproachHitPicec();
             InitialChild();
         }
@@ -86,8 +90,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         protected virtual void UpdateApproachType()
         {
-            BaseMovePicec = GetMovePiecen.GetPicec(_hitObject);
-            BaseStillPiece = GetStillPiece.GetPicec(_hitObject);
+            BaseMovePicec = GetMovePiecen.GetPicec(HitObject);
+            BaseStillPiece = GetStillPiece.GetPicec(HitObject);
         }
 
         /// <summary>

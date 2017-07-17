@@ -10,7 +10,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjectsConnector
     /// <summary>
     ///     Connects hit objects visually, for example with follow points.
     /// </summary>
-    internal abstract class ConnectionRendererLayer<T> : BaseGamePlayLayer where T : DrawableBaseRpHitableObject
+    public abstract class ConnectionRendererLayer<T> : BaseGamePlayLayer where T : DrawableBaseRpHitableObject
     {
         /// <summary>
         ///     Hit objects to create connections for

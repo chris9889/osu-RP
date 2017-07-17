@@ -8,15 +8,20 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer.RpContainerLine
 {
+
     /// <summary>
     /// </summary>
     public class RpContainerLineTemplate : RpContainableTemplate<DrawableBaseRpHitableObject>
     {
+        public new DrawableRpContainerLine DrawablehitObject
+        {
+            get { return (DrawableRpContainerLine)base.DrawablehitObject; }
+        }
 
-        /// <summary>
-        ///     物件
-        /// </summary>
-        protected Objects.RpContainerLine HitObject;
+        public new Objects.RpContainerLine HitObject
+        {
+            get { return (Objects.RpContainerLine)base.HitObject; }
+        }
 
         /// <summary>
         ///     負責計算物件在時間點該有的位置
@@ -38,10 +43,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// </summary>
         private RectanglePiece _linePiece;
 
-        public RpContainerLineTemplate(Objects.RpContainerLine hitObject)
-            : base(hitObject)
+
+        public RpContainerLineTemplate(DrawableRpContainerLine drawablehitObject)
+            : base(drawablehitObject)
         {
-            HitObject = hitObject;
             //
             InitialLinePiece();
             //初始化樣板
@@ -60,19 +65,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <param name="drawableHitObject"></param>
         public override void AddObject(DrawableBaseRpHitableObject drawableHitObject)
         {
-            drawableHitObject.Position = CalculatePosition(((DrawableBaseRpObject)drawableHitObject).HitObject.StartTime)+ GetRowPosition();
-            
+            drawableHitObject.Position = GetTargetObjectPosition(drawableHitObject);
             base.AddObject(drawableHitObject);
-        }
-
-        /// <summary>
-        ///     根據時間點計算物件位置
-        /// </summary>
-        /// <param name="time"></param>
-        /// <returns></returns>
-        public Vector2 CalculatePosition(double time)
-        {
-            return new Vector2(_positionCounter.GetPosition(time - HitObject.StartTime, HitObject.Velocity), 0);
         }
 
         /// <summary>
@@ -81,7 +75,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
         /// <returns></returns>
         public Vector2 GetRowPosition()
         {
-            return HitObject.ObjectContainer.Position + Position;
+            return HitObject.Position + Position;
         }
 
         public override void FadeIn(double time = 0)
@@ -157,6 +151,28 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
             //list.AddRange(ListContainObject);
             //加入子物件
             Children = list;
+        }
+
+        public override Vector2 GetTargetObjectPosition(DrawableBaseRpHitableObject dragObject)
+        {
+            //TODO : :impliment
+            return CalculatePosition(dragObject.HitObject.StartTime) + GetRowPosition(); ;
+        }
+
+        public override float GetTargetObjectScale(DrawableBaseRpHitableObject dragObject)
+        {
+            //return 1;
+            return 1;
+        }
+
+        /// <summary>
+        ///     根據時間點計算物件位置
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public Vector2 CalculatePosition(double time)
+        {
+            return new Vector2(_positionCounter.GetPosition(time - HitObject.StartTime, HitObject.Velocity), 0);
         }
     }
 }

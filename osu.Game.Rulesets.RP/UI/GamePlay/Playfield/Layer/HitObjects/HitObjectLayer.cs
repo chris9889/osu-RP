@@ -8,7 +8,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
     /// <summary>
     ///     
     /// </summary>
-    internal class HitObjectLayer : BaseGamePlayLayer
+    public class HitObjectLayer : BaseGamePlayLayer
     {
         /// <summary>
         /// </summary>

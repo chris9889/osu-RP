@@ -7,7 +7,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 {
     public class EditableRpContainerLineGroupTemplate : RpContainerLineGroupTemplate, IContainerEditableTemplate
     {
-        public EditableRpContainerLineGroupTemplate(Objects.RpContainerLineGroup hitObject) : base(hitObject)
+        public EditableRpContainerLineGroupTemplate(DrawableRpContainerLineGroup drawablehitObject) : base(drawablehitObject)
         {
         }
     }

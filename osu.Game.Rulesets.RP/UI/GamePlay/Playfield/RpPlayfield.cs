@@ -21,7 +21,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
     /// <summary>
     ///    Playfield 
     /// </summary>
-    internal class RpPlayfield : Playfield<BaseRpObject, RpJudgement>
+    public class RpPlayfield : Playfield<BaseRpObject, RpJudgement>
     {
         /// <summary>
         ///     set the size

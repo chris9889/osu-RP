@@ -6,7 +6,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout
     /// <summary>
     ///     遊戲場景的Layout
     /// </summary>
-    internal class BaseGamePlayLayer : Container
+    public class BaseGamePlayLayer : Container
     {
         public BaseGamePlayLayer()
         {

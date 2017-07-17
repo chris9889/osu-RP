@@ -7,7 +7,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// </summary>
     public class RpHitObjectTemplate : RpHitableObjectTemplate
     {
-        public RpHitObjectTemplate(BaseRpHitableObject hitObject): base(hitObject)
+        public RpHitObjectTemplate(DrawableRpHitObject drawablehitObject): base(drawablehitObject)
         {
 
         }

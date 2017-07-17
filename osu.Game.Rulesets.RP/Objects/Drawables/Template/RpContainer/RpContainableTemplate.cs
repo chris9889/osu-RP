@@ -1,22 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using osu.Game.Rulesets.RP.Objects;
+
+using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables.Template.RpContainer
 {
+
+
+    /// <summary>
+    /// T : target contained object
+    /// Q : who contained this object (Drawable)
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="Q"></typeparam>
     public class RpContainableTemplate<T> : RpDrawBaseObjectTemplate where T : DrawableBaseRpObject
     {
+        public new DrawableBaseContainableObject<T> DrawablehitObject
+        {
+            get { return (DrawableBaseContainableObject<T>)base.DrawablehitObject; }
+        }
 
         /// <summary>
         ///     放置Layout物件皁E��方
         /// </summary>
         public BindingList<T> ListContainObject = new BindingList<T>();
 
-        public RpContainableTemplate(BaseRpObject hitObject): base(hitObject)
+
+
+        public RpContainableTemplate(DrawableBaseContainableObject<T> drawablehitObject): base(drawablehitObject)
         {
 
         }
@@ -55,8 +67,13 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         public virtual void AddObject(T dragObject)
         {
-            if(!ListContainObject.Contains(dragObject))
+            if (!ListContainObject.Contains(dragObject))
+            {
                 ListContainObject.Add(dragObject);
+                //dragObject.ContainedObject = this.DrawablehitObject;
+            }
+            
+
         }
 
         /// <summary>
@@ -73,8 +90,23 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
 
         public virtual void RemoveObject(T dragObject)
         {
-            if (ListContainObject.Contains(dragObject))
+            if (IsContain(dragObject))
                 ListContainObject.Remove(dragObject);
+        }
+
+        public virtual Vector2 GetTargetObjectPosition(T dragObject)
+        {
+            return new Vector2(1,1);
+        }
+
+        public virtual float GetTargetObjectScale(T dragObject)
+        {
+            return 1;
+        }
+
+        public virtual bool IsContain(T dragObject)
+        {
+            return ListContainObject.Contains(dragObject);
         }
     }
 }
