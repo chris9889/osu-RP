@@ -15,7 +15,7 @@ namespace osu.Game.Graphics.Cursor
 {
     public class OsuTooltipContainer : TooltipContainer
     {
-        protected override Tooltip CreateTooltip() => new OsuTooltip();
+        protected override ITooltip CreateTooltip() => new OsuTooltip();
 
         public OsuTooltipContainer(CursorContainer cursor) : base(cursor)
         {
@@ -83,6 +83,8 @@ namespace osu.Game.Graphics.Cursor
             protected override void PopIn()
             {
                 instantMovement |= !IsPresent;
+
+                ClearTransforms();
                 FadeIn(500, EasingTypes.OutQuint);
             }
 

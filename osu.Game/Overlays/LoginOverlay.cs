@@ -8,10 +8,11 @@ using osu.Game.Graphics;
 using osu.Game.Overlays.Settings.Sections.General;
 using OpenTK.Graphics;
 using osu.Framework.Graphics.Shapes;
+using osu.Game.Graphics.Containers;
 
 namespace osu.Game.Overlays
 {
-    internal class LoginOverlay : FocusedOverlayContainer
+    internal class LoginOverlay : OsuFocusedOverlayContainer
     {
         private LoginSettings settingsSection;
 
@@ -45,6 +46,7 @@ namespace osu.Game.Overlays
                         settingsSection = new LoginSettings
                         {
                             Padding = new MarginPadding(10),
+                            RequestHide = Hide,
                         },
                         new Box
                         {
