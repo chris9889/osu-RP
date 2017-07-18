@@ -15,7 +15,21 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables
     /// </summary>
     public class DrawableRpHitObject : DrawableBaseRpHitableObject, IDrawableHitObjectWithProxiedApproach
     {
+        /// <summary>
+        /// </summary>
+        public new RpHitObject HitObject
+        {
+            get { return (RpHitObject)base.HitObject; }
+        }
 
+        /// <summary>
+        ///     template
+        /// </summary>
+        public new RpHitObjectTemplate Template
+        {
+            get { return (RpHitObjectTemplate)base.Template; }
+            set { base.Template = value; }
+        }
 
 
         public Drawable ProxiedLayer

@@ -153,6 +153,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
                 //繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ繝ｻ・ｽ
                 RpObjectLayer.AddDrawObject(hitObject as DrawableBaseRpHitableObject);
             }
+            
         }
 
 
