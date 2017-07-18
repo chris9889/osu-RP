@@ -26,18 +26,21 @@ namespace osu.Desktop.VisualTests.Tools
         
         public CategoryTestCase CurrentTest { get; private set; }
 
-        private FillFlowContainer<TestCaseCategoryButton> leftFlowContainer;
+        private FillFlowContainer<TestCaseCategoryButton> categoryFlowContainer;
         private FillFlowContainer<TestCaseButton> secondaryFlowContainer;
 
         private Container testContentContainer;
         private Container compilingNotice;
 
+        //List category
+        List<string> ListCategoryName = new List<string>();
+
         //change it into dictionary
-        public readonly List<CategoryTestCase> Tests = new List<CategoryTestCase>();
+        public readonly List<Type> Tests = new List<Type>();
 
         private ConfigManager<TestBrowserSetting> config;
 
-        private DynamicClassCompiler<CategoryTestCase> backgroundCompiler;
+        private DynamicClassCompiler backgroundCompiler;
 
         public RpTestBrowser()
         {
@@ -46,17 +49,16 @@ namespace osu.Desktop.VisualTests.Tools
             //get all class that is inherit from CategoryTestCase
             foreach (Type type in asm.GetLoadableTypes().Where(t => t.IsSubclassOf(typeof(CategoryTestCase)) && !t.IsAbstract))
             {
-                CategoryTestCase singleTestCase = (CategoryTestCase)Activator.CreateInstance(type);
+                //CategoryTestCase singleTestCase = (CategoryTestCase)Activator.CreateInstance(type);
                 //if this class is need to test
-                if(singleTestCase.AddToTest)
-                {
-                    //Category it
-                    Tests.Add(singleTestCase);
-                }
-                   
-            }
+                //if(singleTestCase.AddToTest)
+                //{
+                //    //Category it
+                //    Tests.Add(type);
+                //}
 
-            //Tests.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
+                Tests.Add(type);
+            }
         }
 
         [BackgroundDependencyLoader]
@@ -85,7 +87,7 @@ namespace osu.Desktop.VisualTests.Tools
                             Children = new[]
                             {
                                 //main category
-                                leftFlowContainer = new FillFlowContainer<TestCaseCategoryButton>
+                                categoryFlowContainer = new FillFlowContainer<TestCaseCategoryButton>
                                 {
                                     Padding = new MarginPadding(3),
                                     Direction = FillDirection.Vertical,
@@ -165,7 +167,7 @@ namespace osu.Desktop.VisualTests.Tools
             };
 
             //Background
-            backgroundCompiler = new DynamicClassCompiler<CategoryTestCase>()
+            backgroundCompiler = new DynamicClassCompiler()
             {
                 CompilationStarted = compileStarted,
                 CompilationFinished = compileFinished,
@@ -173,10 +175,10 @@ namespace osu.Desktop.VisualTests.Tools
             };
 
             //update category
-            updateCategory();
+            initialCategory();
 
-            //TODO : get first category's name
-            UpdateCategoryItem("");
+            //get first category's name and update TestCase
+            updateCategoryItem(ListCategoryName.FirstOrDefault());
 
 
             try
@@ -192,32 +194,33 @@ namespace osu.Desktop.VisualTests.Tools
         /// <summary>
         /// Update Category
         /// </summary>
-        private void updateCategory()
+        private void initialCategory()
         {
-            leftFlowContainer.Clear();
+            categoryFlowContainer.Clear();
             //Add buttons for each TestCase.
 
-            List<string> listCategory = new List<string>();
+            ListCategoryName.Clear();
 
-            foreach(CategoryTestCase single in Tests)
+            foreach(Type single in Tests)
             {
-                if (!listCategory.Contains(single.Category))
-                    listCategory.Add(single.Category);
+                CategoryTestCase singleTestCase = (CategoryTestCase)Activator.CreateInstance(single);
+                if (!ListCategoryName.Contains(singleTestCase.Category))
+                    ListCategoryName.Add(singleTestCase.Category);
             }
-
-
-            leftFlowContainer.Add(listCategory.Select(t => new TestCaseCategoryButton(t) { Action = () => UpdateCategoryItem(t) }));
+            //Sort by string name
+            ListCategoryName.Sort();
+            categoryFlowContainer.AddRange(ListCategoryName.Select(t => new TestCaseCategoryButton(t) { Action = () => updateCategoryItem(t) }));
         }
 
         /// <summary>
         /// if change to another category ,update this view
         /// </summary>
         /// <param name="selectedCategory">Selected category.</param>
-        private void UpdateCategoryItem(string selectedCategory)
+        private void updateCategoryItem(string selectedCategory)
         {
-            //TODO : impliment switch category
+            //update selected category color
             secondaryFlowContainer.Clear();
-            secondaryFlowContainer.Add(Tests.Where(t=>t.Category==selectedCategory).Select(t => new TestCaseButton(t) { Action = () => LoadTest(t) }));
+            secondaryFlowContainer.AddRange(Tests.Where(t=>((CategoryTestCase)Activator.CreateInstance(t)).Category==selectedCategory).OrderBy(t=>t.Name).Select(t => new TestCaseButton(t) { Action = () => LoadTest(t) }));
         }
 
 
@@ -228,7 +231,7 @@ namespace osu.Desktop.VisualTests.Tools
         }
 
         //compile the whole step of single test
-        private void compileFinished(CategoryTestCase newVersion)
+        private void compileFinished(Type newVersion)
         {
             Schedule(() =>
             {
@@ -239,10 +242,9 @@ namespace osu.Desktop.VisualTests.Tools
 
                 //TODO : finish it
                 //get the test that has
-                //int i = Tests(t => t.GetType().Name == newVersion.GetType().Name);
-                //Tests[i] = newVersion;
-                //LoadTest(i);
-
+                int i = Tests.FindIndex(t => t.GetType().Name == newVersion.GetType().Name);
+                Tests[i] = newVersion;
+                LoadTest(Tests[i]);
 
             });
         }
@@ -250,27 +252,16 @@ namespace osu.Desktop.VisualTests.Tools
         protected override void LoadComplete()
         {
             base.LoadComplete();
-
-            //get last record
             try
             {
-                //LoadTest(Tests.(t => t.Name == config.Get<string>(TestBrowserSetting.LastTest)));
+                //get last record
                 if (CurrentTest == null)
-                    foreach (CategoryTestCase item in Tests)
-                    {
-                        if (item.TestName == config.Get<string>(TestBrowserSetting.LastTest)) ;
-                        LoadTest(item);
-                    }
-                    
+                    LoadTest(Tests.Find(t => t.Name == config.Get<string>(TestBrowserSetting.LastTest)));
             }
             catch
             {
-                
-            }
-
-            //if null ,use first testCase
-            if (CurrentTest == null)
                 LoadTest(Tests.First());
+            }
         }
 
         protected override bool OnExiting(Screen next)
@@ -282,7 +273,7 @@ namespace osu.Desktop.VisualTests.Tools
         }
 
         //load single test
-        public void LoadTest(CategoryTestCase testCase = null, Action onCompletion = null)
+        public void LoadTest(Type testCase = null, Action onCompletion = null)
         {
             //get first value
             if (testCase == null && Tests.Count > 0)
@@ -303,15 +294,19 @@ namespace osu.Desktop.VisualTests.Tools
 
             if (testCase != null)
             {
-                testContentContainer.Add(CurrentTest = testCase);
-                testCase.Reset();
-                testCase.RunAllSteps(onCompletion);
-
-                var button = getButtonFor(CurrentTest);
-                if (button != null) button.Current = true;
+                testContentContainer.Add(CurrentTest = (CategoryTestCase)Activator.CreateInstance(testCase));
+                CurrentTest.OnLoadComplete = d => ((CategoryTestCase)d).RunAllSteps(onCompletion);
             }
+            updateButtons();
         }
 
-        private TestCaseButton getButtonFor(CategoryTestCase currentTest) => secondaryFlowContainer.Children.FirstOrDefault(b => b.TestCase.Name == currentTest.Name);
+        private void updateButtons()
+        {
+            foreach (var b in categoryFlowContainer.Children)
+                b.Current = b.CategoryName == CurrentTest.Category;
+        }
+
+        private TestCaseButton getButtonFor(CategoryTestCase currentTest) 
+            => secondaryFlowContainer.Children.FirstOrDefault(b => ((CategoryTestCase)Activator.CreateInstance(b.TestType)).TestName == currentTest.Name);
     }
 }

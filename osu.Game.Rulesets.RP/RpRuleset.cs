@@ -83,6 +83,6 @@ namespace osu.Game.Rulesets.RP
         /// <summary>
         /// Do not override this unless you are a legacy mode.
         /// </summary>
-        //public override int LegacyID => 4;
+        public override int LegacyID => 1111;
     }
 }

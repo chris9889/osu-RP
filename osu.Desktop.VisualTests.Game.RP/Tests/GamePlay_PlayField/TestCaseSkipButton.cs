@@ -14,9 +14,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
         public override string TestName => @"Skip Button";
 
 
-        public override void Reset()
+        protected override void LoadComplete()
         {
-            base.Reset();
             Add(new SkipButton(Clock.CurrentTime + 5000));
         }
     }

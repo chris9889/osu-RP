@@ -12,7 +12,7 @@ namespace osu.Game.Rulesets.RP.SkinManager
     public static class RpTextureColorManager
     {
         /// <summary>
-        ///     HitObject's shape color
+        ///     RpHitObject's shape color
         /// </summary>
         /// <returns></returns>
         public static Color4 GetKeyLayoutButtonShage(RpBaseHitObjectType.Shape type)
@@ -87,7 +87,7 @@ namespace osu.Game.Rulesets.RP.SkinManager
         }
 
         /// <summary>
-        ///     HitObject's border co-op color
+        ///     RpHitObject's border co-op color
         /// </summary>
         /// <returns></returns>
         public static Color4 GetCoopHitObjectColor(RpBaseHitObjectType.Coop coop)

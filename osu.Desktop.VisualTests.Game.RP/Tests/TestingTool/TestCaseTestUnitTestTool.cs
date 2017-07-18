@@ -17,10 +17,8 @@ namespace osu.Desktop.VisualTests.Tests.TestingTool
         public override string TestName => @"TestUnitTestTool";
 
         //reset
-        public override void Reset()
+        public TestCaseTestUnitTestTool()
         {
-            base.Reset();
-
             // Have to construct this here, rather than in the constructor, because
             // we depend on some dependencies to be loaded within OsuGameBase.load().
             //Add testBrowser to view 

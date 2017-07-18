@@ -16,7 +16,7 @@ using osu.Game.Rulesets.Scoring;
 namespace osu.Game.Rulesets.RP.Mods
 {
     /// <summary>
-    ///     不會死掉
+    ///     not fall
     /// </summary>
     public class RpModNoFail : ModNoFail
     {
@@ -25,26 +25,26 @@ namespace osu.Game.Rulesets.RP.Mods
     }
 
     /// <summary>
-    ///     更簡單
+    ///     easy
     /// </summary>
     public class RpModEasy : ModEasy
     {
         public override double ScoreMultiplier => 0.5;
-        public override string Description => @"Reduces overall difficulty - larger RP HitObject, more forgiving HP drain, less accuracy required.";
+        public override string Description => @"Reduces overall difficulty - larger RP RpHitObject, more forgiving HP drain, less accuracy required.";
     }
 
     /// <summary>
-    ///     會把物件藏起來
+    ///     Hidden
     /// </summary>
     public class RpModHidden : ModHidden
     {
-        public override string Description => @"Play with no approach RP HitObject and fading notes for a slight score advantage.";
+        public override string Description => @"Play with no approach RP RpHitObject and fading notes for a slight score advantage.";
         public override double ScoreMultiplier => 1.06;
         public override Type[] IncompatibleMods => new Type[] { };
     }
 
     /// <summary>
-    ///     物件會更小
+    ///     HardRock
     /// </summary>
     public class RpModHardRock : ModHardRock
     {
@@ -53,7 +53,7 @@ namespace osu.Game.Rulesets.RP.Mods
     }
 
     /// <summary>
-    ///     一個 miss 馬上死翹翹
+    ///     one miss and died
     /// </summary>
     public class RpModSuddenDeath : ModSuddenDeath
     {
@@ -62,9 +62,7 @@ namespace osu.Game.Rulesets.RP.Mods
     }
 
     /// <summary>
-    ///     完美模式
-    ///     只要一個不是perfect 就會死亡
-    ///     比 ModSuddenDeath 還嚴格
+    ///     one not perfect note, fall
     /// </summary>
     public class RpModPerfect : ModPerfect
     {
@@ -75,7 +73,7 @@ namespace osu.Game.Rulesets.RP.Mods
     }
 
     /// <summary>
-    ///     兩倍速度
+    ///     double speed
     /// </summary>
     public class RpModDoubleTime : ModDoubleTime
     {
@@ -101,7 +99,7 @@ namespace osu.Game.Rulesets.RP.Mods
     }
 
     /// <summary>
-    ///     半速
+    ///     falf speed
     /// </summary>
     public class RpModHalfTime : ModHalfTime
     {
@@ -113,7 +111,7 @@ namespace osu.Game.Rulesets.RP.Mods
     }
 
     /// <summary>
-    ///     提高音調 + 加速
+    ///     double time and make music sounds higher(?)
     /// </summary>
     public class RpModNightcore : ModNightcore
     {
@@ -132,7 +130,7 @@ namespace osu.Game.Rulesets.RP.Mods
     }
 
     /// <summary>
-    ///     只有判定線附近會發亮
+    ///     flashLight
     /// </summary>
     public class RpModFlashlight : ModFlashlight
     {
@@ -141,7 +139,7 @@ namespace osu.Game.Rulesets.RP.Mods
     }
 
     /// <summary>
-    ///     Auto play the RP Mode
+    ///     AutoPlay 
     /// </summary>
     public class RpModAutoplay : ModAutoplay<BaseRpObject>
     {
@@ -154,11 +152,11 @@ namespace osu.Game.Rulesets.RP.Mods
     /// <summary>
     ///     RP : 背景按壓的物件會自動完成
     /// </summary>
-    public class RpModContainerHitObjectPressOut : Mod
+    public class RpModAutoContainerLineHoldObject : Mod
     {
-        public override string Name => "SpunOut";
+        public override string Name => "AutoContainerLineHoldObject";
         public override FontAwesome Icon => FontAwesome.fa_osu_mod_spunout;
-        public override string Description => @"Background HitObject will be automatically completed";
+        public override string Description => @"Background RpHitObject will be automatically completed";
         public override double ScoreMultiplier => 0.9;
         public override bool Ranked => true;
 
@@ -166,8 +164,7 @@ namespace osu.Game.Rulesets.RP.Mods
     }
 
     /// <summary>
-    ///     Shape Coco，會把單手的 Mode 變成雙手的
-    ///     會參考預設譜面設定做調整
+    ///    make beatmap to co-op mode if this beatmap is converted from another mode.
     /// </summary>
     public class RpModShapeHitObjectCoco : Mod
     {

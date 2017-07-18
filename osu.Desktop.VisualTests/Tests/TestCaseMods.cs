@@ -27,10 +27,8 @@ namespace osu.Desktop.VisualTests.Tests
             this.rulesets = rulesets;
         }
 
-        protected override void LoadComplete()
+        public TestCaseMods()
         {
-            base.LoadComplete();
-
             Add(modSelect = new ModSelectOverlay
             {
                 RelativeSizeAxes = Axes.X,
@@ -50,8 +48,8 @@ namespace osu.Desktop.VisualTests.Tests
 
             AddStep("Toggle", modSelect.ToggleVisibility);
 
-            foreach (var ruleset in rulesets.AllRulesets)
-                AddStep(ruleset.CreateInstance().Description, () => modSelect.Ruleset.Value = ruleset);
+            //foreach (var ruleset in rulesets.AllRulesets)
+            //    AddStep(ruleset.CreateInstance().Description, () => modSelect.Ruleset.Value = ruleset);
         }
     }
 }

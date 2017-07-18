@@ -13,7 +13,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_HitObject
         public override string TestName => @"ContainerAddLayer";
 
 
-        public override void Reset()
+        public TestCaseContainerLineGroupUpdatePositionAndRotation()
         {
 
         }

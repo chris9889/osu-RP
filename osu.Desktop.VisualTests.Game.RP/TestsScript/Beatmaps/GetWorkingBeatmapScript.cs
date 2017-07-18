@@ -58,7 +58,7 @@ namespace osu.Desktop.VisualTests.TestsScript.Beatmaps
                         return getOsuFakeBeatmapScript.GetFakeBeatmap(rulesets.Query<RulesetInfo>().FirstOrDefault());
                     break;
 
-                case 5:
+                case 1111:
                     GetRpFakeBeatmapScript getRpFakeBeatmapScript = new GetRpFakeBeatmapScript();
                     return getRpFakeBeatmapScript.GetFakeBeatmap(rulesets.Query<RulesetInfo>().FirstOrDefault(info => info.ID==5));
                     break;

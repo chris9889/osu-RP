@@ -27,10 +27,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
         public override string TestName => @"KeyCounter";
 
 
-        public override void Reset()
+        public TestCaseKeyCounter()
         {
-            base.Reset();
-
             KeyCounterCollection kc = new KeyCounterCollection
             {
                 Origin = Anchor.Centre,

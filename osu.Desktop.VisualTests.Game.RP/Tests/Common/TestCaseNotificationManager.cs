@@ -24,10 +24,8 @@ namespace osu.Desktop.VisualTests.Tests.Common
 
         private NotificationManager manager;
 
-        public override void Reset()
+        public TestCaseNotificationManager()
         {
-            base.Reset();
-
             progressingNotifications.Clear();
 
             Content.Add(manager = new NotificationManager

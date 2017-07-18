@@ -1,9 +1,11 @@
-﻿using osu.Desktop.VisualTests.Tests;
+﻿using System;
+using osu.Desktop.VisualTests.Tests;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Input;
+using osu.Framework.Testing;
 using OpenTK;
 using OpenTK.Graphics;
 
@@ -14,7 +16,7 @@ namespace osu.Desktop.VisualTests.Tools
         private readonly Box box;
         private readonly Container text;
 
-        public readonly CategoryTestCase TestCase;
+        public readonly Type TestType;
 
         public bool Current
         {
@@ -35,17 +37,19 @@ namespace osu.Desktop.VisualTests.Tools
             }
         }
 
-        public TestCaseButton(CategoryTestCase test)
+        public TestCaseButton(Type test)
         {
             Masking = true;
 
-            TestCase = test;
+            TestType = test;
 
             CornerRadius = 5;
             RelativeSizeAxes = Axes.X;
             Size = new Vector2(1, 60);
 
-            Add(new Drawable[]
+            TestCase tempTestCase = (TestCase)Activator.CreateInstance(test);
+
+            AddRange(new Drawable[]
             {
                 box = new Box
                 {
@@ -68,13 +72,13 @@ namespace osu.Desktop.VisualTests.Tools
                         {
                             Anchor = Anchor.TopCentre,
                             Origin = Anchor.TopCentre,
-                            Text = TestCase.Name,
+                            Text = tempTestCase.Name,
                         },
                         new SpriteText
                         {
                             Anchor = Anchor.BottomLeft,
                             Origin = Anchor.BottomLeft,
-                            Text = TestCase.Description,
+                            Text = tempTestCase.Description,
                             TextSize = 15,
                             AutoSizeAxes = Axes.Y,
                             RelativeSizeAxes = Axes.X,

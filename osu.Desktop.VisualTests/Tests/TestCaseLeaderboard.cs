@@ -16,7 +16,7 @@ namespace osu.Desktop.VisualTests.Tests
     {
         public override string Description => @"From song select";
 
-        private readonly Leaderboard leaderboard;
+        private Leaderboard leaderboard;
 
         private void newScores()
         {

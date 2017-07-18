@@ -22,10 +22,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
         public override string TestName => @"Tab Control";
 
 
-        public override void Reset()
+        public TestCaseTabControl()
         {
-            base.Reset();
-
             OsuSpriteText text;
             OsuTabControl<GroupMode> filter;
             Add(filter = new OsuTabControl<GroupMode>

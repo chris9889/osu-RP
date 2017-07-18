@@ -18,10 +18,8 @@ namespace osu.Desktop.VisualTests.Tests.Select
 
         private BeatmapDetails details;
 
-        public override void Reset()
+        public TestCaseBeatmapDetails()
         {
-            base.Reset();
-
             Add(details = new BeatmapDetails
             {
                 RelativeSizeAxes = Axes.Both,

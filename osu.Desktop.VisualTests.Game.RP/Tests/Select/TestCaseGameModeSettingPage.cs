@@ -19,10 +19,8 @@ namespace osu.Desktop.VisualTests.Tests.Select
         public override string TestName => @"BeatmapOptionOverlay";
 
 
-        public override void Reset()
+        public TestCaseGameModeSettingPage()
         {
-            base.Reset();
-
             var overlay = new BeatmapOptionsOverlay();
 
             overlay.AddButton(@"Remove", @"from unplayed", FontAwesome.fa_times_circle_o, Color4.Purple, null, Key.Number1);

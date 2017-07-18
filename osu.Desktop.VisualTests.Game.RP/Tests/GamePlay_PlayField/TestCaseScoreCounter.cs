@@ -22,11 +22,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 
         public override string TestName => @"Score Counter";
 
-
-        public override void Reset()
+        public TestCaseScoreCounter()
         {
-            base.Reset();
-
             int numerator = 0, denominator = 0;
 
             ScoreCounter score = new ScoreCounter(7)
@@ -60,7 +57,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
                 Origin = Anchor.BottomLeft,
                 Anchor = Anchor.BottomLeft,
                 Position = new Vector2(20, -160),
-                Count = 5,
+                CountStars = 5,
             };
             Add(stars);
 
@@ -69,7 +66,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
                 Origin = Anchor.BottomLeft,
                 Anchor = Anchor.BottomLeft,
                 Position = new Vector2(20, -190),
-                Text = stars.Count.ToString("0.00"),
+                Text = stars.CountStars.ToString("0.00"),
             };
             Add(starsLabel);
 
@@ -79,8 +76,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
                 comboCounter.Current.Value = 0;
                 numerator = denominator = 0;
                 accuracyCounter.SetFraction(0, 0);
-                stars.Count = 0;
-                starsLabel.Text = stars.Count.ToString("0.00");
+                stars.CountStars = 0;
+                starsLabel.Text = stars.CountStars.ToString("0.00");
             });
 
             AddStep(@"Hit! :D", delegate
@@ -101,8 +98,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
 
             AddStep(@"Alter stars", delegate
             {
-                stars.Count = RNG.NextSingle() * (stars.StarCount + 1);
-                starsLabel.Text = stars.Count.ToString("0.00");
+                stars.CountStars = RNG.NextSingle() * (stars.StarCount + 1);
+                starsLabel.Text = stars.CountStars.ToString("0.00");
             });
 
             AddStep(@"Stop counters", delegate

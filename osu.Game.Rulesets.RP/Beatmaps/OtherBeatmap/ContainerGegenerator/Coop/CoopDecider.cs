@@ -20,7 +20,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
             foreach (var sligleContainer in single.ContainerConvertParameter.ListObjectContainer)
                 layoutNumber = layoutNumber + sligleContainer.ContainerLayerList.Count;
 
-            //Get how many number of the HitObject
+            //Get how many number of the RpHitObject
             var refCount = single.ListRefrenceObject.Count;
 
             //decide use coop or not

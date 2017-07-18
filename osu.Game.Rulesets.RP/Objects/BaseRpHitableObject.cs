@@ -2,7 +2,6 @@
 //Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
 using osu.Game.Audio;
-using osu.Game.Rulesets.Objects.Types;
 using osu.Game.Rulesets.RP.Objects.type;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 
@@ -11,7 +10,7 @@ namespace osu.Game.Rulesets.RP.Objects
     /// <summary>
     ///     all the hittable object will inherit it
     /// </summary>
-    public abstract class BaseRpHitableObject : BaseRpObject , IHasPosition
+    public abstract class BaseRpHitableObject : BaseRpObject
     {
         public override double EndTime => StartTime;
 

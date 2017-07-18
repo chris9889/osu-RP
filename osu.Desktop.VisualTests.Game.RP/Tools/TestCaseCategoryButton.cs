@@ -49,7 +49,7 @@ namespace osu.Desktop.VisualTests.Tools
             RelativeSizeAxes = Axes.X;
             Size = new Vector2(1, 60);
 
-            Add(new Drawable[]
+            AddRange(new Drawable[]
             {
                 box = new Box
                 {

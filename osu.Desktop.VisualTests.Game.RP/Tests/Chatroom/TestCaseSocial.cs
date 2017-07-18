@@ -17,10 +17,8 @@ namespace osu.Desktop.VisualTests.Tests.Chatroom
 
         public override string TestName => @"ChatDisplay";
 
-        public override void Reset()
+        public TestCaseSocial()
         {
-            base.Reset();
-
             SocialOverlay s = new SocialOverlay
             {
                 Users = new[]

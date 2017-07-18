@@ -23,7 +23,7 @@ namespace osu.Desktop.VisualTests.Tests.Select
 
         public override string TestName => @"Leader board";
 
-        private Leaderboard leaderboard;
+        private readonly Leaderboard leaderboard;
 
         private void newScores()
         {
@@ -214,10 +214,8 @@ namespace osu.Desktop.VisualTests.Tests.Select
             leaderboard.Scores = scores;
         }
 
-        public override void Reset()
+        public TestCaseLeaderboard()
         {
-            base.Reset();
-
             Add(leaderboard = new Leaderboard
             {
                 Origin = Anchor.Centre,

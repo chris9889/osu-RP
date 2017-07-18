@@ -5,16 +5,16 @@ namespace osu.Desktop.VisualTests.Tests
     /// <summary>
     /// inherit the TestCase and has more function
     /// </summary>
-    public class CategoryTestCase : TestCase
+    public abstract class CategoryTestCase : TestCase
     {
         //not sure if really need this
-        public virtual string Category => @"undefinde";
+        public abstract string Category { get; }//Category
 
         //TestCaseName
-        public virtual string TestName => @"Test001";
+        public abstract string TestName { get; }//test001
 
         //if you want to add this test or not
-        public virtual bool AddToTest => true;
+        public virtual bool AddToTest => true;// default this test is need to be test
 
         public CategoryTestCase()
         {

@@ -11,11 +11,11 @@ using osu.Framework.Timing;
 using osu.Game.Beatmaps;
 using osu.Game.Beatmaps.ControlPoints;
 using osu.Game.Database;
-using osu.Game.Rulesets.Catch.UI;
 using osu.Game.Rulesets.Mania.UI;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.Osu.Objects;
 using osu.Game.Rulesets.Osu.UI;
+using osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer;
 using osu.Game.Rulesets.Taiko.UI;
 using OpenTK;
 
@@ -41,9 +41,8 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
             this.rulesets = rulesets;
         }
 
-        public override void Reset()
+        protected override void LoadComplete()
         {
-            base.Reset();
 
             List<HitObject> objects = new List<HitObject>();
 
@@ -83,7 +82,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
                 ControlPointInfo = controlPointInfo
             });
 
-            Add(new Drawable[]
+            AddRange(new Drawable[]
             {
                 new Container
                 {
@@ -104,7 +103,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
                             Anchor = Anchor.TopRight,
                             Origin = Anchor.TopRight
                         },
-                        new CatchHitRenderer(beatmap, false)
+                        new RpHitRenderer(beatmap, false)
                         {
                             Scale = new Vector2(0.5f),
                             Anchor = Anchor.BottomLeft,
