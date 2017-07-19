@@ -64,7 +64,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
                 }
             })
             {
-                Beatmap = beatmap
+                InitialBeatmap = beatmap
             });
         }
     }

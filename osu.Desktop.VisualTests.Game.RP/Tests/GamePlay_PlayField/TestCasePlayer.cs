@@ -65,8 +65,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
             beatmap.BeatmapInfo.Ruleset = _rulesets.Query<RulesetInfo>().FirstOrDefault(info => info.ID == 1111);
             return new Player
             {
-                Beatmap = beatmap,
-                
+                InitialBeatmap = beatmap,
             };
         }
     }
