@@ -1,51 +1,76 @@
-﻿using System;
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
 using osu.Game.Rulesets.Objects.Types;
-using osu.Game.Rulesets.RP.Objects.type;
-using OpenTK.Graphics;
+using osu.Game.Rulesets.RP.Objects.Types;
 
 namespace osu.Game.Rulesets.RP.Objects
 {
     /// <summary>
     ///     裡面朁E��存所有該在上面皁E��件
     /// </summary>
-    public class RpContainerLine : BaseRpObject, IHasEndTime
+    public class RpContainerLine : BaseRpObject, IHasID, IHasEndTime, IHasParent<RpContainerLineGroup>, IHasLength, IHasCoop
     {
-        public override double EndTime { get; set; }
+        //ID
+        public int ID { get; set; }
 
-        /// <summary>
-        ///     用侁E��原本的Container裡面取得一些賁E��E
-        /// </summary>
-        public RpContainerLineGroup ObjectContainer;
+        //end time
+        public double EndTime { get; set; }
 
-        /// <summary>
-        ///     物件長度
-        /// </summary>
-        public float Lenght = 512;
+        //Duration
+        public double Duration => EndTime - StartTime;
 
-        //Fade Out time after PreemptTime
-        public override float FadeInTime => 300 * FadeSpeedMultiple;
+        //parent object
+        public RpContainerLineGroup ParentObject { get; set; }
 
-        //Fade Out time after EndTime 
-        public override float FadeOutTime => 300 * FadeSpeedMultiple;
+        //relative to parent object time
+        public double RelativeToParentStartTime { get; set; }
 
-        public RpBaseHitObjectType.Coop Coop = RpBaseHitObjectType.Coop.Both;
-
-        public RpContainerLine(RpContainerLineGroup objectContainer)
+        //StartTime = RelativeToParentStartTime + ParentObject.StartTime
+        public override double StartTime //{ get; set; }
         {
-            UpdateContainerLayout(objectContainer);
-
-            InitialDefaultValue();
+            get
+            {
+                if (ParentObject == null)
+                    return RelativeToParentStartTime;
+                return ParentObject.StartTime + RelativeToParentStartTime;
+            }
+            set
+            {
+                if (ParentObject == null)
+                {
+                    RelativeToParentStartTime = value;
+                }
+                else
+                {
+                    RelativeToParentStartTime = value - ParentObject.StartTime;
+                }
+            }
         }
 
-        /// <summary>
-        ///     初始化物件叁E��
-        /// </summary>
-        public override void InitialDefaultValue()
+        //Lenght
+        public float Lenght { get; set; }
+
+        //Co-op 
+        public RpBaseHitObjectType.Coop Coop { get; set; }
+
+        //constructure
+        public RpContainerLine(RpContainerLineGroup objectContainer, double startTime)
+            : base(startTime)
         {
-            //提早多乁E�E現�E�通常是延征E-皁E
-            PreemptTime = 0;
-            //顏色
-            Colour = new Color4(100, 100, 100, 255);
+            UpdateContainerLayout(objectContainer);
+        }
+
+        //constructure
+        public RpContainerLine(RpContainerLineGroup objectContainer)
+            : base(objectContainer.StartTime)
+        {
+            UpdateContainerLayout(objectContainer);
+        }
+
+        protected override void InitialDefaultValue()
+        {
+            base.InitialDefaultValue();
         }
 
         /// <summary>
@@ -54,12 +79,15 @@ namespace osu.Game.Rulesets.RP.Objects
         /// <param name="objectContainer"></param>
         public void UpdateContainerLayout(RpContainerLineGroup objectContainer)
         {
-            ObjectContainer = objectContainer;
-            StartTime = 0;//ObjectContainer.StartTime;
-            Velocity = ObjectContainer.Velocity;
-            EndTime = ObjectContainer.EndTime - ObjectContainer.StartTime;
-            Lenght = ObjectContainer.Lenght;
+            ParentObject = objectContainer;
             PreemptTime = objectContainer.PreemptTime;
+            //Need to readd in here
+            StartTime = ParentObject.StartTime;
+            Velocity = ParentObject.Velocity;
+            EndTime = ParentObject.EndTime;
+            Lenght = ParentObject.Lenght;
+            //
+            Coop = RpBaseHitObjectType.Coop.Both;
         }
     }
 }

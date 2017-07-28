@@ -1,3 +1,6 @@
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
 using System;
 using System.Collections.Generic;
 using osu.Game.Beatmaps;
@@ -20,7 +23,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap
         //???E?E??E?
         private readonly SliceProcessor sliceProcessor = new SliceProcessor();
 
-        //??????Container
+        //??????ContainerGroup
         private readonly ContainerProcessor containerProcessor = new ContainerProcessor();
 
         //??????????????????
@@ -30,7 +33,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap
         private readonly PostConvertor postConvertor = new PostConvertor();
 
 
-        protected override IEnumerable<Type> ValidConversionTypes { get; } = new[] { typeof(IHasPosition)};
+        protected override IEnumerable<Type> ValidConversionTypes { get; } = new[] { typeof(IHasPosition) };
 
         /// <summary>
         /// this method does not in use
@@ -79,7 +82,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap
                 };
             }
            */
-         
+
             yield return (BaseRpObject)original;
         }
 

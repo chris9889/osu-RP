@@ -1,11 +1,11 @@
-﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
-//Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using osu.Framework.MathUtils;
-using osu.Game.Rulesets.RP.Objects.type;
+using osu.Game.Rulesets.RP.Objects.Types;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.Objects.MovingPath
@@ -68,7 +68,7 @@ namespace osu.Game.Rulesets.RP.Objects.MovingPath
         /// <summary>
         ///     自動產生出結束的座標
         /// </summary>
-        public void AntoGenerateEndPosition(Vector2 Direction)
+        public void AntoGenerateEndPosition(Vector2 direction)
         {
             //如果只有一個物件
             if (ControlPoints.Count == 1)
@@ -77,13 +77,13 @@ namespace osu.Game.Rulesets.RP.Objects.MovingPath
                 var _canvasHeight = 384 * 2;
                 //需要加上這個確保物件在外面
                 var _multiple = 1.5f;
-                if (Direction == new Vector2(-1, 0)) //左
+                if (direction == new Vector2(-1, 0)) //左
                     EndPosition = new Vector2(StartPosition.X + _canvasWidth * _multiple, StartPosition.Y + 40);
-                else if (Direction == new Vector2(1, 0)) //右
+                else if (direction == new Vector2(1, 0)) //右
                     EndPosition = new Vector2(StartPosition.X - _canvasWidth * _multiple, StartPosition.Y - 40);
-                else if (Direction == new Vector2(0, -1)) //上
+                else if (direction == new Vector2(0, -1)) //上
                     EndPosition = new Vector2(StartPosition.X - 40, StartPosition.Y + _canvasHeight * _multiple);
-                else if (Direction == new Vector2(0, 1)) //下
+                else if (direction == new Vector2(0, 1)) //下
                     EndPosition = new Vector2(StartPosition.X - 40, StartPosition.Y - _canvasHeight * _multiple);
             }
         }

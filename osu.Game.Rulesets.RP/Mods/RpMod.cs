@@ -1,5 +1,5 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
-// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System;
 using System.Linq;
@@ -125,7 +125,7 @@ namespace osu.Game.Rulesets.RP.Mods
                 pitchAdjust.PitchAdjust = 1.5;
             else
                 base.ApplyToClock(clock);
-            clock.Rate = 1.3/1.5;
+            clock.Rate = 1.3 / 1.5;
         }
     }
 
@@ -177,7 +177,7 @@ namespace osu.Game.Rulesets.RP.Mods
     }
 
     /// <summary>
-    ///     Container Press Coco，會把單手的 Mode 變成雙手的
+    ///     ContainerGroup Press Coco，會把單手的 Mode 變成雙手的
     ///     會參考譜面設定做調整
     /// </summary>
     public class RpModContainerHitObjectCoco : Mod

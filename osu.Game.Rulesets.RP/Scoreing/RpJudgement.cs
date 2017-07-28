@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 using osu.Game.Rulesets.Judgements;
-using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
+using osu.Game.Rulesets.RP.Objects.Drawables.Play;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.Scoreing

@@ -12,7 +12,8 @@ namespace osu.Game.Rulesets.RP.BeatmapReplay
     /// </summary>
     public class RpReplayInputHandler : FramedReplayInputHandler
     {
-        public RpReplayInputHandler(Rulesets.Replays.Replay replay) : base(replay)
+        public RpReplayInputHandler(Replay replay)
+            : base(replay)
         {
         }
 

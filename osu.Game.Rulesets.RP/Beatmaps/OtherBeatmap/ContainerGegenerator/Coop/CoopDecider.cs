@@ -1,7 +1,10 @@
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
 using System.Collections.Generic;
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Rulesets.RP.Objects;
-using osu.Game.Rulesets.RP.Objects.type;
+using osu.Game.Rulesets.RP.Objects.Types;
 
 namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
 {
@@ -18,7 +21,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
             var layoutNumber = 0;
             //Get the number of layoutNumber;
             foreach (var sligleContainer in single.ContainerConvertParameter.ListObjectContainer)
-                layoutNumber = layoutNumber + sligleContainer.ContainerLayerList.Count;
+                layoutNumber = layoutNumber + sligleContainer.ListContainObject.Count;
 
             //Get how many number of the RpHitObject
             var refCount = single.ListRefrenceObject.Count;
@@ -36,7 +39,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
         private void GenerateNonCoop(ConvertParameter single)
         {
             foreach (var sligleContainer in single.ContainerConvertParameter.ListObjectContainer)
-            foreach (var layout in sligleContainer.ContainerLayerList)
+            foreach (var layout in sligleContainer.ListContainObject)
                 layout.Coop = RpBaseHitObjectType.Coop.Both;
         }
 
@@ -47,7 +50,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
         {
             var listLayout = new List<RpContainerLine>();
             foreach (var sligleContainer in single.ContainerConvertParameter.ListObjectContainer)
-                listLayout.AddRange(sligleContainer.ContainerLayerList);
+                listLayout.AddRange(sligleContainer.ListContainObject);
 
             var additionRandomValue = GetRandomValue(single);
             for (var i = 0; i < listLayout.Count; i++)

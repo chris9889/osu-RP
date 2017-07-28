@@ -1,4 +1,7 @@
-﻿using osu.Framework.Allocation;
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
+using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
@@ -16,10 +19,13 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.KeyCounter
     internal class RpKeyCounterKeyboard : KeyCounterKeyboard
     {
         private readonly SingleKeyLayout _layout;
+
         //
         private readonly RpKeyLayoutConfig.SingleKey _singlekey;
+
         //顯示按鈕
         private Sprite _buttonIconSprite;
+
         //顯示按鍵名稱
         private SpriteText _textSprite;
 

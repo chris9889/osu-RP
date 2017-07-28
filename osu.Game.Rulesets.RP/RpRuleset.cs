@@ -1,5 +1,5 @@
-﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
-//Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System.Collections.Generic;
 using osu.Game.Beatmaps;
@@ -12,6 +12,7 @@ using osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer;
 using osu.Game.Rulesets.RP.UI.GamePlay.KeyCounter;
 using osu.Game.Rulesets.RP.UI.Select.Info;
 using osu.Game.Rulesets.RP.UI.Select.RpMod;
+using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.UI;
 using osu.Game.Screens.Play;
 
@@ -27,7 +28,7 @@ namespace osu.Game.Rulesets.RP
         /// <summary>
         ///     what the icon does osu!RP use
         /// </summary>
-        public override FontAwesome Icon => FontAwesome.fa_align_justify;
+        public override FontAwesome Icon => FontAwesome.fa_question_circle;
 
         /// <summary>
         ///     Description
@@ -39,13 +40,12 @@ namespace osu.Game.Rulesets.RP
         ///     PlayMode
         /// </summary>
         //protected override PlayMode PlayMode => PlayMode.RP;
-
         /// <summary>
         ///     RP Object will be convert to Deawable Object
         /// </summary>
         /// <param name="objects"></param>
         /// <returns></returns>
-        public override HitRenderer CreateHitRendererWith(WorkingBeatmap beatmap, bool isForCurrentRuleset) => new RpHitRenderer(beatmap,isForCurrentRuleset);
+        public override HitRenderer CreateHitRendererWith(WorkingBeatmap beatmap, bool isForCurrentRuleset) => new RpHitRenderer(beatmap, isForCurrentRuleset);
 
         /// <summary>
         ///     beatmap的詳細資訊
@@ -72,7 +72,7 @@ namespace osu.Game.Rulesets.RP
         ///     Score processor
         /// </summary>
         /// <returns></returns>
-        public override osu.Game.Rulesets.Scoring.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor();
+        public override ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor();
 
         /// <summary>
         ///     get the keys that currently use
@@ -83,6 +83,6 @@ namespace osu.Game.Rulesets.RP
         /// <summary>
         /// Do not override this unless you are a legacy mode.
         /// </summary>
-        public override int LegacyID => 1111;
+        public override int LegacyID => 0;
     }
 }

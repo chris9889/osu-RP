@@ -3,7 +3,7 @@
 
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.Parameter;
-using osu.Game.Rulesets.RP.Objects.type;
+using osu.Game.Rulesets.RP.Objects.Types;
 
 namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
 {

@@ -1,7 +1,7 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
-using osu.Game.Rulesets.RP.Objects.type;
+using osu.Game.Rulesets.RP.Objects.Types;
 using OpenTK.Graphics;
 
 namespace osu.Game.Rulesets.RP.SkinManager
@@ -28,7 +28,7 @@ namespace osu.Game.Rulesets.RP.SkinManager
                     return new Color4(200, 200, 200, 255);
                 case RpBaseHitObjectType.Shape.Up:
                     return new Color4(200, 200, 200, 255);
-                case RpBaseHitObjectType.Shape.ContainerPress:
+                case RpBaseHitObjectType.Shape.ContainerHold:
                     return new Color4(200, 200, 200, 255);
             }
             return new Color4(255, 255, 255, 255);
@@ -58,11 +58,11 @@ namespace osu.Game.Rulesets.RP.SkinManager
         {
             switch (coop)
             {
-                case RpBaseHitObjectType.Coop.Both://Both
+                case RpBaseHitObjectType.Coop.Both: //Both
                     return new Color4(226, 190, 122, 255);
-                case RpBaseHitObjectType.Coop.LeftOnly://Left : blue
+                case RpBaseHitObjectType.Coop.LeftOnly: //Left : blue
                     return new Color4(70, 192, 206, 255);
-                case RpBaseHitObjectType.Coop.RightOnly://Right : purple
+                case RpBaseHitObjectType.Coop.RightOnly: //Right : purple
                     return new Color4(224, 80, 178, 255);
             }
             return new Color4(255, 255, 255, 255);
@@ -76,11 +76,11 @@ namespace osu.Game.Rulesets.RP.SkinManager
         {
             switch (coop)
             {
-                case RpBaseHitObjectType.Coop.Both://Both
+                case RpBaseHitObjectType.Coop.Both: //Both
                     return new Color4(100, 100, 100, 255);
-                case RpBaseHitObjectType.Coop.LeftOnly://Left : blue
+                case RpBaseHitObjectType.Coop.LeftOnly: //Left : blue
                     return new Color4(70, 192, 206, 255);
-                case RpBaseHitObjectType.Coop.RightOnly://Right : purple
+                case RpBaseHitObjectType.Coop.RightOnly: //Right : purple
                     return new Color4(224, 80, 178, 255);
             }
             return new Color4(255, 255, 255, 255);

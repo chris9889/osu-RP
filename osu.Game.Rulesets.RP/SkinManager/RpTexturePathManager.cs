@@ -1,6 +1,9 @@
-﻿using osu.Game.Rulesets.RP.Objects;
-using osu.Game.Rulesets.RP.Objects.type;
-using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
+using osu.Game.Rulesets.RP.Objects;
+using osu.Game.Rulesets.RP.Objects.Drawables.Play;
+using osu.Game.Rulesets.RP.Objects.Types;
 using OpenTK.Graphics;
 
 namespace osu.Game.Rulesets.RP.SkinManager
@@ -185,10 +188,10 @@ namespace osu.Game.Rulesets.RP.SkinManager
                 fileName = @"Special/" + fileName;
 
             //不同落下模式
-            if (baseHitObject.ApproachType == RpBaseHitObjectType.ApproachType.ApproachCircle)
-                fileName = @"Circle/" + fileName;
-            else
-                fileName = @"Square/" + fileName;
+            //if (baseHitObject.ApproachType == RpBaseHitObjectType.ApproachType.ApproachCircle)
+            fileName = @"Circle/" + fileName;
+            //else
+            //    fileName = @"Square/" + fileName;
 
             return RP_OBJECT_FOLDER + fileName;
         }

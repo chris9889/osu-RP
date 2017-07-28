@@ -1,82 +1,84 @@
-﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
-//Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Game.Audio;
-using osu.Game.Rulesets.RP.Objects.type;
-using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
+using osu.Game.Rulesets.RP.Objects.Drawables.Play;
+using osu.Game.Rulesets.RP.Objects.Types;
 
 namespace osu.Game.Rulesets.RP.Objects
 {
     /// <summary>
     ///     all the hittable object will inherit it
     /// </summary>
-    public abstract class BaseRpHitableObject : BaseRpObject
+    public abstract class BaseRpHitableObject : BaseRpObject, IHasParent<RpContainerLine>, IHasCoop
     {
-        public override double EndTime => StartTime;
+        //parent object
+        public RpContainerLine ParentObject { get; set; }
 
-        public override double Duration => EndTime - StartTime;
+        //relative to parent object time
+        public double RelativeToParentStartTime { get; set; }
 
-        public float X => Position.X;
+        //StartTime = RelativeToParentStartTime + ParentObject.StartTime
+        public override double StartTime //{ get; set; }
+        {
+            get
+            {
+                if (ParentObject == null)
+                    return RelativeToParentStartTime;
+                return ParentObject.StartTime + RelativeToParentStartTime;
+            }
+            set
+            {
+                if (ParentObject == null)
+                {
+                    RelativeToParentStartTime = value;
+                }
+                else
+                {
+                    RelativeToParentStartTime = value - ParentObject.StartTime;
+                }
+            }
+        }
 
-        public float Y => Position.Y;
+        //Hit50
+        public double Hit50 = 200;
 
-        //Judge the point
-        public double hit50 = 200;
-        public double hit100 = 180;
-        public double hit300 = 160;
+        //Hit100
+        public double Hit100 = 180;
 
-        /// <summary>
-        ///     the index of container ,will mapping on  HitRanderer
-        /// </summary>
-        public int ContainerIndex = 0;
+        //Hit300
+        public double Hit300 = 160;
 
-        /// <summary>
-        ///     the layout fo the index ,will mapping on  HitRanderer
-        /// </summary>
-        public int LayoutIndex = 0;
+        //the index of container, will mapping on  HitRanderer
+        public int RelativeContainerLineGroupIndex => ParentObject.ParentObject.ID;
 
-        /// <summary>
-        ///     if mult ,set the draw line priority
-        /// </summary>
-        public int DrawLinePriority = 0;
+        //the layout fo the index ,will mapping on HitRanderer
+        public int RelativeContainerLineIndex => ParentObject.ID;
 
-        /// <summary>
-        ///     set the shape type
-        /// </summary>
+        //set the shape type
         public RpBaseHitObjectType.Shape Shape = RpBaseHitObjectType.Shape.Right;
 
-        /// <summary>
-        ///     normal or special
-        /// </summary>
+        //normal or special
         public RpBaseObjectType.Special Special = RpBaseObjectType.Special.Normal;
 
-        /// <summary>
-        ///     if converted for osu!beatmap,set to auto
-        /// </summary>
+        //if converted for osu!beatmap,set to auto
         public RpBaseObjectType.CurveGenerate CurveGenerate = RpBaseObjectType.CurveGenerate.Auto;
 
-        /// <summary>
-        ///     sligle or multi
-        /// </summary>
+        //sligle or multi
         public RpBaseHitObjectType.Multi Multi = RpBaseHitObjectType.Multi.SingleClick;
 
-        /// <summary>
-        ///     co-op or not
-        /// </summary>
-        public RpBaseHitObjectType.Coop Coop = RpBaseHitObjectType.Coop.Both;
+        //co-op or not
+        public RpBaseHitObjectType.Coop Coop => ParentObject.Coop;
 
-        /// <summary>
-        ///     if converted for osu!beatmap,set to Convert
-        /// </summary>
+        //if converted for osu!beatmap,set to Convert
         public RpBaseObjectType.Convert Convert = RpBaseObjectType.Convert.Original;
 
-        /// <summary>
-        ///     用不同落下方式當判定點
-        /// </summary>
-        public RpBaseHitObjectType.ApproachType ApproachType = RpBaseHitObjectType.ApproachType.ApproachCircle;
-
-        public BaseRpHitableObject()
+        public BaseRpHitableObject(RpContainerLine parent, double startTime)
+            : base(startTime)
         {
+            ParentObject = parent;
+            //Need to readd in here
+            StartTime = startTime;
             Samples.Add(
                 new SampleInfo
                 {
@@ -84,6 +86,11 @@ namespace osu.Game.Rulesets.RP.Objects
                     Name = "soft"
                 }
             );
+        }
+
+        protected override void InitialDefaultValue()
+        {
+            base.InitialDefaultValue();
         }
 
         /// <summary>
@@ -115,14 +122,6 @@ namespace osu.Game.Rulesets.RP.Objects
             if (offset < HitWindowFor(RpScoreResult.Safe))
                 return RpScoreResult.Safe;
             return RpScoreResult.Sad;
-        }
-
-        /// <summary>
-        ///     初始化預設物件
-        /// </summary>
-        public override void InitialDefaultValue()
-        {
-            ObjectType = RpBaseObjectType.ObjectType.HitObject;
         }
     }
 }

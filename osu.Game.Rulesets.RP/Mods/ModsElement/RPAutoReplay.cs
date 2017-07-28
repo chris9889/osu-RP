@@ -1,11 +1,12 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
-// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using osu.Framework.Graphics;
 using osu.Game.Beatmaps;
+using osu.Game.Rulesets.Objects.Types;
 using osu.Game.Rulesets.Replays;
 using osu.Game.Rulesets.RP.BeatmapReplay;
 using osu.Game.Rulesets.RP.KeyManager;
@@ -18,7 +19,7 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
     /// <summary>
     ///     這邊要把滑鼠的X軸當作按鍵使用
     /// </summary>
-    public class RpAutoReplay : osu.Game.Rulesets.Replays.Replay
+    public class RpAutoReplay : Replay
     {
         public bool DelayedMovements; // ModManager.CheckActive(Mods.Relax2);
 
@@ -43,8 +44,16 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
         public IEnumerable<BaseRpHitableObject> GetListPressHitObjectByTime(List<BaseRpHitableObject> listHitObjects, double time)
         {
             foreach (var container in listHitObjects)
-                if (container.StartTime <= time && container.EndTime >= time)
+            {
+                int offset = 10;
+                if (container is IHasEndTime)
+                {
+                    if (container.StartTime <= time && ((IHasEndTime)container).EndTime >= time)
+                        yield return container;
+                }
+                else if (container.StartTime == time)
                     yield return container;
+            }
         }
 
         private static Vector2 circlePosition(double t, double radius) => new Vector2((float)(Math.Cos(t) * radius), (float)(Math.Sin(t) * radius));
@@ -71,7 +80,7 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
         {
             var buttonIndex = 0;
 
-            var preferredEasing = DelayedMovements ? EasingTypes.InOutCubic : EasingTypes.Out;
+            var preferredEasing = DelayedMovements ? Easing.InOutCubic : Easing.Out;
 
             addFrameToReplay(new RpReplayFrame(-100000, Key.Unknown, 500, ReplayButtonState.None));
             addFrameToReplay(new RpReplayFrame(beatmap.HitObjects[0].StartTime - 1500, Key.Unknown, 500, ReplayButtonState.None));
@@ -106,13 +115,13 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
                 {
                     //add start and endPoint
                     listPointTime.Add(h.StartTime);
-                    listPointTime.Add(h.EndTime + h.hit300);
+                    listPointTime.Add(h.StartTime + h.Hit300);
                 }
                 else if (h is RpHoldObject)
                 {
                     //add start and endPoint
                     listPointTime.Add(h.StartTime);
-                    listPointTime.Add(h.EndTime + h.hit300);
+                    listPointTime.Add(h.StartTime + h.Hit300);
                 }
             }
 
@@ -125,8 +134,19 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
                 var listOnPointTimeHitObject = GetListPressHitObjectByTime(listHitObjects, time).ToList();
                 var listPressKey = new List<Key>();
                 foreach (var single in listOnPointTimeHitObject)
-                    if (time <= single.EndTime)
-                        listPressKey.Add(getKeyByHitObject(single));
+                {
+                    if (single is IHasEndTime)
+                    {
+                        if (time <= (single as IHasEndTime).EndTime)
+                            listPressKey.Add(getKeyByHitObject(single));
+                    }
+                    else
+                    {
+                        if (time <= single.StartTime)
+                            listPressKey.Add(getKeyByHitObject(single));
+                    }
+                }
+
                 addFrameToReplay(new RpReplayFrame(time, listPressKey, 0, ReplayButtonState.None));
             }
 
@@ -152,8 +172,5 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
                 return f1.Time.CompareTo(f2.Time);
             }
         }
-
-
-        //public override ReplayInputHandler CreateInputHandler() => new RpLegacyReplayInputHandler(Frames);
     }
 }

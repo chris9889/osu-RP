@@ -1,11 +1,8 @@
-﻿//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
-//Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
-using System.Collections.Generic;
-using osu.Framework.Configuration;
 using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Beatmaps;
-using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Replays;
 using osu.Game.Rulesets.RP.BeatmapReplay;
@@ -13,9 +10,10 @@ using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap;
 using osu.Game.Rulesets.RP.Beatmaps.RPBeatmap;
 using osu.Game.Rulesets.RP.KeyManager;
 using osu.Game.Rulesets.RP.Objects;
+using osu.Game.Rulesets.RP.Objects.Drawables.Play;
 using osu.Game.Rulesets.RP.Scoreing;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield;
-using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
+using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.UI;
 using osu.Game.Screens.Play;
 
@@ -25,7 +23,8 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
     {
         private readonly ModsProcessor.ModsProcessor _modProcessor;
 
-        public RpHitRenderer(WorkingBeatmap beatmap, bool isForCurrentRuleset): base(beatmap,isForCurrentRuleset)
+        public RpHitRenderer(WorkingBeatmap beatmap, bool isForCurrentRuleset)
+            : base(beatmap, isForCurrentRuleset)
         {
             _modProcessor = new ModsProcessor.ModsProcessor(beatmap.Mods.Value);
             _modProcessor.ProcessGameField(Playfield);
@@ -35,7 +34,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         /// Creates the score _modProcessor.
         /// </summary>
         /// <returns>The score _modProcessor.</returns>
-        public override osu.Game.Rulesets.Scoring.ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor(this);
+        public override ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor(this);
 
 
         /// <summary>
@@ -55,7 +54,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         /// </summary>
         /// <param name="replay"></param>
         /// <returns></returns>
-        protected override FramedReplayInputHandler CreateReplayInputHandler(Replay replay) => new RpReplayInputHandler(replay);
+        //protected override FramedReplayInputHandler CreateReplayInputHandler(Replay replay) => new RpReplayInputHandler(replay);
 
         /// <summary>
         ///     Create the play field
@@ -77,20 +76,22 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         protected override DrawableHitObject<BaseRpObject, RpJudgement> GetVisualRepresentation(BaseRpObject h)
         {
             DrawableHitObject<BaseRpObject, RpJudgement> returnObject = null;
-            
+
+            //return null;
+
             if (h is RpHitObject)
-                returnObject= new DrawableRpHitObject((RpHitObject)h);
+               return new DrawableRpHitObject((RpHitObject)h);
             if (h is RpHoldObject)
-                returnObject= new DrawableRpHoldObject((RpHoldObject)h);
+                return new DrawableRpHoldObject((RpHoldObject)h);
             if (h is RpContainerLineHoldObject)
-                returnObject= new DrawableRpContainerLineHoldObject((RpContainerLineHoldObject)h);
+                return new DrawableRpContainerLineHoldObject((RpContainerLineHoldObject)h);
             if (h is RpContainerLineGroup)
-                returnObject= new DrawableRpContainerLineGroup((RpContainerLineGroup)h);
+                return new DrawableRpContainerLineGroup((RpContainerLineGroup)h);
 
             //adding Mods
-            _modProcessor.ProcessHitObject(returnObject);
+            //_modProcessor.ProcessHitObject(returnObject);
 
-            return returnObject;
+            return null;
         }
     }
 }

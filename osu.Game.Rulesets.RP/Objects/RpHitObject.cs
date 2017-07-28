@@ -1,19 +1,25 @@
-//Copyright (c) 2007-2016 ppy Pty Ltd <contact@ppy.sh>.
-//Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
+// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
-using osu.Game.Rulesets.RP.Objects.type;
+using osu.Game.Rulesets.RP.Objects.Types;
 
 namespace osu.Game.Rulesets.RP.Objects
 {
     public class RpHitObject : BaseRpHitableObject
     {
-        /// <summary>
-        ///     èâénâªóaê›ï®åè
-        /// </summary>
-        public override void InitialDefaultValue()
+        //ObjectType
+        public override RpBaseObjectType.ObjectType ObjectType => RpBaseObjectType.ObjectType.Hit;
+
+        //constructure
+        public RpHitObject(RpContainerLine parent, double startTime)
+            : base(parent, startTime)
+        {
+        }
+
+        //InitialDefaultValue
+        protected override void InitialDefaultValue()
         {
             base.InitialDefaultValue();
-            ObjectType = RpBaseObjectType.ObjectType.Click;
         }
     }
 }
