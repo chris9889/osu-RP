@@ -30,14 +30,6 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Genera
         {
             var rpHitObject = new RpHitObject(single.ContainerConvertParameter.ListObjectContainer[0].ListContainObject[0], singleHitObject.StartTime);
             //fake sample
-            rpHitObject.Samples.Clear();
-            rpHitObject.Samples.Add(
-                new SampleInfo
-                {
-                    Bank = "whistle",
-                    Name = "soft"
-                }
-            );
             return rpHitObject;
         }
     }

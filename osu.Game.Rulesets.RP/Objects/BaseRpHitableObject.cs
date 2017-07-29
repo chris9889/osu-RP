@@ -82,8 +82,8 @@ namespace osu.Game.Rulesets.RP.Objects
             Samples.Add(
                 new SampleInfo
                 {
-                    Bank = "whistle",
-                    Name = "soft"
+                    Bank = "soft",
+                    Name = "hitwhistle"
                 }
             );
         }

@@ -4,12 +4,10 @@
 using System;
 using System.ComponentModel;
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Shapes;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play.Common;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject;
 using osu.Game.Rulesets.RP.Scoreing;
-using OpenTK;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 {
@@ -22,6 +20,12 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             get { return (BaseRpHitableObject)base.HitObject; }
         }
 
+        public new BaseRpHitableObjectTemplate Template
+        {
+            get { return (BaseRpHitableObjectTemplate)base.Template; }
+            set { base.Template = value; }
+        }
+
         //press detector
         protected PressDetecor RpPressDetecor;
 
@@ -32,6 +36,11 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             //載�E判斷黁E
             //if (Judgement == null)
             //    Judgement = CreateJudgement();
+        }
+
+        protected override void ConstructObject()
+        {
+            
         }
 
         protected override void InitialChildObject()

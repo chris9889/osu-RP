@@ -5,7 +5,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject
 {
     public class EditableRpContainerLineHoldObjectTemplate : RpContainerLineHoldObjectTemplate
     {
-        public EditableRpContainerLineHoldObjectTemplate(BaseRpObject rpObject)
+        public EditableRpContainerLineHoldObjectTemplate(RpContainerLineHoldObject rpObject)
             : base(rpObject)
         {
         }

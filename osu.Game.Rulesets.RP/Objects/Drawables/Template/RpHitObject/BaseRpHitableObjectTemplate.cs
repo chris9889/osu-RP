@@ -24,7 +24,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject
         /// <summary>
         /// </summary>
         /// <param name="rpObjectt"></param>
-        protected BaseRpHitableObjectTemplate(BaseRpObject rpObject)
+        protected BaseRpHitableObjectTemplate(BaseRpHitableObject rpObject)
             : base(rpObject)
         {
         }

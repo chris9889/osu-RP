@@ -39,34 +39,12 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 
         protected override void ConstructObject()
         {
-            
             Template = new RpHitObjectTemplate(HitObject)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1
             };
             
-        }
-
-        protected override void InitialChildObject()
-        {
-            //
-            Children = new Drawable[]
-            {
-                new Container()
-                {
-                    Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
-                    AutoSizeAxes = Axes.Both,
-                    Children = new Drawable[]
-                    {
-                        new Box
-                        {
-                            RelativeSizeAxes = Axes.Both
-                        }
-                    }
-                }
-            };
         }
 
         /// <summary>

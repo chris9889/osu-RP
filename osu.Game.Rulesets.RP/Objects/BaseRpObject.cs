@@ -41,6 +41,7 @@ namespace osu.Game.Rulesets.RP.Objects
         protected virtual void InitialDefaultValue()
         {
             Velocity = 1;
+            BPM = 180;
         }
     }
 }

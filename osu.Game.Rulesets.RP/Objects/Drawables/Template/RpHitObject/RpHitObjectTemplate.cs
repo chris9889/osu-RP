@@ -35,18 +35,5 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject
             Components.Add(ApproachPicec);
             Components.Add(StillPicec);
         }
-
-        //adding all component into template
-        protected override void InitialChild()
-        {
-            Children = Components.ToArray();
-
-            //Children = new Drawable[]
-            //{
-            //    LoadEffect,
-            //    ApproachPicec,
-            //    StillPicec
-            //};
-        }
     }
 }

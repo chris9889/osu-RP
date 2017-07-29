@@ -133,10 +133,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
 
             //IDrawableHitObjectWithProxiedApproach c = hitObject as IDrawableHitObjectWithProxiedApproach;
 
+
             if (hitObject is DrawableBaseRpHitableObject)
             {
                 int a = 0;
             }
+
 
             base.Add(hitObject);
 
