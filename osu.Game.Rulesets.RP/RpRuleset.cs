@@ -2,6 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System.Collections.Generic;
+using osu.Framework.Graphics;
 using osu.Game.Beatmaps;
 using osu.Game.Graphics;
 using osu.Game.Rulesets.Mods;
@@ -28,7 +29,7 @@ namespace osu.Game.Rulesets.RP
         /// <summary>
         ///     what the icon does osu!RP use
         /// </summary>
-        public override FontAwesome Icon => FontAwesome.fa_question_circle;
+        public override Drawable CreateIcon() => new SpriteIcon { Icon = FontAwesome.fa_question_circle };
 
         /// <summary>
         ///     Description
