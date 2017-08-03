@@ -45,7 +45,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         {
             if (!userTriggered)
             {
-                if (Judgement.TimeOffset > HitObject.Hit50)
+                if (Judgement.TimeOffset > HitObject.HitWindowFor(RpScoreResult.Safe))
                     Judgement.Result = HitResult.Miss;
                 return;
             }
@@ -55,16 +55,16 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             var rpJudgement = Judgement;
             rpJudgement.HitExplosionPosition.Add(Position);
 
-            if (hitOffset < HitObject.Hit50)
+            if (hitOffset < HitObject.HitWindowFor(RpScoreResult.Safe))
             {
                 Judgement.Result = HitResult.Hit;
 
 
-                if (hitOffset < HitObject.Hit300)
+                if (hitOffset < HitObject.HitWindowFor(RpScoreResult.Cool))
                     rpJudgement.Score = RpScoreResult.Cool;
-                else if (hitOffset < HitObject.Hit100)
+                else if (hitOffset < HitObject.HitWindowFor(RpScoreResult.Fine))
                     rpJudgement.Score = RpScoreResult.Fine;
-                else if (hitOffset < HitObject.Hit50)
+                else if (hitOffset < HitObject.HitWindowFor(RpScoreResult.Safe))
                     rpJudgement.Score = RpScoreResult.Safe;
             }
             else

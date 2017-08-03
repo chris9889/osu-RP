@@ -6,6 +6,7 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Game.Rulesets.Objects.Drawables;
+using osu.Game.Rulesets.Objects.Types;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject;
 using OpenTK;
 
@@ -75,42 +76,34 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         ///     結果，有打到或是miss
         /// </summary>
         /// <param name="state"></param>
-        protected override void UpdateState(ArmedState state)
+        protected override void UpdateCurrentState(ArmedState state)
         {
-            if (!IsLoaded) return;
+            double duration = ((HitObject as IHasEndTime)?.EndTime ?? HitObject.StartTime) - HitObject.StartTime;
 
-            base.UpdateState(state);
+            using (Template.BeginDelayedSequence(duration))
+                Template.FadeOut(400);
 
             //glow.FadeOut(400);
 
             switch (state)
             {
                 case ArmedState.Idle:
-                    // Delay(((DrawableBaseRpObject)this).HitObject.Duration + PreemptTime);
-                    this.Delay(PreemptTime);
-                    this.FadeOut(FadeOutTime);
+                    using (BeginDelayedSequence(duration + PreemptTime))
+                        this.FadeOut(PreemptTime);
+                    Expire(true);
                     break;
                 case ArmedState.Miss:
                     this.FadeOut(FadeOutTime / 5);
                     break;
                 case ArmedState.Hit:
+
                     const double flash_in = 40;
 
-                    //flash.FadeTo(0.8f, flash_in);
-                    //flash.Delay(flash_in);
-                    //flash.FadeOut(100);
 
-                    //explode.FadeIn(flash_in);
-
-                    this.Delay(flash_in);
-
-                    //after the flash, we can hide some elements that were behind it
-                    //ring.FadeOut();
-                    //_detectPress.FadeOut();
-                    //number.FadeOut();
-                    this.FadeOut(FadeOutTime);
-                    //FadeOut(200);
-                    //ScaleTo(Scale * 1.5f, 400, EasingTypes.OutQuad);
+                    using (BeginDelayedSequence(flash_in, true))
+                    {
+                        Template.FadeOut(flash_in);
+                    }
                     //播放打擊的聲音
                     PlaySamples();
                     Expire();

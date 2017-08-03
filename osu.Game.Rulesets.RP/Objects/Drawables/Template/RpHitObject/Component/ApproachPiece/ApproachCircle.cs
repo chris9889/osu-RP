@@ -22,15 +22,11 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         public ApproachCircle(BaseRpHitableObject baseHitObject)
             : base(baseHitObject)
         {
-            Anchor = Anchor.Centre;
-            Origin = Anchor.Centre;
 
             Children = new Drawable[]
             {
                 ApproachHitPicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(BaseHitObject))
                 {
-                    Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
                 },
             };
         }

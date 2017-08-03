@@ -11,6 +11,7 @@ using osu.Game.Rulesets.Replays;
 using osu.Game.Rulesets.RP.BeatmapReplay;
 using osu.Game.Rulesets.RP.KeyManager;
 using osu.Game.Rulesets.RP.Objects;
+using osu.Game.Rulesets.RP.Objects.Drawables.Play;
 using OpenTK;
 using OpenTK.Input;
 
@@ -115,13 +116,13 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
                 {
                     //add start and endPoint
                     listPointTime.Add(h.StartTime);
-                    listPointTime.Add(h.StartTime + h.Hit300);
+                    listPointTime.Add(h.StartTime + h.HitWindowFor(RpScoreResult.Cool));
                 }
                 else if (h is RpHoldObject)
                 {
                     //add start and endPoint
                     listPointTime.Add(h.StartTime);
-                    listPointTime.Add(h.StartTime + h.Hit300);
+                    listPointTime.Add(h.StartTime + h.HitWindowFor(RpScoreResult.Cool));
                 }
             }
 

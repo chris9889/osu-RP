@@ -44,7 +44,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
 
             Children = new Drawable[]
             {
-                
+                /*
                 _startBackgroundImagePicec = new ImagePicec(RpTexturePathManager.GetStartObjectBackgroundByType(HitObject as BaseRpHitableObject))
                 {
                     Anchor = Anchor.Centre,
@@ -66,6 +66,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
                     Scale = new Vector2(0.5f),
                     Masking = true
                 },
+                */
 
                 //�O�y�g�p
                 _borderImagePicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(HitObject as BaseRpHitableObject))

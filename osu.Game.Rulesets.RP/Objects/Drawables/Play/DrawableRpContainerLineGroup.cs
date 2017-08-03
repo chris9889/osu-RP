@@ -107,20 +107,5 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         {
 
         }
-
-        /// <summary>
-        ///     更新
-        /// </summary>
-        /// <param name="state"></param>
-        protected override void UpdateState(ArmedState state)
-        {
-            base.UpdateState(state);
-            this.Delay(HitObject.Duration + PreemptTime + FadeOutTime);
-
-            if (state == ArmedState.Hit)
-            {
-
-            }
-        }
     }
 }

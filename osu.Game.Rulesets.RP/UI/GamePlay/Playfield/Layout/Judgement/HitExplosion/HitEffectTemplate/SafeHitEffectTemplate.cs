@@ -9,12 +9,12 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosion.HitEffectTemplate
 {
-    internal class SafeHitEffectTemplate : BaseHitEffectTemplate
+    public class SafeHitEffectTemplate : BaseHitEffectTemplate
     {
         /// <summary>
         ///     目前結果
         /// </summary>
-        protected new RpScoreResult RPScoreResult = RpScoreResult.Safe;
+        protected override RpScoreResult RpScoreResult => RpScoreResult.Safe;
 
         /// <summary>
         ///     有音樂形狀那個icon
@@ -25,7 +25,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosi
         {
             Children = new Drawable[]
             {
-                _noonpuPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
+                _noonpuPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RpScoreResult, "RP"))
                 {
                     //Colour = osuObject.Colour,
                     Scale = new Vector2(1, 1),

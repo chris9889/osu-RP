@@ -11,7 +11,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement
     {
         public void AddHitEffect(DrawableHitObject<BaseRpObject, RpJudgement> drawableHitObject)
         {
-            var explosion = new HitExplosion.HitExplosion(drawableHitObject.Judgement, drawableHitObject.HitObject);
+            var explosion = new HitExplosion.HitExplosion(drawableHitObject.Judgement);
             Add(explosion);
         }
     }

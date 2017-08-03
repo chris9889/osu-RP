@@ -38,6 +38,8 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             //    Judgement = CreateJudgement();
         }
 
+        protected override RpJudgement CreateJudgement() => new RpJudgement { MaxScore = RpScoreResult.Cool };
+
         protected override void ConstructObject()
         {
             
@@ -101,34 +103,23 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         {
             if (!userTriggered)
             {
-                if (Judgement.TimeOffset > HitObject.Hit50)
+                if (Judgement.TimeOffset > HitObject.HitWindowFor(RpScoreResult.Safe))
                     Judgement.Result = HitResult.Miss;
-
                 return;
             }
 
-            var hitOffset = Math.Abs(Judgement.TimeOffset);
+            double hitOffset = Math.Abs(Judgement.TimeOffset);
 
             var rpInfo = Judgement;
             rpInfo.HitExplosionPosition.Add(Position);
 
-            if (hitOffset < HitObject.Hit50)
+            if (hitOffset < HitObject.HitWindowFor(RpScoreResult.Safe))
             {
                 Judgement.Result = HitResult.Hit;
-                rpInfo.Score = HitObject.ScoreResultForOffset(hitOffset);
+                Judgement.Score = HitObject.ScoreResultForOffset(hitOffset);
             }
             else
-            {
                 Judgement.Result = HitResult.Miss;
-            }
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <returns></returns>
-        protected override RpJudgement CreateJudgement()
-        {
-            return new RpJudgement();
         }
     }
 

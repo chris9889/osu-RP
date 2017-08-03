@@ -92,7 +92,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer
         private void UpdateHitObject()
         {
             foreach (var hitObject in ListContainObject)
-                hitObject.Position = new Vector2(0, 20);
+                hitObject.Position = new Vector2(100, 100);
         }
 
         /// <summary>

@@ -9,12 +9,12 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosion.HitEffectTemplate
 {
-    internal class SadHitEffectTemplate : BaseHitEffectTemplate
+    public class SadHitEffectTemplate : BaseHitEffectTemplate
     {
         /// <summary>
         ///     目前結果
         /// </summary>
-        protected new RpScoreResult RPScoreResult = RpScoreResult.Sad;
+        protected override RpScoreResult RpScoreResult => RpScoreResult.Sad;
 
 
         /// <summary>
@@ -34,11 +34,11 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosi
 
             Children = new Drawable[]
             {
-                _diffusePicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Diffuse"))
+                _diffusePicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RpScoreResult, "Diffuse"))
                 {
                     Position = new Vector2(0, 0)
                 },
-                _noonpuPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
+                _noonpuPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RpScoreResult, "RP"))
                 {
                     Position = new Vector2(0, 0)
                 }

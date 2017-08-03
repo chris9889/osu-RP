@@ -40,15 +40,6 @@ namespace osu.Game.Rulesets.RP.Objects
             }
         }
 
-        //Hit50
-        public double Hit50 = 200;
-
-        //Hit100
-        public double Hit100 = 180;
-
-        //Hit300
-        public double Hit300 = 160;
-
         //the index of container, will mapping on  HitRanderer
         public int RelativeContainerLineGroupIndex => ParentObject.ParentObject.ID;
 
@@ -105,11 +96,11 @@ namespace osu.Game.Rulesets.RP.Objects
                 default:
                     return 300;
                 case RpScoreResult.Safe:
-                    return 150;
+                    return 200;
                 case RpScoreResult.Fine:
-                    return 80;
+                    return 180;
                 case RpScoreResult.Cool:
-                    return 30;
+                    return 160;
             }
         }
 

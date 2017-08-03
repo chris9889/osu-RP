@@ -9,12 +9,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosi
     /// <summary>
     ///     打擊特效
     /// </summary>
-    internal class BaseHitEffectTemplate : Container
+    public abstract class BaseHitEffectTemplate : Container
     {
         /// <summary>
         ///     目前結果
         /// </summary>
-        protected RpScoreResult RPScoreResult = RpScoreResult.Sad;
+        protected abstract RpScoreResult RpScoreResult { get; }
 
         //開始特效
         public virtual void StartEffect()

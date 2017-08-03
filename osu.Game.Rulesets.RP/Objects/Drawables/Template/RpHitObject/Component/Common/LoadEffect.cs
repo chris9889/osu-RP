@@ -34,8 +34,6 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
             {
                 _effectPicec = new ImagePicec(RpTexturePathManager.GetRPLoadEffect())
                 {
-                    Anchor = Anchor.Centre,
-                    Origin = Anchor.Centre,
                     Scale = new Vector2(1, 1),
                     Alpha = 0
                 }

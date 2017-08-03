@@ -129,21 +129,16 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
         /// <param name="hitObject"></param>
         public override void Add(DrawableHitObject<BaseRpObject, RpJudgement> hitObject)
         {
-            hitObject.Depth = (float)hitObject.HitObject.StartTime;
+            
 
             //IDrawableHitObjectWithProxiedApproach c = hitObject as IDrawableHitObjectWithProxiedApproach;
 
-
-            if (hitObject is DrawableBaseRpHitableObject)
-            {
-                int a = 0;
-            }
-
-
-            base.Add(hitObject);
+            
 
             if (hitObject is DrawableRpContainerLineGroup)
             {
+                //Aviod container is in front of hit object
+                hitObject.Depth = (float)hitObject.HitObject.StartTime + 10000;
                 //˙ùâ¡îwåiï®åè
                 containerBackgroundLayout.AddContainer(hitObject as DrawableRpContainerLineGroup);
                 //
@@ -151,9 +146,12 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
             }
             else
             {
+                hitObject.Depth = (float)hitObject.HitObject.StartTime;
                 //˙ùâ¡ï®åè
                 _rpObjectLayout.AddDrawObject(hitObject as DrawableBaseRpHitableObject);
             }
+
+            base.Add(hitObject);
         }
 
 

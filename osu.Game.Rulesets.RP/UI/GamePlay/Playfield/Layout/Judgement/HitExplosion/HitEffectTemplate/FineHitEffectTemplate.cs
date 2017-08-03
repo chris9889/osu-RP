@@ -9,12 +9,12 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosion.HitEffectTemplate
 {
-    internal class FineHitEffectTemplate : BaseHitEffectTemplate
+    public class FineHitEffectTemplate : BaseHitEffectTemplate
     {
         /// <summary>
         ///     目前結果
         /// </summary>
-        protected new RpScoreResult RPScoreResult = RpScoreResult.Fine;
+        protected override RpScoreResult RpScoreResult => RpScoreResult.Fine;
 
         /// <summary>
         ///     白色十字
@@ -35,19 +35,19 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosi
         {
             Children = new Drawable[]
             {
-                _crossPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Down"))
+                _crossPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RpScoreResult, "Down"))
                 {
                     //Colour = osuObject.Colour,
                     Position = new Vector2(0, 0),
                     Scale = new Vector2(1, 1)
                 },
-                _effectPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "Slide_effect"))
+                _effectPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RpScoreResult, "Slide_effect"))
                 {
                     //Colour = osuObject.Colour,
                     Position = new Vector2(0, 0),
                     Scale = new Vector2(1, 1)
                 },
-                _onpuPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RPScoreResult, "RP"))
+                _onpuPicec = new ImagePicec(RpTexturePathManager.GetRPHitEffect(RpScoreResult, "RP"))
                 {
                     //Colour = osuObject.Colour,
                     Position = new Vector2(0, 0),

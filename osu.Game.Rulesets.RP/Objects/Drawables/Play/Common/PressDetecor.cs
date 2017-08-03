@@ -74,7 +74,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play.Common
             var pressDelay = Math.Abs(Time.Current - _baseRPObject.StartTime);
 
             //Hit at the time
-            if (pressDelay < _baseRPObject.Hit50 && _nowPressMatchKey == Key.Unknown)
+            if (pressDelay < _baseRPObject.HitWindowFor(RpScoreResult.Safe) && _nowPressMatchKey == Key.Unknown)
             {
                 //目前符合的key
                 var pressKeyList = FilterMatchKey(state);
@@ -113,7 +113,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play.Common
 
             var pressDelay = Math.Abs(Time.Current - _baseRPObject.StartTime);
             //Hit at the time
-            if (pressDelay < _baseRPObject.Hit50 && _nowPressMatchKey != Key.Unknown)
+            if (pressDelay < _baseRPObject.HitWindowFor(RpScoreResult.Safe) && _nowPressMatchKey != Key.Unknown)
             {
                 //目前符合的key
                 var pressKeyList = FilterMatchKey(state);
