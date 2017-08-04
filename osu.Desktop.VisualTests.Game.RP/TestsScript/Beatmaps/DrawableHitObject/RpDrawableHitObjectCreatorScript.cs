@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using osu.Desktop.VisualTests.TestsScript.Beatmaps.HitObject;
 using osu.Game.Rulesets.RP.Objects;
+using osu.Game.Rulesets.RP.Objects.Drawables;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects.Drawables;
 using OpenTK;
 

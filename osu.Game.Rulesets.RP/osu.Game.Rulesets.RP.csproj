@@ -111,7 +111,6 @@
     <Compile Include="Objects\Drawables\Template\RpHitObject\EditableRpHoldObjectTemplate.cs" />
     <Compile Include="Replays\RpReplayFrame.cs" />
     <Compile Include="Replays\RpReplayInputHandler.cs" />
-    <Compile Include="Scoreing\RpJudgement.cs" />
     <Compile Include="SkinManager\RpObjectValueManager.cs" />
     <Compile Include="SkinManager\RpTextureColorManager.cs" />
     <Compile Include="UI\GamePlay\KeyCounter\RpKeyCounterCollection.cs" />
@@ -221,6 +220,7 @@
     <Compile Include="Parser\RpEffectParser.cs" />
     <Compile Include="Objects\RpEffect\Point\PositionEffectPoint.cs" />
     <Compile Include="Objects\RpEffect\Point\RotationEffectPoint.cs" />
+    <Compile Include="Judgements\RpJudgement.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\osu-framework\osu.Framework\osu.Framework.csproj">
@@ -272,6 +272,7 @@
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Hold\Start\" />
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Long\End\" />
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Long\Start\" />
+    <Folder Include="Judgements\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Textures\Play\RP\HitEffect\Cool\RP.png" />
