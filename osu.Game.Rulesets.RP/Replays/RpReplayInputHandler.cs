@@ -7,9 +7,7 @@ using osu.Game.Rulesets.Replays;
 
 namespace osu.Game.Rulesets.RP.BeatmapReplay
 {
-    /// <summary>
-    ///     RP 專用譜面紀錄系統
-    /// </summary>
+    
     public class RpReplayInputHandler : FramedReplayInputHandler
     {
         public RpReplayInputHandler(Replay replay)
@@ -17,14 +15,12 @@ namespace osu.Game.Rulesets.RP.BeatmapReplay
         {
         }
 
-        /// <summary>
-        ///     只有鍵盤
-        /// </summary>
-        /// <returns></returns>
+
         public override List<InputState> GetPendingStates()
         {
-            //get the RpReplayFrame
+            //get RpReplayFrame
             var correntFrame = (RpReplayFrame)CurrentFrame;
+
             return new List<InputState>
             {
                 new InputState

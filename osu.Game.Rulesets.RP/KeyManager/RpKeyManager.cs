@@ -10,21 +10,18 @@ using OpenTK.Input;
 namespace osu.Game.Rulesets.RP.KeyManager
 {
     /// <summary>
-    ///     RP按鍵配置取用
+    /// use to get which key is vaild for eaac RP Hitable Object
     /// </summary>
     public static class RpKeyManager
     {
-        /// <summary>
-        ///     取得目前那些按鍵有效
-        /// </summary>
-        /// <param name="baseHitObject"></param>
-        /// <returns></returns>
+        //get valid key list by RpHitableObject
         public static List<Key> GetListKey(BaseRpHitableObject baseHitObject)
         {
             var output = new List<Key>();
-            var divaKeyLayoutConfig = new RpKeyLayoutConfig();
-            //取得目前的使用排版
-            var config = divaKeyLayoutConfig.GetDefaultLayLayout();
+            var rpKeyLayoutConfig = new RpKeyLayoutConfig();
+
+            //get now key config
+            var config = rpKeyLayoutConfig.GetDefaultLayLayout();
 
             foreach (var single in config.KeyDictionary)
                 if (single.Type == baseHitObject.Shape)
@@ -37,23 +34,15 @@ namespace osu.Game.Rulesets.RP.KeyManager
             return output;
         }
 
-        /// <summary>
-        ///     取得目前排刁E
-        /// </summary>
-        /// <returns></returns>
+        //get 10K or 6K key config ?
         public static RpKeyLayoutConfig.SingleRpKeyLayoutConfig GetCurrentKeyConfig()
         {
-            var divaKeyLayoutConfig = new RpKeyLayoutConfig();
-            return divaKeyLayoutConfig.GetDefaultLayLayout();
+            var rpKeyLayoutConfig = new RpKeyLayoutConfig();
+            return rpKeyLayoutConfig.GetDefaultLayLayout();
         }
 
-        /// <summary>
-        ///     把目前RP皁E��鍵設定儲存回去
-        /// </summary>
-        /// <param name="listKey"></param>
-        /// <param name="keyLayout"></param>
-        /// <param name="settingIndex"></param>
-        /// <returns></returns>
+        //save key config to config file
+        //TODO : will be merge to config manager ?
         public static bool SeveKeyConfig(List<Key> listKey, RpKeyLayoutConfig.KeyLayout keyLayout, int settingIndex)
         {
             return false;

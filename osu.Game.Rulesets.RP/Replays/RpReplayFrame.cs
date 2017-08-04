@@ -10,38 +10,30 @@ using OpenTK.Input;
 namespace osu.Game.Rulesets.RP.BeatmapReplay
 {
     /// <summary>
-    ///     要實作key的部分
+    /// a single frame of record or play RP playing record
     /// </summary>
     public class RpReplayFrame : ReplayFrame
     {
         /// <summary>
         ///     list keys
         /// </summary>
-        public List<Key> ListPressKeys
-        {
-            get { return _listPressKeys; }
-            set { _listPressKeys = value; }
-        }
+        private List<Key> _listPressKeys = new List<Key>();
 
         /// <summary>
         ///     list keys
         /// </summary>
-        private List<Key> _listPressKeys = new List<Key>();
+        public List<Key> ListPressKeys => _listPressKeys;
 
+
+        //把滑鼠其中一個座標轉成listKey
         public RpReplayFrame(double time, float posX, float posY, ReplayButtonState buttonState)
             : base(time, posX, posY, buttonState)
         {
-            //Convert position to keys;
-            _listPressKeys = convertMouseAnixXToKeyList((int)MouseX);
+	        //Convert position to keys;
+	        _listPressKeys = convertMouseAnixXToKeyList((int)MouseX);
         }
 
-        /// <summary>
-        ///     use this to add the frame
-        /// </summary>
-        /// <param name="time"></param>
-        /// <param name="listPressKeys"></param>
-        /// <param name="posY"></param>
-        /// <param name="buttonState"></param>
+        //constructor
         public RpReplayFrame(double time, List<Key> listPressKeys, float posY, ReplayButtonState buttonState)
             : base(time, 0, posY, buttonState)
         {
@@ -49,6 +41,7 @@ namespace osu.Game.Rulesets.RP.BeatmapReplay
             _listPressKeys = listPressKeys;
         }
 
+         //constructor
         public RpReplayFrame(double time, Key key, float posY, ReplayButtonState buttonState)
             : base(time, 0, posY, buttonState)
         {
@@ -56,30 +49,15 @@ namespace osu.Game.Rulesets.RP.BeatmapReplay
             _listPressKeys.Add(key);
         }
 
-        /// <summary>
-        ///     convert list Keys to mouse position
-        /// </summary>
-        /// <returns></returns>
-        public int ConvertRpKeysToMouseAnixX(List<Key> listStorageKeys)
-        {
-            var currentConfig = RpKeyManager.GetCurrentKeyConfig();
-            var returnValue = 0;
-            for (var i = 0; i < currentConfig.KeyDictionary.Count; i++)
-                if (listStorageKeys.Contains(currentConfig.KeyDictionary[i].Key))
-                    returnValue = returnValue + (int)Math.Pow(2, i);
-            return returnValue;
-        }
-
+        //convet state to savable format
         public override string ToString()
         {
             MouseX = ConvertRpKeysToMouseAnixX(_listPressKeys);
             return base.ToString();
         }
 
-        /// <summary>
-        ///     Convert mouse position To key list
-        /// </summary>
-        /// <returns></returns>
+
+        //Convert int to list key
         private List<Key> convertMouseAnixXToKeyList(int positionX)
         {
             var listKey = new List<Key>();
@@ -91,6 +69,17 @@ namespace osu.Game.Rulesets.RP.BeatmapReplay
                         listKey.Add(currentConfig.KeyDictionary[i].Key);
             }
             return listKey;
+        }
+
+        //convert list key to int
+        public int ConvertRpKeysToMouseAnixX(List<Key> listStorageKeys)
+        {
+        	var currentConfig = RpKeyManager.GetCurrentKeyConfig();
+        	var returnValue = 0;
+        	for (var i = 0; i < currentConfig.KeyDictionary.Count; i++)
+        		if (listStorageKeys.Contains(currentConfig.KeyDictionary[i].Key))
+        			returnValue = returnValue + (int)Math.Pow(2, i);
+        	return returnValue;
         }
     }
 }

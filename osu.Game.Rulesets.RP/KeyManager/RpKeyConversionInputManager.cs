@@ -8,17 +8,14 @@ using osu.Game.Screens.Play;
 
 namespace osu.Game.Rulesets.RP.KeyManager
 {
+   
     public class RpKeyConversionInputManager : KeyConversionInputManager
     {
+        //use like if some press, set another keys as pressed
+        //can be refrence usage by OsuKeyConversionInputManager.cs
         protected override void TransformState(InputState state)
         {
             base.TransformState(state);
-        }
-
-
-        [BackgroundDependencyLoader]
-        private void load(OsuConfigManager config)
-        {
         }
     }
 }

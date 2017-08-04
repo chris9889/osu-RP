@@ -109,8 +109,8 @@
     <Compile Include="Objects\Drawables\Template\Calculator\ContainerLayoutPositionCounter.cs" />
     <Compile Include="KeyManager\RpKeyConversionInputManager.cs" />
     <Compile Include="Objects\Drawables\Template\RpHitObject\EditableRpHoldObjectTemplate.cs" />
-    <Compile Include="BeatmapReplay\RpReplayFrame.cs" />
-    <Compile Include="BeatmapReplay\RpReplayInputHandler.cs" />
+    <Compile Include="Replays\RpReplayFrame.cs" />
+    <Compile Include="Replays\RpReplayInputHandler.cs" />
     <Compile Include="Scoreing\RpJudgement.cs" />
     <Compile Include="SkinManager\RpObjectValueManager.cs" />
     <Compile Include="SkinManager\RpTextureColorManager.cs" />
