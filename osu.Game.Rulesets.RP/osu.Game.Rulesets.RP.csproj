@@ -62,7 +62,7 @@
     <Compile Include="Mods\ModsElement\RPAutoReplay.cs" />
     <Compile Include="Objects\Attribute\BaseRpObjectAttribute.cs" />
     <Compile Include="Objects\Drawables\Edit\DrawableEditBaseRpObject.cs" />
-    <Compile Include="Objects\Drawables\Play\Interface\IContainedByTemplate.cs" />
+    <Compile Include="Objects\Drawables\Play\Interface\IHasTemplate.cs" />
     <Compile Include="Objects\Types\IHasBPM.cs" />
     <Compile Include="Objects\Types\IHasColor.cs" />
     <Compile Include="Objects\Types\IHasContainList.cs" />
@@ -272,7 +272,6 @@
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Hold\Start\" />
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Long\End\" />
     <Folder Include="Textures\Play\RP\RPObject\Square\Special\Long\Start\" />
-    <Folder Include="Judgements\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Textures\Play\RP\HitEffect\Cool\RP.png" />

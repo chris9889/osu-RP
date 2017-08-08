@@ -6,13 +6,14 @@ using System.ComponentModel;
 using osu.Framework.Graphics;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play.Common;
+using osu.Game.Rulesets.RP.Objects.Drawables.Play.Interface;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject;
 using osu.Game.Rulesets.RP.Scoreing;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 {
     //DrawableBaseRpHitableObject
-    public abstract class DrawableBaseRpHitableObject : DrawableBaseRpObject
+    public abstract class DrawableBaseRpHitableObject : DrawableBaseRpObject , IHasTemplate<BaseRpHitableObjectTemplate>
     {
         // HitObject
         public new BaseRpHitableObject HitObject
@@ -20,11 +21,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             get { return (BaseRpHitableObject)base.HitObject; }
         }
 
-        public new BaseRpHitableObjectTemplate Template
-        {
-            get { return (BaseRpHitableObjectTemplate)base.Template; }
-            set { base.Template = value; }
-        }
+        public new BaseRpHitableObjectTemplate Template => (BaseRpHitableObjectTemplate)base.Template;
 
         //press detector
         protected PressDetecor RpPressDetecor;

@@ -3,13 +3,14 @@
 
 using osu.Framework.Graphics;
 using osu.Game.Rulesets.Objects.Drawables;
+using osu.Game.Rulesets.RP.Objects.Drawables.Play.Interface;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer;
 using osu.Game.Rulesets.RP.Scoreing;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 {
-    public class DrawableRpContainerLine : DrawableBaseContainableObject<DrawableBaseRpHitableObject>
+    public class DrawableRpContainerLine : DrawableBaseContainableObject<DrawableBaseRpHitableObject> , IHasTemplate<RpContainerLineTemplate>
     {
         /// <summary>
         /// </summary>
@@ -21,11 +22,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         /// <summary>
         ///     template
         /// </summary>
-        public new RpContainerLineTemplate Template
-        {
-            get { return (RpContainerLineTemplate)base.Template; }
-            set { base.Template = value; }
-        }
+        public new RpContainerLineTemplate Template => (RpContainerLineTemplate)base.Template;
 
         private bool _startFadeont;
 

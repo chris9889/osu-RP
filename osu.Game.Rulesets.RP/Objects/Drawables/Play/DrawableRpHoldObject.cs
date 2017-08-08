@@ -4,6 +4,7 @@
 using System;
 using osu.Framework.Graphics;
 using osu.Game.Rulesets.Objects.Drawables;
+using osu.Game.Rulesets.RP.Objects.Drawables.Play.Interface;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject;
 using OpenTK;
 
@@ -12,8 +13,10 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
     /// <summary>
     ///     Slider
     /// </summary>
-    public class DrawableRpHoldObject : DrawableBaseRpHitableObject
+    public class DrawableRpHoldObject : DrawableBaseRpHitableObject , IHasTemplate<RpHoldObjectTemplate>
     {
+        RpHoldObjectTemplate IHasTemplate<RpHoldObjectTemplate>.Template => base.Template as RpHoldObjectTemplate;
+
         // HitObject
         public new RpHoldObject HitObject
         {

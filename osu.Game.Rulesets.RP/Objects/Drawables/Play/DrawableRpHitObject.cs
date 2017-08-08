@@ -7,6 +7,7 @@ using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Objects.Types;
+using osu.Game.Rulesets.RP.Objects.Drawables.Play.Interface;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject;
 using OpenTK;
 
@@ -15,7 +16,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
     /// <summary>
     ///     繪製 RP HitCircle
     /// </summary>
-    public class DrawableRpHitObject : DrawableBaseRpHitableObject
+    public class DrawableRpHitObject : DrawableBaseRpHitableObject, IHasTemplate<RpHitObjectTemplate>
     {
         /// <summary>
         /// </summary>
@@ -24,14 +25,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             get { return (RpHitObject)base.HitObject; }
         }
 
-        /// <summary>
-        ///     template
-        /// </summary>
-        public new RpHitObjectTemplate Template
-        {
-            get { return (RpHitObjectTemplate)base.Template; }
-            set { base.Template = value; }
-        }
+        RpHitObjectTemplate IHasTemplate<RpHitObjectTemplate>.Template => (RpHitObjectTemplate)base.Template;
 
         public DrawableRpHitObject(RpHitObject h)
             : base(h)

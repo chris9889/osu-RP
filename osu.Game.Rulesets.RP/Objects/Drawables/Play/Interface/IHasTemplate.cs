@@ -7,8 +7,8 @@ using osu.Game.Rulesets.RP.Objects.Drawables.Template;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play.Interface
 {
-    public interface IContainedByTemplate<T> where T : BaseRpObjectTemplate
+    public interface IHasTemplate<T> where T : BaseRpObjectTemplate
     {
-
+        T Template { get; }
     }
 }

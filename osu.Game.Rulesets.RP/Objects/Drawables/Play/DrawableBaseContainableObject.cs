@@ -2,6 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System.Collections.Generic;
+using osu.Game.Rulesets.RP.Objects.Drawables.Play.Interface;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer;
 using osu.Game.Rulesets.RP.Scoreing;
 
@@ -10,7 +11,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
     /// <summary>
     /// Base object that can acceppt another object drag onto it
     /// </summary>
-    public abstract class DrawableBaseContainableObject<T> : DrawableBaseRpObject where T : DrawableBaseRpObject
+    public abstract class DrawableBaseContainableObject<T> : DrawableBaseRpObject where T : DrawableBaseRpObject , IHasTemplate<BaseRpContainableTemplate<T>>
     {
         //FadeInTime
         public override float FadeInTime => 300;
@@ -18,11 +19,8 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         //FadeOutTime
         public override float FadeOutTime => 300;
 
-        public new BaseRpContainableTemplate<T> Template
-        {
-            get { return (BaseRpContainableTemplate<T>)base.Template; }
-            set { base.Template = value; }
-        }
+        public new BaseRpContainableTemplate<T> Template => (BaseRpContainableTemplate<T>)base.Template;
+
 
         public DrawableBaseContainableObject(BaseRpObject hitObject)
             : base(hitObject)
