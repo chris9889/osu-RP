@@ -13,9 +13,9 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
     /// <summary>
     ///     Slider
     /// </summary>
-    public class DrawableRpHoldObject : DrawableBaseRpHitableObject , IHasTemplate<RpHoldObjectTemplate>
+    public class DrawableRpHoldObject : DrawableBaseRpHitableObject //, IHasTemplate<RpHoldObjectTemplate>
     {
-        RpHoldObjectTemplate IHasTemplate<RpHoldObjectTemplate>.Template => base.Template as RpHoldObjectTemplate;
+        //RpHoldObjectTemplate IHasTemplate<RpHoldObjectTemplate>.Template => base.Template as RpHoldObjectTemplate;
 
         // HitObject
         public new RpHoldObject HitObject

@@ -13,7 +13,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
     /// <summary>
     ///     匁E��RP物件
     /// </summary>
-    public class DrawableRpContainerLineGroup : DrawableBaseContainableObject<DrawableRpContainerLine> , IHasTemplate<RpContainerLineGroupTemplate>
+    public class DrawableRpContainerLineGroup : DrawableBaseContainableObject<DrawableRpContainerLine> 
     {
         /// <summary>
         /// </summary>
@@ -25,7 +25,11 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         /// <summary>
         ///     template
         /// </summary>
-        public new RpContainerLineGroupTemplate Template => base.Template as RpContainerLineGroupTemplate;
+        public new RpContainerLineGroupTemplate Template
+        {
+            get { return (RpContainerLineGroupTemplate)base.Template; }
+            set { base.Template = value; }
+        }
 
         private bool _startFadeont;
 

@@ -10,7 +10,7 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 {
-    public class DrawableRpContainerLine : DrawableBaseContainableObject<DrawableBaseRpHitableObject> , IHasTemplate<RpContainerLineTemplate>
+    public class DrawableRpContainerLine : DrawableBaseContainableObject<DrawableBaseRpHitableObject> 
     {
         /// <summary>
         /// </summary>
@@ -36,7 +36,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 
         protected override void ConstructObject()
         {
-            Template = new RpContainerLineTemplate(HitObject)
+            base.Template = new RpContainerLineTemplate(HitObject)
             {
                 Position = new Vector2(0, 0),
                 Alpha = 1
