@@ -20,7 +20,7 @@ namespace osu.Game.Rulesets.RP.Scoreing
         {
         }
 
-        public RpScoreProcessor(HitRenderer<BaseRpObject, RpJudgement> hitRenderer)
+        public RpScoreProcessor(RulesetContainer<BaseRpObject, RpJudgement> hitRenderer)
             : base(hitRenderer)
         {
         }

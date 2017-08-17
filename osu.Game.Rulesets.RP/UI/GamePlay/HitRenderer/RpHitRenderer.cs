@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
+using osu.Framework.Input;
 using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Beatmaps;
 using osu.Game.Rulesets.Objects.Drawables;
@@ -19,12 +20,12 @@ using osu.Game.Screens.Play;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
 {
-    public class RpHitRenderer : HitRenderer<BaseRpObject, RpJudgement>
+    public class RpHitRenderer : RulesetContainer<BaseRpObject, RpJudgement>
     {
         private readonly ModsProcessor.ModsProcessor _modProcessor;
 
-        public RpHitRenderer(WorkingBeatmap beatmap, bool isForCurrentRuleset)
-            : base(beatmap, isForCurrentRuleset)
+        public RpHitRenderer(Ruleset ruleset, WorkingBeatmap beatmap, bool isForCurrentRuleset)
+            : base(ruleset, beatmap, isForCurrentRuleset)
         {
             _modProcessor = new ModsProcessor.ModsProcessor(beatmap.Mods.Value);
             _modProcessor.ProcessGameField(Playfield);
@@ -64,9 +65,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
 
         /// <summary>
         ///     didn't know what is it
+        /// TODO : consider to impliment it or not
         /// </summary>
         /// <returns></returns>
-        protected override KeyConversionInputManager CreateKeyConversionInputManager() => new RpKeyConversionInputManager();
+        //protected override PassThroughInputManager CreateKeyConversionInputManager() => new RpKeyConversionInputManager();
 
         /// <summary>
         ///     Change objects into drawable

@@ -8,6 +8,7 @@ using osu.Game.Graphics;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.RP.DifficultyCalculator;
 using osu.Game.Rulesets.RP.KeyManager;
+using osu.Game.Rulesets.RP.Mods;
 using osu.Game.Rulesets.RP.Scoreing;
 using osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer;
 using osu.Game.Rulesets.RP.UI.GamePlay.KeyCounter;
@@ -46,7 +47,7 @@ namespace osu.Game.Rulesets.RP
         /// </summary>
         /// <param name="objects"></param>
         /// <returns></returns>
-        public override HitRenderer CreateHitRendererWith(WorkingBeatmap beatmap, bool isForCurrentRuleset) => new RpHitRenderer(beatmap, isForCurrentRuleset);
+        public override RulesetContainer CreateRulesetContainerWith(WorkingBeatmap beatmap, bool isForCurrentRuleset) => new RpHitRenderer(this,beatmap, isForCurrentRuleset);
 
         /// <summary>
         ///     beatmap的詳細資訊
@@ -61,6 +62,8 @@ namespace osu.Game.Rulesets.RP
         /// <param name="type"></param>
         /// <returns></returns>
         public override IEnumerable<Mod> GetModsFor(ModType type) => new SelectMod(type);
+
+        public override Mod GetAutoplayMod() => new RpModAutoplay();
 
         /// <summary>
         ///     計算難度
@@ -85,5 +88,10 @@ namespace osu.Game.Rulesets.RP
         /// Do not override this unless you are a legacy mode.
         /// </summary>
         public override int LegacyID => 0;
+
+        public RpRuleset(RulesetInfo rulesetInfo)
+            : base(rulesetInfo)
+        {
+        }
     }
 }

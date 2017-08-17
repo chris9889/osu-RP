@@ -17,7 +17,7 @@ namespace osu.Game.Rulesets.Mania
 {
     public class ManiaRuleset : Ruleset
     {
-        public override HitRenderer CreateHitRendererWith(WorkingBeatmap beatmap, bool isForCurrentRuleset) => new ManiaHitRenderer(beatmap, isForCurrentRuleset);
+        public override RulesetContainer CreateRulesetContainerWith(WorkingBeatmap beatmap, bool isForCurrentRuleset) => new ManiaRulesetContainer(this, beatmap, isForCurrentRuleset);
 
         public override IEnumerable<Mod> GetModsFor(ModType type)
         {
@@ -105,6 +105,8 @@ namespace osu.Game.Rulesets.Mania
             }
         }
 
+        public override Mod GetAutoplayMod() => new ModAutoplay();
+
         public override string Description => "osu!mania";
 
         public override Drawable CreateIcon() => new SpriteIcon { Icon = FontAwesome.fa_osu_mania_o };
@@ -116,5 +118,10 @@ namespace osu.Game.Rulesets.Mania
         public override ScoreProcessor CreateScoreProcessor() => new ManiaScoreProcessor();
 
         public override int LegacyID => 3;
+
+        public ManiaRuleset(RulesetInfo rulesetInfo)
+            : base(rulesetInfo)
+        {
+        }
     }
 }

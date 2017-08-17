@@ -9,7 +9,7 @@ using osu.Game.Screens.Play;
 namespace osu.Game.Rulesets.RP.KeyManager
 {
    
-    public class RpKeyConversionInputManager : KeyConversionInputManager
+    public class RpKeyConversionInputManager : PassThroughInputManager
     {
         //use like if some press, set another keys as pressed
         //can be refrence usage by OsuKeyConversionInputManager.cs
