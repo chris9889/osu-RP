@@ -3,17 +3,23 @@
 
 using System.Collections.Generic;
 using osu.Framework.Graphics;
+using osu.Framework.Input.Bindings;
 using osu.Game.Beatmaps;
 using osu.Game.Graphics;
+using osu.Game.Overlays.Settings;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.RP.DifficultyCalculator;
+using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.KeyManager;
 using osu.Game.Rulesets.RP.Mods;
 using osu.Game.Rulesets.RP.Scoreing;
+using osu.Game.Rulesets.RP.SkinManager;
 using osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer;
 using osu.Game.Rulesets.RP.UI.GamePlay.KeyCounter;
+using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using osu.Game.Rulesets.RP.UI.Select.Info;
 using osu.Game.Rulesets.RP.UI.Select.RpMod;
+using osu.Game.Rulesets.RP.UI.Setting;
 using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.UI;
 using osu.Game.Screens.Play;
@@ -28,49 +34,64 @@ namespace osu.Game.Rulesets.RP
     public class RpRuleset : Ruleset
     {
         /// <summary>
-        ///     what the icon does osu!RP use
-        /// </summary>
-        public override Drawable CreateIcon() => new SpriteIcon { Icon = FontAwesome.fa_question_circle };
-
-        /// <summary>
-        ///     Description
-        /// </summary>
-        public override string Description => "osu!RP";
-
-        /// <returns></returns>
-        /// <summary>
-        ///     PlayMode
-        /// </summary>
-        //protected override PlayMode PlayMode => PlayMode.RP;
-        /// <summary>
         ///     RP Object will be convert to Deawable Object
         /// </summary>
         /// <param name="objects"></param>
         /// <returns></returns>
-        public override RulesetContainer CreateRulesetContainerWith(WorkingBeatmap beatmap, bool isForCurrentRuleset) => new RpHitRenderer(this,beatmap, isForCurrentRuleset);
+        public override RulesetContainer CreateRulesetContainerWith(WorkingBeatmap beatmap, bool isForCurrentRuleset) => new RpRulesetContainer(this, beatmap, isForCurrentRuleset);
 
         /// <summary>
-        ///     beatmap的詳細資訊
+        /// all the keys that can be config
+        /// </summary>
+        /// <param name="variant"></param>
+        /// <returns></returns>
+        public override IEnumerable<KeyBinding> GetDefaultKeyBindings(int variant = 0) => new KeyBindingConfig().GetAllDefaultBinding();
+
+        /// <summary>
+        ///     detail column of a beatmap
         /// </summary>
         /// <param name="beatmap"></param>
         /// <returns></returns>
         public override IEnumerable<BeatmapStatistic> GetBeatmapStatistics(WorkingBeatmap beatmap) => new BeatmapStatistics(beatmap);
 
         /// <summary>
-        ///     目前有那些模式
+        ///     all the modes that RP have
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
         public override IEnumerable<Mod> GetModsFor(ModType type) => new SelectMod(type);
 
+
+        /// <summary>
+        /// define the autoPlay
+        /// </summary>
+        /// <returns></returns>
         public override Mod GetAutoplayMod() => new RpModAutoplay();
 
         /// <summary>
-        ///     計算難度
+        ///     what the icon does osu!RP use
+        /// </summary>
+        public override Drawable CreateIcon() => new ImagePicec(@"GameIcon/Icon@2x");// new SpriteIcon { Icon = FontAwesome.fa_question_circle };
+
+        /// <summary>
+        ///     Difficulty Calculator
         /// </summary>
         /// <param name="beatmap"></param>
         /// <returns></returns>
         public override Game.Beatmaps.DifficultyCalculator CreateDifficultyCalculator(Beatmap beatmap) => new RpDifficultyCalculator(beatmap);
+
+        /// <summary>
+        ///     Description
+        /// </summary>
+        public override string Description => "osu!RP";
+
+        /// <summary>
+        ///     get the keys that currently use
+        /// TODO : not sure this will be remove 
+        /// </summary>
+        /// <returns></returns>
+        public override IEnumerable<KeyCounter> CreateGameplayKeys() => new RpKeyCounterCollection(RpKeyManager.GetCurrentKeyConfig()).ListKey;
+
 
         /// <summary>
         ///     Score processor
@@ -79,19 +100,22 @@ namespace osu.Game.Rulesets.RP
         public override ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor();
 
         /// <summary>
-        ///     get the keys that currently use
+        /// setting
         /// </summary>
         /// <returns></returns>
-        public override IEnumerable<KeyCounter> CreateGameplayKeys() => new RpKeyCounterCollection(RpKeyManager.GetCurrentKeyConfig()).ListKey;
+        public override SettingsSubsection CreateSettings() => new RpSettings();
 
         /// <summary>
         /// Do not override this unless you are a legacy mode.
+        /// TODO : Not work yet 
         /// </summary>
-        public override int LegacyID => 0;
+        //public override int LegacyID => 0;
 
         public RpRuleset(RulesetInfo rulesetInfo)
             : base(rulesetInfo)
         {
         }
+
+       
     }
 }

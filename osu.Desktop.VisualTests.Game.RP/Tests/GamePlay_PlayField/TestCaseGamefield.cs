@@ -103,7 +103,7 @@ namespace osu.Desktop.VisualTests.Tests.GamePlay_PlayField
                             Anchor = Anchor.TopRight,
                             Origin = Anchor.TopRight
                         },
-                        new RpHitRenderer(beatmap, false)
+                        new RpRulesetContainer(beatmap, false)
                         {
                             Scale = new Vector2(0.5f),
                             Anchor = Anchor.BottomLeft,

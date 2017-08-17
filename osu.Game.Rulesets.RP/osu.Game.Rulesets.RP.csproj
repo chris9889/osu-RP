@@ -58,6 +58,7 @@
     <Compile Include="Beatmaps\OtherBeatmap\Slicing\VolocityCalculator\ContainerVolocityCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
+    <Compile Include="Input\RpInputManager.cs" />
     <Compile Include="Mods\RpMod2017.cs" />
     <Compile Include="Mods\ModsElement\RPAutoReplay.cs" />
     <Compile Include="Objects\Attribute\BaseRpObjectAttribute.cs" />
@@ -137,7 +138,7 @@
     <Compile Include="Objects\Drawables\Template\RpHitObject\RpHoldObjectTemplate.cs" />
     <Compile Include="Objects\RpContainerLineGroup.cs" />
     <Compile Include="Objects\RpContainerLine.cs" />
-    <Compile Include="UI\Config\RpKeyLayoutConfigUi.cs" />
+    <Compile Include="UI\Setting\RpSettings.cs" />
     <Compile Include="Beatmaps\RPBeatmap\RpBeatmapProcessor.cs" />
     <Compile Include="RpRuleset.cs" />
     <Compile Include="KeyManager\RpKeyManager.cs" />
@@ -179,7 +180,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Saving\RpKeyLayoutConfig.cs" />
     <Compile Include="SkinManager\RpTexturePathManager.cs" />
-    <Compile Include="UI\GamePlay\HitRenderer\RpHitRenderer.cs" />
+    <Compile Include="UI\GamePlay\HitRenderer\RpRulesetContainer.cs" />
     <Compile Include="UI\GamePlay\Playfield\RpPlayfield.cs" />
     <Compile Include="UI\Select\Detail\RpBeatmapDetails.cs" />
     <Compile Include="UI\Select\Detail\RpBeatmapDetailsBar.cs" />
@@ -351,6 +352,7 @@
     <EmbeddedResource Include="Samples\Gameplay\soft-sliderwhistle.wav" />
     <EmbeddedResource Include="Samples\RPKey\Key-Shape.wav" />
     <EmbeddedResource Include="Samples\RPKey\Key-ContainerPress.wav" />
+    <EmbeddedResource Include="Textures\GameIcon\Icon%402x.png" />
     <Content Include="Textures\Play\RP\RPObject\Common\Normal\Container\PointerShadow.png" />
     <Content Include="Textures\Play\RP\RPObject\Common\Special\Container\PointerShadow.png" />
     <EmbeddedResource Include="Textures\Play\RP\RPObject\Common\Special\Container\DecisionLine.png" />

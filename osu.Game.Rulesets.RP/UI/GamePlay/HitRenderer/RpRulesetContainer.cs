@@ -20,11 +20,11 @@ using osu.Game.Screens.Play;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
 {
-    public class RpHitRenderer : RulesetContainer<BaseRpObject, RpJudgement>
+    public class RpRulesetContainer : RulesetContainer<BaseRpObject, RpJudgement>
     {
         private readonly ModsProcessor.ModsProcessor _modProcessor;
 
-        public RpHitRenderer(Ruleset ruleset, WorkingBeatmap beatmap, bool isForCurrentRuleset)
+        public RpRulesetContainer(Ruleset ruleset, WorkingBeatmap beatmap, bool isForCurrentRuleset)
             : base(ruleset, beatmap, isForCurrentRuleset)
         {
             _modProcessor = new ModsProcessor.ModsProcessor(beatmap.Mods.Value);
