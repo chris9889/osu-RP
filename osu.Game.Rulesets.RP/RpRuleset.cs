@@ -101,15 +101,15 @@ namespace osu.Game.Rulesets.RP
 
         /// <summary>
         /// setting
+        ///  TODO : Not work yet 
         /// </summary>
         /// <returns></returns>
-        public override SettingsSubsection CreateSettings() => new RpSettings();
+        //public override SettingsSubsection CreateSettings() => new RpSettings();
 
         /// <summary>
         /// Do not override this unless you are a legacy mode.
-        /// TODO : Not work yet 
         /// </summary>
-        //public override int LegacyID => 0;
+        public override int LegacyID => 0;
 
         public RpRuleset(RulesetInfo rulesetInfo)
             : base(rulesetInfo)

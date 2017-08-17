@@ -13,6 +13,7 @@ namespace osu.Game.Rulesets.RP.BeatmapReplay
         public RpReplayInputHandler(Replay replay)
             : base(replay)
         {
+
         }
 
 
@@ -30,5 +31,7 @@ namespace osu.Game.Rulesets.RP.BeatmapReplay
                 }
             };
         }
+
+
     }
 }

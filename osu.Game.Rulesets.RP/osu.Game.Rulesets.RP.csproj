@@ -75,6 +75,7 @@
     <Compile Include="Objects\Types\IHasRotation.cs" />
     <Compile Include="Objects\Types\IHasScale.cs" />
     <Compile Include="Objects\Types\IHasVelocity.cs" />
+    <Compile Include="Replays\RpAutoGenerator.cs" />
     <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\GameField\GameFieldModsProcessor.cs" />
     <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\HitObject\HitObjectModsProcessor.cs" />
     <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\ModsProcessor.cs" />

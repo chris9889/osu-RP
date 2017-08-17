@@ -10,6 +10,7 @@ using osu.Game.Graphics;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.RP.Mods.ModsElement;
 using osu.Game.Rulesets.RP.Objects;
+using osu.Game.Rulesets.RP.Replays;
 using osu.Game.Rulesets.RP.Scoreing.Result;
 using osu.Game.Rulesets.Scoring;
 
@@ -143,9 +144,9 @@ namespace osu.Game.Rulesets.RP.Mods
     /// </summary>
     public class RpModAutoplay : ModAutoplay<BaseRpObject>
     {
-        protected override Score CreateReplayScore(Beatmap<BaseRpObject> beatmap) => new RpScore
+        protected override Score CreateReplayScore(Beatmap<BaseRpObject> beatmap) => new Score
         {
-            Replay = new RpAutoReplay(beatmap)
+            Replay = new RpAutoGenerator(beatmap).Generate()
         };
     }
 

@@ -17,6 +17,7 @@ using osu.Game.Rulesets.RP.UI.GamePlay.Playfield;
 using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.UI;
 using osu.Game.Screens.Play;
+using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
 {
@@ -37,7 +38,6 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         /// <returns>The score _modProcessor.</returns>
         public override ScoreProcessor CreateScoreProcessor() => new RpScoreProcessor(this);
 
-
         /// <summary>
         ///     the beatmap that convert from other beatmap
         /// </summary>
@@ -51,24 +51,18 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         protected override BeatmapProcessor<BaseRpObject> CreateBeatmapProcessor() => new RpBeatmapProcessor();
 
         /// <summary>
-        ///     set the keys and keyboard that can use as input when replay
-        /// </summary>
-        /// <param name="replay"></param>
-        /// <returns></returns>
-        //protected override FramedReplayInputHandler CreateReplayInputHandler(Replay replay) => new RpReplayInputHandler(replay);
-
-        /// <summary>
         ///     Create the play field
         /// </summary>
         /// <returns></returns>
         protected override Playfield<BaseRpObject, RpJudgement> CreatePlayfield() => new RpPlayfield();
+
 
         /// <summary>
         ///     didn't know what is it
         /// TODO : consider to impliment it or not
         /// </summary>
         /// <returns></returns>
-        //protected override PassThroughInputManager CreateKeyConversionInputManager() => new RpKeyConversionInputManager();
+        public override PassThroughInputManager CreateKeyBindingInputManager() => new RpKeyConversionInputManager();
 
         /// <summary>
         ///     Change objects into drawable
@@ -79,8 +73,6 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         {
             DrawableHitObject<BaseRpObject, RpJudgement> returnObject = null;
 
-            //return null;
-
             if (h is RpHitObject)
                return new DrawableRpHitObject((RpHitObject)h);
             if (h is RpHoldObject)
@@ -90,10 +82,16 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
             if (h is RpContainerLineGroup)
                 return new DrawableRpContainerLineGroup((RpContainerLineGroup)h);
 
-            //adding Mods
-            //_modProcessor.ProcessHitObject(returnObject);
-
             return null;
         }
+
+        protected override Vector2 GetPlayfieldAspectAdjust() => new Vector2(0.75f);
+
+        /// <summary>
+        /// if one keys equals to another keys ,use this
+        /// </summary>
+        /// <param name="replay"></param>
+        /// <returns></returns>
+        protected override FramedReplayInputHandler CreateReplayInputHandler(Replay replay) => new RpReplayInputHandler(replay);
     }
 }

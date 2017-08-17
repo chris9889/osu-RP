@@ -8,7 +8,6 @@ using osu.Game.Input.Bindings;
 using OpenTK.Input;
 using KeyboardState = osu.Framework.Input.KeyboardState;
 using MouseState = osu.Framework.Input.MouseState;
-using osu.Framework.Input.Bindings;
 
 namespace osu.Game.Rulesets.RP.Input
 {
@@ -18,6 +17,11 @@ namespace osu.Game.Rulesets.RP.Input
         {
 
         }
+
+        /// <summary>
+        /// if some 
+        /// </summary>
+        /// <param name="state"></param>
         protected override void TransformState(InputState state)
         {
             base.TransformState(state);
@@ -25,6 +29,9 @@ namespace osu.Game.Rulesets.RP.Input
             var mouse = state.Mouse as MouseState;
             var keyboard = state.Keyboard as KeyboardState;
 
+            return;
+            
+            //TODO : Not really sure what it means
             if (mouse != null && keyboard != null)
             {
                 if (mouse.IsPressed(MouseButton.Left))

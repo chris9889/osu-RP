@@ -21,7 +21,7 @@ using OpenTK;
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
 {
     /// <summary>
-    ///     óVùEï®åèË˚é¶
+    ///     RpPlayfield
     /// </summary>
     public class RpPlayfield : Playfield<BaseRpObject, RpJudgement>
     {
@@ -129,12 +129,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
         /// <param name="hitObject"></param>
         public override void Add(DrawableHitObject<BaseRpObject, RpJudgement> hitObject)
         {
-            
-
             //IDrawableHitObjectWithProxiedApproach c = hitObject as IDrawableHitObjectWithProxiedApproach;
-
-            
-
             if (hitObject is DrawableRpContainerLineGroup)
             {
                 //Aviod container is in front of hit object
