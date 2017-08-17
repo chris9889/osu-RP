@@ -42,9 +42,9 @@ namespace osu.Game.Rulesets.RP.Replays
 
             var preferredEasing = DelayedMovements ? Easing.InOutCubic : Easing.Out;
 
-            addFrameToReplay(new RpReplayFrame(-100000, Key.Unknown, 500, ReplayButtonState.None));
-            addFrameToReplay(new RpReplayFrame(Beatmap.HitObjects[0].StartTime - 1500, Key.Unknown, 500, ReplayButtonState.None));
-            addFrameToReplay(new RpReplayFrame(Beatmap.HitObjects[0].StartTime - 1000, Key.Unknown, 192, ReplayButtonState.None));
+            Frames.Add(new RpReplayFrame(-100000, Key.Unknown, 500, ReplayButtonState.None));
+            Frames.Add(new RpReplayFrame(Beatmap.HitObjects[0].StartTime - 1500, Key.Unknown, 500, ReplayButtonState.None));
+            Frames.Add(new RpReplayFrame(Beatmap.HitObjects[0].StartTime - 1000, Key.Unknown, 192, ReplayButtonState.None));
 
             // We are using ApplyModsToRate and not ApplyModsToTime to counteract the speed up / slow down from HalfTime / DoubleTime so that we remain at a constant framerate of 60 fps.
             var frameDelay = (float)applyModsToRate(1000.0 / 60.0);
@@ -107,18 +107,21 @@ namespace osu.Game.Rulesets.RP.Replays
                     }
                 }
 
-                addFrameToReplay(new RpReplayFrame(time, listPressKey, 0, ReplayButtonState.None));
+                Frames.Add(new RpReplayFrame(time, listPressKey, 0, ReplayButtonState.None));
             }
 
             return Replay;
         }
 
-        private void addFrameToReplay(RpReplayFrame frame) => Frames.Add(frame);
+
+        //TODO : reserve 
         private double applyModsToTime(double v) => v;
+
+        //TODO : reserve 
         private double applyModsToRate(double v) => v;
 
         /// <summary>
-        ///     取得時間點上的所有打擊物件
+        ///     get all the HitObject in the time
         /// </summary>
         /// <returns></returns>
         public IEnumerable<BaseRpHitableObject> GetListPressHitObjectByTime(List<BaseRpHitableObject> listHitObjects, double time)
@@ -143,7 +146,6 @@ namespace osu.Game.Rulesets.RP.Replays
         private Key getKeyByHitObject(BaseRpHitableObject hitObject)
         {
             var listCompareKeys = RpKeyManager.GetListKey(hitObject);
-
             return listCompareKeys[0];
         }
     }

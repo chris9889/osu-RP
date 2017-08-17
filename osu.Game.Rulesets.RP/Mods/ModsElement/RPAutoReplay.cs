@@ -19,6 +19,7 @@ namespace osu.Game.Rulesets.RP.Mods.ModsElement
 {
     /// <summary>
     ///     這邊要把滑鼠的X軸當作按鍵使用
+    /// TODO : ready to be remove after  "RpAutoGenerator.cs" reviewed
     /// </summary>
     public class RpAutoReplay : Replay
     {
