@@ -35,6 +35,7 @@ namespace osu.Game.Rulesets.RP.UI.Setting
         }
     }
 
+    //RpConfigManager
     public class RpConfigManager : ConfigManager<RpSetting>
     {
         public RpConfigManager(Storage storage) : base(storage)
@@ -50,6 +51,7 @@ namespace osu.Game.Rulesets.RP.UI.Setting
       
     }
 
+    //all the setting attribute
     public enum RpSetting
     {
         SettingTesting001,

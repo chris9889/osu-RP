@@ -5,6 +5,6 @@ namespace osu.Game.Rulesets.RP.Objects.Types
 {
     public interface IHasCoop
     {
-        RpBaseHitObjectType.Coop Coop { get; }
+        Coop Coop { get; }
     }
 }

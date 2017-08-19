@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.Types;
 using OpenTK.Input;
 
@@ -94,18 +95,18 @@ namespace osu.Game.Rulesets.RP.Saving
         public SingleRpKeyLayoutConfig10K GenerateDefault10KPriority()
         {
             var config10K = new SingleRpKeyLayoutConfig10K();
-            var left = RpBaseHitObjectType.Coop.LeftOnly;
-            var right = RpBaseHitObjectType.Coop.RightOnly;
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, left, Key.Unknown, KeyName.LeftSlide));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Left, left, Key.Unknown, KeyName10K.LeftRectangle));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Down, left, Key.Unknown, KeyName10K.LeftCross));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Up, left, Key.Unknown, KeyName10K.LeftTriangle));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Right, left, Key.Unknown, KeyName10K.LeftCircle));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Left, right, Key.Unknown, KeyName10K.RightRectangle));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Up, right, Key.Unknown, KeyName10K.RightTriangle));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Down, right, Key.Unknown, KeyName10K.RightCross));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Right, right, Key.Unknown, KeyName10K.RightCircle));
-            config10K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, right, Key.Unknown, KeyName.RightSlide));
+            var left = Coop.LeftOnly;
+            var right = Coop.RightOnly;
+            config10K.KeyDictionary.Add(new SingleKey(Shape.ContainerPress, left, Key.Unknown, KeyName.LeftSlide));
+            config10K.KeyDictionary.Add(new SingleKey(Shape.Left, left, Key.Unknown, KeyName10K.LeftRectangle));
+            config10K.KeyDictionary.Add(new SingleKey(Shape.Down, left, Key.Unknown, KeyName10K.LeftCross));
+            config10K.KeyDictionary.Add(new SingleKey(Shape.Up, left, Key.Unknown, KeyName10K.LeftTriangle));
+            config10K.KeyDictionary.Add(new SingleKey(Shape.Right, left, Key.Unknown, KeyName10K.LeftCircle));
+            config10K.KeyDictionary.Add(new SingleKey(Shape.Left, right, Key.Unknown, KeyName10K.RightRectangle));
+            config10K.KeyDictionary.Add(new SingleKey(Shape.Up, right, Key.Unknown, KeyName10K.RightTriangle));
+            config10K.KeyDictionary.Add(new SingleKey(Shape.Down, right, Key.Unknown, KeyName10K.RightCross));
+            config10K.KeyDictionary.Add(new SingleKey(Shape.Right, right, Key.Unknown, KeyName10K.RightCircle));
+            config10K.KeyDictionary.Add(new SingleKey(Shape.ContainerPress, right, Key.Unknown, KeyName.RightSlide));
             return config10K;
         }
 
@@ -115,13 +116,13 @@ namespace osu.Game.Rulesets.RP.Saving
         public SingleRpKeyLayoutConfig6K GenerateDefault6KPriority()
         {
             var config6K = new SingleRpKeyLayoutConfig6K();
-            var both = RpBaseHitObjectType.Coop.Both;
-            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, both, Key.Unknown, KeyName.LeftSlide));
-            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Up, both, Key.Unknown, KeyName6K.Triangle));
-            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Left, both, Key.Unknown, KeyName6K.Square));
-            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Down, both, Key.Unknown, KeyName6K.Cross));
-            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.Right, both, Key.Unknown, KeyName6K.Circle));
-            config6K.KeyDictionary.Add(new SingleKey(RpBaseHitObjectType.Shape.ContainerPress, both, Key.Unknown, KeyName.RightSlide));
+            var both = Coop.Both;
+            config6K.KeyDictionary.Add(new SingleKey(Shape.ContainerPress, both, Key.Unknown, KeyName.LeftSlide));
+            config6K.KeyDictionary.Add(new SingleKey(Shape.Up, both, Key.Unknown, KeyName6K.Triangle));
+            config6K.KeyDictionary.Add(new SingleKey(Shape.Left, both, Key.Unknown, KeyName6K.Square));
+            config6K.KeyDictionary.Add(new SingleKey(Shape.Down, both, Key.Unknown, KeyName6K.Cross));
+            config6K.KeyDictionary.Add(new SingleKey(Shape.Right, both, Key.Unknown, KeyName6K.Circle));
+            config6K.KeyDictionary.Add(new SingleKey(Shape.ContainerPress, both, Key.Unknown, KeyName.RightSlide));
             return config6K;
         }
 
@@ -209,10 +210,10 @@ namespace osu.Game.Rulesets.RP.Saving
         {
             public Key Key;
             public string Name;
-            public RpBaseHitObjectType.Shape Type;
-            public RpBaseHitObjectType.Coop Coop;
+            public Shape Type;
+            public Coop Coop;
 
-            public SingleKey(RpBaseHitObjectType.Shape type, RpBaseHitObjectType.Coop coop, Key key, string name)
+            public SingleKey(Shape type, Coop coop, Key key, string name)
             {
                 Key = key;
                 Coop = coop;

@@ -3,13 +3,14 @@
 
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Parameter;
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.Parameter;
+using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.Types;
 
 namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
 {
     internal class ProcessObjectTypeRandom
     {
-        //單一一段的物件
+        //單一一段皁E��件
         private ConvertParameter _singleSlideParameter;
 
 
@@ -29,21 +30,21 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
         ///     計算隨機形狀
         /// </summary>
         /// <returns></returns>
-        private RpBaseHitObjectType.Shape CalRandomShape(SingleHitObjectConvertParameter singleTuple, int index)
+        private Shape CalRandomShape(SingleHitObjectConvertParameter singleTuple, int index)
         {
             var randNum = CalRandNumber(singleTuple, index);
             switch (randNum % 4)
             {
                 case 0:
-                    return RpBaseHitObjectType.Shape.Up;
+                    return Shape.Up;
                 case 1:
-                    return RpBaseHitObjectType.Shape.Left;
+                    return Shape.Left;
                 case 2:
-                    return RpBaseHitObjectType.Shape.Down;
+                    return Shape.Down;
                 case 3:
-                    return RpBaseHitObjectType.Shape.Right;
+                    return Shape.Right;
             }
-            return RpBaseHitObjectType.Shape.Down;
+            return Shape.Down;
         }
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
 
             return singleTuple.MultiNumber + (int)singleTuple.StartTime + singleTuple.ListBaseHitObject.Count + addNumber;
 
-            //BPM，為了避免BPM 200 的譜特別簡單
+            //BPM�E�為亁E��免BPM 200 皁E��特別簡單
             var periodTime = (int)(60 / (double)(int)_singleSlideParameter.SliceConvertParameter.BPM) * 1000;
             //
             return singleTuple.MultiNumber + (int)singleTuple.StartTime % periodTime + singleTuple.ListBaseHitObject.Count;
@@ -70,7 +71,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
 
         /// <summary>
         ///     產生隨機參數
-        ///     目前先保存下來
+        ///     目前�E保存下侁E
         /// </summary>
         /// <returns></returns>
         private int OLD_CalRandNumber(SingleHitObjectConvertParameter singleTuple)

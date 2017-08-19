@@ -4,9 +4,8 @@
 using System.Collections.Generic;
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.Parameter;
 using osu.Game.Rulesets.RP.Objects;
-using osu.Game.Rulesets.RP.Objects.Types;
 
-namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
+namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.CoopDecide
 {
     internal class CoopDecider
     {
@@ -40,7 +39,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
         {
             foreach (var sligleContainer in single.ContainerConvertParameter.ListObjectContainer)
             foreach (var layout in sligleContainer.ListContainObject)
-                layout.Coop = RpBaseHitObjectType.Coop.Both;
+                layout.Coop = Coop.Both;
         }
 
         /// <summary>
@@ -55,9 +54,9 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop
             var additionRandomValue = GetRandomValue(single);
             for (var i = 0; i < listLayout.Count; i++)
                 if ((i + additionRandomValue) % 2 == 0)
-                    listLayout[i].Coop = RpBaseHitObjectType.Coop.LeftOnly;
+                    listLayout[i].Coop = Coop.LeftOnly;
                 else
-                    listLayout[i].Coop = RpBaseHitObjectType.Coop.RightOnly;
+                    listLayout[i].Coop = Coop.RightOnly;
         }
 
         /// <summary>

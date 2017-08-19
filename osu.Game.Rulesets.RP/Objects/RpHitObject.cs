@@ -8,7 +8,7 @@ namespace osu.Game.Rulesets.RP.Objects
     public class RpHitObject : BaseRpHitableObject
     {
         //ObjectType
-        public override RpBaseObjectType.ObjectType ObjectType => RpBaseObjectType.ObjectType.Hit;
+        public override ObjectType ObjectType => ObjectType.Hit;
 
         //constructure
         public RpHitObject(RpContainerLine parent, double startTime)

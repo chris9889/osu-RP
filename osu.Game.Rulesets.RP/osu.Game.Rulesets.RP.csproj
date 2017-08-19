@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\Coop\CoopDecider.cs" />
+    <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\CoopDecide\CoopDecider.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\MultiContainer\MultiContainerDecidor.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\Generator\HitObjectGenerator.cs" />
     <Compile Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\ObjectMovingPath\StartPosition\StartPositionGenerator.cs" />
@@ -64,17 +64,17 @@
     <Compile Include="Objects\Attribute\BaseRpObjectAttribute.cs" />
     <Compile Include="Objects\Drawables\Edit\DrawableEditBaseRpObject.cs" />
     <Compile Include="Objects\Drawables\Play\Interface\IHasTemplate.cs" />
-    <Compile Include="Objects\Types\IHasBPM.cs" />
-    <Compile Include="Objects\Types\IHasColor.cs" />
-    <Compile Include="Objects\Types\IHasContainList.cs" />
-    <Compile Include="Objects\Types\IHasCoop.cs" />
-    <Compile Include="Objects\Types\IHasEasingTypes.cs" />
-    <Compile Include="Objects\Types\IHasID.cs" />
-    <Compile Include="Objects\Types\IHasLength.cs" />
-    <Compile Include="Objects\Types\IHasParent.cs" />
-    <Compile Include="Objects\Types\IHasRotation.cs" />
-    <Compile Include="Objects\Types\IHasScale.cs" />
-    <Compile Include="Objects\Types\IHasVelocity.cs" />
+    <Compile Include="Objects\Interface\IHasBPM.cs" />
+    <Compile Include="Objects\Interface\IHasColor.cs" />
+    <Compile Include="Objects\Interface\IHasContainList.cs" />
+    <Compile Include="Objects\Interface\IHasCoop.cs" />
+    <Compile Include="Objects\Interface\IHasEasingTypes.cs" />
+    <Compile Include="Objects\Interface\IHasID.cs" />
+    <Compile Include="Objects\Interface\IHasLength.cs" />
+    <Compile Include="Objects\Interface\IHasParent.cs" />
+    <Compile Include="Objects\Interface\IHasRotation.cs" />
+    <Compile Include="Objects\Interface\IHasScale.cs" />
+    <Compile Include="Objects\Interface\IHasVelocity.cs" />
     <Compile Include="Replays\RpAutoGenerator.cs" />
     <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\GameField\GameFieldModsProcessor.cs" />
     <Compile Include="UI\GamePlay\HitRenderer\ModsProcessor\HitObject\HitObjectModsProcessor.cs" />
@@ -148,8 +148,6 @@
     <Compile Include="Objects\Drawables\Template\RpHitObject\Component\Common\ShapePiece\HitObjectAnyShapePiece.cs" />
     <Compile Include="Objects\Drawables\Template\RpHitObject\Component\StillPiece\BaseStillPiece.cs" />
     <Compile Include="Objects\Drawables\Play\DrawableRpContainerLineHoldObject.cs" />
-    <Compile Include="Objects\MovingPath\BezierApproximator.cs" />
-    <Compile Include="Objects\MovingPath\CircularArcApproximator.cs" />
     <Compile Include="Objects\Drawables\Play\DrawableBaseRpHitableObject.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\Pointer.cs" />
     <Compile Include="Objects\Drawables\Play\DrawableRpHoldObject.cs" />
@@ -161,9 +159,7 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\RingPiece.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\Triangles.cs" />
     <Compile Include="Objects\Drawables\Template\RpHitObject\Component\Common\SliderBody.cs" />
-    <Compile Include="Objects\Types\RpObjectType.cs" />
     <Compile Include="Parser\RpHitObjectParser.cs" />
-    <Compile Include="Objects\MovingPath\SliderCurve.cs" />
     <Compile Include="UI\GamePlay\KeyCounter\RpKeyCounterKeyboard.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\ContainerBackground\ContainerBackgroundLayout.cs" />
     <Compile Include="UI\GamePlay\Playfield\Layout\BaseGamePlayLayout.cs" />

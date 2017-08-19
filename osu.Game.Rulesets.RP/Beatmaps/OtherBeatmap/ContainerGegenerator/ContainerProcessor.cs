@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.ContainerPosition;
-using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Coop;
+using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.CoopDecide;
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.Generator;
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator.MultiContainer;
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.Parameter;
@@ -12,10 +12,10 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator
 {
     public class ContainerProcessor
     {
-        //物件數量決定
+        //物件數量決宁E
         private readonly MultiContainerDecidor multiContainerDecidor = new MultiContainerDecidor();
 
-        //實作並且分配
+        //實作並且�E酁E
         private readonly ContainerGenerator containerGenerator = new ContainerGenerator();
 
         //決定物件位置

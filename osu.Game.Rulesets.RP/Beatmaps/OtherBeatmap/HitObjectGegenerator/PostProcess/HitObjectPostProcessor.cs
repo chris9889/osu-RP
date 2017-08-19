@@ -2,6 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.Parameter;
+using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.Types;
 
 namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PostProcess
@@ -22,10 +23,10 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PostPr
         /// <param name="single"></param>
         private void ProcessConvert(ConvertParameter single)
         {
-            //Âêå‰∏ÄÁæ§ÁµÅEÔøΩEÔøΩEÁöÅEÔøΩEÔøΩÔøΩEÔøΩ‰ª∂‰ΩçÁΩÆ
+            //Âêå‰∏ÄÁæ§ÁµÅEÅEΩEÅEΩEÁöÅEÅEΩEÅEΩÅEΩEÅEΩ‰ª∂‰ΩçÁΩÆ
             foreach (var singleTupleHitObjects in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             foreach (var singleObject in singleTupleHitObjects.ListBaseHitObject)
-                singleObject.Convert = RpBaseObjectType.Convert.Convert;
+                singleObject.Convert = Convert.Convert;
         }
 
         /// <summary>
@@ -34,13 +35,13 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PostPr
         /// <param name="single"></param>
         private void ProcessMulti(ConvertParameter single)
         {
-            //Âêå‰∏ÄÁæ§ÁµÅEÔøΩEÔøΩEÁöÅEÔøΩEÔøΩÔøΩEÔøΩ‰ª∂‰ΩçÁΩÆ
+            //Âêå‰∏ÄÁæ§ÁµÅEÅEΩEÅEΩEÁöÅEÅEΩEÅEΩÅEΩEÅEΩ‰ª∂‰ΩçÁΩÆ
             foreach (var singleTupleHitObjects in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             foreach (var singleObject in singleTupleHitObjects.ListBaseHitObject)
                 if (singleTupleHitObjects.ListBaseHitObject.Count > 1)
-                    singleObject.Multi = RpBaseHitObjectType.Multi.Multi;
+                    singleObject.Multi = Multi.Multi;
                 else
-                    singleObject.Multi = RpBaseHitObjectType.Multi.SingleClick;
+                    singleObject.Multi = Multi.SingleClick;
         }
     }
 }

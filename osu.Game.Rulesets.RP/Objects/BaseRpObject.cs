@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
+using System;
 using System.ComponentModel;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.RP.Objects.Attribute;
@@ -23,7 +24,7 @@ namespace osu.Game.Rulesets.RP.Objects
         public BindingList<BaseRpObjectAttribute> ListAttrobutes = new BindingList<BaseRpObjectAttribute>();
 
         //Object type
-        public virtual RpBaseObjectType.ObjectType ObjectType => RpBaseObjectType.ObjectType.Undefined;
+        public virtual ObjectType ObjectType => ObjectType.Undefined;
 
         //Velocity
         public double Velocity { get; set; }
@@ -43,5 +44,36 @@ namespace osu.Game.Rulesets.RP.Objects
             Velocity = 1;
             BPM = 180;
         }
+    }
+
+    //ObjectType
+    [Flags]
+    public enum ObjectType
+    {
+        Undefined = 1,
+        HitObject = 2,
+        Hit = 16,
+        Hold = 32,
+        ContainerGroup = 4,
+        ContainerLine = 8,
+        ContainerHold = 64,
+        NewCombo = 128
+    }
+
+    //Convert
+    [Flags]
+    public enum Convert
+    {
+        Original,
+        Convert
+    }
+
+    //Coop
+    [Flags]
+    public enum Coop
+    {
+        LeftOnly,
+        RightOnly,
+        Both
     }
 }

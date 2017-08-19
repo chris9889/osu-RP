@@ -25,7 +25,7 @@ namespace osu.Game.Rulesets.RP.KeyManager
 
             foreach (var single in config.KeyDictionary)
                 if (single.Type == baseHitObject.Shape)
-                    if (baseHitObject.Coop == RpBaseHitObjectType.Coop.Both) //如果是通用
+                    if (baseHitObject.Coop == Coop.Both) //如果是通用
                         output.Add(single.Key);
                     else if (baseHitObject.Coop == single.Coop) //或是左右屬性符吁E
                         output.Add(single.Key);

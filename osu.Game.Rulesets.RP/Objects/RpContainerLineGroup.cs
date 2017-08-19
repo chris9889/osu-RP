@@ -48,7 +48,7 @@ namespace osu.Game.Rulesets.RP.Objects
         public float Scale { get; set; }
 
         //Object type
-        public override RpBaseObjectType.ObjectType ObjectType => RpBaseObjectType.ObjectType.ContainerGroup;
+        public override ObjectType ObjectType => ObjectType.ContainerGroup;
 
         /// <summary>
         ///     Initialize

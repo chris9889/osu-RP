@@ -18,7 +18,7 @@ namespace osu.Game.Rulesets.RP.Objects
         public double Duration => EndTime - StartTime;
 
         //ObjectType
-        public override RpBaseObjectType.ObjectType ObjectType => RpBaseObjectType.ObjectType.Hold;
+        public override ObjectType ObjectType => ObjectType.Hold;
 
         //Constructor
         public RpHoldObject(RpContainerLine parent, double startTime)

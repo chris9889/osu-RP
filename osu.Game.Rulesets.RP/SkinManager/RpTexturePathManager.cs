@@ -45,7 +45,7 @@ namespace osu.Game.Rulesets.RP.SkinManager
         ///     按鈕要用的icon
         /// </summary>
         /// <returns></returns>
-        public static string GetKeyLayoutButtonIcon(RpBaseHitObjectType.Shape Type)
+        public static string GetKeyLayoutButtonIcon(Shape Type)
         {
             return RP_KEYCOUNTER_FOLDER + Type;
         }
@@ -182,13 +182,13 @@ namespace osu.Game.Rulesets.RP.SkinManager
 
 
             //如果是黃金模式(家分模式)
-            if (baseHitObject.Special == RpBaseObjectType.Special.Normal)
+            if (baseHitObject.Special == Special.Normal)
                 fileName = @"Normal/" + fileName;
             else
                 fileName = @"Special/" + fileName;
 
             //不同落下模式
-            //if (baseHitObject.ApproachType == RpBaseHitObjectType.ApproachType.ApproachCircle)
+            //if (baseHitObject.ApproachType == ApproachType.ApproachCircle)
             fileName = @"Circle/" + fileName;
             //else
             //    fileName = @"Square/" + fileName;
@@ -207,22 +207,22 @@ namespace osu.Game.Rulesets.RP.SkinManager
             string fileName = null;
             switch (baseHitObject.Shape)
             {
-                case RpBaseHitObjectType.Shape.Up:
+                case Shape.Up:
                     fileName = @"Up";
                     break;
-                case RpBaseHitObjectType.Shape.Down:
+                case Shape.Down:
                     fileName = @"Down";
                     break;
-                case RpBaseHitObjectType.Shape.Left:
+                case Shape.Left:
                     fileName = @"Left";
                     break;
-                case RpBaseHitObjectType.Shape.Right:
+                case Shape.Right:
                     fileName = @"Right";
                     break;
-                case RpBaseHitObjectType.Shape.Special:
+                case Shape.Special:
                     fileName = @"Star";
                     break;
-                case RpBaseHitObjectType.Shape.ContainerPress:
+                case Shape.ContainerPress:
                     fileName = @"Left";
                     break;
                 default:

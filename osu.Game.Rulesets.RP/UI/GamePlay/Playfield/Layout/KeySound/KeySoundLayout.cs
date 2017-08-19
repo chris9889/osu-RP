@@ -7,6 +7,7 @@ using osu.Framework.Audio;
 using osu.Framework.Audio.Sample;
 using osu.Framework.Input;
 using osu.Game.Rulesets.RP.KeyManager;
+using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.Types;
 using OpenTK.Input;
 
@@ -30,7 +31,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.KeySound
             var keyList = RpKeyManager.GetCurrentKeyConfig();
 
             foreach (var singleKey in keyList.KeyDictionary)
-                if (singleKey.Type == RpBaseHitObjectType.Shape.ContainerPress)
+                if (singleKey.Type == Shape.ContainerPress)
                     _containerPressKeys.Add(singleKey.Key);
                 else
                     _listShapeKeys.Add(singleKey.Key);

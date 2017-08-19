@@ -52,7 +52,7 @@ namespace osu.Game.Rulesets.RP.Objects
         public float Lenght { get; set; }
 
         //Co-op 
-        public RpBaseHitObjectType.Coop Coop { get; set; }
+        public Coop Coop { get; set; }
 
         //constructure
         public RpContainerLine(RpContainerLineGroup objectContainer, double startTime)
@@ -87,7 +87,7 @@ namespace osu.Game.Rulesets.RP.Objects
             EndTime = ParentObject.EndTime;
             Lenght = ParentObject.Lenght;
             //
-            Coop = RpBaseHitObjectType.Coop.Both;
+            Coop = Coop.Both;
         }
     }
 }

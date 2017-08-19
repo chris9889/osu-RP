@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
+using System;
 using osu.Game.Audio;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
 using osu.Game.Rulesets.RP.Objects.Types;
@@ -47,22 +48,19 @@ namespace osu.Game.Rulesets.RP.Objects
         public int RelativeContainerLineIndex => ParentObject.ID;
 
         //set the shape type
-        public RpBaseHitObjectType.Shape Shape = RpBaseHitObjectType.Shape.Right;
+        public Shape Shape = Shape.Right;
 
         //normal or special
-        public RpBaseObjectType.Special Special = RpBaseObjectType.Special.Normal;
-
-        //if converted for osu!beatmap,set to auto
-        public RpBaseObjectType.CurveGenerate CurveGenerate = RpBaseObjectType.CurveGenerate.Auto;
+        public Special Special = Special.Normal;
 
         //sligle or multi
-        public RpBaseHitObjectType.Multi Multi = RpBaseHitObjectType.Multi.SingleClick;
+        public Multi Multi = Multi.SingleClick;
 
         //co-op or not
-        public RpBaseHitObjectType.Coop Coop => ParentObject.Coop;
+        public Coop Coop => ParentObject.Coop;
 
         //if converted for osu!beatmap,set to Convert
-        public RpBaseObjectType.Convert Convert = RpBaseObjectType.Convert.Original;
+        public Convert Convert = Convert.Original;
 
         public BaseRpHitableObject(RpContainerLine parent, double startTime)
             : base(startTime)
@@ -114,5 +112,33 @@ namespace osu.Game.Rulesets.RP.Objects
                 return RpScoreResult.Safe;
             return RpScoreResult.Sad;
         }
+    }
+
+    //Special
+    [Flags]
+    public enum Special
+    {
+        Normal = 0,
+        Gold = 1
+    }
+
+    //Shape
+    [Flags]
+    public enum Shape
+    {
+        Up = 1, //up
+        Down = 2, //down
+        Left = 4, //left
+        Right = 8, //right
+        Special = 16, // Up| Down| Left| Right
+        ContainerPress = 32 //containerPress
+    }
+
+    //Multi , not impliment yet
+    [Flags]
+    public enum Multi
+    {
+        SingleClick,
+        Multi
     }
 }

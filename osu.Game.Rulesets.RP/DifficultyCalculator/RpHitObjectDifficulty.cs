@@ -156,11 +156,11 @@ namespace osu.Game.Rulesets.RP.DifficultyCalculator
             var timeElapsed = (BaseHitObject.StartTime - previousHitObject.BaseHitObject.StartTime) / timeRate;
             var decay = Math.Pow(DECAY_BASE[(int)type], timeElapsed / 1000);
 
-            if (BaseHitObject.ObjectType == RpBaseObjectType.ObjectType.ContainerGroup)
+            if (BaseHitObject.ObjectType == ObjectType.ContainerGroup)
             {
                 // Do nothing for spinners
             }
-            else if (BaseHitObject.ObjectType == RpBaseObjectType.ObjectType.Hold)
+            else if (BaseHitObject.ObjectType == ObjectType.Hold)
             {
                 switch (type)
                 {
@@ -188,7 +188,7 @@ namespace osu.Game.Rulesets.RP.DifficultyCalculator
                         break;
                 }
             }
-            else if (BaseHitObject.ObjectType == RpBaseObjectType.ObjectType.Hit)
+            else if (BaseHitObject.ObjectType == ObjectType.Hit)
             {
                 addition = spacingWeight(DistanceTo(previousHitObject), type) * spacing_weight_scaling[(int)type];
             }
