@@ -2,12 +2,11 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Framework.Graphics;
-using osu.Game.Rulesets.Objects.Drawables;
-using osu.Game.Rulesets.RP.Objects.Drawables.Template;
-using osu.Game.Rulesets.RP.Scoreing;
-using OpenTK;
-using System;
 using osu.Framework.Graphics.Shapes;
+using osu.Game.Rulesets.Objects.Drawables;
+using osu.Game.Rulesets.RP.Judgements;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template;
+using OpenTK;
 using OpenTK.Graphics;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
@@ -34,20 +33,18 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             Alpha = 0;
 
             Origin = Anchor.Centre;
-            Position = new Vector2(100,100);
+            Position = new Vector2(100, 100);
             Scale = new Vector2(1);
             Size = new Vector2(1, 1);
 
             ConstructObject();
 
             InitialChildObject();
-            
         }
 
         //建構樣板物件
         protected virtual void ConstructObject()
         {
-
         }
 
         //建構
@@ -108,7 +105,6 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             //this.Delay(PreemptTime);
         }
 
-       
 
         /// <summary>
         ///     持續一直更新物件
@@ -137,6 +133,5 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         }
 
         protected override RpJudgement CreateJudgement() => new RpJudgement { Score = RpScoreResult.Cool };
-
     }
 }

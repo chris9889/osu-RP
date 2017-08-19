@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 using osu.Game.Rulesets.Objects.Types;
-using osu.Game.Rulesets.RP.Objects.Types;
+using osu.Game.Rulesets.RP.Objects.Interface;
 using OpenTK;
 using OpenTK.Graphics;
 

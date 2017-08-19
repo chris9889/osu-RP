@@ -38,7 +38,6 @@
     <Reference Include="OpenTK">
       <HintPath>..\packages\ppy.OpenTK.3.0\lib\net45\OpenTK.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Beatmaps\OtherBeatmap\ContainerGegenerator\CoopDecide\CoopDecider.cs" />

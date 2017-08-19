@@ -12,15 +12,16 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.ContainerGegenerator
 {
     public class ContainerProcessor
     {
-        //物件數量決宁E
+        //MultiContainerDecidor
         private readonly MultiContainerDecidor multiContainerDecidor = new MultiContainerDecidor();
 
-        //實作並且�E酁E
+        //ContainerGenerator
         private readonly ContainerGenerator containerGenerator = new ContainerGenerator();
 
-        //決定物件位置
+        //PositionDecidor
         private readonly PositionDecidor positionDecidor = new PositionDecidor();
 
+        //CoopDecider
         private readonly CoopDecider coopDecider = new CoopDecider();
 
         public List<ConvertParameter> Convert(List<ConvertParameter> output)

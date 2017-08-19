@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel;
 using osu.Game.Rulesets.Objects;
 using osu.Game.Rulesets.RP.Objects.Attribute;
-using osu.Game.Rulesets.RP.Objects.Types;
+using osu.Game.Rulesets.RP.Objects.Interface;
 
 namespace osu.Game.Rulesets.RP.Objects
 {

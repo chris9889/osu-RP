@@ -4,7 +4,7 @@
 using System;
 using osu.Framework.Input;
 using osu.Game.Rulesets.Objects.Drawables;
-using osu.Game.Rulesets.RP.Scoreing;
+using osu.Game.Rulesets.RP.Judgements;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Edit
 {

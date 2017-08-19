@@ -17,13 +17,11 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         public StillHit(BaseRpHitableObject baseHitObject)
             : base(baseHitObject)
         {
-
             Children = new Drawable[]
             {
                 //äJì™ï®åè
                 hitObjectAnyShapePieceFirstObjectAny = new HitObjectAnyShapePiece(baseHitObject) //false
                 {
-
                     Position = new Vector2(0, 0),
                     //Scale = new Vector2(HitObject.Scale),
                     IsFirst = true

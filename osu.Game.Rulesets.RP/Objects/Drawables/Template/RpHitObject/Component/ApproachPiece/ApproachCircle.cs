@@ -2,7 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Framework.Graphics;
-using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component.Common;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface;
 using osu.Game.Rulesets.RP.SkinManager;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using OpenTK;
@@ -22,7 +22,6 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         public ApproachCircle(BaseRpHitableObject baseHitObject)
             : base(baseHitObject)
         {
-
             Children = new Drawable[]
             {
                 ApproachHitPicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(BaseHitObject))

@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using osu.Game.Rulesets.RP.Objects;
-using osu.Game.Rulesets.RP.Objects.Types;
 using OpenTK.Input;
 
 namespace osu.Game.Rulesets.RP.Saving

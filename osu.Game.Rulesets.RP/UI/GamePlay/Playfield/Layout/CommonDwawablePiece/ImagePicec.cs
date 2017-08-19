@@ -51,7 +51,6 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece
             {
                 return;
             }
-            
         }
     }
 }

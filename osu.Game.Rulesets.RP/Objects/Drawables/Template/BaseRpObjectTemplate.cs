@@ -9,7 +9,7 @@ using osu.Framework.Graphics.Shapes;
 using osu.Framework.MathUtils;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Calculator;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
-using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component.Common;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.Common;
 using OpenTK;
 

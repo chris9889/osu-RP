@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.Component.Common
+namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface
 {
     /// <summary>
     ///     the object can move with bpm

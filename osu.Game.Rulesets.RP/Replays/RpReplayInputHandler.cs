@@ -5,15 +5,13 @@ using System.Collections.Generic;
 using osu.Framework.Input;
 using osu.Game.Rulesets.Replays;
 
-namespace osu.Game.Rulesets.RP.BeatmapReplay
+namespace osu.Game.Rulesets.RP.Replays
 {
-    
     public class RpReplayInputHandler : FramedReplayInputHandler
     {
         public RpReplayInputHandler(Replay replay)
             : base(replay)
         {
-
         }
 
 
@@ -31,7 +29,5 @@ namespace osu.Game.Rulesets.RP.BeatmapReplay
                 }
             };
         }
-
-
     }
 }

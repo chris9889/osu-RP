@@ -2,13 +2,10 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Framework.Graphics;
-using osu.Framework.Graphics.Containers;
 using osu.Game.Rulesets.Judgements;
-using osu.Game.Rulesets.RP.Objects;
+using osu.Game.Rulesets.RP.Judgements;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
-using osu.Game.Rulesets.RP.Scoreing;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosion.HitEffectTemplate;
-using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosion
 {
@@ -17,14 +14,13 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosi
     /// </summary>
     public class HitExplosion : DrawableJudgement<RpJudgement>
     {
-      
-
         /// <summary>
         ///     顯示特效
         /// </summary>
         private readonly BaseHitEffectTemplate _hitEffect;
 
-        public HitExplosion(RpJudgement judgement) : base(judgement)
+        public HitExplosion(RpJudgement judgement)
+            : base(judgement)
         {
             AutoSizeAxes = Axes.Both;
             Origin = Anchor.Centre;

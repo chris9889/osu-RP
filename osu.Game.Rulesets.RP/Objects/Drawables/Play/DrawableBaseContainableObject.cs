@@ -2,9 +2,8 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System.Collections.Generic;
-using osu.Game.Rulesets.RP.Objects.Drawables.Play.Interface;
+using osu.Game.Rulesets.RP.Judgements;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer;
-using osu.Game.Rulesets.RP.Scoreing;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 {

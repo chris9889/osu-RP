@@ -4,6 +4,7 @@
 using System.Collections.Generic;
 using osu.Framework.Extensions;
 using osu.Game.Rulesets.Objects.Drawables;
+using osu.Game.Rulesets.RP.Judgements;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
 using osu.Game.Rulesets.Scoring;

@@ -5,10 +5,9 @@ using System;
 using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
-using osu.Framework.Graphics.Shapes;
 using osu.Framework.Input;
+using osu.Game.Rulesets.RP.Judgements;
 using osu.Game.Rulesets.RP.KeyManager;
-using osu.Game.Rulesets.RP.Scoreing;
 using OpenTK.Input;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play.Common
@@ -55,7 +54,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play.Common
 
             Children = new Drawable[]
             {
-                new Container(), 
+                new Container(),
             };
         }
 

@@ -1,7 +1,7 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
-namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.Component.Common
+namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface
 {
     //has scale
     public interface IComponentHasScale

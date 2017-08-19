@@ -8,10 +8,10 @@ using osu.Framework.Graphics;
 using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Objects.Types;
 using osu.Game.Rulesets.Replays;
-using osu.Game.Rulesets.RP.BeatmapReplay;
 using osu.Game.Rulesets.RP.KeyManager;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
+using osu.Game.Rulesets.RP.Replays;
 using OpenTK;
 using OpenTK.Input;
 

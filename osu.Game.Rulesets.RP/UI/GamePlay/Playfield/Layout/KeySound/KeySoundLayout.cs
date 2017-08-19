@@ -8,7 +8,6 @@ using osu.Framework.Audio.Sample;
 using osu.Framework.Input;
 using osu.Game.Rulesets.RP.KeyManager;
 using osu.Game.Rulesets.RP.Objects;
-using osu.Game.Rulesets.RP.Objects.Types;
 using OpenTK.Input;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.KeySound

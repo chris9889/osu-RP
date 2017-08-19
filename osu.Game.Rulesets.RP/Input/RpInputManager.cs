@@ -1,4 +1,6 @@
-﻿
+﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
+// Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,9 +15,9 @@ namespace osu.Game.Rulesets.RP.Input
 {
     public class RpInputManager : DatabasedKeyBindingInputManager<RpAction>
     {
-        public RpInputManager(RulesetInfo ruleset) : base(ruleset, simultaneousMode: SimultaneousBindingMode.Unique)
+        public RpInputManager(RulesetInfo ruleset)
+            : base(ruleset, simultaneousMode: SimultaneousBindingMode.Unique)
         {
-
         }
 
         /// <summary>
@@ -30,7 +32,7 @@ namespace osu.Game.Rulesets.RP.Input
             var keyboard = state.Keyboard as KeyboardState;
 
             return;
-            
+
             //TODO : Not really sure what it means
             if (mouse != null && keyboard != null)
             {
@@ -47,28 +49,18 @@ namespace osu.Game.Rulesets.RP.Input
     /// </summary>
     public enum RpAction
     {
-        [Description("Left _up")]
-        Left_Up,
-        [Description("Left _down")]
-        Left_Down,
-        [Description("Left _Left")]
-        Left_Left,
-        [Description("Left _Right")]
-        Left_Right,
-        [Description("Left _press")]
-        Left_Press,
+        [Description("Left _up")] Left_Up,
+        [Description("Left _down")] Left_Down,
+        [Description("Left _Left")] Left_Left,
+        [Description("Left _Right")] Left_Right,
+        [Description("Left _press")] Left_Press,
 
 
-        [Description("Right _up")]
-        Right_Up,
-        [Description("Right _down")]
-        Right_Down,
-        [Description("Right _Left")]
-        Right_Left,
-        [Description("Right _Right")]
-        Right_Right,
-        [Description("Right _press")]
-        Right_Press,
+        [Description("Right _up")] Right_Up,
+        [Description("Right _down")] Right_Down,
+        [Description("Right _Left")] Right_Left,
+        [Description("Right _Right")] Right_Right,
+        [Description("Right _press")] Right_Press,
     }
 
     public class KeyBindingConfig

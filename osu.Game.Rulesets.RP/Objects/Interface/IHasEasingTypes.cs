@@ -3,7 +3,7 @@
 
 using osu.Framework.Graphics;
 
-namespace osu.Game.Rulesets.RP.Objects.Types
+namespace osu.Game.Rulesets.RP.Objects.Interface
 {
     public interface IHasEasingTypes
     {

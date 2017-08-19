@@ -62,7 +62,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.Judgement.HitExplosi
         {
             //透明度
             _loopPicec.FadeTo(0.7f, 0);
-            _loopPicec.FadeTo(0.7f, 250* multi);
+            _loopPicec.FadeTo(0.7f, 250 * multi);
             _loopPicec.FadeTo(0f, 300 * multi);
             //scale
             _loopPicec.Scale = new Vector2(1.4f);

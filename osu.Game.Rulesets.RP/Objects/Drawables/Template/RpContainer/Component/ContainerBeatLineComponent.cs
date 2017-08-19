@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Calculator;
-using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component.Common;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface;
 using osu.Game.Rulesets.RP.SkinManager;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using OpenTK;

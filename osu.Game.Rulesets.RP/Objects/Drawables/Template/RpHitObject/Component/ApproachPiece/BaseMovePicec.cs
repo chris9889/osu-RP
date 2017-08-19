@@ -3,7 +3,7 @@
 
 using System;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
-using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component.Common;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.ApproachPiece
 {

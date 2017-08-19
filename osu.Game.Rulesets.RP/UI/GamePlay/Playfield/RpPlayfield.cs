@@ -1,14 +1,12 @@
 // Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
-using System.Collections.Generic;
 using System.Linq;
 using osu.Framework.Graphics;
-using osu.Game.Graphics.Cursor;
 using osu.Game.Rulesets.Objects.Drawables;
+using osu.Game.Rulesets.RP.Judgements;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
-using osu.Game.Rulesets.RP.Scoreing;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.ContainerBackground;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CoopHint;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects;
@@ -75,7 +73,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
                 return new Vector2(aspectSize.X / parentSize.X, aspectSize.Y / parentSize.Y) * base.Size;
             }
         }
-        
+
 
         /// <summary>
         ///     Initial Play Field
@@ -134,7 +132,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
             {
                 //Aviod container is in front of hit object
                 hitObject.Depth = (float)hitObject.HitObject.StartTime + 10000;
-                //ú‰Á”wŒi•¨Œ
+                //ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½iï¿½ï¿½ï¿½ï¿½
                 containerBackgroundLayout.AddContainer(hitObject as DrawableRpContainerLineGroup);
                 //
                 //keySoundLayout.Add(containerBackgroundLayout.CreateProxy());
@@ -142,7 +140,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
             else
             {
                 hitObject.Depth = (float)hitObject.HitObject.StartTime;
-                //ú‰Á•¨Œ
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 _rpObjectLayout.AddDrawObject(hitObject as DrawableBaseRpHitableObject);
             }
 
@@ -153,7 +151,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield
         public override void PostProcess()
         {
             //TODO : Children >> Objects
-            var listHitObject = HitObjects.Objects.Where(d=>d is DrawableBaseRpHitableObject).OrderBy(h => ((DrawableBaseRpObject)h).HitObject.StartTime);
+            var listHitObject = HitObjects.Objects.Where(d => d is DrawableBaseRpHitableObject).OrderBy(h => ((DrawableBaseRpObject)h).HitObject.StartTime);
             //order by time
             _hitObjectConnector.HitObjects = HitObjects.Objects.OfType<DrawableBaseRpHitableObject>().OrderBy(h => h.HitObject.StartTime).ToList();
             _hitObjectConnector.ScanSameTuple();

@@ -6,17 +6,17 @@ using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Beatmaps;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Replays;
-using osu.Game.Rulesets.RP.BeatmapReplay;
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap;
 using osu.Game.Rulesets.RP.Beatmaps.RPBeatmap;
+using osu.Game.Rulesets.RP.Judgements;
 using osu.Game.Rulesets.RP.KeyManager;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
+using osu.Game.Rulesets.RP.Replays;
 using osu.Game.Rulesets.RP.Scoreing;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield;
 using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.UI;
-using osu.Game.Screens.Play;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
@@ -74,7 +74,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
             DrawableHitObject<BaseRpObject, RpJudgement> returnObject = null;
 
             if (h is RpHitObject)
-               return new DrawableRpHitObject((RpHitObject)h);
+                return new DrawableRpHitObject((RpHitObject)h);
             if (h is RpHoldObject)
                 return new DrawableRpHoldObject((RpHoldObject)h);
             if (h is RpContainerLineHoldObject)

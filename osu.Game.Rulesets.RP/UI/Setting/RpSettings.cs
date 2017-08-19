@@ -38,9 +38,9 @@ namespace osu.Game.Rulesets.RP.UI.Setting
     //RpConfigManager
     public class RpConfigManager : ConfigManager<RpSetting>
     {
-        public RpConfigManager(Storage storage) : base(storage)
+        public RpConfigManager(Storage storage)
+            : base(storage)
         {
-
         }
 
         protected override void InitialiseDefaults()
@@ -48,7 +48,6 @@ namespace osu.Game.Rulesets.RP.UI.Setting
             Set(RpSetting.SettingTesting001, true);
             Set(RpSetting.SettingTesting002, true);
         }
-      
     }
 
     //all the setting attribute

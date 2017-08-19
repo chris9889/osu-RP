@@ -7,7 +7,7 @@ using osu.Game.Rulesets.Judgements;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
 using OpenTK;
 
-namespace osu.Game.Rulesets.RP.Scoreing
+namespace osu.Game.Rulesets.RP.Judgements
 {
     public class RpJudgement : Judgement
     {

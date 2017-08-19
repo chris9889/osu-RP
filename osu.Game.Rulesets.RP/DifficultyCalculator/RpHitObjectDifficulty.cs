@@ -4,7 +4,6 @@
 using System;
 using System.Diagnostics;
 using osu.Game.Rulesets.RP.Objects;
-using osu.Game.Rulesets.RP.Objects.Types;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.DifficultyCalculator

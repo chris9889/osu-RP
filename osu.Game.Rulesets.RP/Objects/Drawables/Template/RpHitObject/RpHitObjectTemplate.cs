@@ -1,8 +1,6 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
-using osu.Framework.Graphics;
-using osu.Framework.Graphics.Shapes;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.ApproachPiece;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.Common;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.StillPiece;

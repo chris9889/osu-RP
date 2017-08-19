@@ -3,7 +3,6 @@
 
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
-using osu.Game.Rulesets.RP.Objects.Types;
 using OpenTK.Graphics;
 
 namespace osu.Game.Rulesets.RP.SkinManager

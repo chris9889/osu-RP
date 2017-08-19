@@ -5,21 +5,17 @@ using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Framework.Input.Bindings;
 using osu.Game.Beatmaps;
-using osu.Game.Graphics;
-using osu.Game.Overlays.Settings;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.RP.DifficultyCalculator;
 using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.KeyManager;
 using osu.Game.Rulesets.RP.Mods;
 using osu.Game.Rulesets.RP.Scoreing;
-using osu.Game.Rulesets.RP.SkinManager;
 using osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer;
 using osu.Game.Rulesets.RP.UI.GamePlay.KeyCounter;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using osu.Game.Rulesets.RP.UI.Select.Info;
 using osu.Game.Rulesets.RP.UI.Select.RpMod;
-using osu.Game.Rulesets.RP.UI.Setting;
 using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.UI;
 using osu.Game.Screens.Play;
@@ -71,7 +67,7 @@ namespace osu.Game.Rulesets.RP
         /// <summary>
         ///     what the icon does osu!RP use
         /// </summary>
-        public override Drawable CreateIcon() => new ImagePicec(@"GameIcon/Icon@2x");// new SpriteIcon { Icon = FontAwesome.fa_question_circle };
+        public override Drawable CreateIcon() => new ImagePicec(@"GameIcon/Icon@2x"); // new SpriteIcon { Icon = FontAwesome.fa_question_circle };
 
         /// <summary>
         ///     Difficulty Calculator
@@ -105,7 +101,6 @@ namespace osu.Game.Rulesets.RP
         /// </summary>
         /// <returns></returns>
         //public override SettingsSubsection CreateSettings() => new RpSettings();
-
         /// <summary>
         /// Do not override this unless you are a legacy mode.
         /// </summary>
@@ -115,7 +110,5 @@ namespace osu.Game.Rulesets.RP
             : base(rulesetInfo)
         {
         }
-
-       
     }
 }

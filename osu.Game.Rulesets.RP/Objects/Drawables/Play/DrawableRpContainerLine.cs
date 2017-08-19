@@ -3,14 +3,13 @@
 
 using osu.Framework.Graphics;
 using osu.Game.Rulesets.Objects.Drawables;
-using osu.Game.Rulesets.RP.Objects.Drawables.Play.Interface;
+using osu.Game.Rulesets.RP.Judgements;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer;
-using osu.Game.Rulesets.RP.Scoreing;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 {
-    public class DrawableRpContainerLine : DrawableBaseContainableObject<DrawableBaseRpHitableObject> 
+    public class DrawableRpContainerLine : DrawableBaseContainableObject<DrawableBaseRpHitableObject>
     {
         /// <summary>
         /// </summary>

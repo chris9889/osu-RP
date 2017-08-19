@@ -17,7 +17,6 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece
     /// </summary>
     public class RectanglePiece : Container
     {
-
         public new float Width
         {
             get { return _rectangleWidth; }

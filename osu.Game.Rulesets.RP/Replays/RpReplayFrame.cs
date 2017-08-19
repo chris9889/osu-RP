@@ -3,12 +3,11 @@
 
 using System;
 using System.Collections.Generic;
-using osu.Framework.Input;
 using osu.Game.Rulesets.Replays;
 using osu.Game.Rulesets.RP.KeyManager;
 using OpenTK.Input;
 
-namespace osu.Game.Rulesets.RP.BeatmapReplay
+namespace osu.Game.Rulesets.RP.Replays
 {
     /// <summary>
     /// a single frame of record or play RP playing record
@@ -30,8 +29,8 @@ namespace osu.Game.Rulesets.RP.BeatmapReplay
         public RpReplayFrame(double time, float posX, float posY, ReplayButtonState buttonState)
             : base(time, posX, posY, buttonState)
         {
-	        //Convert position to keys;
-	        _listPressKeys = convertMouseAnixXToKeyList((int)MouseX);
+            //Convert position to keys;
+            _listPressKeys = convertMouseAnixXToKeyList((int)MouseX);
         }
 
         //constructor
@@ -42,7 +41,7 @@ namespace osu.Game.Rulesets.RP.BeatmapReplay
             _listPressKeys = listPressKeys;
         }
 
-         //constructor
+        //constructor
         public RpReplayFrame(double time, Key key, float posY, ReplayButtonState buttonState)
             : base(time, 0, posY, buttonState)
         {
@@ -75,12 +74,12 @@ namespace osu.Game.Rulesets.RP.BeatmapReplay
         //convert list key to int
         public int ConvertRpKeysToMouseAnixX(List<Key> listStorageKeys)
         {
-        	var currentConfig = RpKeyManager.GetCurrentKeyConfig();
-        	var returnValue = 0;
-        	for (var i = 0; i < currentConfig.KeyDictionary.Count; i++)
-        		if (listStorageKeys.Contains(currentConfig.KeyDictionary[i].Key))
-        			returnValue = returnValue + (int)Math.Pow(2, i);
-        	return returnValue;
+            var currentConfig = RpKeyManager.GetCurrentKeyConfig();
+            var returnValue = 0;
+            for (var i = 0; i < currentConfig.KeyDictionary.Count; i++)
+                if (listStorageKeys.Contains(currentConfig.KeyDictionary[i].Key))
+                    returnValue = returnValue + (int)Math.Pow(2, i);
+            return returnValue;
         }
     }
 }

@@ -2,10 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Framework.Graphics;
-using osu.Game.Rulesets.Objects.Drawables;
-using osu.Game.Rulesets.RP.Objects.Drawables.Play.Interface;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer;
-using osu.Game.Rulesets.RP.Scoreing;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
@@ -13,7 +10,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
     /// <summary>
     ///     匁E��RP物件
     /// </summary>
-    public class DrawableRpContainerLineGroup : DrawableBaseContainableObject<DrawableRpContainerLine> 
+    public class DrawableRpContainerLineGroup : DrawableBaseContainableObject<DrawableRpContainerLine>
     {
         /// <summary>
         /// </summary>
@@ -98,7 +95,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
                 Template.FadeOut(FadeOutTime);
             }
         }
-      
+
 
         /// <summary>
         ///     從這邊去更新狀慁E
@@ -106,7 +103,6 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         /// <param name="userTriggered"></param>
         protected override void CheckJudgement(bool userTriggered)
         {
-
         }
     }
 }

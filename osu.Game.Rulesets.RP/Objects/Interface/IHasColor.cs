@@ -3,7 +3,7 @@
 
 using OpenTK.Graphics;
 
-namespace osu.Game.Rulesets.RP.Objects.Types
+namespace osu.Game.Rulesets.RP.Objects.Interface
 {
     public interface IHasColor
     {
