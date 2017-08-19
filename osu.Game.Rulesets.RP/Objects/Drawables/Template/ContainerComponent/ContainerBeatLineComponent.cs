@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Calculator;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface;
 using osu.Game.Rulesets.RP.SkinManager;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
@@ -14,7 +15,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
     /// <summary>
     ///     Â‰îªíËÍyóp
     /// </summary>
-    internal class ContainerBeatLineComponent : BaseContainerComponent, IChangeableContainerComponent, IComponentHasStartTime, IComponentHasEndTime, IComponentHasBpm
+    internal class ContainerBeatLine : ComponentBaseContainer, IChangeableContainerComponent, IComponentHasStartTime, IComponentHasEndTime, IComponentHasBpm ,IComponentBase
     {
         /// <summary>
         ///     íÜä‘ìIêﬂîè
@@ -26,7 +27,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         /// </summary>
         private ContainerLayoutHeightCalculator _heightCalculator = new ContainerLayoutHeightCalculator();
 
-        public ContainerBeatLineComponent(RpContainerLineGroup hitObject)
+        public ContainerBeatLine(RpContainerLineGroup hitObject)
             : base(hitObject)
         {
         }
@@ -60,7 +61,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         {
             for (var i = 0; i < 20; i++)
             {
-                if (_positionCounter.GetPosition(i * GetDeltaBeatTime(), HitObject.Velocity) > _positionCounter.GetPosition(HitObject.EndTime - HitObject.StartTime, HitObject.Velocity))
+                if (_positionCounter.GetPosition(i * GetDeltaBeatTime(), HitObject.Velocity) > _positionCounter.GetPosition((HitObject as RpContainerLineGroup).EndTime - HitObject.StartTime, HitObject.Velocity))
                     break;
 
                 //ï®åè
@@ -86,6 +87,16 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         public void ChangeBPM(double newBpm)
         {
             throw new NotImplementedException();
+        }
+
+        public void FadeIn(double time = 0)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void FadeOut(double time = 0)
+        {
+            //throw new NotImplementedException();
         }
     }
 }

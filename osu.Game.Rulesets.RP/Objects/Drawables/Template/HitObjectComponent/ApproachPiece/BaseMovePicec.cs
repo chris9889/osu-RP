@@ -2,6 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System;
+using osu.Framework.Graphics.Containers;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface;
 
@@ -10,36 +11,38 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
     /// <summary>
     ///     結束的物件後面帶的特效
     /// </summary>
-    public class BaseMovePicec : BaseComponent, IComponentUpdateEachFrame
+    public class ComponentBaseMovePicec : Container,IComponentBase, IComponentUpdateEachFrame
     {
         /// <summary>
         ///     打擊物件
         /// </summary>
         protected BaseRpHitableObject BaseHitObject;
 
-        public BaseMovePicec(BaseRpHitableObject baseHitObject)
+        public ComponentBaseMovePicec(BaseRpHitableObject baseHitObject)
         {
             BaseHitObject = baseHitObject;
         }
 
+        public BaseRpObject HitObject { get; set; }
+
         /// <summary>
         ///     初始化顯示
         /// </summary>
-        public override void Initial()
+        public void Initial()
         {
         }
 
         /// <summary>
         ///     開始特效
         /// </summary>
-        public override void FadeIn(double time = 0)
+        public void FadeIn(double time = 0)
         {
         }
 
         /// <summary>
         ///     結束
         /// </summary>
-        public override void FadeOut(double time = 0)
+        public void FadeOut(double time = 0)
         {
         }
 

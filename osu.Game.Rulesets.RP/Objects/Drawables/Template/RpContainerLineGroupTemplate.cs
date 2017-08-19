@@ -21,7 +21,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer
         /// <summary>
         ///     按壓的template
         /// </summary>
-        public ContainerLongPressDrawComponent ContainerLongPressDrawComponent;
+        public ContainerLongPressDraw ContainerLongPressDraw;
 
 
         /// <summary>
@@ -37,22 +37,22 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer
         /// <summary>
         ///     背景
         /// </summary>
-        private ContainerBackgroundComponent _containerBackgroundComponent;
+        private ContainerBackground containerBackground;
 
         /// <summary>
         ///     判定緁E
         /// </summary>
-        private ContainerDecisionLineComponent _containerDecisionLineComponent;
+        private ContainerDecisionLine containerDecisionLine;
 
         /// <summary>
         ///     開始結束
         /// </summary>
-        private ContainerStartEndComponent _containerStartEndComponent;
+        private ContainerStartEnd containerStartEnd;
 
         /// <summary>
         ///     顯示節拍線的
         /// </summary>
-        private ContainerBeatLineComponent _containerBeatLineComponent;
+        private ContainerBeatLine containerBeatLine;
 
         public RpContainerLineGroupTemplate(RpContainerLineGroup rpObject)
             : base(rpObject)
@@ -65,34 +65,27 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer
         protected override void ConstructComponent()
         {
             //背景物件
-            _containerBackgroundComponent = new ContainerBackgroundComponent(RpObject);
+            containerBackground = new ContainerBackground(RpObject);
             //持E��E
-            _containerDecisionLineComponent = new ContainerDecisionLineComponent(RpObject);
+            containerDecisionLine = new ContainerDecisionLine(RpObject);
             //開始結束黁E
-            _containerStartEndComponent = new ContainerStartEndComponent(RpObject);
+            containerStartEnd = new ContainerStartEnd(RpObject);
             //長壁E
-            ContainerLongPressDrawComponent = new ContainerLongPressDrawComponent(RpObject);
+            ContainerLongPressDraw = new ContainerLongPressDraw(RpObject);
             //節拍緁E
-            _containerBeatLineComponent = new ContainerBeatLineComponent(RpObject);
+            containerBeatLine = new ContainerBeatLine(RpObject);
 
             Components.Clear();
             //背景
-            Components.Add(_containerBackgroundComponent);
+            Components.Add(containerBackground);
             //節拍黁E
-            Components.Add(_containerBeatLineComponent);
+            Components.Add(containerBeatLine);
             ///開始結束黁E
-            Components.Add(_containerStartEndComponent);
+            Components.Add(containerStartEnd);
             //按壁E
-            Components.Add(ContainerLongPressDrawComponent);
+            Components.Add(ContainerLongPressDraw);
             //持E��E
-            Components.Add(_containerDecisionLineComponent);
-        }
-
-        /// <summary>
-        /// </summary>
-        protected override void InitialChild()
-        {
-            Children = Components.ToArray();
+            Components.Add(containerDecisionLine);
         }
 
 
@@ -122,7 +115,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer
         protected override void Update()
         {
             //
-            _containerDecisionLineComponent.UpdateTime(Time.Current);
+            containerDecisionLine.UpdateTime(Time.Current);
         }
 
         //Add object
@@ -141,7 +134,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer
         /// <param name="drawableHitObject"></param>
         public void AddObject(DrawableRpContainerLineHoldObject drawableHitObject)
         {
-            ContainerLongPressDrawComponent.Add(drawableHitObject);
+            ContainerLongPressDraw.Add(drawableHitObject);
         }
 
         //if update new height

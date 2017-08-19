@@ -54,7 +54,7 @@ namespace osu.Game.Rulesets.RP.Objects
         public Special Special = Special.Normal;
 
         //sligle or multi
-        public Multi Multi = Multi.SingleClick;
+        public RpMultiHit RpMultiHit = RpMultiHit.SingleClick;
 
         //co-op or not
         public Coop Coop => ParentObject.Coop;
@@ -134,9 +134,9 @@ namespace osu.Game.Rulesets.RP.Objects
         ContainerPress = 32 //containerPress
     }
 
-    //Multi , not impliment yet
+    //RpMultiHit , not impliment yet
     [Flags]
-    public enum Multi
+    public enum RpMultiHit
     {
         SingleClick,
         Multi

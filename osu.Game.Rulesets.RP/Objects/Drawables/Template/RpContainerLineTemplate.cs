@@ -32,12 +32,12 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer
         /// <summary>
         ///     顯示單行背景
         /// </summary>
-        private ContainerBackgroundComponent _rpRectanglePiece;
+        private ContainerBackground _rpRectanglePiece;
 
         /// <summary>
         ///     顯示單行背景
         /// </summary>
-        private ContainerBackgroundComponent _linePiece;
+        private ContainerBackground _linePiece;
 
         public RpContainerLineTemplate(RpContainerLine rpObject)
             : base(rpObject)
@@ -47,7 +47,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer
         protected override void ConstructComponent()
         {
             //背景物件
-            _linePiece = new ContainerBackgroundComponent(RpObject.ParentObject)
+            _linePiece = new ContainerBackground(RpObject.ParentObject)
             {
                 Origin = Anchor.CentreRight,
                 Scale = new Vector2(1.0f, 0f),
@@ -55,7 +55,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer
             };
 
             //背景物件
-            _rpRectanglePiece = new ContainerBackgroundComponent(RpObject.ParentObject)
+            _rpRectanglePiece = new ContainerBackground(RpObject.ParentObject)
             {
                 Scale = new Vector2(1.0f, 0f),
                 Alpha = 0.5f,
@@ -72,11 +72,6 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer
             InitialHitObject();
             //更新物件
             UpdateHitObject();
-        }
-
-        protected override void InitialChild()
-        {
-            Children = Components.ToArray();
         }
 
         /// <summary>

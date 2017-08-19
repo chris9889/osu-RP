@@ -2,22 +2,26 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 using osu.Game.Rulesets.RP.SkinManager;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using OpenTK;
+using System;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.Common
 {
     /// <summary>
     ///     載入效果
     /// </summary>
-    public class LoadEffect : BaseComponent
+    public class LoadEffect : Container,IComponentBase
     {
         /// <summary>
         ///     外框
         /// </summary>
         private readonly ImagePicec _effectPicec;
+
+        public BaseRpObject HitObject { get; set; }
 
 
         /// <summary>
@@ -43,25 +47,26 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         /// <summary>
         ///     初始化顯示
         /// </summary>
-        public override void Initial()
+        public void Initial()
         {
+
         }
 
         /// <summary>
         ///     開始特效
         /// </summary>
-        public override void FadeIn(double time = 0)
+        public void FadeIn(double time = 0)
         {
-            _effectPicec.FadeTo(0.9f, (float)Delay);
-            _effectPicec.ScaleTo(2.5f, Delay + 100);
-            _effectPicec.FadeTo(0.7f, Delay + 150);
-            _effectPicec.FadeTo(0, Delay + 200);
+            _effectPicec.FadeTo(0.9f, 0);
+            _effectPicec.ScaleTo(2.5f,  100);
+            _effectPicec.FadeTo(0.7f,  150);
+            _effectPicec.FadeTo(0,  200);
         }
 
         /// <summary>
         ///     結束
         /// </summary>
-        public override void FadeOut(double time = 0)
+        public void FadeOut(double time = 0)
         {
         }
     }

@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
@@ -12,7 +13,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
     ///     時間點後會把物件藏起侁E
     ///     這個功能朁E��到 5 月後才朁E��始實佁E
     /// </summary>
-    public class ContainerLongPressDrawComponent : BaseContainerComponent, IChangeableContainerComponent
+    public class ContainerLongPressDraw : ComponentBaseContainer, IChangeableContainerComponent ,IComponentBase
     {
         /// <summary>
         ///     目前現有物件
@@ -27,7 +28,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
-        public ContainerLongPressDrawComponent(RpContainerLineGroup hitObject)
+        public ContainerLongPressDraw(RpContainerLineGroup hitObject)
             : base(hitObject)
         {
             Children = Rectangle;
@@ -61,6 +62,16 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         protected override void InitialChild()
         {
             Children = Rectangle;
+        }
+
+        public void FadeIn(double time = 0)
+        {
+            //throw new System.NotImplementedException();
+        }
+
+        public void FadeOut(double time = 0)
+        {
+            //throw new System.NotImplementedException();
         }
     }
 }

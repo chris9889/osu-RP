@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using osu.Framework.Graphics.Containers;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using OpenTK;
@@ -12,7 +13,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
 {
     /// <summary>
     /// </summary>
-    internal class ContainerStartEndComponent : BaseContainerComponent, IChangeableContainerComponent, IComponentHasStartTime, IComponentHasEndTime
+    internal class ContainerStartEnd : ComponentBaseContainer, IChangeableContainerComponent, IComponentHasStartTime, IComponentHasEndTime ,IComponentBase
     {
         /// <summary>
         ///     Start Point
@@ -27,7 +28,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         /// <summary>
         /// </summary>
         /// <param name="hitObject"></param>
-        public ContainerStartEndComponent(RpContainerLineGroup hitObject)
+        public ContainerStartEnd(RpContainerLineGroup hitObject)
             : base(hitObject)
         {
         }
@@ -57,7 +58,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
             _containerEndDecisionLineComponent = new RectanglePiece(100, 100)
             {
                 Scale = new Vector2(0.002f, 0.2f * layerCount),
-                Position = CalculatePosition(HitObject.EndTime - HitObject.StartTime)
+                Position = CalculatePosition((HitObject as RpContainerLineGroup).EndTime - HitObject.StartTime)
             };
         }
 
@@ -75,7 +76,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         /// <param name="startTime"></param>
         public void SetStartTime(double startTime)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         /// <summary>
@@ -84,7 +85,17 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         /// <param name="time"></param>
         public void SetEndTime(double time)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+        }
+
+        public void FadeIn(double time = 0)
+        {
+            
+        }
+
+        public void FadeOut(double time = 0)
+        {
+           
         }
     }
 }

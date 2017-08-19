@@ -3,23 +3,27 @@
 
 using System.Collections.Generic;
 using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using OpenTK;
+using System;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.Common
 {
     /// <summary>
     ///     „âêªùfä¥
     /// </summary>
-    internal class SliderBody : BaseComponent, IComponentUpdateEachFrame
+    internal class SliderBody : Container,IComponentBase, IComponentUpdateEachFrame
     {
         public float PathWidth
         {
             get { return slider.PathWidth; }
             set { slider.PathWidth = value; }
         }
+
+        public BaseRpObject HitObject { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         private readonly Slider slider;
 
@@ -54,6 +58,21 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
             //sliderHitObject.Curve.GetPathToProgress(currentCurve, start, end);
 
             slider.SetRange(currentCurve);
+        }
+
+        public void Initial()
+        {
+            
+        }
+
+        public void FadeIn(double time = 0)
+        {
+            
+        }
+
+        public void FadeOut(double time = 0)
+        {
+           
         }
     }
 }

@@ -38,9 +38,9 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.PostPr
             foreach (var singleTupleHitObjects in single.HitObjectConvertParameter.ListSingleHitObjectConvertParameter)
             foreach (var singleObject in singleTupleHitObjects.ListBaseHitObject)
                 if (singleTupleHitObjects.ListBaseHitObject.Count > 1)
-                    singleObject.Multi = Multi.Multi;
+                    singleObject.RpMultiHit = RpMultiHit.Multi;
                 else
-                    singleObject.Multi = Multi.SingleClick;
+                    singleObject.RpMultiHit = RpMultiHit.SingleClick;
         }
     }
 }

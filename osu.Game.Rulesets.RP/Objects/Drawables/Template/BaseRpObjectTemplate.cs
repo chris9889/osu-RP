@@ -28,7 +28,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template
         public double DelayTime => 0;
 
         //Object that need to calculate each frame
-        protected List<BaseComponent> Components = new List<BaseComponent>();
+        protected List<IComponentBase> Components = new List<IComponentBase>();
 
         //calculate precentage by time
         protected PathPrecentageCounter PathPrecentageCounter;
@@ -73,7 +73,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template
         //adding all component into template
         protected virtual void InitialChild()
         {
-            Children = Components.ToArray();
+             Children = Components.Select(s => s as Container).ToArray();
         }
 
         //update on each frame
@@ -85,7 +85,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template
         //Fade in
         public virtual void FadeIn(double time = 0)
         {
-            foreach (BaseComponent single in Components)
+            foreach (IComponentBase single in Components)
             {
                 single.FadeIn(time);
             }
@@ -94,7 +94,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template
         //fade out
         public virtual void FadeOut(double time = 0)
         {
-            foreach (BaseComponent single in Components)
+            foreach (IComponentBase single in Components)
             {
                 single.FadeOut(time);
             }

@@ -7,7 +7,7 @@ using OpenTK;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.StillPiece
 {
-    internal class StillHit : BaseStillPiece
+    internal class StillHit : ComponentBaseStillPiece
     {
         /// <summary>
         ///     開頭和結尾物件
@@ -32,7 +32,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         /// <summary>
         ///     初始化顯示
         /// </summary>
-        public override void Initial()
+        public void Initial()
         {
             hitObjectAnyShapePieceFirstObjectAny.Alpha = 1;
         }
@@ -40,7 +40,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         /// <summary>
         ///     開始特效
         /// </summary>
-        public override void FadeIn(double time = 0)
+        public void FadeIn(double time = 0)
         {
             hitObjectAnyShapePieceFirstObjectAny.FadeIn(time);
         }
@@ -48,7 +48,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         /// <summary>
         ///     結束
         /// </summary>
-        public override void FadeOut(double time = 0)
+        public void FadeOut(double time = 0)
         {
             hitObjectAnyShapePieceFirstObjectAny.FadeOut(time);
         }

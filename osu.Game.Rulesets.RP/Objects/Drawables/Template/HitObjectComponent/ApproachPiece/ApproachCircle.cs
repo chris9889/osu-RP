@@ -11,7 +11,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
 {
     /// <summary>
     /// </summary>
-    internal class ApproachCircle : BaseMovePicec, IComponentUpdateEachFrame
+    internal class ApproachCircle : ComponentBaseMovePicec, IComponentUpdateEachFrame
     {
         /// <summary>
         ///     ëúosu! approach circle ìﬂûÈ
@@ -33,7 +33,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         /// <summary>
         ///     èâénâªË˚é¶
         /// </summary>
-        public override void Initial()
+        public void Initial()
         {
             ApproachHitPicec.Alpha = 0;
             ApproachHitPicec.Scale = new Vector2(3);
@@ -42,7 +42,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         /// <summary>
         ///     äJénì¡ù¡
         /// </summary>
-        public override void FadeIn(double time = 0)
+        public void FadeIn(double time = 0)
         {
             ApproachHitPicec.Delay(BaseHitObject.PreemptTime / 5 * 4);
             ApproachHitPicec.FadeTo(1, BaseHitObject.PreemptTime / 5 * 4);
@@ -53,7 +53,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         /// <summary>
         ///     åãë©
         /// </summary>
-        public override void FadeOut(double time = 0)
+        public void FadeOut(double time = 0)
         {
             ApproachHitPicec.FadeOut(time);
         }

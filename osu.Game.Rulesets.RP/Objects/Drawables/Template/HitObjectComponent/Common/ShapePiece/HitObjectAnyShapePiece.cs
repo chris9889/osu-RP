@@ -2,9 +2,12 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Framework.Graphics;
+using osu.Game.Rulesets.Objects;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 using osu.Game.Rulesets.RP.SkinManager;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using OpenTK;
+using System;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.Common.ShapePiece
 {
@@ -12,7 +15,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
     ///     ������������
     ///     �ڑO��ܕ�� : �����I�󕨌�
     /// </summary>
-    internal class HitObjectAnyShapePiece : BaseHitObjectShapePiece
+    internal class HitObjectAnyShapePiece : ComponentBaseHitObjectShapePiece, IComponentBase
     {
         public bool IsFirst = true;
 
@@ -30,6 +33,8 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         ///     Mask �ꉺ�I�w�i����
         /// </summary>
         private ImagePicec _startBackgroundImagePicec;
+
+        public BaseRpObject HitObject { get; set; }
 
 
         /// <summary>
@@ -83,21 +88,21 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         /// <summary>
         ///     ���n������
         /// </summary>
-        public override void Initial()
+        public void Initial()
         {
         }
 
         /// <summary>
         ///     �J�n����
         /// </summary>
-        public override void FadeIn(double time = 0)
+        public void FadeIn(double time = 0)
         {
         }
 
         /// <summary>
         ///     ����
         /// </summary>
-        public override void FadeOut(double time = 0)
+        public void FadeOut(double time = 0)
         {
         }
     }

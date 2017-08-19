@@ -3,7 +3,7 @@
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.StillPiece
 {
-    internal class StillHold : BaseStillPiece
+    internal class StillHold : ComponentBaseStillPiece
     {
         public StillHold(BaseRpObject h)
             : base(h)

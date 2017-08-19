@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using osu.Framework.Graphics;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using OpenTK;
 
@@ -11,7 +12,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
     /// <summary>
     ///     Container背景
     /// </summary>
-    internal class ContainerBackgroundComponent : BaseContainerComponent, IChangeableContainerComponent
+    internal class ContainerBackground : ComponentBaseContainer, IChangeableContainerComponent ,IComponentBase
     {
         /// <summary>
         ///     背景
@@ -21,7 +22,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
 
         /// <summary>
         /// </summary>
-        public ContainerBackgroundComponent(RpContainerLineGroup hitObject)
+        public ContainerBackground(RpContainerLineGroup hitObject)
             : base(hitObject)
         {
         }
@@ -29,7 +30,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         /// <summary>
         ///     開始特效
         /// </summary>
-        public override void FadeIn(double time = 0)
+        public void FadeIn(double time = 0)
         {
             //RP FadeIn 動畫特效
             _rpRectangleComponent.ScaleTo(new Vector2(1, 1), time, Easing.InOutElastic);
@@ -38,7 +39,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         /// <summary>
         ///     結束
         /// </summary>
-        public override void FadeOut(double time = 0)
+        public void FadeOut(double time = 0)
         {
             //RP FadeIn 動畫特效
             _rpRectangleComponent.ScaleTo(new Vector2(1, 0), time * 3, Easing.OutElastic);

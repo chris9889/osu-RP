@@ -16,10 +16,10 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject
         }
 
         //approach piece
-        protected BaseMovePicec ApproachPicec { get; set; }
+        protected ComponentBaseMovePicec ApproachPicec { get; set; }
 
         //still piece
-        protected BaseStillPiece StillPicec { get; set; }
+        protected ComponentBaseStillPiece StillPicec { get; set; }
 
         /// <summary>
         /// </summary>
@@ -34,17 +34,12 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject
         {
             LoadEffect = new LoadEffect(RpObject);
             ApproachPicec = new ApproachCircle(RpObject);
-            StillPicec = new BaseStillPiece(RpObject);
+            StillPicec = new ComponentBaseStillPiece(RpObject);
 
             Components.Add(LoadEffect);
             Components.Add(ApproachPicec);
             Components.Add(StillPicec);
         }
 
-        //adding all component into template
-        protected override void InitialChild()
-        {
-            Children = Components.ToArray();
-        }
     }
 }

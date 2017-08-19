@@ -74,7 +74,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.HitObjects
                     int offset = 50;
 
                     //Hold
-                    //foreach (var singleHold in container.Template.ContainerLongPressDrawComponent.ListPressObject)
+                    //foreach (var singleHold in container.Template.ContainerLongPressDraw.ListPressObject)
                     //    if (((DrawableBaseRpObject)singleHold).HitObject.StartTime <= time && ((DrawableBaseRpObject)singleHold).HitObject.EndTime >= time)
                     //        yield return container;
 

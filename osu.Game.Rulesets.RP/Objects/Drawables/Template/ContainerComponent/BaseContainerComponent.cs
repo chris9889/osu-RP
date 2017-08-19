@@ -1,20 +1,22 @@
 // Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
+using osu.Framework.Graphics.Containers;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Calculator;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 using OpenTK;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
 {
-    public class BaseContainerComponent : BaseComponent
+    public class ComponentBaseContainer :  Container
     {
         /// <summary>
         /// </summary>
-        public new RpContainerLineGroup HitObject
+        public BaseRpObject HitObject { get; set; }
+
+        public void Initial()
         {
-            get { return(RpContainerLineGroup)base.HitObject; }
-            set { base.HitObject = value; }
+            //throw new System.NotImplementedException();
         }
 
         /// <summary>
@@ -22,7 +24,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         /// </summary>
         protected readonly ContainerLayoutPositionCounter _positionCounter = new ContainerLayoutPositionCounter();
 
-        public BaseContainerComponent(RpContainerLineGroup hitObject)
+        public ComponentBaseContainer(RpContainerLineGroup hitObject)
         {
             HitObject = hitObject;
             InitialObject();

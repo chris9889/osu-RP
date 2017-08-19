@@ -36,9 +36,7 @@ namespace osu.Game.Rulesets.RP.Objects
             InitialDefaultValue();
         }
 
-        /// <summary>
-        ///     初始化預設物件
-        /// </summary>
+        //Initial
         protected virtual void InitialDefaultValue()
         {
             Velocity = 1;

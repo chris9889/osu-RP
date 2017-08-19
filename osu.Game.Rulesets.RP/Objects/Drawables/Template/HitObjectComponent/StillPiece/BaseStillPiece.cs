@@ -1,7 +1,9 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
+using System;
 using osu.Framework.Graphics;
+using osu.Framework.Graphics.Containers;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.StillPiece
@@ -9,12 +11,14 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
     /// <summary>
     ///     靜止在Layout上面的物件
     /// </summary>
-    public class BaseStillPiece : BaseComponent
+    public class ComponentBaseStillPiece : Container, IComponentBase
     {
+        public BaseRpObject HitObject { get; set; }
+
         /// <summary>
         ///     建構
         /// </summary>
-        public BaseStillPiece(BaseRpObject h)
+        public ComponentBaseStillPiece(BaseRpObject h)
         {
             HitObject = h;
 
@@ -25,21 +29,21 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         /// <summary>
         ///     初始化顯示
         /// </summary>
-        public override void Initial()
+        public void Initial()
         {
         }
 
         /// <summary>
         ///     開始特效
         /// </summary>
-        public override void FadeIn(double time = 0)
+        public void FadeIn(double time = 0)
         {
         }
 
         /// <summary>
         ///     結束
         /// </summary>
-        public override void FadeOut(double time = 0)
+        public void FadeOut(double time = 0)
         {
         }
     }

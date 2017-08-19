@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using osu.Framework.Graphics.Containers;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface;
 using osu.Game.Rulesets.RP.SkinManager;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
@@ -13,7 +14,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
 {
     /// <summary>
     /// </summary>
-    internal class ContainerDecisionLineComponent : BaseContainerComponent, IChangeableContainerComponent, IComponentHasStartTime, IComponentHasEndTime
+    internal class ContainerDecisionLine : ComponentBaseContainer, IChangeableContainerComponent, IComponentHasStartTime, IComponentHasEndTime ,IComponentBase
     {
         /// <summary>
         ///     îªíËê¸
@@ -22,7 +23,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
 
         /// <summary>
         /// </summary>
-        public ContainerDecisionLineComponent(RpContainerLineGroup hitObject)
+        public ContainerDecisionLine(RpContainerLineGroup hitObject)
             : base(hitObject)
         {
         }
@@ -80,6 +81,16 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpContainer.Component
         /// </summary>
         void UpdateMovingTransform()
         {
+        }
+
+        public void FadeIn(double time = 0)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void FadeOut(double time = 0)
+        {
+            //throw new NotImplementedException();
         }
     }
 }
