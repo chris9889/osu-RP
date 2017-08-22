@@ -6,28 +6,36 @@ using osu.Framework.Graphics.Containers;
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.Component
 {
     /// <summary>
-    ///     元素區塊
+    ///     is the part of the template object
     /// </summary>
-    public interface IComponentBase :IContainer
+    public interface IComponentBase : IComponentBase<BaseRpObject>
+    {
+
+    }
+
+    /// <summary>
+    ///     is the part of the template object
+    /// </summary>
+    public interface IComponentBase<T> : IContainer
     {
 
         /// <summary>
-        ///     打擊物件，DrawableHitCircle 會根據打擊物件把 物件繪製出來
+        ///     HitObject
         /// </summary>
-        BaseRpObject HitObject { get; set; }
+        T HitObject { get; set; }
 
         /// <summary>
-        ///     初始化顯示
+        ///     initial
         /// </summary>
         void Initial();
 
         /// <summary>
-        ///     開始特效
+        ///     fade in
         /// </summary>
         void FadeIn(double time = 0);
 
         /// <summary>
-        ///     結束
+        ///     Fade out
         /// </summary>
         void FadeOut(double time = 0);
     }

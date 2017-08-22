@@ -11,7 +11,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
     /// <summary>
     ///     結束的物件後面帶的特效
     /// </summary>
-    public class ComponentBaseMovePicec : Container,IComponentBase, IComponentUpdateEachFrame
+    public class ComponentBaseMovePicec : Container, IComponentBase
     {
         /// <summary>
         ///     打擊物件
@@ -24,29 +24,17 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         }
 
         public BaseRpObject HitObject { get; set; }
-
-        /// <summary>
-        ///     初始化顯示
-        /// </summary>
         public void Initial()
         {
+            throw new NotImplementedException();
         }
 
-        /// <summary>
-        ///     開始特效
-        /// </summary>
         public void FadeIn(double time = 0)
         {
+            throw new NotImplementedException();
         }
 
-        /// <summary>
-        ///     結束
-        /// </summary>
         public void FadeOut(double time = 0)
-        {
-        }
-
-        public void UpdateProgress(double startProgress = 0, double endProgress = 1)
         {
             throw new NotImplementedException();
         }

@@ -16,7 +16,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject
         }
 
         //approach piece
-        protected ComponentBaseMovePicec ApproachPicec { get; set; }
+        protected ApproachCircle ApproachPicec { get; set; }
 
         //still piece
         protected ComponentBaseStillPiece StillPicec { get; set; }

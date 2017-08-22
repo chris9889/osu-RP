@@ -2,29 +2,33 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Framework.Graphics;
+using osu.Game.Rulesets.RP.Objects.Drawables.Template.Component;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.Interface;
 using osu.Game.Rulesets.RP.SkinManager;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using OpenTK;
+using System;
+using osu.Framework.Graphics.Containers;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.ApproachPiece
 {
     /// <summary>
     /// </summary>
-    internal class ApproachCircle : ComponentBaseMovePicec, IComponentUpdateEachFrame
+    public class ApproachCircle : Container, IComponentBase, IComponentUpdateEachFrame 
     {
         /// <summary>
         ///     ‘œosu! approach circle “ßžé
         /// </summary>
         public ImagePicec ApproachHitPicec;
 
+        public BaseRpObject HitObject { get; set; }
 
-        public ApproachCircle(BaseRpHitableObject baseHitObject)
-            : base(baseHitObject)
+        public ApproachCircle(BaseRpHitableObject baseHitObject) 
         {
+            HitObject = baseHitObject;
             Children = new Drawable[]
             {
-                ApproachHitPicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(BaseHitObject))
+                ApproachHitPicec = new ImagePicec(RpTexturePathManager.GetStartObjectImageNameByType(HitObject as BaseRpHitableObject))
                 {
                 },
             };
@@ -44,10 +48,10 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
         /// </summary>
         public void FadeIn(double time = 0)
         {
-            ApproachHitPicec.Delay(BaseHitObject.PreemptTime / 5 * 4);
-            ApproachHitPicec.FadeTo(1, BaseHitObject.PreemptTime / 5 * 4);
+            ApproachHitPicec.Delay(HitObject.PreemptTime / 5 * 4);
+            ApproachHitPicec.FadeTo(1, HitObject.PreemptTime / 5 * 4);
             //ApproachHitPicec.FadeIn(Math.Min(BaseHitObject.FadeInTime * 2, BaseHitObject.PreemptTime));
-            ApproachHitPicec.ScaleTo(0.5f, BaseHitObject.PreemptTime / 5 * 1);
+            ApproachHitPicec.ScaleTo(0.5f, HitObject.PreemptTime / 5 * 1);
         }
 
         /// <summary>

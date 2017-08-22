@@ -13,7 +13,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece
     /// <summary>
     ///     負責用來載入圖片元素的
     /// </summary>
-    internal class ImagePicec : Container
+    public class ImagePicec : Container
     {
         private readonly Sprite disc;
         private string _resource;

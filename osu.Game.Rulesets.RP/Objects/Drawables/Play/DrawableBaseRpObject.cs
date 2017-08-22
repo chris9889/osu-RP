@@ -45,6 +45,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         //建構樣板物件
         protected virtual void ConstructObject()
         {
+            Template = new BaseRpObjectTemplate(HitObject);
         }
 
         //建構
@@ -52,7 +53,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         {
             Children = new Drawable[]
             {
-                new Box(),
+                Template
             };
         }
 

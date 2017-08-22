@@ -19,7 +19,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template
     ///     基本樣板
     ///     會控制物件要擺放位置
     /// </summary>
-    public abstract class BaseRpObjectTemplate : Container
+    public class BaseRpObjectTemplate : Container
     {
         //RpObject
         protected BaseRpObject RpObject;
@@ -28,7 +28,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template
         public double DelayTime => 0;
 
         //Object that need to calculate each frame
-        protected List<IComponentBase> Components = new List<IComponentBase>();
+        public List<IComponentBase> Components = new List<IComponentBase>();
 
         //calculate precentage by time
         protected PathPrecentageCounter PathPrecentageCounter;
