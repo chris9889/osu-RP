@@ -67,17 +67,17 @@ namespace osu.Game.Rulesets.RP.Input
     {
         public IEnumerable<KeyBinding> GetAllDefaultBinding()
         {
-            yield return new KeyBinding(Key.E, RpAction.Left_Up);
-            yield return new KeyBinding(Key.D, RpAction.Left_Down);
-            yield return new KeyBinding(Key.S, RpAction.Left_Left);
-            yield return new KeyBinding(Key.F, RpAction.Left_Right);
-            yield return new KeyBinding(Key.A, RpAction.Left_Press);
+            yield return new KeyBinding(InputKey.E, RpAction.Left_Up);
+            yield return new KeyBinding(InputKey.D, RpAction.Left_Down);
+            yield return new KeyBinding(InputKey.S, RpAction.Left_Left);
+            yield return new KeyBinding(InputKey.F, RpAction.Left_Right);
+            yield return new KeyBinding(InputKey.A, RpAction.Left_Press);
 
-            yield return new KeyBinding(Key.I, RpAction.Right_Up);
-            yield return new KeyBinding(Key.K, RpAction.Right_Down);
-            yield return new KeyBinding(Key.J, RpAction.Right_Left);
-            yield return new KeyBinding(Key.L, RpAction.Right_Right);
-            yield return new KeyBinding(Key.Comma, RpAction.Right_Press);
+            yield return new KeyBinding(InputKey.I, RpAction.Right_Up);
+            yield return new KeyBinding(InputKey.K, RpAction.Right_Down);
+            yield return new KeyBinding(InputKey.J, RpAction.Right_Left);
+            yield return new KeyBinding(InputKey.L, RpAction.Right_Right);
+            yield return new KeyBinding(InputKey.Comma, RpAction.Right_Press);
         }
     }
 }

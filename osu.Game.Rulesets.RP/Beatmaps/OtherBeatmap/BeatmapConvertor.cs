@@ -20,16 +20,16 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap
     /// </summary>
     public class BeatmapConvertor : BeatmapConverter<BaseRpObject>
     {
-        //???E?E??E?
+        //
         private readonly SliceProcessor sliceProcessor = new SliceProcessor();
 
-        //??????ContainerGroup
+        //
         private readonly ContainerProcessor containerProcessor = new ContainerProcessor();
 
-        //??????????????????
+        //
         private readonly HitObjectProcessor hitObjectProcessor = new HitObjectProcessor();
 
-        //???????????????RP??????
+        //
         private readonly PostConvertor postConvertor = new PostConvertor();
 
 
@@ -91,7 +91,7 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap
         /// </summary>
         /// <param name="original">The un-converted Beatmap.</param>
         /// <returns>The converted Beatmap.</returns>
-        protected override Beatmap<BaseRpObject> ConvertBeatmap(Beatmap original, bool isForCurrentRuleset)
+        protected override Beatmap<BaseRpObject> ConvertBeatmap(Beatmap original)
         {
             return new Beatmap<BaseRpObject>(original)
             {

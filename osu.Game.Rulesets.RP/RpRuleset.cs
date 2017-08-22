@@ -82,14 +82,6 @@ namespace osu.Game.Rulesets.RP
         public override string Description => "osu!RP";
 
         /// <summary>
-        ///     get the keys that currently use
-        /// TODO : not sure this will be remove 
-        /// </summary>
-        /// <returns></returns>
-        public override IEnumerable<KeyCounter> CreateGameplayKeys() => new RpKeyCounterCollection(RpKeyManager.GetCurrentKeyConfig()).ListKey;
-
-
-        /// <summary>
         ///     Score processor
         /// </summary>
         /// <returns></returns>

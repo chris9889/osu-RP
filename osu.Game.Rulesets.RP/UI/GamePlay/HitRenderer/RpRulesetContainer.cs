@@ -62,7 +62,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         /// TODO : consider to impliment it or not
         /// </summary>
         /// <returns></returns>
-        public override PassThroughInputManager CreateKeyBindingInputManager() => new RpKeyConversionInputManager();
+        public override PassThroughInputManager CreateInputManager() => new RpKeyConversionInputManager();
 
         /// <summary>
         ///     Change objects into drawable
