@@ -1,7 +1,6 @@
 // Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu/master/LICENCE
 
-using osu.Framework.Allocation;
 using osu.Framework.Configuration;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
@@ -27,19 +26,21 @@ namespace osu.Game.Rulesets.Timing
         public readonly BindableBool Reversed = new BindableBool();
 
         protected override Container<DrawableHitObject> Content => content;
-        private Container<DrawableHitObject> content;
+        private readonly Container<DrawableHitObject> content;
 
         /// <summary>
         /// The axes which the content of this container will scroll through.
         /// </summary>
         public Axes ScrollingAxes { get; internal set; }
 
+        public override bool RemoveWhenNotAlive => false;
+
         /// <summary>
         /// The <see cref="MultiplierControlPoint"/> that defines the speed adjustments.
         /// </summary>
         public readonly MultiplierControlPoint ControlPoint;
 
-        private ScrollingContainer scrollingContainer;
+        private readonly ScrollingContainer scrollingContainer;
 
         /// <summary>
         /// Creates a new <see cref="SpeedAdjustmentContainer"/>.
@@ -49,11 +50,7 @@ namespace osu.Game.Rulesets.Timing
         {
             ControlPoint = controlPoint;
             RelativeSizeAxes = Axes.Both;
-        }
 
-        [BackgroundDependencyLoader]
-        private void load()
-        {
             scrollingContainer = CreateScrollingContainer();
 
             scrollingContainer.ScrollingAxes = ScrollingAxes;
