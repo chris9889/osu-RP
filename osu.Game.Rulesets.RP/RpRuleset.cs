@@ -93,6 +93,7 @@ namespace osu.Game.Rulesets.RP
         /// </summary>
         /// <returns></returns>
         //public override SettingsSubsection CreateSettings() => new RpSettings();
+
         /// <summary>
         /// Do not override this unless you are a legacy mode.
         /// </summary>
