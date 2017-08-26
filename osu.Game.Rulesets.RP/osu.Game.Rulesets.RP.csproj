@@ -57,7 +57,7 @@
     <Compile Include="Beatmaps\OtherBeatmap\Slicing\VolocityCalculator\ContainerVolocityCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpDifficultyCalculator.cs" />
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
-    <Compile Include="Input\RpInputManager.cs" />
+    <Compile Include="KeyManager\RpInputManager.cs" />
     <Compile Include="Mods\RpMod2017.cs" />
     <Compile Include="Mods\ModsElement\RPAutoReplay.cs" />
     <Compile Include="Objects\Attribute\BaseRpObjectAttribute.cs" />
@@ -109,7 +109,6 @@
     <Compile Include="UI\GamePlay\Playfield\Layout\CommonDwawablePiece\RectanglePiece.cs" />
     <Compile Include="Objects\Drawables\Template\HitObjectComponent\Common\LoadEffect.cs" />
     <Compile Include="Objects\Drawables\Template\Calculator\ContainerLayoutPositionCounter.cs" />
-    <Compile Include="KeyManager\RpKeyConversionInputManager.cs" />
     <Compile Include="Objects\Drawables\Template\EditableRpHoldObjectTemplate.cs" />
     <Compile Include="Replays\RpReplayFrame.cs" />
     <Compile Include="Replays\RpReplayInputHandler.cs" />
@@ -175,7 +174,6 @@
     <Compile Include="Objects\RpHoldObject.cs" />
     <Compile Include="Objects\RpContainerLineHoldObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Saving\RpKeyLayoutConfig.cs" />
     <Compile Include="SkinManager\RpTexturePathManager.cs" />
     <Compile Include="UI\GamePlay\HitRenderer\RpRulesetContainer.cs" />
     <Compile Include="UI\GamePlay\Playfield\RpPlayfield.cs" />

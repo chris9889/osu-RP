@@ -204,28 +204,37 @@ namespace osu.Game.Rulesets.RP.SkinManager
         private static string GetImageNameByType(BaseRpHitableObject baseHitObject)
         {
             string fileName = null;
-            switch (baseHitObject.Shape)
+
+            if ((baseHitObject as RpHitObject) != null)
             {
-                case Shape.Up:
-                    fileName = @"Up";
-                    break;
-                case Shape.Down:
-                    fileName = @"Down";
-                    break;
-                case Shape.Left:
-                    fileName = @"Left";
-                    break;
-                case Shape.Right:
-                    fileName = @"Right";
-                    break;
-                case Shape.Special:
-                    fileName = @"Star";
-                    break;
-                case Shape.ContainerPress:
-                    fileName = @"Left";
-                    break;
-                default:
-                    return @"RP_Unknown";
+                switch ((baseHitObject as RpHitObject).Direction)
+                {
+                    case Direction.Up:
+                        fileName = @"Up";
+                        break;
+                    case Direction.Down:
+                        fileName = @"Down";
+                        break;
+                    case Direction.Left:
+                        fileName = @"Left";
+                        break;
+                    case Direction.Right:
+                        fileName = @"Right";
+                        break;
+                    default:
+                        return @"RP_Unknown";
+                }
+            }
+            else
+            {
+                switch (baseHitObject.Shape)
+                {
+                    case Shape.ContainerPress:
+                        fileName = @"Left";
+                        break;
+                    default:
+                        return @"RP_Unknown";
+                }
             }
             return fileName;
         }

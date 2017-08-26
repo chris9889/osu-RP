@@ -4,14 +4,16 @@
 using System;
 using System.ComponentModel;
 using osu.Framework.Graphics;
+using osu.Framework.Input.Bindings;
 using osu.Game.Rulesets.Objects.Drawables;
+using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.Judgements;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play.Common;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 {
     //DrawableBaseRpHitableObject
-    public abstract class DrawableBaseRpHitableObject : DrawableBaseRpObject //, IHasTemplate<BaseRpHitableObjectTemplate>
+    public abstract class DrawableBaseRpHitableObject : DrawableBaseRpObject, IKeyBindingHandler<RpAction> //, IHasTemplate<BaseRpHitableObjectTemplate>
     {
         // HitObject
         public new BaseRpHitableObject HitObject
@@ -59,12 +61,12 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             {
                 Hit = () =>
                 {
-                    OnKeyPressDown();
+                   // OnKeyPressDown();
                     return true;
                 },
                 Release = () =>
                 {
-                    OnKeyPressUp();
+                   // OnKeyPressUp();
                     return true;
                 }
             };
@@ -115,6 +117,30 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             else
                 Judgement.Result = HitResult.Miss;
         }
+
+        public virtual bool OnPressed(RpAction action)
+        {
+            bool press = HitObject.CanHitBy(action);
+            if (press)
+            {
+                OnKeyPressDown();
+            }
+            return press;
+        }
+
+        public virtual bool OnReleased(RpAction action)
+        {
+            bool release = HitObject.CanHitBy(action);
+            if (release)
+            {
+                OnKeyPressDown();
+            }
+            return release;
+        }
+
+        //get all the key Hitted?
+        private RpInputManager rpActionInputManager;
+        internal RpInputManager RpActionInputManager => rpActionInputManager ?? (rpActionInputManager = GetContainingInputManager() as RpInputManager);
     }
 
     //RpComboResult

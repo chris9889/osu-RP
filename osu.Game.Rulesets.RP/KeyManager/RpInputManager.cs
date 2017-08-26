@@ -6,17 +6,17 @@ using System.ComponentModel;
 using System.Linq;
 using osu.Framework.Input;
 using osu.Framework.Input.Bindings;
-using osu.Game.Input.Bindings;
+using osu.Game.Rulesets.UI;
 using OpenTK.Input;
 using KeyboardState = osu.Framework.Input.KeyboardState;
 using MouseState = osu.Framework.Input.MouseState;
 
 namespace osu.Game.Rulesets.RP.Input
 {
-    public class RpInputManager : DatabasedKeyBindingInputManager<RpAction>
+    public class RpInputManager : RulesetInputManager<RpAction>
     {
         public RpInputManager(RulesetInfo ruleset)
-            : base(ruleset, simultaneousMode: SimultaneousBindingMode.Unique)
+            : base(ruleset, 0, SimultaneousBindingMode.Unique)
         {
         }
 

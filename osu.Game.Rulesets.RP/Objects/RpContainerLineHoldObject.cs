@@ -2,6 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Game.Rulesets.Objects.Types;
+using osu.Game.Rulesets.RP.Input;
 
 namespace osu.Game.Rulesets.RP.Objects
 {
@@ -25,6 +26,20 @@ namespace osu.Game.Rulesets.RP.Objects
         }
 
         //InitialDefaultValue
+        public override bool CanHitBy(RpAction action)
+        {
+            //isMatch
+            bool left = action == RpAction.Left_Press;
+            bool right = action == RpAction.Right_Press;
+
+            if (Coop == Coop.LeftOnly)
+                return left;
+            if (Coop == Coop.RightOnly)
+                return right;
+
+            return left && right;
+        }
+
         protected override void InitialDefaultValue()
         {
             base.InitialDefaultValue();

@@ -3,6 +3,7 @@
 
 using System;
 using osu.Game.Audio;
+using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
 using osu.Game.Rulesets.RP.Objects.Interface;
 
@@ -48,7 +49,10 @@ namespace osu.Game.Rulesets.RP.Objects
         public int RelativeContainerLineIndex => ParentObject.ID;
 
         //set the shape type
-        public Shape Shape = Shape.Right;
+        public Shape Shape = Shape.Unknown;
+
+        //can be trigger by what key 
+        public abstract bool CanHitBy(RpAction action);
 
         //normal or special
         public Special Special = Special.Normal;
@@ -126,12 +130,10 @@ namespace osu.Game.Rulesets.RP.Objects
     [Flags]
     public enum Shape
     {
-        Up = 1, //up
-        Down = 2, //down
-        Left = 4, //left
-        Right = 8, //right
-        Special = 16, // Up| Down| Left| Right
-        ContainerPress = 32 //containerPress
+        Unknown=0, //Unknown
+        Hit = 1,//Hit
+        Hold = 2, //Hold
+        ContainerPress = 4 //containerPress
     }
 
     //RpMultiHit , not impliment yet

@@ -8,6 +8,7 @@ using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Replays;
 using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap;
 using osu.Game.Rulesets.RP.Beatmaps.RPBeatmap;
+using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.Judgements;
 using osu.Game.Rulesets.RP.KeyManager;
 using osu.Game.Rulesets.RP.Objects;
@@ -62,7 +63,7 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
         /// TODO : consider to impliment it or not
         /// </summary>
         /// <returns></returns>
-        public override PassThroughInputManager CreateInputManager() => new RpKeyConversionInputManager();
+        public override PassThroughInputManager CreateInputManager() => new RpInputManager(Ruleset.RulesetInfo);
 
         /// <summary>
         ///     Change objects into drawable

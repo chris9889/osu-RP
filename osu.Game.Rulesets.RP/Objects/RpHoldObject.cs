@@ -2,13 +2,14 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Game.Rulesets.Objects.Types;
+using osu.Game.Rulesets.RP.Input;
 
 namespace osu.Game.Rulesets.RP.Objects
 {
     /// <summary>
     ///     RPí∑ï®åè
     /// </summary>
-    public class RpHoldObject : BaseRpHitableObject, IHasEndTime
+    public class RpHoldObject : RpHitObject, IHasEndTime
     {
         //end time
         public double EndTime { get; set; }

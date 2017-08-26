@@ -2,8 +2,10 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using osu.Framework.Graphics;
+using osu.Framework.Input.Bindings;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.Objects.Types;
+using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject;
 using OpenTK;
 

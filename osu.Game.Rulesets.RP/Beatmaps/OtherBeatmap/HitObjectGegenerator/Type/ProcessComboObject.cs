@@ -35,14 +35,18 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
             {
                 for (var i = 0; i < singleTuple.ListBaseHitObject.Count; i++)
                     if (_lastHitObjectTuple.ListBaseHitObject.Count > i)
-                        singleTuple.ListBaseHitObject[i].Shape = FindNext(_lastHitObjectTuple.ListBaseHitObject[i].Shape);
+                    {
+                        (singleTuple.ListBaseHitObject[i] as RpHitObject).Direction = FindNext((_lastHitObjectTuple.ListBaseHitObject[i] as RpHitObject).Direction);
+                    }
                 convert = false;
             }
             else
             {
                 for (var i = 0; i < singleTuple.ListBaseHitObject.Count; i++)
                     if (_lastHitObjectTuple.ListBaseHitObject.Count > i)
-                        singleTuple.ListBaseHitObject[i].Shape = FindPrevious(_lastHitObjectTuple.ListBaseHitObject[i].Shape);
+                    {
+                        (singleTuple.ListBaseHitObject[i] as RpHitObject).Direction = FindPrevious((_lastHitObjectTuple.ListBaseHitObject[i] as RpHitObject).Direction);
+                    }
                 convert = true;
             }
         }
@@ -56,23 +60,28 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
         ///     if first combo Object comes to up down left right
         ///     it will assign the priority that is better to hit
         /// </summary>
-        private void OptimizeBetterHitExperiance()
+        protected void OptimizeBetterHitExperiance()
         {
-            switch (_lastHitObjectTuple.ListBaseHitObject[0].Shape)
+            RpHitObject hitObject = _lastHitObjectTuple.ListBaseHitObject[0] as RpHitObject;
+
+            if (hitObject != null)
             {
-                case Shape.Up:
-                    convert = false;
-                    break;
-                case Shape.Down:
-                    convert = true;
-                    break;
-                case Shape.Left: //蝗轤ｺ蟾ｦ驍顔悄逧・怏螟髮｣謇難ｼ御ｹｾ閼・ｸ崎ｦ∬ｮ灘ｮ・・迴ｾ螂ｽ莠・
-                    //_lastHitObjectTuple.ListBaseHitObject[0].Shape = Shape.Right;
-                    convert = false;
-                    break;
-                case Shape.Right:
-                    convert = true;
-                    break;
+                switch (hitObject.Direction)
+                {
+                    case Direction.Up:
+                        convert = false;
+                        break;
+                    case Direction.Down:
+                        convert = true;
+                        break;
+                    case Direction.Left: //蝗轤ｺ蟾ｦ驍顔悄逧・怏螟髮｣謇難ｼ御ｹｾ閼・ｸ崎ｦ∬ｮ灘ｮ・・迴ｾ螂ｽ莠・
+                        //_lastHitObjectTuple.ListBaseHitObject[0].Shape = Shape.Right;
+                        convert = false;
+                        break;
+                    case Direction.Right:
+                        convert = true;
+                        break;
+                }
             }
         }
 
@@ -81,36 +90,36 @@ namespace osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap.HitObjectGegenerator.Type
         /// </summary>
         /// <param name="nowShape"></param>
         /// <returns></returns>
-        private Shape FindNext(Shape nowShape)
+        protected Direction FindNext(Direction nowShape)
         {
             switch (nowShape)
             {
-                case Shape.Up:
-                    return Shape.Left;
-                case Shape.Left:
-                    return Shape.Down;
-                case Shape.Down:
-                    return Shape.Right;
-                case Shape.Right:
-                    return Shape.Up;
+                case Direction.Up:
+                    return Direction.Left;
+                case Direction.Left:
+                    return Direction.Down;
+                case Direction.Down:
+                    return Direction.Right;
+                case Direction.Right:
+                    return Direction.Up;
             }
-            return Shape.Down;
+            return Direction.Down;
         }
 
-        private Shape FindPrevious(Shape nowShape)
+        protected Direction FindPrevious(Direction nowShape)
         {
             switch (nowShape)
             {
-                case Shape.Up:
-                    return Shape.Right;
-                case Shape.Left:
-                    return Shape.Up;
-                case Shape.Down:
-                    return Shape.Left;
-                case Shape.Right:
-                    return Shape.Down;
+                case Direction.Up:
+                    return Direction.Right;
+                case Direction.Left:
+                    return Direction.Up;
+                case Direction.Down:
+                    return Direction.Left;
+                case Direction.Right:
+                    return Direction.Down;
             }
-            return Shape.Down;
+            return Direction.Down;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace osu.Game.Rulesets.RP.SkinManager
         ///     RpHitObject's shape color
         /// </summary>
         /// <returns></returns>
-        public static Color4 GetKeyLayoutButtonShage(Shape type)
+        public static Color4 GetKeyLayoutButtonShage(Direction type)
         {
             /*
             switch (type)
@@ -36,18 +36,22 @@ namespace osu.Game.Rulesets.RP.SkinManager
 
             switch (type)
             {
-                case Shape.Right:
+                case Direction.Right:
                     return new Color4(226, 66, 54, 255);
-                case Shape.Down:
+                case Direction.Down:
                     return new Color4(54, 99, 226, 255);
-                case Shape.Left:
+                case Direction.Left:
                     return new Color4(226, 54, 177, 255);
-                case Shape.Up:
+                case Direction.Up:
                     return new Color4(131, 226, 54, 255);
-                case Shape.ContainerPress:
-                    return new Color4(169, 188, 185, 255);
+                
             }
             return new Color4(255, 255, 255, 255);
+        }
+
+        public static Color4 GetTypeColor(Shape type)
+        {
+            return new Color4(169, 188, 185, 255);
         }
 
         /// <summary>
