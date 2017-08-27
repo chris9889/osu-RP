@@ -61,7 +61,6 @@
     <Compile Include="Mods\RpMod2017.cs" />
     <Compile Include="Objects\Attribute\BaseRpObjectAttribute.cs" />
     <Compile Include="Objects\Drawables\Edit\DrawableEditBaseRpObject.cs" />
-    <Compile Include="Objects\Drawables\Play\Common\PressDetecor.cs" />
     <Compile Include="Objects\Drawables\Play\Interface\IHasTemplate.cs" />
     <Compile Include="Objects\Drawables\Template\Template.cs" />
     <Compile Include="Objects\Interface\IHasBPM.cs" />

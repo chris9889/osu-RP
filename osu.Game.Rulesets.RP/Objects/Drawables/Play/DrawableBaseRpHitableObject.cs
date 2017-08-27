@@ -8,21 +8,17 @@ using osu.Framework.Input.Bindings;
 using osu.Game.Rulesets.Objects.Drawables;
 using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.Judgements;
-using osu.Game.Rulesets.RP.Objects.Drawables.Play.Common;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 {
     //DrawableBaseRpHitableObject
-    public abstract class DrawableBaseRpHitableObject : DrawableBaseRpObject //, IHasTemplate<BaseRpHitableObjectTemplate>
+    public abstract class DrawableBaseRpHitableObject : DrawableBaseRpObject, IKeyBindingHandler<RpAction> //, IHasTemplate<BaseRpHitableObjectTemplate>
     {
         // HitObject
         public new BaseRpHitableObject HitObject
         {
             get { return (BaseRpHitableObject)base.HitObject; }
         }
-
-        //press detector
-        protected PressDetecor RpPressDetecor;
 
         //public new BaseRpHitableObjectTemplate Template => (BaseRpHitableObjectTemplate)base.Template;
 
@@ -43,33 +39,10 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 
         protected override void InitialChildObject()
         {
-            //press event
-            InitialDetectPressEvent();
-
             //
             Children = new Drawable[]
             {
                 Template,
-                RpPressDetecor
-            };
-        }
-
-        //press event
-        protected void InitialDetectPressEvent()
-        {
-            //get press down and up event
-            RpPressDetecor = new PressDetecor(HitObject, Judgement)
-            {
-                Hit = () =>
-                {
-                    OnKeyPressDown();
-                    return true;
-                },
-                Release = () =>
-                {
-                    OnKeyPressUp();
-                    return true;
-                }
             };
         }
 
@@ -119,7 +92,42 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
                 Judgement.Result = HitResult.Miss;
         }
 
-      
+
+        public bool OnPressed(RpAction action)
+        {
+            bool press = HitObject.CanHitBy(action);
+
+            if (press)
+            {
+                var pressDelay = Math.Abs(Time.Current - HitObject.StartTime);
+                //Hit at the time
+                if (pressDelay < HitObject.HitWindowFor(RpScoreResult.Safe))
+                {
+                    OnKeyPressDown();
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool OnReleased(RpAction action)
+        {
+            bool release = HitObject.CanHitBy(action);
+
+            if (release)
+            {
+                var pressDelay = Math.Abs(Time.Current - HitObject.StartTime);
+                //Hit at the time
+                if (pressDelay < HitObject.HitWindowFor(RpScoreResult.Safe))
+                {
+                    OnKeyPressDown();
+                    return true;
+                }
+            }
+
+            return false;
+        }
 
         //get all the key Hitted?
         private RpInputManager rpActionInputManager;
