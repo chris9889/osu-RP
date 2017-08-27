@@ -2,6 +2,7 @@
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
 using System;
+using System.Collections.Generic;
 using osu.Game.Audio;
 using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
@@ -53,6 +54,9 @@ namespace osu.Game.Rulesets.RP.Objects
 
         //can be trigger by what key 
         public abstract bool CanHitBy(RpAction action);
+
+        //get list compare keys
+        public abstract List<RpAction> GetListCompareKeys();
 
         //normal or special
         public Special Special = Special.Normal;

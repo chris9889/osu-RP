@@ -7,7 +7,7 @@ using osu.Framework.Graphics;
 using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Objects.Types;
 using osu.Game.Rulesets.Replays;
-using osu.Game.Rulesets.RP.KeyManager;
+using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
 using osu.Game.Users;
@@ -41,9 +41,9 @@ namespace osu.Game.Rulesets.RP.Replays
 
             var preferredEasing = DelayedMovements ? Easing.InOutCubic : Easing.Out;
 
-            Frames.Add(new RpReplayFrame(-100000, Key.Unknown, 500, ReplayButtonState.None));
-            Frames.Add(new RpReplayFrame(Beatmap.HitObjects[0].StartTime - 1500, Key.Unknown, 500, ReplayButtonState.None));
-            Frames.Add(new RpReplayFrame(Beatmap.HitObjects[0].StartTime - 1000, Key.Unknown, 192, ReplayButtonState.None));
+            Frames.Add(new RpReplayFrame(-100000, 500, ReplayButtonState.None));
+            Frames.Add(new RpReplayFrame(Beatmap.HitObjects[0].StartTime - 1500, 500, ReplayButtonState.None));
+            Frames.Add(new RpReplayFrame(Beatmap.HitObjects[0].StartTime - 1000, 192, ReplayButtonState.None));
 
             // We are using ApplyModsToRate and not ApplyModsToTime to counteract the speed up / slow down from HalfTime / DoubleTime so that we remain at a constant framerate of 60 fps.
             var frameDelay = (float)applyModsToRate(1000.0 / 60.0);
@@ -91,7 +91,7 @@ namespace osu.Game.Rulesets.RP.Replays
             foreach (var time in listPointTime)
             {
                 var listOnPointTimeHitObject = GetListPressHitObjectByTime(listHitObjects, time).ToList();
-                var listPressKey = new List<Key>();
+                var listPressKey = new List<RpAction>();
                 foreach (var single in listOnPointTimeHitObject)
                 {
                     if (single is IHasEndTime)
@@ -142,9 +142,9 @@ namespace osu.Game.Rulesets.RP.Replays
         ///     Get List Key
         /// </summary>
         /// <returns></returns>
-        private Key getKeyByHitObject(BaseRpHitableObject hitObject)
+        private RpAction getKeyByHitObject(BaseRpHitableObject hitObject)
         {
-            var listCompareKeys = RpKeyManager.GetListKey(hitObject);
+            var listCompareKeys = hitObject.GetListCompareKeys();
             return listCompareKeys[0];
         }
     }

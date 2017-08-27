@@ -1,6 +1,7 @@
 // Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
+using System.Collections.Generic;
 using osu.Game.Rulesets.RP.Input;
 
 namespace osu.Game.Rulesets.RP.Objects
@@ -52,6 +53,41 @@ namespace osu.Game.Rulesets.RP.Objects
                 return right;
 
             return left && right;
+        }
+
+        public override List<RpAction> GetListCompareKeys()
+        {
+            List<RpAction> listKey=new List<RpAction>();
+
+            switch (Direction)
+            {
+                case Direction.Up:
+                    if(Coop == Coop.Both || Coop == Coop.LeftOnly)
+                        listKey.Add(RpAction.Left_Up);
+                    if (Coop == Coop.Both || Coop == Coop.RightOnly)
+                        listKey.Add(RpAction.Right_Up);
+                    break;
+                case Direction.Down:
+                    if (Coop == Coop.Both || Coop == Coop.LeftOnly)
+                        listKey.Add(RpAction.Left_Down);
+                    if (Coop == Coop.Both || Coop == Coop.RightOnly)
+                        listKey.Add(RpAction.Right_Down);
+                    break;
+                case Direction.Left:
+                    if (Coop == Coop.Both || Coop == Coop.LeftOnly)
+                        listKey.Add(RpAction.Left_Left);
+                    if (Coop == Coop.Both || Coop == Coop.RightOnly)
+                        listKey.Add(RpAction.Right_Left);
+                    break;
+                case Direction.Right:
+                    if (Coop == Coop.Both || Coop == Coop.LeftOnly)
+                        listKey.Add(RpAction.Left_Right);
+                    if (Coop == Coop.Both || Coop == Coop.RightOnly)
+                        listKey.Add(RpAction.Right_Right);
+                    break;
+            }
+
+            return listKey;
         }
 
         //InitialDefaultValue

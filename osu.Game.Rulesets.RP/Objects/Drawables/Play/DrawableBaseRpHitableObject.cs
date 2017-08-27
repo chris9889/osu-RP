@@ -13,7 +13,7 @@ using osu.Game.Rulesets.RP.Objects.Drawables.Play.Common;
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 {
     //DrawableBaseRpHitableObject
-    public abstract class DrawableBaseRpHitableObject : DrawableBaseRpObject, IKeyBindingHandler<RpAction> //, IHasTemplate<BaseRpHitableObjectTemplate>
+    public abstract class DrawableBaseRpHitableObject : DrawableBaseRpObject //, IHasTemplate<BaseRpHitableObjectTemplate>
     {
         // HitObject
         public new BaseRpHitableObject HitObject
@@ -21,10 +21,10 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             get { return (BaseRpHitableObject)base.HitObject; }
         }
 
-        //public new BaseRpHitableObjectTemplate Template => (BaseRpHitableObjectTemplate)base.Template;
-
         //press detector
         protected PressDetecor RpPressDetecor;
+
+        //public new BaseRpHitableObjectTemplate Template => (BaseRpHitableObjectTemplate)base.Template;
 
         //constructor
         protected DrawableBaseRpHitableObject(BaseRpHitableObject hitObject)
@@ -45,6 +45,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         {
             //press event
             InitialDetectPressEvent();
+
             //
             Children = new Drawable[]
             {
@@ -61,12 +62,12 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             {
                 Hit = () =>
                 {
-                   // OnKeyPressDown();
+                    OnKeyPressDown();
                     return true;
                 },
                 Release = () =>
                 {
-                   // OnKeyPressUp();
+                    OnKeyPressUp();
                     return true;
                 }
             };
@@ -118,25 +119,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
                 Judgement.Result = HitResult.Miss;
         }
 
-        public virtual bool OnPressed(RpAction action)
-        {
-            bool press = HitObject.CanHitBy(action);
-            if (press)
-            {
-                OnKeyPressDown();
-            }
-            return press;
-        }
-
-        public virtual bool OnReleased(RpAction action)
-        {
-            bool release = HitObject.CanHitBy(action);
-            if (release)
-            {
-                OnKeyPressDown();
-            }
-            return release;
-        }
+      
 
         //get all the key Hitted?
         private RpInputManager rpActionInputManager;

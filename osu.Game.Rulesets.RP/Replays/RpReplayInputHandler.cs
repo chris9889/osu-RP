@@ -4,6 +4,7 @@
 using System.Collections.Generic;
 using osu.Framework.Input;
 using osu.Game.Rulesets.Replays;
+using osu.Game.Rulesets.RP.Input;
 
 namespace osu.Game.Rulesets.RP.Replays
 {
@@ -17,15 +18,17 @@ namespace osu.Game.Rulesets.RP.Replays
 
         public override List<InputState> GetPendingStates()
         {
+        
             //get RpReplayFrame
             var correntFrame = (RpReplayFrame)CurrentFrame;
 
             return new List<InputState>
             {
-                new InputState
+                new ReplayState<RpAction>
                 {
                     //get keys from frame
-                    Keyboard = new ReplayKeyboardState(correntFrame.ListPressKeys)
+                    //Keyboard = new ReplayKeyboardState(),
+                    PressedActions = correntFrame.ListPressKeys
                 }
             };
         }

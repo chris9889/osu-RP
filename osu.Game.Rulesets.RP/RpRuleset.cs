@@ -8,17 +8,14 @@ using osu.Game.Beatmaps;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.RP.DifficultyCalculator;
 using osu.Game.Rulesets.RP.Input;
-using osu.Game.Rulesets.RP.KeyManager;
 using osu.Game.Rulesets.RP.Mods;
 using osu.Game.Rulesets.RP.Scoreing;
 using osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer;
-using osu.Game.Rulesets.RP.UI.GamePlay.KeyCounter;
 using osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.CommonDwawablePiece;
 using osu.Game.Rulesets.RP.UI.Select.Info;
 using osu.Game.Rulesets.RP.UI.Select.RpMod;
 using osu.Game.Rulesets.Scoring;
 using osu.Game.Rulesets.UI;
-using osu.Game.Screens.Play;
 
 namespace osu.Game.Rulesets.RP
 {

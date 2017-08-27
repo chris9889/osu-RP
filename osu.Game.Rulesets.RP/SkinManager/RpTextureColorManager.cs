@@ -15,7 +15,7 @@ namespace osu.Game.Rulesets.RP.SkinManager
         ///     RpHitObject's shape color
         /// </summary>
         /// <returns></returns>
-        public static Color4 GetKeyLayoutButtonShage(Direction type)
+        public static Color4 GetKeyLayoutButtonDirection(Direction type)
         {
             /*
             switch (type)

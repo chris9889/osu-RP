@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2007-2017 ppy Pty Ltd <contact@ppy.sh>.
 // Licensed under the MIT Licence - https://raw.githubusercontent.com/ppy/osu-framework/master/LICENCE
 
+using System.Collections.Generic;
 using osu.Game.Rulesets.Objects.Types;
 using osu.Game.Rulesets.RP.Input;
 
@@ -38,6 +39,17 @@ namespace osu.Game.Rulesets.RP.Objects
                 return right;
 
             return left && right;
+        }
+
+        public override List<RpAction> GetListCompareKeys()
+        {
+            List<RpAction> listKey = new List<RpAction>();
+
+            if (Coop == Coop.Both || Coop == Coop.LeftOnly)
+                listKey.Add(RpAction.Left_Press);
+            if (Coop == Coop.Both || Coop == Coop.RightOnly)
+                listKey.Add(RpAction.Right_Press);
+            return listKey;
         }
 
         protected override void InitialDefaultValue()

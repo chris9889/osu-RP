@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Generic;
 using osu.Game.Rulesets.Replays;
-using osu.Game.Rulesets.RP.KeyManager;
+using osu.Game.Rulesets.RP.Input;
 using OpenTK.Input;
 
 namespace osu.Game.Rulesets.RP.Replays
@@ -17,24 +17,24 @@ namespace osu.Game.Rulesets.RP.Replays
         /// <summary>
         ///     list keys
         /// </summary>
-        private List<Key> _listPressKeys = new List<Key>();
+        private List<RpAction> _listPressKeys = new List<RpAction>();
 
         /// <summary>
         ///     list keys
         /// </summary>
-        public List<Key> ListPressKeys => _listPressKeys;
+        public List<RpAction> ListPressKeys => _listPressKeys;
 
 
         //把滑鼠其中一個座標轉成listKey
-        public RpReplayFrame(double time, float posX, float posY, ReplayButtonState buttonState)
-            : base(time, posX, posY, buttonState)
-        {
-            //Convert position to keys;
-            _listPressKeys = convertMouseAnixXToKeyList((int)MouseX);
-        }
+        //public RpReplayFrame(double time, float posX, float posY, ReplayButtonState buttonState)
+        //    : base(time, posX, posY, buttonState)
+        //{
+        //    //Convert position to keys;
+        //    _listPressKeys = convertMouseAnixXToKeyList((int)MouseX);
+        //}
 
         //constructor
-        public RpReplayFrame(double time, List<Key> listPressKeys, float posY, ReplayButtonState buttonState)
+        public RpReplayFrame(double time, List<RpAction> listPressKeys, float posY, ReplayButtonState buttonState)
             : base(time, 0, posY, buttonState)
         {
             //Convert position to keys;
@@ -42,44 +42,50 @@ namespace osu.Game.Rulesets.RP.Replays
         }
 
         //constructor
-        public RpReplayFrame(double time, Key key, float posY, ReplayButtonState buttonState)
+        public RpReplayFrame(double time, RpAction key, float posY, ReplayButtonState buttonState)
             : base(time, 0, posY, buttonState)
         {
             _listPressKeys.Clear();
             _listPressKeys.Add(key);
         }
 
-        //convet state to savable format
-        public override string ToString()
+        public RpReplayFrame(double time, float posY, ReplayButtonState buttonState)
+            : base(time, 0, posY, buttonState)
         {
-            MouseX = ConvertRpKeysToMouseAnixX(_listPressKeys);
-            return base.ToString();
+            _listPressKeys.Clear();
         }
+
+        //convet state to savable format
+        //public override string ToString()
+        //{
+        //    MouseX = ConvertRpKeysToMouseAnixX(_listPressKeys);
+        //    return base.ToString();
+        //}
 
 
         //Convert int to list key
-        private List<Key> convertMouseAnixXToKeyList(int positionX)
-        {
-            var listKey = new List<Key>();
-            if (positionX > 0)
-            {
-                var currentConfig = RpKeyManager.GetCurrentKeyConfig();
-                for (var i = 0; i < 10; i++)
-                    if (Math.Ceiling(positionX / Math.Pow(2, i)) % 2 == 1)
-                        listKey.Add(currentConfig.KeyDictionary[i].Key);
-            }
-            return listKey;
-        }
+        //private List<RpAction> convertMouseAnixXToKeyList(int positionX)
+        //{
+        //    var listKey = new List<RpAction>();
+        //    if (positionX > 0)
+        //    {
+        //        var currentConfig = RpKeyManager.GetCurrentKeyConfig();
+        //        for (var i = 0; i < 10; i++)
+        //            if (Math.Ceiling(positionX / Math.Pow(2, i)) % 2 == 1)
+        //                listKey.Add(currentConfig.KeyDictionary[i].Key);
+        //    }
+        //    return listKey;
+        //}
 
         //convert list key to int
-        public int ConvertRpKeysToMouseAnixX(List<Key> listStorageKeys)
-        {
-            var currentConfig = RpKeyManager.GetCurrentKeyConfig();
-            var returnValue = 0;
-            for (var i = 0; i < currentConfig.KeyDictionary.Count; i++)
-                if (listStorageKeys.Contains(currentConfig.KeyDictionary[i].Key))
-                    returnValue = returnValue + (int)Math.Pow(2, i);
-            return returnValue;
-        }
+        //public int ConvertRpKeysToMouseAnixX(List<Key> listStorageKeys)
+        //{
+        //    var currentConfig = RpKeyManager.GetCurrentKeyConfig();
+        //    var returnValue = 0;
+        //    for (var i = 0; i < currentConfig.KeyDictionary.Count; i++)
+        //        if (listStorageKeys.Contains(currentConfig.KeyDictionary[i].Key))
+        //            returnValue = returnValue + (int)Math.Pow(2, i);
+        //    return returnValue;
+        //}
     }
 }

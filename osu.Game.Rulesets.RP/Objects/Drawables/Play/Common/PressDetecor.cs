@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Input;
+using osu.Framework.Input.Bindings;
+using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.Judgements;
-using osu.Game.Rulesets.RP.KeyManager;
 using OpenTK.Input;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play.Common
@@ -15,7 +16,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play.Common
     /// <summary>
     ///     it use to report press and release event
     /// </summary>
-    public class PressDetecor : Container
+    public class PressDetecor : Container, IKeyBindingHandler<RpAction>
     {
         public bool IsPress
         {
@@ -38,7 +39,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play.Common
         protected List<Key> _compareKey;
 
         //RP物件
-        private readonly BaseRpHitableObject _baseRPObject;
+        private readonly BaseRpHitableObject baseRpObject;
 
         //目前按下�E對的按鍵
         private Key _nowPressMatchKey = Key.Unknown;
@@ -48,14 +49,64 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play.Common
 
         public PressDetecor(BaseRpHitableObject baseRpObject, RpJudgement judgement)
         {
-            _baseRPObject = baseRpObject;
-            //預�E取得那些按鍵按亁E��有作用
-            _compareKey = RpKeyManager.GetListKey(baseRpObject);
+            this.baseRpObject = baseRpObject;
 
             Children = new Drawable[]
             {
                 new Container(),
             };
+        }
+
+        public bool OnPressed(RpAction action)
+        {
+            bool press = baseRpObject.CanHitBy(action);
+
+            if (press)
+            {
+                var pressDelay = Math.Abs(Time.Current - baseRpObject.StartTime);
+
+                //Hit at the time
+                if (pressDelay < baseRpObject.HitWindowFor(RpScoreResult.Safe) && _nowPressMatchKey == Key.Unknown)
+                {
+                    PressDownDelayTime = pressDelay;
+                    _pressValid = true;
+                    return Hit?.Invoke() ?? false;
+                }
+                else if (false) //outside the time
+                {
+                    //目前符合的key
+                    //var pressKeyList = FilterMatchKey(state);
+
+                    ////如果過濾後發現沒有Key
+                    //if (pressKeyList.Count >= 0)
+                    //    _nowPressMatchKey = pressKeyList[0];
+                    //;
+                }
+                return false;
+            }
+
+            return press;
+        }
+
+        public bool OnReleased(RpAction action)
+        {
+            bool release = baseRpObject.CanHitBy(action);
+
+            if (release)
+            {
+                var pressDelay = Math.Abs(Time.Current - baseRpObject.StartTime);
+                //Hit at the time
+                if (pressDelay < baseRpObject.HitWindowFor(RpScoreResult.Safe) && _nowPressMatchKey != Key.Unknown)
+                {
+                    PressUpDelayTime = pressDelay;
+                    _nowPressMatchKey = Key.Unknown;
+                    return Release?.Invoke() ?? false;
+                }
+                else if (false)
+                {
+                }
+            }
+            return release;
         }
 
         /// <summary>
@@ -65,40 +116,40 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play.Common
         /// <param name="state"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
-        {
-            if (args.Repeat)
-                return false;
+        //protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
+        //{
+        //    if (args.Repeat)
+        //        return false;
 
-            var pressDelay = Math.Abs(Time.Current - _baseRPObject.StartTime);
+        //    var pressDelay = Math.Abs(Time.Current - _baseRPObject.StartTime);
 
-            //Hit at the time
-            if (pressDelay < _baseRPObject.HitWindowFor(RpScoreResult.Safe) && _nowPressMatchKey == Key.Unknown)
-            {
-                //目前符合的key
-                var pressKeyList = FilterMatchKey(state);
+        //    //Hit at the time
+        //    if (pressDelay < _baseRPObject.HitWindowFor(RpScoreResult.Safe) && _nowPressMatchKey == Key.Unknown)
+        //    {
+        //        //目前符合的key
+        //        var pressKeyList = FilterMatchKey(state);
 
-                //如果過濾後發現沒有Key
-                if (pressKeyList.Count > 0)
-                {
-                    PressDownDelayTime = pressDelay;
-                    _nowPressMatchKey = pressKeyList[0];
-                    _pressValid = true;
-                    return Hit?.Invoke() ?? false;
-                }
-            }
-            else if (false) //outside the time
-            {
-                //目前符合的key
-                var pressKeyList = FilterMatchKey(state);
+        //        //如果過濾後發現沒有Key
+        //        if (pressKeyList.Count > 0)
+        //        {
+        //            PressDownDelayTime = pressDelay;
+        //            _nowPressMatchKey = pressKeyList[0];
+        //            _pressValid = true;
+        //            return Hit?.Invoke() ?? false;
+        //        }
+        //    }
+        //    else if (false) //outside the time
+        //    {
+        //        //目前符合的key
+        //        var pressKeyList = FilterMatchKey(state);
 
-                //如果過濾後發現沒有Key
-                if (pressKeyList.Count >= 0)
-                    _nowPressMatchKey = pressKeyList[0];
-                ;
-            }
-            return false;
-        }
+        //        //如果過濾後發現沒有Key
+        //        if (pressKeyList.Count >= 0)
+        //            _nowPressMatchKey = pressKeyList[0];
+        //        ;
+        //    }
+        //    return false;
+        //}
 
         /// <summary>
         ///     鍵盤放閁E
@@ -106,33 +157,33 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play.Common
         /// <param name="state"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        protected override bool OnKeyUp(InputState state, KeyUpEventArgs args)
-        {
-            // var pressDelay = Math.Abs(Time.Current - _baseRPObject.EndTime);
+        //protected override bool OnKeyUp(InputState state, KeyUpEventArgs args)
+        //{
+        //    // var pressDelay = Math.Abs(Time.Current - _baseRPObject.EndTime);
 
-            var pressDelay = Math.Abs(Time.Current - _baseRPObject.StartTime);
-            //Hit at the time
-            if (pressDelay < _baseRPObject.HitWindowFor(RpScoreResult.Safe) && _nowPressMatchKey != Key.Unknown)
-            {
-                //目前符合的key
-                var pressKeyList = FilterMatchKey(state);
+        //    var pressDelay = Math.Abs(Time.Current - _baseRPObject.StartTime);
+        //    //Hit at the time
+        //    if (pressDelay < _baseRPObject.HitWindowFor(RpScoreResult.Safe) && _nowPressMatchKey != Key.Unknown)
+        //    {
+        //        //目前符合的key
+        //        var pressKeyList = FilterMatchKey(state);
 
-                //如果過濾後發現沒有Key
-                if (pressKeyList.Count == 0)
-                    return false;
-                foreach (var singleKey in pressKeyList)
-                    if (singleKey == _nowPressMatchKey)
-                    {
-                        PressUpDelayTime = pressDelay;
-                        _nowPressMatchKey = Key.Unknown;
-                        return Release?.Invoke() ?? false;
-                    }
-            }
-            else if (false)
-            {
-            }
-            return false;
-        }
+        //        //如果過濾後發現沒有Key
+        //        if (pressKeyList.Count == 0)
+        //            return false;
+        //        foreach (var singleKey in pressKeyList)
+        //            if (singleKey == _nowPressMatchKey)
+        //            {
+        //                PressUpDelayTime = pressDelay;
+        //                _nowPressMatchKey = Key.Unknown;
+        //                return Release?.Invoke() ?? false;
+        //            }
+        //    }
+        //    else if (false)
+        //    {
+        //    }
+        //    return false;
+        //}
 
         /// <summary>
         ///     把跟上一次重褁E��key過濾掁E

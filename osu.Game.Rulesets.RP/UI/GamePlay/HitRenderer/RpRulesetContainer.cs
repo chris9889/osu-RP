@@ -10,7 +10,6 @@ using osu.Game.Rulesets.RP.Beatmaps.OtherBeatmap;
 using osu.Game.Rulesets.RP.Beatmaps.RPBeatmap;
 using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.Judgements;
-using osu.Game.Rulesets.RP.KeyManager;
 using osu.Game.Rulesets.RP.Objects;
 using osu.Game.Rulesets.RP.Objects.Drawables.Play;
 using osu.Game.Rulesets.RP.Replays;
@@ -60,7 +59,6 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
 
         /// <summary>
         ///     didn't know what is it
-        /// TODO : consider to impliment it or not
         /// </summary>
         /// <returns></returns>
         public override PassThroughInputManager CreateInputManager() => new RpInputManager(Ruleset.RulesetInfo);
@@ -86,13 +84,13 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.HitRenderer
             return null;
         }
 
-        protected override Vector2 GetPlayfieldAspectAdjust() => new Vector2(0.75f);
-
         /// <summary>
         /// if one keys equals to another keys ,use this
         /// </summary>
         /// <param name="replay"></param>
         /// <returns></returns>
         protected override FramedReplayInputHandler CreateReplayInputHandler(Replay replay) => new RpReplayInputHandler(replay);
+
+        protected override Vector2 GetPlayfieldAspectAdjust() => new Vector2(0.75f);
     }
 }

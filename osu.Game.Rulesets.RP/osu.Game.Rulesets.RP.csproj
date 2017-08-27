@@ -59,9 +59,9 @@
     <Compile Include="DifficultyCalculator\RpHitObjectDifficulty.cs" />
     <Compile Include="KeyManager\RpInputManager.cs" />
     <Compile Include="Mods\RpMod2017.cs" />
-    <Compile Include="Mods\ModsElement\RPAutoReplay.cs" />
     <Compile Include="Objects\Attribute\BaseRpObjectAttribute.cs" />
     <Compile Include="Objects\Drawables\Edit\DrawableEditBaseRpObject.cs" />
+    <Compile Include="Objects\Drawables\Play\Common\PressDetecor.cs" />
     <Compile Include="Objects\Drawables\Play\Interface\IHasTemplate.cs" />
     <Compile Include="Objects\Drawables\Template\Template.cs" />
     <Compile Include="Objects\Interface\IHasBPM.cs" />
@@ -141,8 +141,6 @@
     <Compile Include="UI\Setting\RpSettings.cs" />
     <Compile Include="Beatmaps\RPBeatmap\RpBeatmapProcessor.cs" />
     <Compile Include="RpRuleset.cs" />
-    <Compile Include="KeyManager\RpKeyManager.cs" />
-    <Compile Include="Objects\Drawables\Play\Common\PressDetecor.cs" />
     <Compile Include="Objects\Drawables\Template\HitObjectComponent\ApproachPiece\BaseMovePicec.cs" />
     <Compile Include="Objects\Drawables\Template\HitObjectComponent\Common\ShapePiece\HitObjectAnyShapePiece.cs" />
     <Compile Include="Objects\Drawables\Template\HitObjectComponent\StillPiece\BaseStillPiece.cs" />
@@ -239,6 +237,7 @@
   <ItemGroup>
     <Folder Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\ObjectMovingPath\EndPosition\" />
     <Folder Include="Beatmaps\OtherBeatmap\HitObjectGegenerator\ObjectMovingPath\PathPosition\" />
+    <Folder Include="Mods\ModsElement\" />
     <Folder Include="Objects\Drawables\Template\ContainerComponent\ContainerLineGroup\" />
     <Folder Include="Objects\Drawables\Template\ContainerComponent\ContainerLine\" />
     <Folder Include="Textures\Play\RP\Number\ComboCounter\" />

@@ -55,7 +55,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
 
-                    Colour = RpTextureColorManager.GetKeyLayoutButtonShage(((BaseRpHitableObject)HitObject).Shape),
+                    Colour = RpTextureColorManager.GetKeyLayoutButtonDirection(((BaseRpHitableObject)HitObject).Shape),
                     Scale = new Vector2(0.5f),
                     CornerRadius = DrawSize.X / 2,
                     Masking = true
@@ -79,7 +79,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Template.RpHitObject.Component.
                     Anchor = Anchor.Centre,
                     Origin = Anchor.Centre,
 
-                    Colour = RpTextureColorManager.GetKeyLayoutButtonShage(((BaseRpHitableObject)HitObject).Shape),
+                    Colour = RpTextureColorManager.GetKeyLayoutButtonDirection(((Objects.RpHitObject)HitObject).Direction),
                     Scale = new Vector2(0.5f)
                 }
             };
