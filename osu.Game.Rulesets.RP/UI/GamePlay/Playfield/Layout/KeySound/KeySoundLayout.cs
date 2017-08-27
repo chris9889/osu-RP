@@ -22,30 +22,25 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.KeySound
         //TODO : 增加聲音
         protected List<SampleChannel> ShapeSample = new List<SampleChannel>();
 
-        protected List<SampleChannel> ContainerPressSample = new List<SampleChannel>();
-
         private InputState _lastState;
 
         public KeySoundLayout()
         {
-            var keyList = new List<RpAction>();//(RpKeyManager.GetCurrentKeyConfig());
-
-            //foreach (var singleKey in keyList.KeyDictionary)
-            //    if (singleKey.Type == Shape.ContainerPress)
-            //        _containerPressKeys.Add(singleKey.Key);
-            //    else
-            //        _listShapeKeys.Add(singleKey.Key);
+            
         }
 
 
         public bool OnPressed(RpAction action)
         {
-            return true;
+            int key = (int)action;
+
+            PlayShapeSample(key);
+            return false;
         }
 
         public bool OnReleased(RpAction action)
         {
-            return true;
+            return false;
         }
 
         //protected override bool OnKeyDown(InputState state, KeyDownEventArgs args)
@@ -77,10 +72,10 @@ namespace osu.Game.Rulesets.RP.UI.GamePlay.Playfield.Layout.KeySound
         [BackgroundDependencyLoader]
         private void load(AudioManager audio)
         {
-            //foreach (var single in _listShapeKeys)
-            //    ShapeSample.Add(audio.Sample.Get($@"RPKey/Key-Shape"));
-            //foreach (var single in _containerPressKeys)
-            //    ContainerPressSample.Add(audio.Sample.Get($@"RPKey/Key-ContainerHold"));
+            for(int i=0;i<10;i++)
+                ShapeSample.Add(audio.Sample.Get($@"RPKey/Key-Shape"));
+            ShapeSample[4] = audio.Sample.Get($@"RPKey/Key-ContainerHold");
+            ShapeSample[9] = audio.Sample.Get($@"RPKey/Key-ContainerHold");
         }
 
     }

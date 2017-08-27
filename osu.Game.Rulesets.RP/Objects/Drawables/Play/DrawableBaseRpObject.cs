@@ -3,7 +3,9 @@
 
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
+using osu.Framework.Input.Bindings;
 using osu.Game.Rulesets.Objects.Drawables;
+using osu.Game.Rulesets.RP.Input;
 using osu.Game.Rulesets.RP.Judgements;
 using osu.Game.Rulesets.RP.Objects.Drawables.Template;
 using OpenTK;
@@ -11,7 +13,7 @@ using OpenTK.Graphics;
 
 namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
 {
-    public class DrawableBaseRpObject : DrawableHitObject<BaseRpObject, RpJudgement>
+    public class DrawableBaseRpObject : DrawableHitObject<BaseRpObject, RpJudgement>, IKeyBindingHandler<RpAction>
     {
         //FadeInTime
         public virtual float FadeInTime => 200;
@@ -57,6 +59,15 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
             };
         }
 
+        public bool OnPressed(RpAction action)
+        {
+            return false;
+        }
+
+        public bool OnReleased(RpAction action)
+        {
+            return false;
+        }
 
         protected override void UpdateState(ArmedState state)
         {

@@ -38,12 +38,12 @@ namespace osu.Game.Rulesets.RP.Objects
                     right = action == RpAction.Right_Down;
                     break;
                 case Direction.Left:
-                    left = action == RpAction.Left_Down;
-                    right = action == RpAction.Right_Down;
+                    left = action == RpAction.Left_Left;
+                    right = action == RpAction.Right_Left;
                     break;
                 case Direction.Right:
-                    left = action == RpAction.Left_Down;
-                    right = action == RpAction.Right_Down;
+                    left = action == RpAction.Left_Right;
+                    right = action == RpAction.Right_Right;
                     break;
             }
 

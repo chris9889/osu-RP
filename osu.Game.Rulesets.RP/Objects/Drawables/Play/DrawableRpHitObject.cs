@@ -14,7 +14,7 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
     /// <summary>
     ///     繪製 RP HitCircle
     /// </summary>
-    public class DrawableRpHitObject : DrawableBaseRpHitableObject, IKeyBindingHandler<RpAction>
+    public class DrawableRpHitObject : DrawableBaseRpHitableObject
     {
         /// <summary>
         /// </summary>
@@ -61,26 +61,6 @@ namespace osu.Game.Rulesets.RP.Objects.Drawables.Play
         protected override void Update()
         {
             base.Update();
-        }
-
-        public bool OnPressed(RpAction action)
-        {
-            bool press = HitObject.CanHitBy(action);
-            if (press)
-            {
-                OnKeyPressDown();
-            }
-            return press;
-        }
-
-        public bool OnReleased(RpAction action)
-        {
-            bool release = HitObject.CanHitBy(action);
-            if (release)
-            {
-                OnKeyPressUp();
-            }
-            return release;
         }
 
         /// <summary>

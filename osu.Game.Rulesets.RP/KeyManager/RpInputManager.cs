@@ -49,18 +49,18 @@ namespace osu.Game.Rulesets.RP.Input
     /// </summary>
     public enum RpAction
     {
-        [Description("Left _up")] Left_Up,
-        [Description("Left _down")] Left_Down,
-        [Description("Left _Left")] Left_Left,
-        [Description("Left _Right")] Left_Right,
-        [Description("Left _press")] Left_Press,
+        [Description("Left _up")] Left_Up=0,
+        [Description("Left _down")] Left_Down=1,
+        [Description("Left _Left")] Left_Left=2,
+        [Description("Left _Right")] Left_Right=3,
+        [Description("Left _press")] Left_Press=4,
 
 
-        [Description("Right _up")] Right_Up,
-        [Description("Right _down")] Right_Down,
-        [Description("Right _Left")] Right_Left,
-        [Description("Right _Right")] Right_Right,
-        [Description("Right _press")] Right_Press,
+        [Description("Right _up")] Right_Up=5,
+        [Description("Right _down")] Right_Down=6,
+        [Description("Right _Left")] Right_Left=7,
+        [Description("Right _Right")] Right_Right=8,
+        [Description("Right _press")] Right_Press=9,
     }
 
     public class KeyBindingConfig
